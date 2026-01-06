@@ -14,7 +14,7 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
-  const navLinks: NavLink[] = [
+  const navLinks: NavLink[] =   [
     { name: "HOME", href: "/" },
     {
       name: "ROOMS",
