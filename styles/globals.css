@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-brand: #2b2a59;
+  --color-accent: #00a7c6;
+}
+
+html, body, #__next {
+  height: 100%;
+}
+
+body {
+  font-family: Poppins, Inter, system-ui, sans-serif;
+  background-color: #ffffff;
+  color: #111827; /* gray-900 */
+}
+
+/* Utility overrides for brand colors */
+.text-brand { color: var(--color-brand); }
+.bg-accent { background-color: var(--color-accent); }
