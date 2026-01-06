@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Run lint-staged
+npx lint-staged
+
+# Alternatively, run commands directly without lint-staged:
+# npx eslint --fix .
+# npx prettier --write .
