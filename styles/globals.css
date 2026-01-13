@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --font-heading: 'Playfair Display', serif;
   --font-body: 'Poppins', sans-serif;
+  --font-sansation: 'Sansation', sans-serif;
 
   --color-brand: #2b2a59;
   --color-brand-light: #5b6abf;
@@ -17,7 +19,9 @@
   }
 }
 
-html, body, #__next {
+html,
+body,
+#__next {
   height: 100%;
 }
 
@@ -28,5 +32,9 @@ body {
 }
 
 /* Utility overrides for brand colors */
-.text-brand { color: var(--color-brand); }
-.bg-accent { background-color: var(--color-accent); }
+.text-brand {
+  color: var(--color-brand);
+}
+.bg-accent {
+  background-color: var(--color-accent);
+}

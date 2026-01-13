@@ -18,6 +18,22 @@ export default [
           jsx: true,
         },
       },
+      globals: {
+        // Browser globals
+        document: 'readonly',
+        window: 'readonly',
+        navigator: 'readonly',
+        HTMLElement: 'readonly',
+        HTMLDivElement: 'readonly',
+        MouseEvent: 'readonly',
+        Node: 'readonly',
+        // Node.js globals
+        process: 'readonly',
+        require: 'readonly',
+        module: 'readonly',
+        __dirname: 'readonly',
+        __filename: 'readonly',
+      },
     },
     plugins: {
       '@typescript-eslint': typescriptPlugin,

@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { Menu, X, ArrowUpRight, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import Logo from '../public/images/Logo.png';
 import Image from 'next/image';
+import visithotelicon from '../public/images/visithotelicon.png';
 
 interface NavLink {
   name: string;
@@ -10,9 +11,13 @@ interface NavLink {
   subItems?: { name: string; href: string }[];
 }
 
+type CustomDivElement = React.HTMLAttributes<HTMLDivElement>;
+
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  //no-undef
+  const dropdownRef = useRef<CustomDivElement>(null);
 
   const navLinks: NavLink[] = [
     { name: 'HOME', href: '/' },
@@ -48,19 +53,36 @@ const Navbar: React.FC = () => {
     { name: 'CONTACT', href: '#contact' },
   ];
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setActiveDropdown(null);
+      }
+    };
+
+    if (activeDropdown) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [activeDropdown]);
+
   return (
-    <nav className="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-sm transition-all duration-300 top-0">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+    <nav className="fixed w-[95%] sm:w-[90%] md:w-[85%] lg:w-[90%] z-50 bg-white/95 backdrop-blur-sm shadow-sm transition-all duration-300 top-4 sm:top-8 md:top-12 left-1/2 -translate-x-1/2 rounded-full sm:rounded-[80px] md:rounded-[140px]">
+      <div className="p-[20px] sm:px-4 md:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16 sm:h-18 md:h-20">
           {/* Logo */}
-          <div className="flex-shrink-0 flex items-center">
+          <div className="flex-shrink-0 flex items-center p-[20px]">
             <Link href="/" className="flex flex-col">
-              <Image src={Logo} alt="MENA Logo" width={120} height={40} />
+              <Image src={Logo} alt="MENA Logo" width={174} height={80} className="" />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-4 xl:space-x-8" ref={dropdownRef}>
             {navLinks.map((link) => (
               <div key={link.name} className="relative group">
                 {link.subItems ? (
@@ -69,11 +91,11 @@ const Navbar: React.FC = () => {
                       onClick={() =>
                         setActiveDropdown(activeDropdown === link.name ? null : link.name)
                       }
-                      className="flex items-center text-xs font-medium text-brand hover:text-accent transition-colors tracking-wide focus:outline-none uppercase"
+                      className="flex flex-row font-[--font-sansation] font-normal not-italic text-[18px] leading-[27px] uppercase text-[#454779]"
                     >
                       {link.name}
                       <ChevronDown
-                        size={14}
+                        size={24}
                         className={`ml-1 transition-transform duration-200 ${
                           activeDropdown === link.name ? 'rotate-180 text-accent' : 'text-accent'
                         }`}
@@ -82,12 +104,12 @@ const Navbar: React.FC = () => {
 
                     {/* Dropdown Menu */}
                     {activeDropdown === link.name && (
-                      <div className="absolute top-full left-0 mt-4 w-48 bg-white rounded-lg shadow-xl py-2 border border-gray-100 animate-in fade-in zoom-in-95 duration-200 z-50">
+                      <div className="text-[18px] font-weight-400 absolute top-full left-0 mt-4 w-48 bg-white rounded-lg shadow-xl py-2 border border-gray-100 animate-in fade-in zoom-in-95 duration-200 z-50">
                         {link.subItems.map((subItem) => (
                           <Link
                             key={subItem.name}
                             href={subItem.href}
-                            className="block px-4 py-3 text-xs text-gray-600 hover:bg-gray-50 hover:text-accent transition-colors border-b last:border-0 border-gray-50"
+                            className="font-[--font-sansation] font-normal not-italic text-[18px] leading-6.75 uppercase text-[#454779]  font-weight-400 block px-4 py-3 text-xs  hover:bg-gray-50 hover:text-accent transition-colors border-b last:border-0 border-gray-50"
                             onClick={() => setActiveDropdown(null)}
                           >
                             {subItem.name}
@@ -99,7 +121,7 @@ const Navbar: React.FC = () => {
                 ) : (
                   <Link
                     href={link.href}
-                    className="text-xs font-medium text-brand hover:text-accent transition-colors tracking-wide uppercase"
+                    className="font-[--font-sansation] not-italic text-[18px] leading-6.75 uppercase text-[#454779] text-xs font-medium  hover:text-accent transition-colors tracking-wide"
                   >
                     {link.name}
                   </Link>
@@ -109,11 +131,20 @@ const Navbar: React.FC = () => {
 
             <Link
               href="#book"
-              className="inline-flex items-center px-6 py-2 border border-accent text-accent hover:bg-accent hover:text-white rounded-full text-xs font-bold transition-all duration-300 uppercase tracking-wider group"
+              className="font-[--font-sansation] font-bold text-[20px] inline-flex items-center px-4 xl:px-6 py-2 border border-accent text-accent hover:bg-accent hover:text-white rounded-full text-xs font-bold transition-all duration-300 uppercase tracking-wider group"
               onClick={() => setIsOpen(false)}
             >
-              Book Your Stay
-              <ArrowUpRight className="ml-2 w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              <span className="hidden xl:inline">Book Your Stay</span>
+              <span className="xl:hidden">Book</span>
+              {/* <ArrowUpRight className="ml-2 w-6 h-6 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" /> */}
+              <Image
+                src={visithotelicon}
+                alt="Visit Hotel Icon"
+                className="object-fill object-center h-[44px] w-[54px] 
+                   filter brightness-0 invert sepia-0 saturate-100 hue-rotate-180
+                   hover:filter-none hover:brightness-0 hover:invert
+                   transition-filter duration-300"
+              />
             </Link>
           </div>
           {/* Mobile menu button */}
@@ -123,15 +154,19 @@ const Navbar: React.FC = () => {
               className="text-gray-600 hover:text-brand focus:outline-none p-2"
               aria-label="Toggle menu"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? (
+                <X className="h-5 w-5 sm:h-6 sm:w-6" />
+              ) : (
+                <Menu className="h-5 w-5 sm:h-6 sm:w-6" />
+              )}
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-100 absolute left-0 right-0 w-screen h-screen overflow-y-auto">
-            <div className="px-4 pt-2 pb-20 space-y-1 sm:px-3 text-center flex flex-col items-center justify-start mt-10 h-full">
+          <div className="lg:hidden bg-white border-t border-gray-100 absolute left-0 right-0 top-full w-full overflow-y-auto max-h-[calc(100vh-6rem)]">
+            <div className="px-4 pt-2 pb-20 space-y-1 sm:px-6 text-center flex flex-col items-center justify-start mt-6 sm:mt-10">
               {navLinks.map((link) => (
                 <div key={link.name} className="w-full">
                   {link.subItems ? (
@@ -140,7 +175,7 @@ const Navbar: React.FC = () => {
                         onClick={() =>
                           setActiveDropdown(activeDropdown === link.name ? null : link.name)
                         }
-                        className="flex items-center justify-center px-3 py-4 text-lg font-heading font-medium text-gray-800 hover:text-accent w-full"
+                        className="flex items-center justify-center px-3 py-3 sm:py-4 text-base sm:text-lg font-heading font-medium text-gray-800 hover:text-accent w-full"
                       >
                         {link.name}
                         <ChevronDown
@@ -157,7 +192,7 @@ const Navbar: React.FC = () => {
                             <Link
                               key={subItem.name}
                               href={subItem.href}
-                              className="block py-3 text-sm text-gray-600"
+                              className="block py-2 sm:py-3 text-sm text-gray-600"
                               onClick={() => {
                                 setIsOpen(false);
                                 setActiveDropdown(null);
@@ -172,7 +207,7 @@ const Navbar: React.FC = () => {
                   ) : (
                     <Link
                       href={link.href}
-                      className="block px-3 py-4 text-lg font-heading font-medium text-gray-800 hover:text-accent"
+                      className="block px-3 py-3 sm:py-4 text-base sm:text-lg font-heading font-medium text-gray-800 hover:text-accent"
                       onClick={() => setIsOpen(false)}
                     >
                       {link.name}
@@ -182,11 +217,11 @@ const Navbar: React.FC = () => {
               ))}
               <Link
                 href="#book"
-                className="mt-8 inline-flex items-center px-6 py-2 border border-accent text-accent hover:bg-accent hover:text-white rounded-full text-xs font-bold transition-all duration-300 uppercase tracking-wider group"
+                className="mt-6 sm:mt-8 inline-flex items-center px-6 py-2.5 sm:py-3 border border-accent text-accent hover:bg-accent hover:text-white rounded-full text-xs sm:text-sm font-bold transition-all duration-300 uppercase tracking-wider group"
                 onClick={() => setIsOpen(false)}
               >
                 Book Your Stay
-                <ArrowUpRight className="ml-2 w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                <Image src={visithotelicon} alt="Visit Hotel Icon" style={{ background: 'red' }} />
               </Link>
             </div>
           </div>

@@ -1,44 +1,39 @@
 import React from 'react';
 import Image from 'next/image';
-
+import roomcover from '../public/images/room_cover_photo.png';
 const Hero: React.FC = () => {
   return (
-    <div className="relative h-screen min-h-[600px] w-full flex items-center justify-center overflow-hidden">
+    <div className="relative h-screen w-full">
       {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/30 z-10" />
-        <div className="relative w-full h-full">
-           {/* Placeholder for Hero Image */}
-           <Image
-            src="https://placehold.co/1920x1080/eef2f5/2b2a59?text=Modern+Hotel+Room"
-            alt="Mena Hotel Interior"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
+      <div className="w-full h-full">
+        {/* Placeholder for Hero Image */}
+        <Image
+          src={roomcover}
+          alt="Mena Hotel Interior"
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
+          className="object-cover object-center scale-150 sm:scale-125 md:scale-110 lg:scale-100"
+          priority
+          quality={90}
+          style={{ objectFit: 'cover' }}
+        />
       </div>
 
-      {/* Content */}
-      <div className="relative z-20 text-center text-white px-4">
-        {/* Logo Mark (optional, mimicking style) */}
-        <div className="mb-6">
-            {/* Could put a logo icon here */}
-        </div>
-        
-        <h1 className="text-6xl md:text-8xl font-heading font-bold tracking-tight mb-4 drop-shadow-lg">
-          MENA
+      <div className="absolute z-20 text-center md:text-right text-white px-4 sm:px-6 md:px-8 lg:px-12 max-w-7xl mx-auto bottom-[20%] right-[5%]">
+        <h1
+          className="text-white font-sansation text-[90px] leading-[110px] uppercase"
+          style={{ fontWeight: 700 }}
+        >
+          Rooms
         </h1>
-        
-        <p className="text-xl md:text-2xl font-light tracking-[0.2em] uppercase text-gray-100 drop-shadow-md max-w-2xl mx-auto">
-          Agent Hotel Alliance 
+        <p
+          className="font-sansation font-light text-[20px] leading-[120%] text-right"
+          style={{ fontWeight: 300 }}
+        >
+          Mena Apart Hotels offers modern, fully equipped suites crafted for both business and
+          leisure stays giving you the space to work, relax, and experience true comfort with every
+          visit.
         </p>
-        
-        <div className="mt-8 max-w-3xl mx-auto">
-             <p className="text-sm md:text-base font-light text-gray-200 leading-relaxed md:max-w-xl mx-auto">
-                Mena ApartHotel offers modern, fully equipped suites suited for both business and leisure stays giving you the space to work, relax, and experience true comfort with every visit.
-             </p>
-        </div>
       </div>
     </div>
   );
