@@ -1,0 +1,291 @@
+import React, { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Thumbs } from 'swiper/modules';
+import { Wifi, Home, Utensils, TreePalm, Coffee } from 'lucide-react';
+import type { Swiper as SwiperType } from 'swiper';
+import starIcon from '../../public/images/Star.png';
+import CalendarIcon from '../../public/images/calender_icon.png';
+import DropdownIcon from '../../public/images/dropdownicon.png';
+import visithotelicon from '../../public/images/visithotelicon.png';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/thumbs';
+import Image from 'next/image';
+
+interface RoomDetailsProps {
+  discount?: string;
+  rating?: number;
+  roomType?: string;
+  headline?: string;
+  description?: string;
+  originalPrice?: number;
+  discountedPrice?: number;
+  checkInDate?: string;
+  checkOutDate?: string;
+  guests?: string;
+  amenities?: Array<{ icon: React.ReactNode; label: string }>;
+  images?: string[];
+}
+
+const RoomDetails: React.FC<RoomDetailsProps> = ({
+  discount = '20% OFF',
+  rating = 5,
+  roomType = 'STUDIO APARTMENT',
+  headline = 'A SMART STAY WITH COMFORT & STYLE',
+  description = "Perfect for solo travelers and couples, the Studio Suite blends modern design with practical comfort. Thoughtfully laid out, this suite offers everything you need for a relaxing city stay — whether you're visiting for business or leisure.",
+  originalPrice = 999,
+  discountedPrice = 799,
+  checkInDate = '21 Dec 2025',
+  checkOutDate = '26 Dec 2025',
+  // guests = '2 Adults, 0 Children',
+  // amenities = [
+  //   { icon: <Home className="w-5 h-5" />, label: '45 sqm' },
+  //   { icon: <Coffee className="w-5 h-5" />, label: 'Coffee' },
+  //   { icon: <Wifi className="w-5 h-5" />, label: 'Free Wifi' },
+  //   { icon: <UtensilsCrossed className="w-5 h-5" />, label: 'Kitchen' },
+  //   { icon: <Home className="w-5 h-5" />, label: '45 sqm' },
+  //   { icon: <Home className="w-5 h-5" />, label: 'Balcony' },
+  // ],
+  images = [
+    'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=2000&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=2000&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=2000&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=2000&auto=format&fit=crop',
+  ],
+}) => {
+  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
+
+  const facilities = [
+    { icon: <Home className="w-6 h-6" />, label: '45 sqm' },
+    { icon: <Coffee className="w-6 h-6" />, label: 'Coffee' },
+    { icon: <Wifi className="w-6 h-6" />, label: 'Free Wifi' },
+    { icon: <Utensils className="w-6 h-6" />, label: 'Kitchen' },
+    { icon: <Home className="w-6 h-6" />, label: '45 sqm' },
+    { icon: <TreePalm className="w-6 h-6" />, label: 'Balcony' },
+  ];
+
+  return (
+    <section className="w-full bg-white py-8 md:py-12 lg:py-16 z-50">
+      <div className="mx-auto max-w-[1720px] px-4 sm:px-6">
+        {/* Split Screen Layout */}
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 xl:gap-12">
+          {/* Left Side - Image Gallery (60-65%) */}
+          <div className="w-full lg:w-[62%] xl:w-[65%] relative">
+            {/* Main Image Slider */}
+            <div className="relative rounded-2xl overflow-hidden shadow-xl h-[373px]">
+              <Swiper
+                modules={[Navigation, Pagination, Thumbs]}
+                spaceBetween={0}
+                slidesPerView={1}
+                navigation={false}
+                pagination={{
+                  clickable: true,
+                  dynamicBullets: false,
+                }}
+                thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
+                className="aspect-[4/3] w-full"
+              >
+                {images.map((image, index) => (
+                  <SwiperSlide key={index}>
+                    <div className="relative w-full h-full">
+                      <img
+                        src={image}
+                        alt={`${roomType} - View ${index + 1}`}
+                        className="w-full h-full object-fill"
+                      />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+            <div className="inline-flex items-center justify-center mb-4 absolute top-0 right-0 z-20 ">
+              <span
+                className="text-[#101D3B] px-6 py-2 rounded-tr-2xl rounded-bl-2xl text-sm font-semibold tracking-wide shadow-md p-[20px] border-[1px] border-white"
+                style={{ background: 'linear-gradient(90deg, #FFFFFF -37.94%, #00B3DD 100%)' }}
+              >
+                {discount}
+              </span>
+            </div>
+
+            {/* Thumbnail Slider */}
+            <div className="mt-4 h-[203px]">
+              <Swiper
+                modules={[Thumbs]}
+                onSwiper={setThumbsSwiper}
+                spaceBetween={12}
+                slidesPerView={4}
+                watchSlidesProgress
+                className="thumbnail-swiper"
+              >
+                {images.map((image, index) => (
+                  <SwiperSlide key={index} className="cursor-pointer">
+                    <div className="aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent hover:border-[#00B3DD] transition-all duration-300">
+                      <img
+                        src={image}
+                        alt={`Thumbnail ${index + 1}`}
+                        className="w-full h-full object-fill"
+                      />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+
+            <div className="flex flex-wrap justify-center items-center gap-6 rounded-[40px] bg-[#9BA9CA33] mt-[20px]">
+              {facilities.map((facility, index) => (
+                <div key={index} className="flex items-center gap-5 p-[8px]">
+                  <div className="w-14 h-14 rounded-full bg-[#00B3DD] flex items-center justify-center text-white flex-shrink-0">
+                    {facility.icon}
+                  </div>
+                  <span className="text-base text-[#64748B] font-normal">{facility.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Side - Content Panel (35-40%) */}
+          <div className="relative w-full lg:w-[38%] xl:w-[35%] flex flex-col bg-[#9BA9CA33] p-[30px] rounded-[30px]">
+            {/* Rating & Price */}
+
+            <div className="flex justify-items-start items-center gap-2 my-2">
+              {[...Array(rating)].map((_, i) => (
+                <div key={i} className="h-[24px] w-[24px]">
+                  <Image src={starIcon} alt="*" />
+                </div>
+              ))}
+              <span className="font-sansation text-[#454779] text-[24px] ml-1">(5 Star)</span>
+            </div>
+
+            <div className="absolute text-center bg-white px-[18px] py-[6px] rounded-[15.72px] top-[8px] right-[8px]">
+              <div
+                className="m-0 font-sansation text-[#FF383C] line-through text-[20px] inline-block leading-[23.58px] tracking-[0.39px]"
+                style={{ fontWeight: 400, translate: '0px 12px' }}
+              >
+                {originalPrice}$
+              </div>
+              <div
+                className="m-0 font-sansation text-[#00B3DD] text-[32px] font-bold"
+                style={{ fontWeight: 700 }}
+              >
+                {discountedPrice}$
+              </div>
+              <div
+                className="m-0 font-sansation text-[#2A2D71] text-[16px]"
+                style={{ fontWeight: 400, translate: '0px -12px' }}
+              >
+                / Night
+              </div>
+            </div>
+
+            {/* Room Type */}
+            <h2 className=" text-[#454779] text-[32px] font-light leading-[46px] uppercase font-sansation pt-1 pb-1">
+              {roomType}
+            </h2>
+
+            {/* Main Headline */}
+            <h1 className="text-[20px] font-bold text-[#454779] pb-1" style={{ fontWeight: 700 }}>
+              {headline}
+            </h1>
+
+            {/* Description */}
+            <p
+              className="text-[#2A2D71] text-[20px] leading-[30px] tracking-[0.5px] mb-6"
+              style={{ fontWeight: 400 }}
+            >
+              {description}
+            </p>
+
+            {/* Booking Details */}
+            <div className="bg-white rounded-[30px] p-5 flex flex-col gap-[36px]">
+              <div className="flex flex-col">
+                <label className="text-[#454779] text-[20px] font-poppins leading-[30px] mb-[10px]">
+                  Check In-Date:
+                </label>
+                <div
+                  className="flex justify-between items-center gap-2 rounded-[160px] py-[15px] pl-[30px] pr-[15px]"
+                  style={{
+                    background:
+                      'linear-gradient(white, white) padding-box, linear-gradient(90deg, rgba(77, 84, 100, 0) 0%, #9BA9CA 100%) border-box',
+                    border: '1px solid transparent',
+                  }}
+                >
+                  <span className="text-sm text-gray-700">{checkInDate}</span>
+                  <Image
+                    src={CalendarIcon}
+                    alt="Calendar Icon"
+                    className="w-[24px] h-[24px] text-gray-400"
+                  />
+                </div>
+              </div>
+
+              <div className="flex flex-col">
+                <label className="text-[#454779] text-[20px] font-poppins leading-[30px] mb-[10px]">
+                  Check Out-Date:
+                </label>
+                <div
+                  className="flex justify-between items-center gap-2 rounded-[160px] py-[15px] pl-[30px] pr-[15px]"
+                  style={{
+                    background:
+                      'linear-gradient(white, white) padding-box, linear-gradient(90deg, rgba(77, 84, 100, 0) 0%, #9BA9CA 100%) border-box',
+                    border: '1px solid transparent',
+                  }}
+                >
+                  <span className="text-sm text-gray-700">{checkOutDate}</span>
+                  <Image
+                    src={CalendarIcon}
+                    alt="Calendar Icon"
+                    className="w-[24px] h-[24px] text-gray-400"
+                  />
+                </div>
+              </div>
+
+              {/* Guests */}
+              <div className="flex flex-col">
+                <label className="text-[#454779] text-[20px] font-poppins leading-[30px] mb-[10px]">
+                  Guest:
+                </label>
+                <div
+                  className="flex justify-between items-center gap-2 rounded-[160px] py-[15px] pl-[30px] pr-[15px]"
+                  style={{
+                    background:
+                      'linear-gradient(white, white) padding-box, linear-gradient(90deg, rgba(77, 84, 100, 0) 0%, #9BA9CA 100%) border-box',
+                    border: '1px solid transparent',
+                  }}
+                >
+                  <span className="text-sm text-gray-700">{checkInDate}</span>
+                  <Image
+                    src={DropdownIcon}
+                    alt="Dropdown Icon"
+                    className="w-[16.5px] h-[9px] text-gray-400"
+                  />
+                </div>
+              </div>
+
+              <button className="flex flex-row justify-between items-center  gap-2.5 bg-[#00B3DD] opacity-100 rounded-4xl px-3">
+                <span
+                  className="p-4 font-sansation text-[20px] uppercase text-white"
+                  style={{ fontWeight: 700 }}
+                >
+                  {' '}
+                  Check Availability
+                </span>
+                <Image
+                  src={visithotelicon}
+                  alt="Visit Hotel Icon"
+                  className="object-fill  object-center h-[44px] w-[54px] filter brightness-0 invert sepia-0 saturate-100 hue-rotate-180"
+                />
+              </button>
+            </div>
+
+            {/* CTA Button */}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default RoomDetails;

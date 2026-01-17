@@ -11,13 +11,11 @@ interface NavLink {
   subItems?: { name: string; href: string }[];
 }
 
-type CustomDivElement = React.HTMLAttributes<HTMLDivElement>;
-
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   //no-undef
-  const dropdownRef = useRef<CustomDivElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const navLinks: NavLink[] = [
     { name: 'HOME', href: '/' },
@@ -131,20 +129,14 @@ const Navbar: React.FC = () => {
 
             <Link
               href="#book"
-              className="font-[--font-sansation] font-bold text-[20px] inline-flex items-center px-4 xl:px-6 py-2 border border-accent text-accent hover:bg-accent hover:text-white rounded-full text-xs font-bold transition-all duration-300 uppercase tracking-wider group"
+              className="font-sansation font-bold text-[20px] inline-flex items-center px-4 xl:px-6 py-2 border border-accent text-accent hover:bg-accent hover:text-white rounded-full text-xs font-bold transition-all duration-300 uppercase tracking-wider group"
               onClick={() => setIsOpen(false)}
             >
               <span className="hidden xl:inline">Book Your Stay</span>
               <span className="xl:hidden">Book</span>
-              {/* <ArrowUpRight className="ml-2 w-6 h-6 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" /> */}
-              <Image
-                src={visithotelicon}
-                alt="Visit Hotel Icon"
-                className="object-fill object-center h-[44px] w-[54px] 
-                   filter brightness-0 invert sepia-0 saturate-100 hue-rotate-180
-                   hover:filter-none hover:brightness-0 hover:invert
-                   transition-filter duration-300"
-              />
+              <span className="ml-[30px] inline-block transition-all duration-300 visit-hotel-icon">
+                <Image src={visithotelicon} alt="Visit Hotel Icon" />
+              </span>
             </Link>
           </div>
           {/* Mobile menu button */}
@@ -221,7 +213,9 @@ const Navbar: React.FC = () => {
                 onClick={() => setIsOpen(false)}
               >
                 Book Your Stay
-                <Image src={visithotelicon} alt="Visit Hotel Icon" style={{ background: 'red' }} />
+                <span className="ml-2 inline-block transition-all duration-300 visit-hotel-icon">
+                  <Image src={visithotelicon} alt="Visit Hotel Icon" />
+                </span>
               </Link>
             </div>
           </div>

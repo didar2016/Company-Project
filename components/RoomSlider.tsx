@@ -1,6 +1,8 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, A11y } from 'swiper/modules';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
+import type { Swiper as SwiperType } from 'swiper';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -53,14 +55,44 @@ const rooms: Room[] = [
 ];
 
 const RoomSlider: React.FC = () => {
+  const prevRef = React.useRef<HTMLButtonElement>(null);
+  const nextRef = React.useRef<HTMLButtonElement>(null);
+  const swiperRef = React.useRef<SwiperType | null>(null);
+
+  const handleSwiper = (swiper: SwiperType) => {
+    swiperRef.current = swiper;
+  };
+
+  React.useEffect(() => {
+    const swiper = swiperRef.current;
+    if (swiper && prevRef.current && nextRef.current) {
+      const navigation = swiper.params.navigation;
+      if (navigation && typeof navigation !== 'boolean') {
+        const params = {
+          ...navigation,
+          prevEl: prevRef.current,
+          nextEl: nextRef.current,
+        };
+        swiper.params.navigation = params;
+        swiper.navigation.destroy();
+        swiper.navigation.init();
+        swiper.navigation.update();
+      }
+    }
+  }, []);
+
   return (
     <section id="rooms" className="py-20 bg-[#FFFFFF] p-[100px]">
-      <div className="max-w-[1720px] mx-auto">
+      <div className="max-w-[1720px] mx-auto relative">
         <Swiper
           modules={[Navigation, Pagination, A11y]}
           spaceBetween={20}
           slidesPerView={1}
-          navigation
+          navigation={{
+            prevEl: prevRef.current,
+            nextEl: nextRef.current,
+          }}
+          onSwiper={handleSwiper}
           // pagination={{ clickable: true }}
           breakpoints={{
             640: {
@@ -81,6 +113,25 @@ const RoomSlider: React.FC = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+
+        {/* Custom Navigation Buttons */}
+        <button
+          ref={prevRef}
+          className="swiper-button-prev-custom absolute top-1/2 -left-3.5 z-10 w-[60px] h-[50px] -translate-y-1/2 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group border border-[#A4D5F0] rounded-3xl roun rounded bg-white"
+        >
+          <span className="">
+            <ArrowLeft style={{ color: '#00B3DD' }} />
+          </span>
+        </button>
+
+        <button
+          ref={nextRef}
+          className="swiper-button-next-custom absolute top-1/2 -right-3 z-10 w-[60px] h-[50px] -translate-y-1/2 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group border border-[#A4D5F0] rounded-3xl roun rounded bg-white"
+        >
+          <span className="">
+            <ArrowRight style={{ color: '#00B3DD' }} />
+          </span>
+        </button>
       </div>
     </section>
   );

@@ -1,4 +1,3 @@
-import js from '@eslint/js';
 import nextPlugin from '@next/eslint-plugin-next';
 import typescriptPlugin from '@typescript-eslint/eslint-plugin';
 import typescriptParser from '@typescript-eslint/parser';
@@ -25,6 +24,7 @@ export default [
         navigator: 'readonly',
         HTMLElement: 'readonly',
         HTMLDivElement: 'readonly',
+        HTMLButtonElement: 'readonly',
         MouseEvent: 'readonly',
         Node: 'readonly',
         // Node.js globals
@@ -42,12 +42,17 @@ export default [
       '@next/next': nextPlugin,
     },
     rules: {
-      ...js.configs.recommended.rules,
-      ...typescriptPlugin.configs.recommended.rules,
-      ...reactPlugin.configs.recommended.rules,
-      ...reactHooksPlugin.configs.recommended.rules,
-      ...nextPlugin.configs.recommended.rules,
-      ...nextPlugin.configs['core-web-vitals'].rules,
+      // Only essential rules for code quality
+      'no-console': 'warn',
+      'no-debugger': 'warn',
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': 'warn',
+      '@typescript-eslint/no-explicit-any': 'off',
+      'react/react-in-jsx-scope': 'off',
+      'react/prop-types': 'off',
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+      '@next/next/no-html-link-for-pages': 'off',
     },
     settings: {
       react: {

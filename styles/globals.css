@@ -7,6 +7,7 @@
   --font-heading: 'Playfair Display', serif;
   --font-body: 'Poppins', sans-serif;
   --font-sansation: 'Sansation', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
 
   --color-brand: #2b2a59;
   --color-brand-light: #5b6abf;
@@ -37,4 +38,121 @@ body {
 }
 .bg-accent {
   background-color: var(--color-accent);
+}
+
+/* Custom Swiper Pagination Dots */
+.swiper-pagination {
+  position: relative !important;
+  margin-top: 4rem !important;
+}
+
+.swiper-pagination-bullet {
+  width: 20px !important;
+  height: 10px !important;
+  background: #9ba9ca !important; /* gray-300 */
+  border-radius: 30px !important;
+  transition: all 0.3s ease !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #00b3dd !important; /* brand blue/accent color */
+  width: 50px !important;
+  border-radius: 30px !important;
+  transform: scale(1) !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Dynamic bullets styling */
+/* .swiper-pagination-bullet-active-main {
+  background: #00B3DD !important;
+} */
+
+.swiper-pagination-bullet-active-prev,
+.swiper-pagination-bullet-active-next {
+  background: #9ba9ca !important; /* gray-400 */
+  width: 20px !important;
+}
+
+.swiper-pagination-bullet-active-prev-prev,
+.swiper-pagination-bullet-active-next-next {
+  background: #9ba9ca !important; /* gray-400 */
+  width: 20px !important;
+}
+
+/* Thumbnail Swiper Styles */
+.thumbnail-swiper .swiper-slide {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.thumbnail-swiper .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+/* Custom Vertical Review Slider Pagination */
+.review-pagination-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.custom-bullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #d1d5db;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 1;
+}
+
+.custom-bullet:hover {
+  background: #9ca3af;
+}
+
+.custom-bullet-active {
+  width: 8px;
+  height: 32px;
+  border-radius: 4px;
+  background: #00b3dd !important;
+}
+
+.review-swiper {
+  width: 100%;
+}
+
+.review-swiper .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 640px) {
+  .review-pagination-vertical {
+    gap: 4px;
+  }
+
+  .custom-bullet {
+    width: 6px;
+    height: 6px;
+  }
+
+  .custom-bullet-active {
+    width: 6px;
+    height: 24px;
+  }
+}
+
+/* Visit Hotel Icon Hover Effect */
+.visit-hotel-icon {
+  filter: brightness(0) saturate(100%) invert(82%) sepia(18%) saturate(514%) hue-rotate(167deg)
+    brightness(98%) contrast(92%);
+  transition: filter 0.3s ease;
+}
+
+.group:hover .visit-hotel-icon {
+  filter: brightness(0) saturate(100%) invert(100%);
 }
