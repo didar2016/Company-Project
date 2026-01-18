@@ -5,6 +5,8 @@ import Hero from '../../components/Hero';
 import RoomSlider from '../../components/RoomSlider';
 import HotelLocations from '../../components/HotelLocations';
 import Footer from '../../components/Footer';
+import Amenities from '@/components/amenities/Amenities';
+import Facilities from '@/components/amenities/Facilities';
 
 export default function Home() {
   return (
@@ -18,6 +20,8 @@ export default function Home() {
 
       <main className="flex-grow w-full overflow-hidden ">
         <Hero />
+        <Amenities />
+        <Facilities />
         <div className="mt-32 md:mt-0">
           <RoomSlider />
         </div>

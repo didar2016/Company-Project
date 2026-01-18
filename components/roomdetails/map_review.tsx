@@ -60,14 +60,18 @@ const MapReview: React.FC<MapReviewProps> = ({ className = '' }) => {
   ];
 
   return (
-    <section className={`relative w-full bg-white py-12 lg:py-20 ${className}`}>
-      <div className="absolute bottom-0 left-0">
-        <Image src={pata} alt="Map Image" className="w-[365px] h-[365px]" />
+    <section className={`relative w-full bg-white py-8 sm:py-12 ${className}`}>
+      <div className="absolute bottom-0 left-0 hidden sm:block">
+        <Image
+          src={pata}
+          alt="Map Image"
+          className="w-[200px] h-[200px] sm:w-[280px] sm:h-[280px] md:w-[320px] md:h-[320px] lg:w-[365px] lg:h-[365px]"
+        />
       </div>
-      <div className="mx-auto px-4 sm:px-6 lg:p-[100px]">
-        <div className="flex flex-col justify-between lg:flex-row gap-8 lg:gap-12">
+      <div className="mx-auto px-4 sm:px-6 md:px-12 lg:px-16 xl:p-[100px]">
+        <div className="flex flex-col justify-between lg:flex-row gap-6 sm:gap-8 lg:gap-12">
           {/* Left Side - Interactive Map */}
-          <div className="max-w-[880px] relative w-full lg:w-1/2 h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
+          <div className="max-w-[880px] relative w-full lg:w-1/2 h-[350px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl sm:shadow-2xl">
             {/* Map Container */}
             <div className="absolute inset-0 bg-gray-200">
               {/* Replace this iframe with your actual map implementation */}
@@ -84,23 +88,23 @@ const MapReview: React.FC<MapReviewProps> = ({ className = '' }) => {
             </div>
 
             {/* Info Overlay Card */}
-            <div className="absolute top-4 left-4 right-8 lg:right-auto lg:max-w-[648px]">
-              <div className="bg-[#171B43] rounded-2xl p-8 shadow-2xl backdrop-blur-sm bg-opacity-95">
+            <div className="absolute top-2 sm:top-4 left-2 sm:left-4 right-2 sm:right-8 lg:right-auto lg:max-w-[648px]">
+              <div className="bg-[#171B43] rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl sm:shadow-2xl backdrop-blur-sm bg-opacity-95">
                 {/* Main Heading */}
-                <h2 className="font-sansation text-white text-[32px] leading-[46px] sm:text-3xl font-light mb-6 tracking-wide">
+                <h2 className="font-sansation text-white text-[18px] sm:text-[22px] md:text-[26px] lg:text-[32px] leading-[24px] sm:leading-[32px] md:leading-[38px] lg:leading-[46px] font-light mb-3 sm:mb-4 md:mb-6 tracking-wide">
                   INTERACTIVE CITY MAP
                 </h2>
 
                 {/* Description */}
-                <p className="font-sansation text-white text-[24px] leading-[36px] mb-8 tracking-[0.75px]">
+                <p className="font-sansation text-white text-[12px] sm:text-[14px] md:text-[18px] lg:text-[24px] leading-[18px] sm:leading-[22px] md:leading-[28px] lg:leading-[36px] mb-4 sm:mb-6 md:mb-8 tracking-[0.5px] sm:tracking-[0.75px]">
                   Located in the vibrant heart of downtown, our hotel is just minutes from major
                   attractions, business districts, and cultural landmarks, offering unparalleled
                   access to the citys best.
                 </p>
 
-                <button className="flex flex-row justify-between items-center  gap-2.5 border-1 border-[#00B3DD] opacity-100 rounded-4xl px-3">
+                <button className="flex flex-row justify-between items-center gap-1.5 sm:gap-2.5 border-1 border-[#00B3DD] opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3">
                   <span
-                    className="p-4 font-sansation text-[20px] uppercase text-white"
+                    className="p-2 sm:p-3 md:p-4 font-sansation text-[12px] sm:text-[14px] md:text-[16px] lg:text-[20px] uppercase text-white"
                     style={{ fontWeight: 700 }}
                   >
                     {' '}
@@ -109,7 +113,7 @@ const MapReview: React.FC<MapReviewProps> = ({ className = '' }) => {
                   <Image
                     src={visithotelicon}
                     alt="Visit Hotel Icon"
-                    className="h-[44px] w-[54px]"
+                    className="h-[24px] w-[28px] sm:h-[30px] sm:w-[36px] md:h-[36px] md:w-[42px]"
                     style={{
                       filter:
                         'brightness(0) saturate(100%) invert(56%) sepia(93%) saturate(1899%) hue-rotate(161deg) brightness(97%) contrast(101%)',
@@ -120,23 +124,25 @@ const MapReview: React.FC<MapReviewProps> = ({ className = '' }) => {
             </div>
 
             {/* Location Pin Popup (Optional - shown on map) */}
-            <div className="absolute bottom-32 left-1/2 transform -translate-x-1/2 hidden lg:block">
-              <div className="bg-white rounded-lg shadow-xl p-4 min-w-[200px]">
-                <h3 className="font-semibold text-gray-800 mb-1">MENA ApartHotel</h3>
+            <div className="absolute bottom-24 sm:bottom-32 left-1/2 transform -translate-x-1/2 hidden lg:block">
+              <div className="bg-white rounded-lg shadow-xl p-3 sm:p-4 min-w-[160px] sm:min-w-[200px]">
+                <h3 className="font-semibold text-gray-800 mb-1 text-sm sm:text-base">
+                  MENA ApartHotel
+                </h3>
                 <div className="h-1 bg-gray-200 rounded animate-pulse"></div>
               </div>
             </div>
           </div>
 
           {/* Right Side - Review Slider with Swiper */}
-          <div className="max-w-[760px] relative w-full lg:w-1/2 flex items-center justify-center">
-            <div className="relative w-full flex items-center gap-4 lg:gap-8">
+          <div className="max-w-[760px] relative w-full lg:w-1/2 flex items-center justify-center h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px]">
+            <div className="relative w-full flex items-center gap-2 sm:gap-4 lg:gap-8">
               {/* Swiper Container */}
               <div className="flex-1 w-full">
                 <Swiper
                   direction="vertical"
-                  slidesPerView={1.5}
-                  spaceBetween={30}
+                  slidesPerView={1.2}
+                  spaceBetween={20}
                   mousewheel={true}
                   pagination={{
                     el: '.review-pagination-vertical',
@@ -145,46 +151,65 @@ const MapReview: React.FC<MapReviewProps> = ({ className = '' }) => {
                     bulletActiveClass: 'custom-bullet-active',
                   }}
                   modules={[Pagination, Mousewheel]}
-                  className="review-swiper h-[450px] lg:h-[500px]"
+                  className="review-swiper h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px]"
+                  breakpoints={{
+                    640: {
+                      slidesPerView: 1.3,
+                      spaceBetween: 25,
+                    },
+                    768: {
+                      slidesPerView: 1.4,
+                      spaceBetween: 30,
+                    },
+                    1024: {
+                      slidesPerView: 1.5,
+                      spaceBetween: 30,
+                    },
+                  }}
                 >
                   {reviews.map((review) => (
                     <SwiperSlide key={review.id}>
-                      <div className="flex items-center justify-between h-full px-4 sm:px-0">
-                        <div className="bg-white rounded-2xl sm:p-10 w-full">
+                      <div className="flex items-center justify-between h-full px-2 sm:px-4">
+                        <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 w-full">
                           {/* Reviewer Info - Avatar on left, Stars on right */}
-                          <div className="flex items-start justify-between">
+                          <div className="flex flex-col sm:flex-row items-start justify-between gap-2 sm:gap-0">
                             {/* Left side: Avatar and Name stacked */}
-                            <div className="flex flex-col gap-3">
+                            <div className="flex flex-col gap-2 sm:gap-3">
                               <img
                                 src={review.avatar}
                                 alt={review.name}
-                                className="w-14 h-14 rounded-full object-cover"
+                                className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full object-cover"
                               />
-                              <p className="text-[#9CA3AF] text-sm font-light">— {review.name}</p>
+                              <p className="text-[#9CA3AF] text-xs sm:text-sm font-light">
+                                — {review.name}
+                              </p>
                             </div>
 
                             {/* Right side: Star Rating aligned to top */}
-                            <div className="flex justify-items-start items-center gap-2 my-2">
+                            <div className="flex justify-items-start items-center gap-1 sm:gap-2 my-1 sm:my-2">
                               {[...Array(review.rating)].map((_, i) => (
-                                <div key={i} className="h-[24px] w-[24px]">
+                                <div
+                                  key={i}
+                                  className="h-[16px] w-[16px] sm:h-[20px] sm:w-[20px] md:h-[24px] md:w-[24px]"
+                                >
                                   <Image src={starIcon} alt="*" />
                                 </div>
                               ))}
-                              <span className="font-sansation text-[#454779] text-[24px] ml-1">
+                              <span className="font-sansation text-[#454779] text-[12px] sm:text-[16px] md:text-[20px] lg:text-[24px] ml-1">
                                 ({review.rating} Star)
                               </span>
                             </div>
                           </div>
 
                           {/* Review Text */}
-                          <div className="mb-6">
-                            <p className="text-[#9CA3AF] text-base leading-relaxed font-light">
+                          <div className="mb-4 sm:mb-6">
+                            <p className="text-[#9CA3AF] text-xs sm:text-sm md:text-base leading-relaxed font-light line-clamp-4 sm:line-clamp-5">
                               {review.text}
                             </p>
                           </div>
 
                           {/* Divider */}
-                          <div className="border-t border-[#E5E7EB] mb-6"></div>
+                          <div className="border-t border-[#E5E7EB] mb-4 sm:mb-6"></div>
                         </div>
                       </div>
                     </SwiperSlide>

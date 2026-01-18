@@ -82,11 +82,14 @@ const RoomSlider: React.FC = () => {
   }, []);
 
   return (
-    <section id="rooms" className="py-20 bg-[#FFFFFF] p-[100px]">
+    <section
+      id="rooms"
+      className="py-10 sm:py-14 md:py-16 lg:py-20 bg-[#FFFFFF] px-4 sm:px-6 md:px-12 lg:px-16 xl:px-[100px]"
+    >
       <div className="max-w-[1720px] mx-auto relative">
         <Swiper
           modules={[Navigation, Pagination, A11y]}
-          spaceBetween={20}
+          spaceBetween={16}
           slidesPerView={1}
           navigation={{
             prevEl: prevRef.current,
@@ -95,17 +98,28 @@ const RoomSlider: React.FC = () => {
           onSwiper={handleSwiper}
           // pagination={{ clickable: true }}
           breakpoints={{
+            480: {
+              slidesPerView: 1,
+              spaceBetween: 16,
+            },
             640: {
               slidesPerView: 1,
+              spaceBetween: 16,
             },
             768: {
               slidesPerView: 2,
+              spaceBetween: 20,
             },
             1024: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            1280: {
               slidesPerView: 3,
+              spaceBetween: 20,
             },
           }}
-          className="pb-12 !px-4" // Padding for shadow clipping
+          className="pb-12 !px-2 sm:!px-4" // Padding for shadow clipping
         >
           {rooms.map((room) => (
             <SwiperSlide key={room.id} className="h-full">
@@ -117,19 +131,25 @@ const RoomSlider: React.FC = () => {
         {/* Custom Navigation Buttons */}
         <button
           ref={prevRef}
-          className="swiper-button-prev-custom absolute top-1/2 -left-3.5 z-10 w-[60px] h-[50px] -translate-y-1/2 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group border border-[#A4D5F0] rounded-3xl roun rounded bg-white"
+          className="swiper-button-prev-custom absolute top-1/2 left-0 sm:-left-2 md:-left-3 lg:-left-3.5 z-10 w-[40px] h-[36px] sm:w-[50px] sm:h-[42px] md:w-[60px] md:h-[50px] -translate-y-1/2 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group border border-[#A4D5F0] rounded-2xl sm:rounded-3xl bg-white"
         >
           <span className="">
-            <ArrowLeft style={{ color: '#00B3DD' }} />
+            <ArrowLeft
+              className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6"
+              style={{ color: '#00B3DD' }}
+            />
           </span>
         </button>
 
         <button
           ref={nextRef}
-          className="swiper-button-next-custom absolute top-1/2 -right-3 z-10 w-[60px] h-[50px] -translate-y-1/2 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group border border-[#A4D5F0] rounded-3xl roun rounded bg-white"
+          className="swiper-button-next-custom absolute top-1/2 right-0 sm:-right-2 md:-right-3 z-10 w-[40px] h-[36px] sm:w-[50px] sm:h-[42px] md:w-[60px] md:h-[50px] -translate-y-1/2 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group border border-[#A4D5F0] rounded-2xl sm:rounded-3xl bg-white"
         >
           <span className="">
-            <ArrowRight style={{ color: '#00B3DD' }} />
+            <ArrowRight
+              className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6"
+              style={{ color: '#00B3DD' }}
+            />
           </span>
         </button>
       </div>

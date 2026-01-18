@@ -70,12 +70,18 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="fixed w-[95%] sm:w-[90%] md:w-[85%] lg:w-[90%] z-50 bg-white/95 backdrop-blur-sm shadow-sm transition-all duration-300 top-4 sm:top-8 md:top-12 left-1/2 -translate-x-1/2 rounded-full sm:rounded-[80px] md:rounded-[140px]">
-      <div className="p-[20px] sm:px-4 md:px-6 lg:px-8">
+      <div className="px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 lg:px-8 lg:py-4">
         <div className="flex justify-between items-center h-16 sm:h-18 md:h-20">
           {/* Logo */}
-          <div className="flex-shrink-0 flex items-center p-[20px]">
+          <div className="flex-shrink-0 flex items-center p-1 sm:p-2 md:p-3 lg:p-4">
             <Link href="/" className="flex flex-col">
-              <Image src={Logo} alt="MENA Logo" width={174} height={80} className="" />
+              <Image
+                src={Logo}
+                alt="MENA Logo"
+                width={174}
+                height={80}
+                className="w-[80px] h-auto sm:w-[80px] md:w-[100px] lg:w-[120px] xl:w-[174px]"
+              />
             </Link>
           </div>
 
@@ -129,13 +135,17 @@ const Navbar: React.FC = () => {
 
             <Link
               href="#book"
-              className="font-sansation font-bold text-[20px] inline-flex items-center px-4 xl:px-6 py-2 border border-accent text-accent hover:bg-accent hover:text-white rounded-full text-xs font-bold transition-all duration-300 uppercase tracking-wider group"
+              className="font-sansation font-bold text-xs lg:text-sm xl:text-base inline-flex items-center px-2 lg:px-4 xl:px-6 py-1.5 lg:py-2 xl:py-2.5 border border-accent text-accent hover:bg-accent hover:text-white rounded-full transition-all duration-300 uppercase tracking-wider group justify-between"
               onClick={() => setIsOpen(false)}
             >
               <span className="hidden xl:inline">Book Your Stay</span>
               <span className="xl:hidden">Book</span>
-              <span className="ml-[30px] inline-block transition-all duration-300 visit-hotel-icon">
-                <Image src={visithotelicon} alt="Visit Hotel Icon" />
+              <span className="ml-1.5 lg:ml-2 xl:ml-3 inline-block transition-all duration-300 visit-hotel-icon">
+                <Image
+                  src={visithotelicon}
+                  alt="Visit Hotel Icon"
+                  className="w-3 h-auto lg:w-8 lg:h-auto"
+                />
               </span>
             </Link>
           </div>
@@ -209,12 +219,16 @@ const Navbar: React.FC = () => {
               ))}
               <Link
                 href="#book"
-                className="mt-6 sm:mt-8 inline-flex items-center px-6 py-2.5 sm:py-3 border border-accent text-accent hover:bg-accent hover:text-white rounded-full text-xs sm:text-sm font-bold transition-all duration-300 uppercase tracking-wider group"
+                className="mt-6 sm:mt-8 inline-flex items-center px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 border border-accent text-accent hover:bg-accent hover:text-white rounded-full text-xs sm:text-sm md:text-base font-bold transition-all duration-300 uppercase tracking-wider group"
                 onClick={() => setIsOpen(false)}
               >
                 Book Your Stay
-                <span className="ml-2 inline-block transition-all duration-300 visit-hotel-icon">
-                  <Image src={visithotelicon} alt="Visit Hotel Icon" />
+                <span className="ml-2 sm:ml-3 md:ml-4 inline-block transition-all duration-300 visit-hotel-icon">
+                  <Image
+                    src={visithotelicon}
+                    alt="Visit Hotel Icon"
+                    className="w-3 h-auto sm:w-3.5 md:w-4"
+                  />
                 </span>
               </Link>
             </div>

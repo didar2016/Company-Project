@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Buda:wght@300&family=Sansation:wght@300;400;700&display=swap');
 
 @import 'tailwindcss';
 
@@ -7,6 +8,7 @@
   --font-heading: 'Playfair Display', serif;
   --font-body: 'Poppins', sans-serif;
   --font-sansation: 'Sansation', sans-serif;
+  --font-buda: 'Buda', serif;
   --font-poppins: 'Poppins', sans-serif;
 
   --color-brand: #2b2a59;

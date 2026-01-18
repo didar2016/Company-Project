@@ -5,8 +5,8 @@ import RoomDetails from '../../components/roomdetails/roomdetails';
 import HotelFeatures from '../../components/roomdetails/HotelFeatures';
 import Footer from '../../components/Footer';
 import Hero from '@/components/Hero';
-import RoomSlider from '@/components/RoomSlider';
 import MapReview from '@/components/roomdetails/map_review';
+import RelatedRooms from '@/components/roomdetails/relatedRooms';
 
 export default function RoomDetailsPage() {
   return (
@@ -22,7 +22,7 @@ export default function RoomDetailsPage() {
         <RoomDetails />
         <HotelFeatures />
         <MapReview />
-        <RoomSlider />
+        <RelatedRooms />
       </main>
 
       <Footer />
