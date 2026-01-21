@@ -1,14 +1,17 @@
 import React from 'react';
 import Image from 'next/image';
 import { MapPin } from 'lucide-react';
-import hotelimage from '../../public/images/hotel.png';
+import hotelimage1 from '../../public/images/hotel1.png';
+import hotelimage2 from '../../public/images/hotel2.png';
+import hotelimage3 from '../../public/images/hotel3.png';
+
 import visithotelicon from '../../public/images/visithotelicon.png';
 
 interface Hotel {
   id: number;
   name: string;
   address: string;
-  image: string;
+  image: any;
 }
 
 const hotels: Hotel[] = [
@@ -16,55 +19,37 @@ const hotels: Hotel[] = [
     id: 1,
     name: 'MENA HOTEL TABUK',
     address: 'Street 13 - Al Barsha - Al Barsha 1 - Dubai - United Arab Emirates',
-    image: 'https://placehold.co/600x500/e2e8f0/1e293b?text=Mena+Hotel+Tabuk',
+    image: hotelimage1,
   },
   {
     id: 2,
     name: 'MENA ANDALUSIA RIYADH',
     address: 'Street 13 - Al Barsha - Al Barsha 1 - Dubai - United Arab Emirates',
-    image: 'https://placehold.co/600x500/e2e8f0/1e293b?text=Mena+Andalusia',
+    image: hotelimage2,
   },
   {
     id: 3,
     name: 'MENA JUBAIL',
     address: 'Street 13 - Al Barsha - Al Barsha 1 - Dubai - United Arab Emirates',
-    image: 'https://placehold.co/600x500/e2e8f0/1e293b?text=Mena+Jubail',
+    image: hotelimage3,
   },
   {
     id: 4,
     name: 'MENA JUBAIL',
     address: 'Street 13 - Al Barsha - Al Barsha 1 - Dubai - United Arab Emirates',
-    image: 'https://placehold.co/600x500/e2e8f0/1e293b?text=Mena+Jubail',
+    image: hotelimage1,
   },
   {
     id: 5,
     name: 'MENA JUBAIL',
     address: 'Street 13 - Al Barsha - Al Barsha 1 - Dubai - United Arab Emirates',
-    image: 'https://placehold.co/600x500/e2e8f0/1e293b?text=Mena+Jubail',
+    image: hotelimage2,
   },
   {
     id: 2,
     name: 'MENA ANDALUSIA RIYADH',
     address: 'Street 13 - Al Barsha - Al Barsha 1 - Dubai - United Arab Emirates',
-    image: 'https://placehold.co/600x500/e2e8f0/1e293b?text=Mena+Andalusia',
-  },
-  {
-    id: 3,
-    name: 'MENA JUBAIL',
-    address: 'Street 13 - Al Barsha - Al Barsha 1 - Dubai - United Arab Emirates',
-    image: 'https://placehold.co/600x500/e2e8f0/1e293b?text=Mena+Jubail',
-  },
-  {
-    id: 4,
-    name: 'MENA JUBAIL',
-    address: 'Street 13 - Al Barsha - Al Barsha 1 - Dubai - United Arab Emirates',
-    image: 'https://placehold.co/600x500/e2e8f0/1e293b?text=Mena+Jubail',
-  },
-  {
-    id: 5,
-    name: 'MENA JUBAIL',
-    address: 'Street 13 - Al Barsha - Al Barsha 1 - Dubai - United Arab Emirates',
-    image: 'https://placehold.co/600x500/e2e8f0/1e293b?text=Mena+Jubail',
+    image: hotelimage3,
   },
 ];
 
@@ -94,7 +79,7 @@ const Locations: React.FC = () => {
                 </div>
                 <div className="relative overflow-hidden aspect-square w-full max-w-[540px]">
                   <Image
-                    src={hotelimage}
+                    src={hotel.image}
                     alt={hotel.name}
                     className="object-fill object-center rounded-[15px] sm:rounded-[50px] md:rounded-[50px] w-full h-full"
                   />

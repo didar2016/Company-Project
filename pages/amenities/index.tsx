@@ -7,6 +7,7 @@ import HotelLocations from '../../components/HotelLocations';
 import Footer from '../../components/Footer';
 import Amenities from '@/components/amenities/Amenities';
 import Facilities from '@/components/amenities/Facilities';
+import heroimage from '../../public/images/amenitiesheroimage.png';
 
 export default function Home() {
   return (
@@ -19,7 +20,8 @@ export default function Home() {
       <Navbar />
 
       <main className="flex-grow w-full overflow-hidden ">
-        <Hero />
+        <Hero image={heroimage} />
+
         <Amenities />
         <Facilities />
         <div className="mt-32 md:mt-0">

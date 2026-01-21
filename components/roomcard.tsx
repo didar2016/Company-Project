@@ -1,8 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
 import { Maximize2, Coffee, Wifi, Gift, Printer, Bed } from 'lucide-react';
-import roomcard from '../public/images/roomcardimage.png';
+import roomcard from '../public/images/roomcardimage1.png';
 import visithotelicon from '../public/images/visithotelicon.png';
+import { useRouter } from 'next/router';
 
 interface RoomCardProps {
   title?: string;
@@ -16,6 +17,7 @@ interface RoomCardProps {
   onViewDetails?: () => void;
   showButton?: boolean;
   amenities?: string[];
+  room: any;
 }
 
 const RoomCard: React.FC<RoomCardProps> = ({
@@ -26,6 +28,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
   discountPercentage = 20,
   showButton = true,
   amenities = ['maximize', 'coffee', 'wifi', 'gift', 'printer', 'bed'],
+  room = [],
 }) => {
   const amenityIcons: { [key: string]: React.ReactNode } = {
     maximize: <Maximize2 className="w-5 h-5" />,
@@ -34,6 +37,12 @@ const RoomCard: React.FC<RoomCardProps> = ({
     gift: <Gift className="w-5 h-5" />,
     printer: <Printer className="w-5 h-5" />,
     bed: <Bed className="w-5 h-5" />,
+  };
+
+  const router = useRouter();
+
+  const handleViewDetailsClick = () => {
+    router.push('./roomdetails');
   };
 
   const cardStyle = {
@@ -49,7 +58,10 @@ const RoomCard: React.FC<RoomCardProps> = ({
   };
 
   return (
-    <div className="relative w-full max-w-[540px] bg-white overflow-hidden mx-auto">
+    <div
+      className="relative w-full max-w-[540px] bg-white overflow-hidden mx-auto cursor-pointer"
+      onClick={handleViewDetailsClick}
+    >
       {/* Header Section with Title and Pricing */}
       <div className="flex flex-row justify-between pt-4 sm:pt-6 pb-3 sm:pb-4">
         {/* Title */}
@@ -107,7 +119,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
         )}
 
         <Image
-          src={roomcard}
+          src={room.image}
           alt={`${title} ${subtitle}`}
           fill
           className="object-fill object-center rounded-[25px]"

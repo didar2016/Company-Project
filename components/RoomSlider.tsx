@@ -3,6 +3,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, A11y } from 'swiper/modules';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import type { Swiper as SwiperType } from 'swiper';
+import roomcard1 from '../public/images/roomcardimage1.png';
+import roomcard2 from '../public/images/roomcardimage2.png';
+import roomcard3 from '../public/images/roomcardimage3.png';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -15,7 +18,7 @@ interface Room {
   title: string;
   size: string;
   price: number;
-  image: string;
+  image: any;
   features: string[];
 }
 
@@ -25,7 +28,7 @@ const rooms: Room[] = [
     title: 'STUDIO APARTMENT',
     size: '45 sqm', // Image says 45sqm for Studio (prompt said 65 but visual says 45 for Studio, prompt says 65 for One-Bed? Prompt says Studio 65...). Let's stick to PROMPT values if possible, but image is 45. The Prompt says: "a) STUDIO APARTMENT - 65 sqm...". I will follow PROMPT.
     price: 899,
-    image: 'https://placehold.co/600x400/e2e8f0/1e293b?text=Studio+Apartment',
+    image: roomcard1,
     features: ['King Bed', 'Free Wifi', 'Kitchenette'],
   },
   {
@@ -33,7 +36,7 @@ const rooms: Room[] = [
     title: 'ONE-BEDROOM APARTMENT',
     size: '65 sqm', // Prompt: 85 sqm. Image: 65 sqm. I will use PROMPT values. One-Bed 85 sqm.
     price: 899,
-    image: 'https://placehold.co/600x400/e2e8f0/1e293b?text=One+Bedroom',
+    image: roomcard2,
     features: ['King Bed', 'Living Area', 'Full Kitchen'],
   },
   {
@@ -41,7 +44,7 @@ const rooms: Room[] = [
     title: 'TWO-BEDROOM APARTMENT',
     size: '85 sqm', // Prompt: 105 sqm. I will use PROMPT values.
     price: 899,
-    image: 'https://placehold.co/600x400/e2e8f0/1e293b?text=Two+Bedroom',
+    image: roomcard3,
     features: ['2 King Beds', '2 Bathrooms', 'City View'],
   },
   {
@@ -49,7 +52,7 @@ const rooms: Room[] = [
     title: 'EXECUTIVE SUITE',
     size: '120 sqm',
     price: 999,
-    image: 'https://placehold.co/600x400/e2e8f0/1e293b?text=Executive+Suite',
+    image: roomcard1,
     features: ['Panoramic View', 'Jacuzzi', 'Office'],
   },
 ];
@@ -123,7 +126,7 @@ const RoomSlider: React.FC = () => {
         >
           {rooms.map((room) => (
             <SwiperSlide key={room.id} className="h-full">
-              <RoomCard />
+              <RoomCard room={room} />
             </SwiperSlide>
           ))}
         </Swiper>

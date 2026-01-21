@@ -6,6 +6,7 @@ import MasaTurkishEatery from '../../components/dining/MasaTurkishEatery';
 import WeekendOffer from '../../components/dining/WeekendOffer';
 import Footer from '../../components/Footer';
 import MapReview from '@/components/roomdetails/map_review';
+import heroimage from '../../public/images/diningheroimage.png';
 
 export default function Dining() {
   return (
@@ -21,7 +22,8 @@ export default function Dining() {
       <Navbar />
 
       <main className="flex-grow w-full overflow-hidden">
-        <Hero />
+        <Hero image={heroimage} />
+
         <MasaTurkishEatery />
         <WeekendOffer />
         <MapReview />

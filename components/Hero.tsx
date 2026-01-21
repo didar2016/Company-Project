@@ -1,14 +1,14 @@
 import React from 'react';
 import Image from 'next/image';
 import roomcover from '../public/images/room_cover_photo.png';
-const Hero: React.FC = () => {
+const Hero: React.FC<{ image: any }> = ({ image }) => {
   return (
     <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[100vh]">
       {/* Background Image with Overlay */}
       <div className="w-full h-full">
         {/* Placeholder for Hero Image */}
         <Image
-          src={roomcover}
+          src={image}
           alt="Mena Hotel Interior"
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"

@@ -5,6 +5,7 @@ import Hero from '../components/Hero';
 import RoomSlider from '../components/RoomSlider';
 import HotelLocations from '../components/HotelLocations';
 import Footer from '../components/Footer';
+import heroimage from '../public/images/room_cover_photo.png';
 
 export default function Home() {
   return (
@@ -17,7 +18,8 @@ export default function Home() {
       <Navbar />
 
       <main className="flex-grow w-full overflow-hidden">
-        <Hero />
+        <Hero image={heroimage} />
+
         <RoomSlider />
         <HotelLocations />
       </main>

@@ -29,26 +29,12 @@ const Navbar: React.FC = () => {
       ],
     },
     {
-      name: 'DINING',
-      href: '#dining',
-      subItems: [
-        { name: 'All Day Dining', href: '#dining' },
-        { name: 'Coffee Lounge', href: '#dining' },
-        { name: 'Room Service', href: '#dining' },
-      ],
-    },
-    {
       name: 'AMENITIES',
-      href: '#amenities',
-      subItems: [
-        { name: 'Swimming Pool', href: '#amenities' },
-        { name: 'Gymnasium', href: '#amenities' },
-        { name: 'Spa & Wellness', href: '#amenities' },
-      ],
+      href: 'amenities',
     },
     { name: 'ABOUT', href: '#about' },
-    { name: 'LOCATION', href: '#location' },
-    { name: 'CONTACT', href: '#contact' },
+    { name: 'LOCATION', href: 'location' },
+    { name: 'DINING', href: 'dining' },
   ];
 
   // Close dropdown when clicking outside
