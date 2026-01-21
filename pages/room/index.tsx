@@ -5,7 +5,7 @@ import Hero from '../../components/Hero';
 import RoomSlider from '../../components/RoomSlider';
 import HotelLocations from '../../components/HotelLocations';
 import Footer from '../../components/Footer';
-import heroimage from '../public/images/room_cover_photo.png';
+import heroimage from '../../public/images/room_cover_photo.png';
 
 export default function Home() {
   return (
