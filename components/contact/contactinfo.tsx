@@ -62,7 +62,7 @@ const ContactInfo = () => {
 
       {/* Right Side */}
       <div className="flex flex-col items-end p-[30px] gap-[30px] w-full lg:flex-1 min-h-[666px] bg-[rgba(155,169,202,0.2)] rounded-[30px]">
-        <div className="flex flex-col items-start p-[20px] lg:p-[36px] gap-[36px] w-full h-full bg-white rounded-[30px]">
+        <div className="flex flex-col items-start p-[20px] lg:p-[36px] gap-[26px] w-full h-full bg-white rounded-[30px]">
           {/* Email Input */}
           <div className="flex flex-col gap-2 w-full">
             <label className="font-poppins text-[20px] text-[#454779]">Your Email</label>

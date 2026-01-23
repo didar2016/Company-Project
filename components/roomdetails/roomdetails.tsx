@@ -7,6 +7,10 @@ import starIcon from '../../public/images/Star.png';
 import CalendarIcon from '../../public/images/calender_icon.png';
 import DropdownIcon from '../../public/images/dropdownicon.png';
 import visithotelicon from '../../public/images/visithotelicon.png';
+import room1 from '../../public/images/singleroom1.png';
+import room2 from '../../public/images/singleroom2.png';
+import room3 from '../../public/images/singleroom3.png';
+import room4 from '../../public/images/singleroom4.png';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -49,12 +53,7 @@ const RoomDetails: React.FC<RoomDetailsProps> = ({
   //   { icon: <Home className="w-5 h-5" />, label: '45 sqm' },
   //   { icon: <Home className="w-5 h-5" />, label: 'Balcony' },
   // ],
-  images = [
-    'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=2000&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=2000&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=2000&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=2000&auto=format&fit=crop',
-  ],
+  images = [room1, room2, room3, room4],
 }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
 
@@ -91,10 +90,11 @@ const RoomDetails: React.FC<RoomDetailsProps> = ({
                 {images.map((image, index) => (
                   <SwiperSlide key={index}>
                     <div className="relative w-full h-full">
-                      <img
+                      <Image
                         src={image}
                         alt={`${roomType} - View ${index + 1}`}
                         className="w-full h-full object-fill"
+                        quality={90}
                       />
                     </div>
                   </SwiperSlide>
@@ -137,7 +137,7 @@ const RoomDetails: React.FC<RoomDetailsProps> = ({
                 {images.map((image, index) => (
                   <SwiperSlide key={index} className="cursor-pointer">
                     <div className="aspect-[4/3] rounded-md sm:rounded-lg overflow-hidden border-2 border-transparent hover:border-[#00B3DD] transition-all duration-300">
-                      <img
+                      <Image
                         src={image}
                         alt={`Thumbnail ${index + 1}`}
                         className="w-full h-full object-fill"

@@ -21,11 +21,11 @@ const Navbar: React.FC = () => {
     { name: 'HOME', href: '/' },
     {
       name: 'ROOMS',
-      href: '#rooms',
+      href: 'rooms',
       subItems: [
-        { name: 'Studio Apartment', href: '#rooms' },
-        { name: 'One Bedroom', href: '#rooms' },
-        { name: 'Two Bedroom', href: '#rooms' },
+        { name: 'Studio Apartment', href: 'room' },
+        { name: 'One Bedroom', href: 'room' },
+        { name: 'Two Bedroom', href: 'room' },
       ],
     },
     {
