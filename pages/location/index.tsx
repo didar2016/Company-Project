@@ -2,13 +2,11 @@ import React from 'react';
 import Head from 'next/head';
 import Navbar from '../../components/Navbar';
 import Hero from '../../components/Hero';
-import RoomSlider from '../../components/RoomSlider';
-import HotelLocations from '../../components/HotelLocations';
 import Footer from '../../components/Footer';
 import Locations from '@/components/location/location';
 import MapReview from '@/components/roomdetails/map_review';
-import Amenities from '@/components/amenities/Amenities';
 import heroimage from '../../public/images/locationheroimage.png';
+import Hotels from '@/components/hotels';
 
 export default function Home() {
   return (
@@ -21,13 +19,18 @@ export default function Home() {
       <Navbar />
 
       <main className="flex-grow w-full overflow-hidden ">
-        <Hero image={heroimage} />
+        <Hero
+          image={heroimage}
+          title="Locations"
+          description="A Smart Stay with Comfort & Style"
+          component="location"
+        />
 
         <div className="mt-32 md:mt-0">
           <Locations />
         </div>
         <MapReview />
-        <HotelLocations />
+        <Hotels />
       </main>
 
       <Footer />

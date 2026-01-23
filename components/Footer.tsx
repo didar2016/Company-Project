@@ -1,99 +1,168 @@
 import React from 'react';
 import Link from 'next/link';
-import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Youtube, ArrowUpRight } from 'lucide-react';
+import Image from 'next/image';
+import {
+  MapPin,
+  Mail,
+  Phone,
+  Facebook,
+  Instagram,
+  Linkedin,
+  Twitter,
+  Youtube,
+  ArrowUpRight,
+} from 'lucide-react';
 
-const Footer: React.FC = () => {
-    
-  const currentYear = new Date().getFullYear();
-
+const Footer = () => {
   return (
-    <footer className="bg-brand text-white pt-20 pb-8 relative overflow-hidden">
-      {/* Background decoration (optional 'M' subtle background?) */}
-      <div className="absolute bottom-0 right-0 pointer-events-none opacity-5">
-         <span className="text-[20rem] font-heading font-bold leading-none">M</span>
+    <footer className="w-full bg-[#2A2D71] flex flex-col items-center pt-[80px] lg:pt-[120px] pb-[100px] px-8 lg:px-[100px] gap-[60px] relative overflow-hidden">
+      {/* Main Content */}
+      <div className="flex flex-col xl:flex-row items-start justify-between w-full max-w-[1720px] gap-12 xl:gap-[60px] z-10">
+        {/* Column 1: Brand & Description */}
+        <div className="flex flex-col items-start gap-5 w-full xl:w-[444px] shrink-0">
+          <div className="relative w-[193px] h-[103px]">
+            <Image
+              src="/images/Logo.png"
+              alt="MENA ApartHotel Albarsha"
+              fill
+              className="object-contain brightness-0 invert"
+            />
+          </div>
+          <p className="font-sansation font-light text-[16px] leading-[20px] tracking-[0.75px] text-white max-w-[444px]">
+            Located just minutes from the Mall of the Emirates, MENA ApartHotel Albarsha places.
+          </p>
+        </div>
+
+        {/* Column 2: Navigation Links */}
+        <div className="flex flex-col items-start gap-[10px] w-full xl:w-[286px] shrink-0">
+          <FooterLink text="HOME" active />
+          <FooterLink text="OUR DESTINATIONS" />
+          <FooterLink text="OFFERS" />
+          <FooterLink text="CONTACT" />
+          <FooterLink text="CAREERS" />
+        </div>
+
+        {/* Column 3: Contact Us */}
+        <div className="flex flex-col items-start gap-[30px] w-full xl:w-[450px] shrink-0">
+          {/* Header */}
+          <div className="flex flex-col items-start gap-[11px] w-full">
+            <h4 className="font-sansation text-[18px] uppercase text-white leading-[27px]">
+              CONTACT US
+            </h4>
+            <div className="w-[75px] border-t border-[#9BA9CA]"></div>
+          </div>
+
+          {/* Details */}
+          <div className="flex flex-col gap-[10px] w-full">
+            {/* Address */}
+            <div className="flex items-start gap-[10px] text-white">
+              <div className="w-[24px] h-[24px] mt-[2px] flex items-center justify-center shrink-0">
+                <MapPin size={24} className="text-[#6D6E87]" fill="none" stroke="currentColor" />
+              </div>
+              <span className="font-poppins text-[18px] leading-[28px]">
+                4a Street – Al Barsha 1
+              </span>
+            </div>
+
+            {/* Email */}
+            <div className="flex items-center gap-[10px] text-white">
+              <div className="w-[24px] h-[24px] flex items-center justify-center shrink-0">
+                <Mail size={24} className="text-[#6D6E87]" />
+              </div>
+              <span className="font-poppins text-[18px] leading-[28px] break-all">
+                menahoteluae@alhokair.com
+              </span>
+            </div>
+
+            {/* Phone */}
+            <div className="flex items-center gap-[10px] text-white">
+              <div className="w-[24px] h-[24px] flex items-center justify-center shrink-0">
+                <Phone size={24} className="text-[#6D6E87]" />
+              </div>
+              <span className="font-poppins text-[18px] leading-[28px]">+97143417474</span>
+            </div>
+          </div>
+
+          {/* Socials */}
+          <div className="flex items-center gap-[15px]">
+            <SocialIcon icon={<Facebook size={20} />} />
+            <SocialIcon icon={<Instagram size={20} />} active />
+            <SocialIcon icon={<Twitter size={20} />} />
+            <SocialIcon icon={<Linkedin size={20} />} />
+            <SocialIcon icon={<Youtube size={20} />} />
+          </div>
+        </div>
+
+        {/* Column 4: Newsletter */}
+        <div className="flex flex-col items-start w-full xl:w-[286px] shrink-0 h-[220px] relative">
+          {/* Header */}
+          <div className="flex flex-col items-start gap-[11px] w-full mb-[10px]">
+            <h4 className="font-sansation text-[18px] uppercase text-white leading-[27px]">
+              NEWSLETTER
+            </h4>
+            <div className="w-[75px] border-t border-[#9BA9CA]"></div>
+          </div>
+
+          <p className="font-sansation font-light text-[16px] leading-[20px] tracking-[0.75px] text-white mb-[28px] z-10 relative">
+            Get our newest offers and exclusive news sent right to your inbox
+          </p>
+
+          <button className="w-[201px] h-[68px] bg-[#00B3DD] rounded-[60px] flex items-center justify-center gap-[16px] hover:bg-[#009ac0] transition-colors cursor-pointer group z-10">
+            <span className="font-sansation font-bold text-[20px] tracking-[1.25px] uppercase text-white">
+              SIGN UP
+            </span>
+            <div className="w-[54px] h-[44px] rounded-[96px] border-2 border-white flex items-center justify-center group-hover:bg-white group-hover:text-[#00B3DD] text-white transition-all">
+              <ArrowUpRight size={20} strokeWidth={3} />
+            </div>
+          </button>
+        </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          
-          {/* Brand Column */}
-          <div className="space-y-6">
-             <div className="flex flex-col">
-              <span className="text-4xl font-heading font-bold tracking-tight">MENA</span>
-              <span className="text-xs font-light tracking-widest uppercase opacity-70">ApartHotel Alliance</span>
-            </div>
-            <p className="text-xs text-gray-400 leading-relaxed max-w-xs">
-                Located just minutes from the Mall of the Emirates, MENA ApartHotel Al Barsha places you at the center.
-            </p>
-          </div>
-
-          {/* Links Column */}
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-widest mb-6 text-accent">Quick Links</h4>
-            <ul className="space-y-4 text-sm text-gray-300 font-light">
-                {['Home', 'Our Destinations', 'Offers', 'Contact', 'Careers'].map((item) => (
-                    <li key={item}>
-                        <Link href="#" className="hover:text-white transition-colors flex items-center group">
-                           <span className="group-hover:translate-x-1 transition-transform">{item}</span>
-                        </Link>
-                    </li>
-                ))}
-            </ul>
-          </div>
-
-          {/* Contact Column */}
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-widest mb-6 text-accent">Contact Us</h4>
-            <ul className="space-y-4 text-sm text-gray-300 font-light">
-                <li className="flex items-start space-x-3">
-                    <MapPin size={16} className="mt-0.5 text-accent" />
-                    <span>4a Street – Al Barsha 1</span>
-                </li>
-                 <li className="flex items-center space-x-3">
-                    <Mail size={16} className="text-accent" />
-                    <a href="mailto:menahotels@alhokair.com" className="hover:text-white transition-colors">menahotels@alhokair.com</a>
-                </li>
-                 <li className="flex items-center space-x-3">
-                    <Phone size={16} className="text-accent" />
-                    <a href="tel:+97143417474" className="hover:text-white transition-colors">+971 4 341 7474</a>
-                </li>
-            </ul>
-            
-            {/* Socials */}
-            <div className="flex space-x-4 mt-8">
-                {[Facebook, Instagram, Linkedin, Youtube].map((Icon, i) => (
-                    <a key={i} href="#" className="p-2 border border-gray-600 rounded-full hover:bg-accent hover:border-accent hover:text-white transition-all text-gray-400">
-                        <Icon size={16} />
-                    </a>
-                ))}
-            </div>
-          </div>
-
-          {/* Newsletter Column */}
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-widest mb-6 text-accent">Newsletter</h4>
-            <p className="text-xs text-gray-400 mb-4">Get our news, offers and the latest happenings right in your inbox.</p>
-            
-            <form className="flex flex-col space-y-3">
-                <input 
-                    type="email" 
-                    placeholder="Enter your email" 
-                    className="bg-brand-light/20 border border-gray-700 rounded-full px-4 py-3 text-sm focus:outline-none focus:border-accent text-white placeholder-gray-500"
-                />
-                <button type="submit" className="bg-accent hover:bg-white hover:text-brand text-white font-bold py-3 px-6 rounded-full text-xs uppercase tracking-wider transition-all flex items-center justify-between group">
-                    Sign Up
-                    <ArrowUpRight size={16} className="group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
-                </button>
-            </form>
-          </div>
-
+      {/* Bottom Bar */}
+      <div className="mx-auto w-full">
+        <div className="max-w-[1720px] w-[90%] bg-white rounded-t-[20px] py-[20px] z-10 relative mt-auto xl:mt-0 xl:absolute xl:bottom-0 xl:left-1/2 xl:-translate-x-1/2 h-[76px] flex items-center justify-center">
+          <p className="font-sansation font-light text-[18px] lg:text-[24px] leading-[36px] tracking-[0.75px] text-[#454779] text-center">
+            © 2025 MENA Hotels & Resorts
+          </p>
         </div>
+      </div>
 
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-center items-center text-xs text-gray-500 font-light">
-           <p>© {currentYear} MENA Hotels & Resorts. All rights reserved.</p>
-        </div>
+      {/* Background "M" Watermark */}
+      <div className="absolute right-0 bottom-0 pointer-events-none opacity-10 hidden xl:block z-0 select-none">
+        <span className="font-sansation text-[500px] leading-none text-white opacity-20 transform translate-x-20 translate-y-20 block">
+          M
+        </span>
+        {/* This is a fallback if no specific image is available. 
+                     If the large 'M' image is strictly required, we'd place an <Image /> here. 
+                     Based on file list, no obvious 'watermark.png' found, so css text fallback or empty div. */}
       </div>
     </footer>
+  );
+};
+
+const FooterLink = ({ text, active = false }: { text: string; active?: boolean }) => {
+  return (
+    <div className="flex flex-col items-start gap-[11px] w-full group cursor-pointer">
+      <Link
+        href="#"
+        className="font-sansation text-[18px] uppercase text-white leading-[27px] hover:text-[#00B3DD] transition-colors"
+      >
+        {text}
+      </Link>
+      <div
+        className={`w-[75px] border-t ${active ? 'border-[#00B3DD]' : 'border-[#9BA9CA] group-hover:border-[#00B3DD] transition-colors'}`}
+      ></div>
+    </div>
+  );
+};
+
+const SocialIcon = ({ icon, active = false }: { icon: React.ReactNode; active?: boolean }) => {
+  return (
+    <div
+      className={`w-[44px] h-[44px] shrink-0 rounded-full flex justify-center items-center transition-colors cursor-pointer ${active ? 'bg-[#00B3DD] text-white' : 'border border-[#9BA9CA] text-[#6D6E87] hover:bg-[#00B3DD] hover:text-white hover:border-[#00B3DD]'}`}
+    >
+      {icon}
+    </div>
   );
 };
 

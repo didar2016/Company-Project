@@ -2,10 +2,16 @@ import React from 'react';
 import Head from 'next/head';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
-import RoomSlider from '../components/RoomSlider';
 import HotelLocations from '../components/HotelLocations';
 import Footer from '../components/Footer';
-import heroimage from '../public/images/room_cover_photo.png';
+import menaheroimage from '../public/images/menaapartheroimage.png';
+import Description from '@/components/about/description';
+import RelatedRooms from '@/components/roomdetails/relatedRooms';
+import WeekendOffer from '@/components/dining/WeekendOffer';
+import Facilities from '@/components/amenities/Facilities';
+import OurStory from '@/components/about/ourstory';
+import MasaTurkishEatery from '@/components/dining/MasaTurkishEatery';
+import MapReview from '@/components/roomdetails/map_review';
 
 export default function Home() {
   return (
@@ -18,9 +24,24 @@ export default function Home() {
       <Navbar />
 
       <main className="flex-grow w-full overflow-hidden">
-        <Hero image={heroimage} />
+        <Hero
+          image={menaheroimage}
+          title="MENA Agent Hotel Alliance"
+          description=""
+          component="index"
+        />
+        <Description />
+        <RelatedRooms />
+        <WeekendOffer />
+        <div className="py-[100px]">
+          <Facilities />
+        </div>
+        <MasaTurkishEatery />
 
-        <RoomSlider />
+        <OurStory />
+
+        <MapReview />
+
         <HotelLocations />
       </main>
 

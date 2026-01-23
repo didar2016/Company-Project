@@ -148,13 +148,13 @@ const RoomDetails: React.FC<RoomDetailsProps> = ({
               </Swiper>
             </div>
 
-            <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-4 md:gap-6 rounded-[20px] sm:rounded-[30px] md:rounded-[40px] bg-[#9BA9CA33] mt-3 sm:mt-4 md:mt-[20px] p-2 sm:p-3">
+            <div className="flex flex-wrap justify-between items-center gap-3 sm:gap-4 md:gap-6 rounded-[20px] sm:rounded-[30px] md:rounded-[40px] bg-[#9BA9CA33] mt-3 sm:mt-4 md:mt-[20px] p-2 sm:py-3 sm:px-5">
               {facilities.map((facility, index) => (
                 <div
                   key={index}
                   className="flex items-center gap-2 sm:gap-3 md:gap-5 p-[4px] sm:p-[6px] md:p-[8px]"
                 >
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full bg-[#00B3DD] flex items-center justify-center text-white flex-shrink-0">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-10 md:h-10 rounded-full bg-[#00B3DD] flex items-center justify-center text-white flex-shrink-0">
                     {React.cloneElement(
                       facility.icon as React.ReactElement<{ className?: string }>,
                       {

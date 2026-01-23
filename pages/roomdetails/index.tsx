@@ -7,7 +7,7 @@ import Footer from '../../components/Footer';
 import Hero from '@/components/Hero';
 import MapReview from '@/components/roomdetails/map_review';
 import RelatedRooms from '@/components/roomdetails/relatedRooms';
-import heroimage from '../../public/images/singlecardheroimage.png';
+import heroimage from '../../public/images/singleroomheroimage.png';
 
 export default function RoomDetailsPage() {
   return (
@@ -19,7 +19,12 @@ export default function RoomDetailsPage() {
       <Navbar />
 
       <main className="flex-grow w-full overflow-hidden">
-        <Hero image={heroimage} />
+        <Hero
+          image={heroimage}
+          title="studio apartment"
+          description="A Smart Stay with Comfort & Style"
+          component="singleroom"
+        />
         <RoomDetails />
         <HotelFeatures />
         <MapReview />

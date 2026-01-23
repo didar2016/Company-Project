@@ -32,9 +32,11 @@ const Navbar: React.FC = () => {
       name: 'AMENITIES',
       href: 'amenities',
     },
-    { name: 'ABOUT', href: '#about' },
+
     { name: 'LOCATION', href: 'location' },
     { name: 'DINING', href: 'dining' },
+    { name: 'ABOUT', href: 'about' },
+    { name: 'CONTACT', href: 'contact' },
   ];
 
   // Close dropdown when clicking outside
@@ -99,7 +101,7 @@ const Navbar: React.FC = () => {
                           <Link
                             key={subItem.name}
                             href={subItem.href}
-                            className="font-[--font-sansation] font-normal not-italic text-[18px] leading-6.75 uppercase text-[#454779]  font-weight-400 block px-4 py-3 text-xs  hover:bg-gray-50 hover:text-accent transition-colors border-b last:border-0 border-gray-50"
+                            className="font-sansation font-normal not-italic text-[18px] leading-6.75 uppercase text-[#454779]  font-weight-400 block px-4 py-3 text-xs  hover:bg-gray-50 hover:text-accent transition-colors border-b last:border-0 border-gray-50"
                             onClick={() => setActiveDropdown(null)}
                           >
                             {subItem.name}
@@ -111,7 +113,7 @@ const Navbar: React.FC = () => {
                 ) : (
                   <Link
                     href={link.href}
-                    className="font-[--font-sansation] not-italic text-[18px] leading-6.75 uppercase text-[#454779] text-xs font-medium  hover:text-accent transition-colors tracking-wide"
+                    className="font-sansation not-italic text-[18px] leading-6.75 uppercase text-[#454779] text-xs font-medium  hover:text-accent transition-colors tracking-wide"
                   >
                     {link.name}
                   </Link>
@@ -121,7 +123,7 @@ const Navbar: React.FC = () => {
 
             <Link
               href="#book"
-              className="font-sansation font-bold text-xs lg:text-sm xl:text-base inline-flex items-center px-2 lg:px-4 xl:px-6 py-1.5 lg:py-2 xl:py-2.5 border border-accent text-accent hover:bg-accent hover:text-white rounded-full transition-all duration-300 uppercase tracking-wider group justify-between"
+              className="font-sansation font-bold text-xs lg:text-sm xl:text-base inline-flex items-center px-2 lg:px-1 xl:px-6 py-1.5 lg:py-2 xl:py-2.5 border-[0.5px] border-[#00B3DD] text-[#00B3DD] hover:bg-accent hover:text-white rounded-full transition-all duration-300 uppercase tracking-wider group justify-between "
               onClick={() => setIsOpen(false)}
             >
               <span className="hidden xl:inline">Book Your Stay</span>
@@ -130,11 +132,12 @@ const Navbar: React.FC = () => {
                 <Image
                   src={visithotelicon}
                   alt="Visit Hotel Icon"
-                  className="w-3 h-auto lg:w-8 lg:h-auto"
+                  className="w-3 h-auto lg:w-13 lg:h-auto"
                 />
               </span>
             </Link>
           </div>
+
           {/* Mobile menu button */}
           <div className="lg:hidden flex items-center">
             <button

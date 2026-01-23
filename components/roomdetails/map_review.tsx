@@ -60,7 +60,7 @@ const MapReview: React.FC<MapReviewProps> = ({ className = '' }) => {
   ];
 
   return (
-    <section className={`relative w-full bg-white py-8 sm:py-12 ${className}`}>
+    <section className={`relative w-full bg-white  mx-auto sm:px-6 md:p-[100px] ${className}`}>
       <div className="absolute bottom-0 left-0 hidden sm:block">
         <Image
           src={pata}
@@ -68,10 +68,10 @@ const MapReview: React.FC<MapReviewProps> = ({ className = '' }) => {
           className="w-[200px] h-[200px] sm:w-[280px] sm:h-[280px] md:w-[320px] md:h-[320px] lg:w-[365px] lg:h-[365px]"
         />
       </div>
-      <div className="mx-auto px-4 sm:px-6 md:px-12 lg:px-16 xl:p-[100px]">
-        <div className="flex flex-col justify-between lg:flex-row gap-6 sm:gap-8 lg:gap-12">
+      <div className="mx-auto max-w-[1720px]">
+        <div className="flex flex-col justify-between items-center lg:flex-row gap-6 sm:gap-8 lg:gap-12">
           {/* Left Side - Interactive Map */}
-          <div className="max-w-[880px] relative w-full lg:w-1/2 h-[350px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl sm:shadow-2xl">
+          <div className=" relative w-full lg:w-1/2 h-[350px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl sm:shadow-2xl">
             {/* Map Container */}
             <div className="absolute inset-0 bg-gray-200">
               {/* Replace this iframe with your actual map implementation */}

@@ -18,7 +18,12 @@ export default function Home() {
       <Navbar />
 
       <main className="flex-grow w-full overflow-hidden ">
-        <Hero image={heroimage} />
+        <Hero
+          image={heroimage}
+          title="Rooms"
+          description="Mena Apart Hotels offers modern, relax, and experience true comfort with every visit."
+          component="room"
+        />
 
         <div className="mt-32 md:mt-0">
           <RoomSlider />

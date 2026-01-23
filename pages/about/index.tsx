@@ -3,12 +3,13 @@ import Head from 'next/head';
 import Navbar from '../../components/Navbar';
 import Hero from '../../components/Hero';
 import Footer from '../../components/Footer';
-import Amenities from '@/components/amenities/Amenities';
-import Facilities from '@/components/amenities/Facilities';
-import heroimage from '../../public/images/amenitiesheroimage.png';
+import heroimage from '../../public/images/aboutusheroimage.png';
 import MapReview from '@/components/roomdetails/map_review';
+import Description from '@/components/about/description';
+import OurStory from '@/components/about/ourstory';
+import DiningAmenities from '@/components/about/diningamenities';
 
-export default function Home() {
+export default function About() {
   return (
     <div className="min-h-screen bg-white flex flex-col mx-auto">
       <Head>
@@ -21,13 +22,14 @@ export default function Home() {
       <main className="w-full overflow-hidden ">
         <Hero
           image={heroimage}
-          title="Amenities"
-          description="From casual cafés to fine dining, discover a world of flavors crafted by our talented culinary team."
-          component="amenities"
+          title="About us"
+          description="A Smart Stay with Comfort & Style"
+          component="about"
         />
 
-        <Amenities />
-        <Facilities />
+        <Description />
+        <DiningAmenities />
+        <OurStory />
         <MapReview />
       </main>
 

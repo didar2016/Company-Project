@@ -20,7 +20,7 @@ const WeekendOffer: React.FC = () => {
       <div className="absolute top-2 sm:top-4 right-0 w-[250px] sm:w-[350px] md:w-[450px] lg:w-[600px] xl:w-[733px] z-0">
         <Image src={offertop} alt="Decorative Top" className="w-full h-auto object-contain" />
       </div>
-      <div className="max-w-[1720px] space-y-6 sm:space-y-8 md:space-y-12 lg:space-y-16 xl:space-y-20">
+      <div className="max-w-[1720px] space-y-6 sm:space-y-8 md:space-y-12 lg:space-y-16 xl:space-y-20 mx-auto">
         <div className="relative flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-8 lg:gap-12 xl:gap-20 items-center">
           <div className="py-[15px] px-[30px] sm:py-[20px] sm:px-[40px] md:py-[25px] md:px-[50px] lg:py-[30px] lg:px-[60px] backdrop-blur-[9px] bg-[#EDF7FC33] rounded-[20px]">
             <div
@@ -79,12 +79,12 @@ const WeekendOffer: React.FC = () => {
             />
           </div>
           <div className="flex justify-center sm:justify-end mt-6 sm:mt-7 md:mt-8 lg:mt-9">
-            <button className="flex flex-row justify-between items-center gap-2 sm:gap-2.5 bg-[#00B3DD] hover:bg-[#009ec7] opacity-100 rounded-3xl px-3 sm:px-4 py-1 transition-colors">
+            <button className="flex flex-row justify-between items-center gap-2 sm:gap-2.5 bg-[#00B3DD] hover:bg-[#009ec7] opacity-100 rounded-[60px] px-3 sm:px-4 py-1 transition-colors">
               <span
                 className="p-2 sm:p-2.5 md:p-3 lg:p-3.5 font-sansation text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] uppercase text-white"
                 style={{ fontWeight: 700 }}
               >
-                VIEW DETAILS
+                Book & Direct Save
               </span>
               <Image
                 src={visithotelicon}

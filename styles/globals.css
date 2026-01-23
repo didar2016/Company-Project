@@ -50,7 +50,7 @@ body {
 
 .swiper-pagination-bullet {
   width: 20px !important;
-  height: 10px !important;
+  height: 8px !important;
   background: #9ba9ca !important; /* gray-300 */
   border-radius: 30px !important;
   transition: all 0.3s ease !important;

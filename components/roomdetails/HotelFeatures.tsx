@@ -25,10 +25,12 @@ const HotelFeatures: React.FC<HotelFeaturesProps> = ({ className = '' }) => {
   ];
 
   return (
-    <section className={`w-full bg-white px-4 sm:px-6 md:px-12 lg:pl-[100px] z-10 ${className}`}>
-      <div className="max-w-[1054px] px-0 sm:px-4 md:px-6 lg:px-8">
+    <section
+      className={`w-full bg-white px-4 sm:px-6 md:px-12 lg:pl-[100px] mx-auto flex justify-center  z-10 ${className}`}
+    >
+      <div className="max-w-[1720px] px-4 sm:px-0 flex justify-start items-start">
         {/* Main Heading */}
-        <div className="mb-8 sm:mb-10 md:mb-12">
+        <div className="mb-8 sm:mb-10 md:mb-12 align-start">
           <h1 className="text-[#5B6B9C] text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-[40px] font-normal tracking-wide mb-6 sm:mb-8">
             EXPERIENCE WORLD-CLASS SERVICE
           </h1>

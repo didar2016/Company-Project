@@ -20,6 +20,7 @@ interface Room {
   price: number;
   image: any;
   features: string[];
+  discountPercentage?: string;
 }
 
 const rooms: Room[] = [
@@ -30,6 +31,7 @@ const rooms: Room[] = [
     price: 899,
     image: roomcard1,
     features: ['King Bed', 'Free Wifi', 'Kitchenette'],
+    discountPercentage: '20% OFF',
   },
   {
     id: 2,
@@ -38,6 +40,7 @@ const rooms: Room[] = [
     price: 899,
     image: roomcard2,
     features: ['King Bed', 'Living Area', 'Full Kitchen'],
+    discountPercentage: 'Save up to 25%',
   },
   {
     id: 3,
@@ -46,6 +49,7 @@ const rooms: Room[] = [
     price: 899,
     image: roomcard3,
     features: ['2 King Beds', '2 Bathrooms', 'City View'],
+    discountPercentage: '15% OFF',
   },
   {
     id: 4,
@@ -54,6 +58,7 @@ const rooms: Room[] = [
     price: 999,
     image: roomcard1,
     features: ['Panoramic View', 'Jacuzzi', 'Office'],
+    discountPercentage: '15% OFF',
   },
 ];
 
@@ -124,9 +129,9 @@ const RoomSlider: React.FC = () => {
           }}
           className="pb-12 !px-2 sm:!px-4" // Padding for shadow clipping
         >
-          {rooms.map((room) => (
+          {rooms.map((room, index) => (
             <SwiperSlide key={room.id} className="h-full">
-              <RoomCard room={room} />
+              <RoomCard room={room} index={index} />
             </SwiperSlide>
           ))}
         </Swiper>
