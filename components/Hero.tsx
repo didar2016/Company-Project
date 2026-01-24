@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import visithotelicon from '../public/images/visithotelicon.png';
 const Hero: React.FC<{ image: any; title: string; description: string; component: string }> = ({
   image,
   title,
@@ -10,7 +11,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
     <div className="relative">
       {/* Background Image with Overlay */}
       {component === 'index' ? (
-        <div className="w-full h-[60vh] sm:h-[65vh] md:h-[75vh] lg:h-[1080px]">
+        <div className="w-full h-[100vh]  xl:h-[1580px] min-[1490px]:h-[1980px] min-[1911px]:h-[1500px]">
           {/* Placeholder for Hero Image */}
           <Image
             src={image}
@@ -39,9 +40,9 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
       )}
 
       {component === 'index' && (
-        <div className="absolute inset-0 z-10">
+        <>
           <div
-            className="absolute top-0 right-0 w-1/2 h-full"
+            className="absolute top-0 right-0 w-3/5 h-full z-10"
             style={{
               backdropFilter: 'blur(14px)',
               WebkitMaskImage: 'linear-gradient(to right, transparent, black 54px)',
@@ -51,124 +52,131 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
             }}
           />
 
-          <div className="relative w-full h-full pointer-events-none">
-            {/* Text Section */}
-            <div className="absolute top-[15%] md:top-[20%] lg:top-[311px] right-0 lg:right-auto lg:left-[calc(50%-1130px/2+233px)] w-full lg:w-[1130px] flex flex-col items-end px-4 sm:px-8 lg:px-0 pointer-events-auto">
-              <h2 className="font-sansation font-bold text-[18px] md:text-[24px] lg:text-[30px] leading-[1.3] text-[#A4D5F0] uppercase text-right mb-2 lg:mb-[18px]">
-                WELCOME TO MENA APARTHOTEL ALBARSHA
-              </h2>
-              <h1 className="font-sansation-light font-light text-[36px] md:text-[60px] lg:text-[90px] leading-[1.1] lg:leading-[110px] text-white uppercase text-right mb-2 lg:mb-[18px]">
-                YOUR <span className="font-bold">HOME BASE</span> IN THE{' '}
-                <span className="font-bold">HEART</span> OF THE DUBAI.
-              </h1>
-              <p className="font-sansation-light font-light text-[14px] md:text-[18px] lg:text-[20px] leading-[1.2] text-white text-right max-w-[500px] lg:max-w-full">
-                Mena Apart Hotels offers modern, fully equipped suites crafted for both business and
-                leisure stays giving you the space to work, relax, and experience true comfort with
-                every visit.
-              </p>
-            </div>
-
-            {/* Search Bar Section */}
-            <div className="absolute bottom-4 lg:bottom-[50px] left-1/2 transform -translate-x-1/2 w-[95%] lg:w-[1597px] min-h-[100px] lg:min-h-[178px] bg-gradient-to-r from-[rgba(0,0,0,0.3)] to-[rgba(234,234,234,0.3)] backdrop-blur-[12px] rounded-[10px] p-4 lg:p-[40px] flex flex-col lg:flex-row items-end gap-4 lg:gap-[30px] pointer-events-auto shadow-lg">
-              {/* Check In */}
-              <div className="flex flex-col gap-[8px] w-full lg:w-[202px]">
-                <span className="font-poppins text-white text-[14px] lg:text-[20px]">
-                  Check In-Date
-                </span>
-                <div className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[50px] lg:h-[60px] px-[15px] lg:px-[30px] w-full">
-                  <span className="font-poppins text-white text-[14px] lg:text-[20px]">
-                    21 Dec 2025
-                  </span>
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-5 h-5 lg:w-6 lg:h-6"
-                  >
-                    <path
-                      d="M19 4H18V3C18 2.44772 17.5523 2 17 2C16.4477 2 16 2.44772 16 3V4H8V3C8 2.44772 7.55228 2 7 2C6.44772 2 6 2.44772 6 3V4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4ZM19 20H5V10H19V20ZM19 8H5V6H19V8Z"
-                      fill="#A4D5F0"
-                    />
-                  </svg>
-                </div>
-              </div>
-
-              {/* Check Out */}
-              <div className="flex flex-col gap-[8px] w-full lg:w-[202px]">
-                <span className="font-poppins text-white text-[14px] lg:text-[20px]">
-                  Check Out-Date
-                </span>
-                <div className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[50px] lg:h-[60px] px-[15px] lg:px-[30px] w-full">
-                  <span className="font-poppins text-white text-[14px] lg:text-[18px]">
-                    26 Dec 2025
-                  </span>
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-5 h-5 lg:w-6 lg:h-6"
-                  >
-                    <path
-                      d="M19 4H18V3C18 2.44772 17.5523 2 17 2C16.4477 2 16 2.44772 16 3V4H8V3C8 2.44772 7.55228 2 7 2C6.44772 2 6 2.44772 6 3V4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4ZM19 20H5V10H19V20ZM19 8H5V6H19V8Z"
-                      fill="#A4D5F0"
-                    />
-                  </svg>
-                </div>
-              </div>
-
-              {/* Guests */}
-              <div className="flex flex-col gap-[8px] w-full lg:w-[331px]">
-                <span className="font-poppins text-white text-[14px] lg:text-[20px]">Guests</span>
-                <div className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[50px] lg:h-[60px] px-[15px] lg:px-[30px] w-full cursor-pointer">
-                  <span className="font-poppins text-white text-[14px] lg:text-[20px]">
-                    2 Adults, 1 Children
-                  </span>
-                  <span className="text-white text-xs lg:text-sm">▼</span>
-                </div>
-              </div>
-
-              {/* Room Type */}
-              <div className="flex flex-col gap-[8px] w-full lg:w-[331px]">
-                <span className="font-poppins text-white text-[14px] lg:text-[20px]">
-                  Room Type
-                </span>
-                <div className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[50px] lg:h-[60px] px-[15px] lg:px-[30px] w-full cursor-pointer">
-                  <span className="font-poppins text-white text-[14px] lg:text-[20px]">
-                    Deluxe Suite
-                  </span>
-                  <span className="text-white text-xs lg:text-sm">▼</span>
-                </div>
-              </div>
-
-              {/* CTA Button */}
-              <button className="flex items-center justify-between bg-[#00B3DD] rounded-[60px] h-[50px] lg:h-[68px] w-full lg:w-[331px] px-[20px] lg:px-[32px] hover:bg-[#009ac0] transition-colors cursor-pointer group">
-                <span className="font-sansation font-bold text-white text-[16px] lg:text-[20px] tracking-[0.25px] uppercase">
-                  CHECK AVAILABILITY
-                </span>
-                <div className="w-[36px] h-[36px] lg:w-[44px] lg:h-[44px] rounded-full border-2 border-white flex items-center justify-center group-hover:bg-white/10 transition-colors">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="w-4 h-4 lg:w-5 lg:h-5"
-                  >
-                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                    <polyline points="7 7 17 7 17 17"></polyline>
-                  </svg>
-                </div>
-              </button>
-            </div>
+          <div className="absolute z-20 text-center md:text-right text-white px-4 sm:px-6 md:px-8 lg:px-12 max-w-[1130px] mx-auto top-[10%] sm:top-[15%] xl:top-[32%] right-0 sm:right-[2%] md:right-[5%] left-4 sm:left-auto ">
+            <h2 className="font-sansation font-bold text-[18px] md:text-[24px] lg:text-[30px] leading-[1.3] text-[#A4D5F0] uppercase text-right mb-2 lg:mb-[18px]">
+              WELCOME TO MENA APARTHOTEL ALBARSHA
+            </h2>
+            <h1 className="font-sansation-light font-light text-[36px] md:text-[60px] lg:text-[90px] leading-[1.1] lg:leading-[110px] text-white uppercase text-right mb-2 lg:mb-[18px]">
+              YOUR <span className="font-bold font-sansation">HOME BASE</span> IN THE{' '}
+              <span className="font-bold font-sansation">HEART</span> OF THE DUBAI.
+            </h1>
+            <p className="font-sansation-light font-light text-[14px] md:text-[18px] lg:text-[20px] leading-[1.2] text-white text-right md:max-w-full">
+              Mena Apart Hotels offers modern, fully equipped suites crafted for both business and
+              leisure stays giving you the space to work, relax, and experience true comfort with
+              every visit.
+            </p>
           </div>
-        </div>
+
+          {/* Search Bar Section */}
+          <div className="max-w-[1720px] z-20 absolute bottom-[18%] sm:bottom-[22%] md:bottom-[25%] lg:bottom-[8%]  left-1/2 transform -translate-x-1/2 xl:w-[83%] right-20 min-h-[100px] lg:min-h-[178px] bg-gradient-to-r from-[rgba(0,0,0,0.3)] to-[rgba(234,234,234,0.3)] backdrop-blur-[12px] rounded-[10px] p-4 lg:p-[40px] flex flex-wrap flex-col xl:flex-row items-end gap-4 lg:gap-[30px] pointer-events-auto shadow-lg">
+            {/* Check In */}
+            <div className="flex flex-col gap-[8px] w-full xl:w-[202px]">
+              <span className="font-poppins text-white text-[14px] lg:text-[20px]">
+                Check In-Date
+              </span>
+              <div className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[50px] lg:h-[60px] px-[15px] lg:px-[30px] w-full">
+                <span className="font-poppins text-white text-[14px] lg:text-[20px]">
+                  21 Dec 2025
+                </span>
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5 lg:w-6 lg:h-6"
+                >
+                  <path
+                    d="M19 4H18V3C18 2.44772 17.5523 2 17 2C16.4477 2 16 2.44772 16 3V4H8V3C8 2.44772 7.55228 2 7 2C6.44772 2 6 2.44772 6 3V4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4ZM19 20H5V10H19V20ZM19 8H5V6H19V8Z"
+                    fill="#A4D5F0"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            {/* Check Out */}
+            <div className="flex flex-col gap-[8px] w-full xl:w-[202px]">
+              <span className="font-poppins text-white text-[14px] lg:text-[20px]">
+                Check Out-Date
+              </span>
+              <div className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[50px] lg:h-[60px] px-[15px] lg:px-[30px] w-full">
+                <span className="font-poppins text-white text-[14px] lg:text-[18px]">
+                  26 Dec 2025
+                </span>
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5 lg:w-6 lg:h-6"
+                >
+                  <path
+                    d="M19 4H18V3C18 2.44772 17.5523 2 17 2C16.4477 2 16 2.44772 16 3V4H8V3C8 2.44772 7.55228 2 7 2C6.44772 2 6 2.44772 6 3V4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4ZM19 20H5V10H19V20ZM19 8H5V6H19V8Z"
+                    fill="#A4D5F0"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            {/* Guests */}
+            <div className="flex flex-col gap-[8px] w-full xl:w-[331px]">
+              <span className="font-poppins text-white text-[14px] lg:text-[20px]">Guests</span>
+              <div className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[50px] lg:h-[60px] px-[15px] lg:px-[30px] w-full cursor-pointer">
+                <span className="font-poppins text-white text-[14px] lg:text-[20px]">
+                  2 Adults, 1 Children
+                </span>
+                <span className="text-white text-xs lg:text-sm">▼</span>
+              </div>
+            </div>
+
+            {/* Room Type */}
+            <div className="flex flex-col gap-[8px] w-full xl:w-[331px]">
+              <span className="font-poppins text-white text-[14px] lg:text-[20px]">Room Type</span>
+              <div className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[50px] lg:h-[60px] px-[15px] lg:px-[30px] w-full cursor-pointer">
+                <span className="font-poppins text-white text-[14px] lg:text-[20px]">
+                  Deluxe Suite
+                </span>
+                <span className="text-white text-xs lg:text-sm">▼</span>
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <button
+              className="flex flex-row justify-between items-center gap-1.5 sm:gap-2.5 bg-[#00B3DD] opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3 border-1"
+              style={{
+                background: '#00B3DD',
+                // : 'white',
+                borderColor: '#00B3DD',
+                // '#00B3DD',
+              }}
+            >
+              <span
+                className="p-2 sm:p-2.5 md:p-3 lg:p-3.5 font-sansation text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] uppercase text-white tracking-[1.25px]"
+                style={{
+                  fontWeight: 700,
+                  color: 'white',
+                  // : '#454779'
+                }}
+              >
+                {' '}
+                CHECK AVAILABILITY
+              </span>
+              <Image
+                src={visithotelicon}
+                alt="Visit Hotel Icon"
+                className="object-fill object-center h-[24px] w-[28px] sm:h-[30px] sm:w-[36px] md:h-[36px] md:w-[42px] lg:h-[40px] lg:w-[48px]
+              "
+                //
+                style={{
+                  filter:
+                    'brightness(0) saturate(100%) invert(99%) sepia(0%) saturate(6502%) hue-rotate(18deg) brightness(119%) contrast(100%)',
+                  // : 'brightness(0) saturate(100%) invert(41%) sepia(21%) saturate(1108%) hue-rotate(188deg) brightness(100%) contrast(88%)',
+                }}
+              />
+            </button>
+          </div>
+        </>
       )}
 
       {(component === 'amenities' ||

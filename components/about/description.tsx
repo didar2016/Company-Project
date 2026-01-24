@@ -45,7 +45,7 @@ const Description = () => {
             className="transition-transform duration-500 group-hover:scale-105"
           />
           {/* Play Button Overlay */}
-          <div className="absolute inset-0 flex items-center justify-center">
+          <div className="absolute right-[20px] bottom-[20px] flex items-center justify-center">
             <button className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform group-hover:shadow-xl">
               <svg
                 width="24"

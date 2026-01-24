@@ -74,7 +74,7 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-4 xl:space-x-8" ref={dropdownRef}>
+          <div className="hidden lg:flex items-center space-x-2 xl:space-x-5" ref={dropdownRef}>
             {navLinks.map((link) => (
               <div key={link.name} className="relative group">
                 {link.subItems ? (
@@ -123,16 +123,16 @@ const Navbar: React.FC = () => {
 
             <Link
               href="#book"
-              className="font-sansation font-bold text-xs lg:text-sm xl:text-base inline-flex items-center px-2 lg:px-1 xl:px-6 py-1.5 lg:py-2 xl:py-2.5 border-[0.5px] border-[#00B3DD] text-[#00B3DD] hover:bg-accent hover:text-white rounded-full transition-all duration-300 uppercase tracking-wider group justify-between "
+              className="font-sansation font-bold text-xs lg:text-sm xl:text-base inline-flex items-center px-2 lg:px-3 xl:px-6 py-1.5 lg:py-2 xl:py-2.5 border-[0.5px] border-[#00B3DD] text-[#00B3DD] hover:bg-accent hover:text-white rounded-full transition-all duration-300 uppercase tracking-wider group justify-between "
               onClick={() => setIsOpen(false)}
             >
-              <span className="hidden xl:inline">Book Your Stay</span>
-              <span className="xl:hidden">Book</span>
+              <span className="hidden min-[1385px]:inline">Book Your Stay</span>
+              <span className="min-[1385px]:hidden">Book</span>
               <span className="ml-1.5 lg:ml-2 xl:ml-3 inline-block transition-all duration-300 visit-hotel-icon">
                 <Image
                   src={visithotelicon}
                   alt="Visit Hotel Icon"
-                  className="w-3 h-auto lg:w-13 lg:h-auto"
+                  className="h-auto w-8 min-[1385px]:w-13 lg:h-auto"
                 />
               </span>
             </Link>
