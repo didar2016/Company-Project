@@ -11,7 +11,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
     <div className="relative">
       {/* Background Image with Overlay */}
       {component === 'index' ? (
-        <div className="w-full h-[100vh]  xl:h-[1580px] min-[1490px]:h-[1980px] min-[1911px]:h-[1500px]">
+        <div className="w-full h-[100vh]  xl:h-[1400px] min-[1490px]:h-[1980px] min-[1911px]:h-[1500px]">
           {/* Placeholder for Hero Image */}
           <Image
             src={image}
@@ -52,7 +52,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
             }}
           />
 
-          <div className="absolute z-20 text-center md:text-right text-white px-4 sm:px-6 md:px-8 lg:px-12 max-w-[1130px] mx-auto top-[10%] sm:top-[15%] xl:top-[32%] right-0 sm:right-[2%] md:right-[5%] left-4 sm:left-auto ">
+          <div className="absolute z-20 text-center md:text-right text-white px-4 sm:px-6 md:px-8 lg:px-12 max-w-[1130px] mx-auto top-[10%] sm:top-[15%] xl:top-[25%] right-0 sm:right-[2%] md:right-[5%] left-4 sm:left-auto ">
             <h2 className="font-sansation font-bold text-[18px] md:text-[24px] lg:text-[30px] leading-[1.3] text-[#A4D5F0] uppercase text-right mb-2 lg:mb-[18px]">
               WELCOME TO MENA APARTHOTEL ALBARSHA
             </h2>
