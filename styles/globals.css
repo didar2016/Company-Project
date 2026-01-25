@@ -158,3 +158,8 @@ body {
 .group:hover .visit-hotel-icon {
   filter: brightness(0) saturate(100%) invert(100%);
 }
+
+/* .-translate-x-1\/2 {
+    --tw-translate-x: 0px !important; 
+    
+  } */

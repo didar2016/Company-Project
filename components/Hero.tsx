@@ -11,14 +11,13 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
     <div className="relative">
       {/* Background Image with Overlay */}
       {component === 'index' ? (
-        <div className="w-full h-[100vh]  xl:h-[1400px] min-[1490px]:h-[1980px] min-[1911px]:h-[1500px]">
+        <div className="w-full h-[850px] sm:h-[900px]  md:h-[1100px] lg:h-[1100px]">
           {/* Placeholder for Hero Image */}
           <Image
             src={image}
             alt="Mena Hotel Interior"
             fill
-            sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
-            className="object-cover object-center scale-150 sm:scale-125 md:scale-110 lg:scale-100"
+            className="object-cover object-center"
             priority
             quality={90}
             style={{ objectFit: 'fill' }}
@@ -30,8 +29,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
             src={image}
             alt="Mena Hotel Interior"
             fill
-            sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
-            className="object-cover object-center scale-150 sm:scale-125 md:scale-110 lg:scale-100"
+            className="object-cover object-center"
             priority
             quality={90}
             style={{ objectFit: 'cover' }}
@@ -42,7 +40,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
       {component === 'index' && (
         <>
           <div
-            className="absolute top-0 right-0 w-3/5 h-full z-10"
+            className="absolute top-0 right-0 w-3/5 h-full z-10 hidden lg:block"
             style={{
               backdropFilter: 'blur(14px)',
               WebkitMaskImage: 'linear-gradient(to right, transparent, black 54px)',
@@ -52,25 +50,25 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
             }}
           />
 
-          <div className="absolute z-20 text-center md:text-right text-white px-4 sm:px-6 md:px-8 lg:px-12 max-w-[1130px] mx-auto top-[10%] sm:top-[15%] xl:top-[25%] right-0 sm:right-[2%] md:right-[5%] left-4 sm:left-auto ">
-            <h2 className="font-sansation font-bold text-[18px] md:text-[24px] lg:text-[30px] leading-[1.3] text-[#A4D5F0] uppercase text-right mb-2 lg:mb-[18px]">
+          <div className="absolute z-20 text-center  md:text-right text-white px-4 sm:px-6 md:px-8 lg:px-12 max-w-[1130px] mx-auto top-[17%] sm:top-[23%] lg:top-[25%] right-0 sm:right-[2%] md:right-[5%] left-4 sm:left-auto ">
+            <h2 className="max-[640px]:text-center font-sansation font-bold text-[18px] md:text-[24px] lg:text-[30px] leading-[1.3] text-[#A4D5F0] uppercase text-right mb-2 lg:mb-[18px]">
               WELCOME TO MENA APARTHOTEL ALBARSHA
             </h2>
-            <h1 className="font-sansation-light font-light text-[36px] md:text-[60px] lg:text-[90px] leading-[1.1] lg:leading-[110px] text-white uppercase text-right mb-2 lg:mb-[18px]">
+            <h1 className=" max-[640px]:text-center font-sansation-light font-light text-[26px] md:text-[45px] lg:text-[65px] xl:text-[80px] leading-[1.1] lg:leading-[110px] text-white uppercase text-right mb-2 lg:mb-[18px]">
               YOUR <span className="font-bold font-sansation">HOME BASE</span> IN THE{' '}
               <span className="font-bold font-sansation">HEART</span> OF THE DUBAI.
             </h1>
-            <p className="font-sansation-light font-light text-[14px] md:text-[18px] lg:text-[20px] leading-[1.2] text-white text-right md:max-w-full">
-              Mena Apart Hotels offers modern, fully equipped suites crafted for both business and
+            <p className="max-[640px]:text-center font-sansation-light font-light text-[14px] md:text-[18px] lg:text-[20px] leading-[1.2] text-white text-right md:max-w-full">
+              MENA Apart Hotels offers modern, fully equipped suites crafted for both business and
               leisure stays giving you the space to work, relax, and experience true comfort with
               every visit.
             </p>
           </div>
 
           {/* Search Bar Section */}
-          <div className="max-w-[1720px] z-20 absolute bottom-[18%] sm:bottom-[22%] md:bottom-[25%] lg:bottom-[8%]  right-[20%] left-[50%]  xl:left-1/2 transform -translate-x-1/2 xl:w-[83%] xl:right-20 min-h-[100px] lg:min-h-[178px] bg-gradient-to-r from-[rgba(0,0,0,0.3)] to-[rgba(234,234,234,0.3)] backdrop-blur-[12px] rounded-[10px] p-4 lg:p-[40px] flex flex-wrap flex-col xl:flex-row items-end gap-4 lg:gap-[30px] pointer-events-auto shadow-lg">
+          <div className="max-w-[1720px] z-20 absolute bottom-[3%] right-[10%] left-[10%] sm:bottom-[5%] lg:bottom-[6%] lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:w-[83%] xl:right-20 min-h-[100px] lg:min-h-[178px] bg-gradient-to-r from-[rgba(0,0,0,0.3)] to-[rgba(234,234,234,0.3)] backdrop-blur-[12px] rounded-[10px] p-[20px] sm:p-[30px] lg:p-[40px] flex flex-wrap lg:flex-row items-end gap-4 lg:gap-[25px] pointer-events-auto shadow-lg">
             {/* Check In */}
-            <div className="flex flex-col gap-[8px] w-full xl:w-[202px]">
+            <div className="flex flex-col gap-[8px] w-full lg:w-[202px]">
               <span className="font-poppins text-white text-[14px] lg:text-[20px]">
                 Check In-Date
               </span>
@@ -95,7 +93,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
             </div>
 
             {/* Check Out */}
-            <div className="flex flex-col gap-[8px] w-full xl:w-[202px]">
+            <div className="flex flex-col gap-[8px] w-full lg:w-[202px]">
               <span className="font-poppins text-white text-[14px] lg:text-[20px]">
                 Check Out-Date
               </span>
@@ -120,7 +118,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
             </div>
 
             {/* Guests */}
-            <div className="flex flex-col gap-[8px] w-full xl:w-[331px]">
+            <div className="flex flex-col gap-[8px] w-full lg:w-[331px]">
               <span className="font-poppins text-white text-[14px] lg:text-[20px]">Guests</span>
               <div className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[50px] lg:h-[60px] px-[15px] lg:px-[30px] w-full cursor-pointer">
                 <span className="font-poppins text-white text-[14px] lg:text-[20px]">
@@ -131,7 +129,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
             </div>
 
             {/* Room Type */}
-            <div className="flex flex-col gap-[8px] w-full xl:w-[331px]">
+            <div className="flex flex-col gap-[8px] w-full lg:w-[331px]">
               <span className="font-poppins text-white text-[14px] lg:text-[20px]">Room Type</span>
               <div className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[50px] lg:h-[60px] px-[15px] lg:px-[30px] w-full cursor-pointer">
                 <span className="font-poppins text-white text-[14px] lg:text-[20px]">
