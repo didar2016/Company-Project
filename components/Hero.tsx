@@ -21,7 +21,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
             className="object-cover object-center scale-150 sm:scale-125 md:scale-110 lg:scale-100"
             priority
             quality={90}
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: 'fill' }}
           />
         </div>
       ) : (
@@ -68,7 +68,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
           </div>
 
           {/* Search Bar Section */}
-          <div className="max-w-[1720px] z-20 absolute bottom-[18%] sm:bottom-[22%] md:bottom-[25%] lg:bottom-[8%]  left-1/2 transform -translate-x-1/2 xl:w-[83%] right-20 min-h-[100px] lg:min-h-[178px] bg-gradient-to-r from-[rgba(0,0,0,0.3)] to-[rgba(234,234,234,0.3)] backdrop-blur-[12px] rounded-[10px] p-4 lg:p-[40px] flex flex-wrap flex-col xl:flex-row items-end gap-4 lg:gap-[30px] pointer-events-auto shadow-lg">
+          <div className="max-w-[1720px] z-20 absolute bottom-[18%] sm:bottom-[22%] md:bottom-[25%] lg:bottom-[8%]  right-[20%] left-[50%]  xl:left-1/2 transform -translate-x-1/2 xl:w-[83%] xl:right-20 min-h-[100px] lg:min-h-[178px] bg-gradient-to-r from-[rgba(0,0,0,0.3)] to-[rgba(234,234,234,0.3)] backdrop-blur-[12px] rounded-[10px] p-4 lg:p-[40px] flex flex-wrap flex-col xl:flex-row items-end gap-4 lg:gap-[30px] pointer-events-auto shadow-lg">
             {/* Check In */}
             <div className="flex flex-col gap-[8px] w-full xl:w-[202px]">
               <span className="font-poppins text-white text-[14px] lg:text-[20px]">
@@ -143,7 +143,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
 
             {/* CTA Button */}
             <button
-              className="flex flex-row justify-between items-center gap-1.5 sm:gap-2.5 bg-[#00B3DD] opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3 border-1"
+              className="flex flex-row justify-between items-center gap-0 bg-[#00B3DD] opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3 border-1"
               style={{
                 background: '#00B3DD',
                 // : 'white',
@@ -152,7 +152,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
               }}
             >
               <span
-                className="p-2 sm:p-2.5 md:p-3 lg:p-3.5 font-sansation text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] uppercase text-white tracking-[1.25px]"
+                className="pr-[2px]! p-2 sm:p-2.5 md:p-3 lg:p-3.5 font-sansation text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] uppercase text-white tracking-[1.25px]"
                 style={{
                   fontWeight: 700,
                   color: 'white',
