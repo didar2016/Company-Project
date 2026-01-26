@@ -30,13 +30,13 @@ const hotels: Hotel[] = [
   },
   {
     id: 2,
-    name: 'Desert Safari',
+    name: 'Burj Khalifa',
     address: 'Experience the thrill of dune bashing and traditional Bedouin hospitality',
     image: burjkhalifa,
   },
   {
     id: 3,
-    name: 'Desert Safari',
+    name: 'Burj Al Arab',
     address: 'Experience the thrill of dune bashing and traditional Bedouin hospitality',
     image: sea,
   },
@@ -48,13 +48,13 @@ const hotels: Hotel[] = [
   },
   {
     id: 5,
-    name: 'Desert Safari',
+    name: 'Burj Khalifa',
     address: 'Experience the thrill of dune bashing and traditional Bedouin hospitality',
     image: burjkhalifa,
   },
   {
     id: 2,
-    name: 'Desert Safari',
+    name: 'Burj Al Arab',
     address: 'Experience the thrill of dune bashing and traditional Bedouin hospitality',
     image: sea,
   },
@@ -102,7 +102,6 @@ const LocationSlider: React.FC = () => {
             {hotels.map((hotel, index) => (
               <SwiperSlide key={index} className="h-full">
                 <div className="flex flex-col gap-4 sm:gap-[30px] group h-full relative max-w-[540px] overflow-hidden mx-auto">
-                  {/* Image Container */}
                   <div className="border-[#A4D5F0] border-l-[4px] h-auto min-h-[80px] sm:min-h-[100px] md:min-h-[116px]">
                     <h4
                       className="text-[20px] sm:text-[24px] md:text-[32px] font-sansation text-[#454779] mb-1 sm:mb-2 ml-3 sm:ml-5 leading-[46px] uppercase"
@@ -124,29 +123,6 @@ const LocationSlider: React.FC = () => {
                       alt={hotel.name}
                       className="object-fill object-center rounded-[15px] sm:rounded-[50px] md:rounded-[50px] w-full h-full"
                     />
-
-                    <div className="absolute left-3 sm:left-6 bottom-2 sm:bottom-7 py-[5px] px-[16px] rounded-[30px] flex flex-row gap-[10px] backdrop-blur-[20px]">
-                      <div
-                        className="absolute inset-0 rounded-[30px] pointer-events-none"
-                        style={{
-                          padding: '1px',
-                          background:
-                            'radial-gradient(84.35% 86.25% at 5.73% 0%, #FFFFFF 0%, rgba(255, 255, 255, 0.17) 100%)',
-                          WebkitMask:
-                            'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                          WebkitMaskComposite: 'xor',
-                          maskComposite: 'exclude',
-                        }}
-                      />
-                      <Image
-                        src={mapicon2}
-                        alt="Map Icon"
-                        className="w-[16px] h-[21px] translate-y-[3px]"
-                      />
-                      <div className="text-white font-poppins text-[20px] leading-[30px] font-[400]">
-                        45 Min Drive
-                      </div>
-                    </div>
 
                     <div className="absolute right-2 sm:right-4 bottom-2 sm:bottom-4">
                       <button className="flex flex-row justify-between items-center w-[160px] sm:w-[200px] md:w-[276px] h-[48px] sm:h-[56px] md:h-[68px] gap-1.5 sm:gap-2.5 bg-white opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3">

@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import visithotelicon from '../../public/images/visithotelicon.png';
-import culinary from '../../public/images/culinary.png';
+import culinary from '../../public/images/lobby.jpg';
 
 const MasaTurkishEatery: React.FC = () => {
   return (

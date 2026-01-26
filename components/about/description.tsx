@@ -1,7 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
+import space from '../../public/images/space.jpg';
+import { useRouter } from 'next/router';
 
 const Description = () => {
+  const router = useRouter();
+  const handlenavigation = () => {
+    router.push('/about');
+  };
   return (
     <section className="bg-[#9BA9CA]/20 py-24 px-4 md:px-24 flex flex-col gap-16 relative overflow-hidden">
       {/* Decorative Pata Image (Bottom Right) */}
@@ -38,7 +44,7 @@ const Description = () => {
         {/* Image Side */}
         <div className="relative w-full xl:w-1/2 h-[400px] lg:h-[642px] rounded-[30px] overflow-hidden group">
           <Image
-            src="/images/aboutusheroimage.png"
+            src={space}
             alt="Mena Plaza Hotel Lobby"
             layout="fill"
             objectFit="cover"
@@ -86,15 +92,15 @@ const Description = () => {
             </span>
             <div className="w-[75px] h-[1px] bg-[#9BA9CA]"></div>
           </div>
-
+          {/* 
           <p className="font-['Poppins'] text-[#8A8BB3] text-lg text-center leading-relaxed">
             Situated close to Dubai's most famous attractions, best of the city within easy reach.
             With Dubai International Airport just 25 km away, you'll find us perfectly positioned
             for seamless travel. Mall of the Emirates (0.5 km). With Dubai International Airport
             only 22 km away, our hotel is conveniently positioned for seamless travel.
-          </p>
+          </p> */}
 
-          <div className="flex justify-center mt-4">
+          <div className="flex justify-center mt-4" onClick={handlenavigation}>
             <button className="flex items-center gap-4 bg-[#00B3DD] rounded-[60px] pl-8 pr-3 py-3 text-white transition hover:bg-[#009bc0] group">
               <span className="font-['Sansation'] font-bold text-lg tracking-[1.25px] uppercase">
                 Learn More

@@ -13,9 +13,9 @@ const WeekendOffer: React.FC = () => {
         <Image src={patatop} alt="Decorative Top" className="w-full h-auto object-contain" />
       </div>
 
-      <div className="hidden lg:block absolute bottom-0 right-0 w-[400px] lg:w-[550px] xl:w-[778px] h-auto z-0">
+      {/* <div className="hidden lg:block absolute bottom-0 right-0 w-[400px] lg:w-[550px] xl:w-[778px] h-auto z-0">
         <Image src={chef} alt="Decorative Chef" className="w-full h-auto object-contain" />
-      </div>
+      </div> */}
 
       <div className="absolute top-2 sm:top-4 right-0 w-[250px] sm:w-[350px] md:w-[450px] lg:w-[600px] xl:w-[733px] z-0">
         <Image src={offertop} alt="Decorative Top" className="w-full h-auto object-contain" />
@@ -44,14 +44,14 @@ const WeekendOffer: React.FC = () => {
               >
                 20% Off
               </span>{' '}
-              Weekend Stays
+              Weekend Lunch
             </h1>
             <h2
               className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] leading-relaxed font-light text-[#8A8BB3] tracking-[0.75px] mt-2 sm:mt-3 md:mt-4"
               style={{ fontWeight: 300 }}
             >
-              Unlock an unforgettable weekend getaway with our special limited-time offer. Book now
-              and experience true luxury for less!
+              Savor exquisite flavors crafted by our master chefs in an ambiance of pure elegance.
+              Indulge in a culinary journey that delights your senses with every bite!
             </h2>
           </div>
         </div>

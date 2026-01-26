@@ -18,7 +18,8 @@ const Navbar: React.FC = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const navLinks: NavLink[] = [
-    { name: 'HOME', href: '/' },
+    { name: 'ABOUT', href: 'about' },
+
     {
       name: 'ROOMS',
       href: 'rooms',
@@ -28,14 +29,14 @@ const Navbar: React.FC = () => {
         { name: 'Two Bedroom', href: 'room' },
       ],
     },
+    { name: 'DINING', href: 'dining' },
+
     {
-      name: 'AMENITIES',
-      href: 'amenities',
+      name: 'FACILITIES',
+      href: 'facilities',
     },
 
-    { name: 'LOCATION', href: 'location' },
-    { name: 'DINING', href: 'dining' },
-    { name: 'ABOUT', href: 'about' },
+    { name: 'LOCATIONS', href: 'locations' },
     { name: 'CONTACT', href: 'contact' },
   ];
 
