@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { Maximize2, Coffee, Wifi, Gift, Printer, Bed } from 'lucide-react';
 import visithotelicon from '../public/images/visithotelicon.png';
@@ -31,6 +31,8 @@ const RoomCard: React.FC<RoomCardProps> = ({
 }) => {
   const router = useRouter();
 
+  const [isHovered, setIsHovered] = useState(false);
+
   const handleViewDetailsClick = () => {
     router.push('./roomdetails');
   };
@@ -39,8 +41,11 @@ const RoomCard: React.FC<RoomCardProps> = ({
     <div
       className="relative w-full max-w-[540px] bg-white overflow-hidden mx-auto cursor-pointer"
       onClick={handleViewDetailsClick}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       {/* Header Section with Title and Pricing */}
+
       <div className="flex flex-row justify-between pt-4 sm:pt-6 pb-3 sm:pb-4">
         {/* Title */}
         <div className="">
@@ -48,9 +53,9 @@ const RoomCard: React.FC<RoomCardProps> = ({
             className="font-sansation font-light text-[18px] sm:text-[22px] md:text-[26px] lg:text-[28px] xl:text-[32px] leading-[24px] sm:leading-[30px] md:leading-[36px] lg:leading-[40px] xl:leading-[46px] uppercase"
             style={{ fontWeight: 400, color: index % 2 == 1 ? '#00B3DD' : '#454779' }}
           >
-            {title}
+            {room.title}
             <br />
-            {subtitle}
+            {room.subTitle}
           </h2>
         </div>
 
@@ -85,6 +90,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
         </div>
       </div>
 
+      {/* <div style={{ paddingTop: isHovered ? '0' : '138px' }}></div> */}
       {/* Room Image */}
       <div className="relative overflow-hidden aspect-square w-full max-w-[540px]">
         {room.discountPercentage && (
@@ -169,6 +175,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
       </div>
 
       {/* View Details Button */}
+
       <div className="flex justify-end mt-4 sm:mt-6 md:mt-8">
         {showButton && (
           <button

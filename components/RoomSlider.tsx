@@ -4,8 +4,9 @@ import { Navigation, Pagination, A11y } from 'swiper/modules';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import type { Swiper as SwiperType } from 'swiper';
 import roomcard1 from '../public/images/roomcardimage1.png';
-import roomcard2 from '../public/images/roomcardimage2.png';
 import roomcard3 from '../public/images/roomcardimage3.png';
+import roomcard2 from '../public/images/roomcardimage2.jpg';
+import roomcard4 from '../public/images/roomcardimage4.png';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -16,6 +17,7 @@ import RoomCard from './roomcard';
 interface Room {
   id: number;
   title: string;
+  subTitle: string;
   size: string;
   price: number;
   image: any;
@@ -26,7 +28,8 @@ interface Room {
 const rooms: Room[] = [
   {
     id: 1,
-    title: 'STUDIO APARTMENT',
+    title: 'STUDIO ',
+    subTitle: 'APARTMENT',
     size: '45 sqm', // Image says 45sqm for Studio (prompt said 65 but visual says 45 for Studio, prompt says 65 for One-Bed? Prompt says Studio 65...). Let's stick to PROMPT values if possible, but image is 45. The Prompt says: "a) STUDIO APARTMENT - 65 sqm...". I will follow PROMPT.
     price: 899,
     image: roomcard1,
@@ -35,28 +38,31 @@ const rooms: Room[] = [
   },
   {
     id: 2,
-    title: 'ONE-BEDROOM APARTMENT',
+    title: 'ONE-BEDROOM ',
+    subTitle: 'APARTMENT',
     size: '65 sqm', // Prompt: 85 sqm. Image: 65 sqm. I will use PROMPT values. One-Bed 85 sqm.
     price: 899,
-    image: roomcard2,
+    image: roomcard3,
     features: ['King Bed', 'Living Area', 'Full Kitchen'],
     discountPercentage: 'Save up to 25%',
   },
   {
     id: 3,
-    title: 'TWO-BEDROOM APARTMENT',
+    title: 'TWO-BEDROOM ',
+    subTitle: 'APARTMENT',
     size: '85 sqm', // Prompt: 105 sqm. I will use PROMPT values.
     price: 899,
-    image: roomcard3,
+    image: roomcard2,
     features: ['2 King Beds', '2 Bathrooms', 'City View'],
     discountPercentage: '15% OFF',
   },
   {
     id: 4,
     title: 'EXECUTIVE SUITE',
+    subTitle: 'APARTMENT',
     size: '120 sqm',
     price: 999,
-    image: roomcard1,
+    image: roomcard4,
     features: ['Panoramic View', 'Jacuzzi', 'Office'],
     discountPercentage: '15% OFF',
   },

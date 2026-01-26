@@ -16,7 +16,7 @@ export default function HomePage() {
     <>
       <Hero
         image={menaheroimage}
-        title="MENA Agent Hotel Alliance"
+        title="Welcome to MENA ApartHotel Albarsha"
         description=""
         component="index"
       />

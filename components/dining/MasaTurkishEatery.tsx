@@ -2,8 +2,15 @@ import React from 'react';
 import Image from 'next/image';
 import visithotelicon from '../../public/images/visithotelicon.png';
 import culinary from '../../public/images/lobby.jpg';
+import { useRouter } from 'next/router';
 
 const MasaTurkishEatery: React.FC = () => {
+  const router = useRouter();
+
+  const handleNavigate = () => {
+    router.push('/dining');
+  };
+
   return (
     <div className="w-full sm:py-12 md:py-16 lg:py-20 max-w-[1720px] mx-auto">
       <div className="sm:px-6 md:p-[30px] bg-[#EBEEF4] rounded-[20px] ">
@@ -111,9 +118,12 @@ const MasaTurkishEatery: React.FC = () => {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 pt-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 pt-4 justify-between">
               {/* Explore Menu Button */}
-              <button className="flex flex-row justify-between items-center border-2 border-[#9BA9CA] gap-2 bg-white opacity-100 rounded-3xl sm:rounded-4xl px-3 py-1 flex-1 hover:bg-gray-50 transition-colors">
+              <button
+                onClick={handleNavigate}
+                className="flex flex-row max-w-[250px] justify-between items-center border-2 border-[#9BA9CA] gap-2 bg-white opacity-100 rounded-3xl sm:rounded-4xl px-3 py-1 flex-1 hover:bg-gray-50 transition-colors"
+              >
                 <span
                   className="p-2 sm:p-2.5 md:p-3 font-sansation text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] uppercase text-[#454779]"
                   style={{ fontWeight: 700 }}
@@ -128,7 +138,7 @@ const MasaTurkishEatery: React.FC = () => {
               </button>
 
               {/* Book Now Button */}
-              <button className="flex flex-row justify-between items-center gap-2 bg-[#00B3DD] opacity-100 rounded-3xl sm:rounded-4xl px-3 py-1 flex-1 hover:bg-[#009ec7] transition-colors">
+              {/* <button className="flex flex-row max-w-[250px] justify-between items-center gap-2 bg-[#00B3DD] opacity-100 rounded-3xl sm:rounded-4xl px-3 py-1 flex-1 hover:bg-[#009ec7] transition-colors">
                 <span
                   className="p-2 sm:p-2.5 md:p-3 font-sansation text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] uppercase text-white leading-tight tracking-[1.25px]"
                   style={{ fontWeight: 700 }}
@@ -140,7 +150,7 @@ const MasaTurkishEatery: React.FC = () => {
                   alt="Visit Hotel Icon"
                   className="object-contain h-[24px] w-[28px] sm:h-[30px] sm:w-[36px] md:h-[36px] md:w-[42px] filter brightness-0 invert"
                 />
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

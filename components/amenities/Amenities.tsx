@@ -23,11 +23,7 @@ const amenitiesData: AmenityItem[] = [
     description: 'Rejuvenate after a busy day in our tranquil sauna.',
     icon: fitnesscenricon,
   },
-  {
-    title: 'SAUNA',
-    description: 'Rejuvenate after a busy day in our tranquil sauna.',
-    icon: sauna_icon,
-  },
+
   {
     title: '24/7 SUPPORT',
     description: 'Concierge & 24/7 Service',
@@ -39,38 +35,8 @@ const amenitiesData: AmenityItem[] = [
     icon: support_icon,
   },
   {
-    title: 'WIFI',
-    description: 'Free Wi-Fi Everywhere',
-    icon: wifi_con,
-  },
-  {
-    title: 'ROOFTOP POOL',
-    description: 'Rejuvenate after a busy day in our tranquil sauna.',
-    icon: support_icon,
-  },
-  {
-    title: 'FITNESS CENTER',
-    description: 'Rejuvenate after a busy day in our tranquil sauna.',
-    icon: support_icon,
-  },
-  {
     title: 'SAUNA',
     description: 'Rejuvenate after a busy day in our tranquil sauna.',
-    icon: wifi_con,
-  },
-  {
-    title: '24/7 SUPPORT',
-    description: 'Concierge & 24/7 Service',
-    icon: support_icon,
-  },
-  {
-    title: 'FREE PARKING',
-    description: 'Airport Shuttle & Free Parking',
-    icon: support_icon,
-  },
-  {
-    title: 'WIFI',
-    description: 'Free Wi-Fi Everywhere',
     icon: wifi_con,
   },
 ];

@@ -14,7 +14,6 @@ const carouselImages = [
   '/images/roomcardimage1.png',
   '/images/roomcardimage2.png',
   '/images/roomcardimage3.png',
-  '/images/facilities1.png',
   '/images/facilities2.png',
 ];
 
@@ -124,7 +123,7 @@ const OurStory = () => {
         </div>
 
         {/* Bottom Card - Discover More */}
-        <div className="bg-white rounded-[30px] p-8 md:p-12 lg:p-16 flex flex-col items-center text-center gap-8 mx-4 md:mx-0 shadow-xl relative z-10">
+        {/* <div className="bg-white rounded-[30px] p-8 md:p-12 lg:p-16 flex flex-col items-center text-center gap-8 mx-4 md:mx-0 shadow-xl relative z-10">
           <div className="flex flex-col items-center gap-4 max-w-4xl mx-auto">
             <span className="font-['Sansation'] text-[#454779] text-base font-bold uppercase tracking-[3px]">
               Discover More
@@ -163,7 +162,7 @@ const OurStory = () => {
               </svg>
             </div>
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

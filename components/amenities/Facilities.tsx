@@ -1,23 +1,18 @@
 'use client';
 import Image from 'next/image';
 import React from 'react';
-import facility1 from '../../public/images/facilities1.png';
 import facility2 from '../../public/images/facilities2.png';
 import facility3 from '../../public/images/facilities3.png';
 import facility4 from '../../public/images/facilities4.png';
 
 const facilitiesData = [
   {
-    title: 'Spa & Wellness Sanctuary',
-    image: facility1,
-  },
-  {
-    title: 'State-of-the-Art Fitness Center',
+    title: 'Fitness Center',
     image: facility2,
     // Placeholder matching theme
   },
   {
-    title: 'Rooftop Infinity Pool',
+    title: 'Rooftop Pool',
     image: facility3,
   },
   {
@@ -60,30 +55,33 @@ const HeaderSection = () => {
 const CardGrid = () => {
   return (
     <div className="w-full max-w-[1720px]">
-      <div className="flex flex-wrap flex-row items-center justify-center gap-[20px]">
+      <div className="flex flex-wrap flex-row items-center justify-center gap-[30px] mx-auto">
         {facilitiesData.map((item, index) => (
-          <div key={index} className="relative rounded-[20px] overflow-hidden group">
+          <div
+            key={index}
+            className="relative  max-w-100 w-full rounded-[20px] overflow-hidden group"
+          >
             {/* Background Image */}
             <Image
               src={item.image}
               alt={item.title}
-              className="object-fill transition-transform duration-700 group-hover:scale-105"
+              className="object-fill transition-transform duration-700 group-hover:scale-120 h-60"
             />
 
             {/* Overlay Box */}
             <div
               className="absolute bottom-0 left-1/2 -translate-x-1/2 
-                           w-[calc(100%-40px)] md:w-[810px] 
+                           w-[90%] h-[30px] md:h-[60px]
                            
                            bg-black/20 
                            backdrop-blur-[24px] 
                            rounded-tr-[20px] 
                           rounded-tl-[20px] 
-                           p-[20px]
-                           flex items-center justify-start 
+                           
+                           flex items-center justify-center 
                            transition-all duration-300"
             >
-              <h3 className="text-white text-2xl md:text-[42px] leading-[56px] font-light text-left">
+              <h3 className="text-white text-2xl md:text-[25px] leading-[56px] font-light text-center">
                 {item.title}
               </h3>
             </div>

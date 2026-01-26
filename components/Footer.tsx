@@ -35,11 +35,11 @@ const Footer = () => {
 
         {/* Column 2: Navigation Links */}
         <div className="flex flex-col items-start gap-[10px] w-full xl:w-[286px] shrink-0">
-          <FooterLink text="HOME" active />
-          <FooterLink text="OUR DESTINATIONS" />
-          <FooterLink text="OFFERS" />
-          <FooterLink text="CONTACT" />
-          <FooterLink text="CAREERS" />
+          <FooterLink text="HOME" link="/" />
+          <FooterLink text="OUR DESTINATIONS" link="/locations" />
+          <FooterLink text="OFFERS" link="/dining" />
+          <FooterLink text="contact" link="/contact" />
+          <FooterLink text="CAREERS" link="/" />
         </div>
 
         {/* Column 3: Contact Us */}
@@ -86,10 +86,8 @@ const Footer = () => {
           {/* Socials */}
           <div className="flex items-center gap-[15px]">
             <SocialIcon icon={<Facebook size={20} />} />
-            <SocialIcon icon={<Instagram size={20} />} active />
-            <SocialIcon icon={<Twitter size={20} />} />
+            <SocialIcon icon={<Instagram size={20} />} />
             <SocialIcon icon={<Linkedin size={20} />} />
-            <SocialIcon icon={<Youtube size={20} />} />
           </div>
         </div>
 
@@ -140,11 +138,19 @@ const Footer = () => {
   );
 };
 
-const FooterLink = ({ text, active = false }: { text: string; active?: boolean }) => {
+const FooterLink = ({
+  text,
+  link,
+  active = false,
+}: {
+  text: string;
+  link: string;
+  active?: boolean;
+}) => {
   return (
     <div className="flex flex-col items-start gap-[11px] w-full group cursor-pointer">
       <Link
-        href="#"
+        href={link}
         className="font-sansation text-[18px] uppercase text-white leading-[27px] hover:text-[#00B3DD] transition-colors"
       >
         {text}

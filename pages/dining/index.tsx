@@ -3,10 +3,11 @@ import Head from 'next/head';
 import Navbar from '../../components/Navbar';
 import Hero from '../../components/Hero';
 import MasaTurkishEatery from '../../components/dining/MasaTurkishEatery';
-import WeekendOffer from '../../components/dining/WeekendOffer';
 import Footer from '../../components/Footer';
 import MapReview from '@/components/roomdetails/map_review';
 import Diningheroimage from '../../public/images/diningheroimage.png';
+import Map from '@/components/roomdetails/map';
+import WeekendOffer from '@/components/dining/WeekendOffer';
 
 export default function Dining() {
   return (
@@ -25,13 +26,12 @@ export default function Dining() {
         <Hero
           image={Diningheroimage}
           title="Dining Experiences"
-          description="From casual cafés to fine dining, discover a world of flavors crafted by our talented culinary team."
+          description="From casual cafés to fine dining, discover a world of flavorscrafted by our talented culinary team."
           component="dining"
         />
-
         <MasaTurkishEatery />
         <WeekendOffer />
-        <MapReview />
+        <Map />
       </main>
 
       <Footer />

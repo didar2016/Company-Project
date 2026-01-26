@@ -55,8 +55,8 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
               WELCOME TO MENA APARTHOTEL ALBARSHA
             </h2>
             <h1 className=" max-[640px]:text-center font-sansation-light font-light text-[26px] md:text-[45px] lg:text-[65px] xl:text-[80px] leading-[1.1] lg:leading-[110px] text-white uppercase text-right mb-2 lg:mb-[18px]">
-              YOUR <span className="font-bold font-sansation">HOME BASE</span> IN THE{' '}
-              <span className="font-bold font-sansation">HEART</span> OF THE DUBAI.
+              YOUR <span className="font-bold font-sansation">Home </span> in the{' '}
+              <span className="font-bold font-sansation">Heart</span> OF Dubai.
             </h1>
             <p className="max-[640px]:text-center font-sansation-light font-light text-[14px] md:text-[18px] lg:text-[20px] leading-[1.2] text-white text-right md:max-w-full">
               MENA Apart Hotels offers modern, fully equipped suites crafted for both business and
@@ -177,7 +177,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
         </>
       )}
 
-      {(component === 'amenities' ||
+      {(component === 'facilities' ||
         component === 'location' ||
         component === 'dining' ||
         component === 'room' ||
@@ -197,13 +197,13 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
           />
           <div className="absolute z-20 text-center md:text-right text-white px-4 sm:px-6 md:px-8 lg:px-12 max-w-[1130px] mx-auto bottom-[10%] sm:bottom-[15%] md:bottom-[32%] right-0 sm:right-[2%] md:right-[5%] left-4 sm:left-auto ">
             <h1
-              className="text-white font-sansation text-[40px] sm:text-[60px] md:text-[75px] lg:text-[90px] leading-[50px] sm:leading-[70px] md:leading-[90px] lg:leading-[110px] uppercase"
+              className="text-white font-sansation text-[30px] sm:text-[30px] md:text-[45px] lg:text-[60px] leading-[50px] sm:leading-[70px] md:leading-[90px] lg:leading-[110px] uppercase"
               style={{ fontWeight: 700 }}
             >
               {title}
             </h1>
             <p
-              className="font-sansation font-light text-white text-[14px] sm:text-[16px] md:text-[18px] lg:text-[32px] leading-[120%] text-center md:text-right max-w-[90%] sm:max-w-[500px] md:max-w-[600px] lg:max-w-none mx-auto md:mx-0 uppercase"
+              className="font-sansation font-light text-white text-[13px] sm:text-[14px] md:text-[17px] lg:text-[25px] leading-[120%] text-center md:text-right max-w-[90%] sm:max-w-[500px] md:max-w-[600px] lg:max-w-none mx-auto md:mx-0 uppercase"
               style={{ fontWeight: 700 }}
             >
               {description}

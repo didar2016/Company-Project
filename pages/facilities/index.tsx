@@ -21,13 +21,14 @@ export default function Home() {
       <main className="w-full overflow-hidden ">
         <Hero
           image={heroimage}
-          title="Amenities"
-          description="From casual cafés to fine dining, discover a world of flavors crafted by our talented culinary team."
-          component="amenities"
+          title="EXPLORE OUR FACILITIES"
+          description="Designed to cater to every aspect of your stay, from relaxation to productivity, our
+        facilities ensure a memorable and comfortable experience."
+          component="facilities"
         />
-
-        <Amenities />
         <Facilities />
+        <Amenities />
+
         <MapReview />
       </main>
 
