@@ -80,10 +80,25 @@ const Description = () => {
           </div>
 
           <p className="font-['Poppins'] text-[#8A8BB3] text-lg text-center leading-relaxed">
-            Welcome to MENA Plaza Hotel Albarsha – where luxury, elegance, and unparalleled
-            hospitality meet in the heart of Dubai. Located just 1.2 km from the iconic Mall of the
-            Emirates, our 4-star hotel offers a haven of comfort and convenience, making it the
-            perfect choice for families, leisure travelers, and business guests alike.
+            <span className="font-500 text-[20px]">
+              {' '}
+              Situated in the vibrant city of Dubai, MENA ApartHotel Albarsha is the perfect choice
+              for short or extended stays. A short walk from the Mall of the Emirates, we combine
+              the comforts of home with genuine hospitality, offering outstanding value for
+              families, business travelers, and explorers.
+            </span>
+            <br />
+            <span className="font-[400] text-[18px]"></span> Unwind in our fully furnished, spacious
+            suites and apartments—each designed for living, not just staying. Enjoy delicious,
+            authentic Turkish cuisine at the on-site Masa Turkish Eatery. Recharge with a swim in
+            the rooftop pool or a workout in the health club. Our dedicated team is here to ensure
+            your stay is smooth, comfortable, and memorable.
+            <br />
+            <span className="font-[700] text-[20px]">
+              {' '}
+              Book your stay today and experience the perfect blend of modern living and warm
+              hospitality at MENA ApartHotel Albarsha.
+            </span>
           </p>
 
           <div className="flex flex-col items-center gap-4">

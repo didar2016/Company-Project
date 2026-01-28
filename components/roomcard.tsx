@@ -50,7 +50,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
         {/* Title */}
         <div className="">
           <h2
-            className="font-sansation font-light text-[18px] sm:text-[22px] md:text-[26px] lg:text-[28px] xl:text-[32px] leading-[24px] sm:leading-[30px] md:leading-[36px] lg:leading-[40px] xl:leading-[46px] uppercase"
+            className="font-sansation font-light text-[18px] sm:text-[22px] md:text-[26px] lg:text-[28px] xl:text-[28px] 2xl:text-[32px] leading-[24px] sm:leading-[30px] md:leading-[36px] lg:leading-[40px] xl:leading-[46px] uppercase"
             style={{ fontWeight: 400, color: index % 2 == 1 ? '#00B3DD' : '#454779' }}
           >
             {room.title}
@@ -64,21 +64,21 @@ const RoomCard: React.FC<RoomCardProps> = ({
           <div className="flex items-end gap-1 sm:gap-2 pr-2 sm:pr-5">
             <div className="flex flex-col">
               <span
-                className="font-sansation text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] text-[#2A2D71] text-right"
+                className="font-sansation text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[17px] 2xl:text-[18px] text-[#2A2D71] text-right"
                 style={{ fontWeight: 300 }}
               >
                 From
               </span>
               <div className="flex items-baseline gap-1">
                 <span
-                  className="font-sansation text-[20px] sm:text-[26px] md:text-[32px] lg:text-[36px] xl:text-[42px] font-black text-gray-900 leading-none"
+                  className="font-sansation text-[20px] sm:text-[26px] md:text-[32px] lg:text-[42px] xl:text-[38px] 2xl:text-[42px] font-black text-gray-900 leading-none"
                   style={{ fontWeight: 700, color: index % 2 == 1 ? '#00B3DD' : '#454779' }}
                 >
                   {price} {currency}
                 </span>
               </div>
               <span
-                className="font-sansation text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] text-[#2A2D71] mt-0.5 text-right"
+                className="font-sansation text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[17px] 2xl:text-[18px] text-[#2A2D71] mt-0.5 text-right"
                 style={{ fontWeight: 300 }}
               >
                 / Night
@@ -112,7 +112,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
                 maskComposite: 'exclude',
               }}
             />
-            <div className=" px-5 py-[5px] text-[#00B3DD] font-bold font-sansation font-700 text-[20px] leading-[30px] tracking-[1.25px]">
+            <div className=" px-5 xl:px-4 2xl:px-5 py-[5px] text-[#00B3DD] font-bold font-sansation font-700 text-[18px] sm:text-[20px] xl:text-[18px] 2xl:text-[20px] leading-[30px] tracking-[1.25px]">
               {room.discountPercentage}
             </div>
           </div>
@@ -133,20 +133,20 @@ const RoomCard: React.FC<RoomCardProps> = ({
         </div> */}
 
         {/* Amenity Icons Overlay */}
-        <div className="absolute bottom-3 sm:bottom-5 right-[20px] left-[20px] justify-between flex items-center gap-1 sm:gap-2 h-12 sm:h-15 rounded-[20px] sm:rounded-[30px] px-2 sm:px-5 py-1.5 sm:py-2.5 backdrop-blur-[9px] bg-white/30 opacity-100">
+        <div className="absolute bottom-3 sm:bottom-5 right-[20px] left-[20px] justify-between flex items-center gap-1 sm:gap-2  rounded-full sm:rounded-[30px] px-2.5 sm:px-5 py-2.5 sm:py-2.5 backdrop-blur-[9px] bg-white/30 opacity-100">
           <div className="flex flex-row gap-1 sm:gap-2 justify-start">
-            <div className="bg-[#00B3DD] text-white w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 rounded-full flex items-center justify-center">
+            <div className="bg-[#00B3DD] text-white w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 xl:h-8 xl:w-8 rounded-full flex items-center justify-center">
               <Maximize2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 lg:w-5 lg:h-5" />
             </div>
             <div
-              className="text-[#454779] font-sansation font-normal not-italic text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] leading-[130%]"
+              className="text-[#454779] font-sansation font-normal not-italic text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[16px]"
               style={{ fontWeight: 400, alignSelf: 'center' }}
             >
               45 sqm
             </div>
           </div>
 
-          <div className="flex flex-row gap-1 sm:gap-2">
+          <div className="flex flex-row gap-1 sm:gap-2 xl:gap-1.5 2xl:gap-2">
             {amenities.slice(1).map((amenity, index) => {
               const IconComponent =
                 amenity === 'coffee'
@@ -164,7 +164,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
               return IconComponent ? (
                 <div
                   key={index}
-                  className="bg-[#00B3DD] text-white w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 rounded-full flex items-center justify-center"
+                  className="bg-[#00B3DD] text-white w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 xl:h-8 xl:w-8 2xl:h-9 2xl:w-9 rounded-full flex items-center justify-center"
                 >
                   <IconComponent className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 lg:w-5 lg:h-5" />
                 </div>

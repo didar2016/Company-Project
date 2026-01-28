@@ -56,6 +56,26 @@ const WeekendOffer: React.FC = () => {
           </div>
         </div>
 
+        <div className="text-center sm:text-left max-w-[1142px]">
+          <div className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] leading-relaxed font-light text-[#8A8BB3] tracking-[0.75px]">
+            <h2
+              className="font-sansation text-[20px] sm:text-[24px] md:text-[28px] lg:text-[32px] xl:text-[36px] leading-tight text-[#454779] mb-3 sm:mb-4 md:mb-5"
+              style={{ fontWeight: 600 }}
+            >
+              A Taste of Turkey
+            </h2>
+            <p
+              className="font-sansation text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] leading-relaxed text-[#8A8BB3] tracking-[0.75px]"
+              style={{ fontWeight: 300 }}
+            >
+              Discover the rich flavors of Turkish cuisine at Masa Turkish Eatery, open from 7:00 AM
+              – 11:30 PM. From hearty breakfasts to authentic dinners, our family-friendly
+              restaurant offers a dining experience that's both convenient and delicious. For added
+              privacy, take advantage of our in-room dining service.
+            </p>
+          </div>
+        </div>
+
         <div className="max-w-[1142px] bg-gradient-to-r from-white/32 to-white/0 p-[20px] sm:p-[30px] md:p-[40px] lg:p-[50px] rounded-[20px] sm:rounded-[25px] lg:rounded-[30px]">
           <div className="border-[#A4D5F0] border-l-[3px] sm:border-l-[4px] h-auto min-h-[60px] sm:min-h-[80px] md:min-h-[100px] lg:min-h-[116px]">
             <h4 className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] xl:text-[32px] font-sansation font-heading text-[#2A2D71] mb-2 sm:mb-3 ml-3 sm:ml-4 md:ml-5 lg:ml-[20px]">
