@@ -14,7 +14,7 @@ const carouselImages = [
   '/images/roomcardimage1.png',
   '/images/roomcardimage2.png',
   '/images/roomcardimage3.png',
-  '/images/facilities2.png',
+  '/images/contactheroimage.png',
 ];
 
 const OurStory = () => {

@@ -1,7 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
-import space from '../../public/images/space.jpg';
+import restaurent from '../../public/images/restaurent.jpg';
 import { useRouter } from 'next/router';
+import res2 from '../../public/images/res2.jpg';
 
 const Description = () => {
   const router = useRouter();
@@ -44,7 +45,7 @@ const Description = () => {
         {/* Image Side */}
         <div className="relative w-full xl:w-1/2 h-[400px] lg:h-[642px] rounded-[30px] overflow-hidden group">
           <Image
-            src={space}
+            src={res2}
             alt="Mena Plaza Hotel Lobby"
             layout="fill"
             objectFit="cover"
@@ -88,11 +89,11 @@ const Description = () => {
               families, business travelers, and explorers.
             </span>
             <br />
-            <span className="font-[400] text-[18px]"></span> Unwind in our fully furnished, spacious
+            {/* <span className="font-[400] text-[18px]"></span> Unwind in our fully furnished, spacious
             suites and apartments—each designed for living, not just staying. Enjoy delicious,
             authentic Turkish cuisine at the on-site Masa Turkish Eatery. Recharge with a swim in
             the rooftop pool or a workout in the health club. Our dedicated team is here to ensure
-            your stay is smooth, comfortable, and memorable.
+            your stay is smooth, comfortable, and memorable. */}
             <br />
             <span className="font-[700] text-[20px]">
               {' '}
@@ -101,45 +102,12 @@ const Description = () => {
             </span>
           </p>
 
-          <div className="flex flex-col items-center gap-4">
+          {/* <div className="flex flex-col items-center gap-4">
             <span className="font-['Sansation'] text-[#454779] uppercase text-lg tracking-wide">
               An Ideal Location
             </span>
             <div className="w-[75px] h-[1px] bg-[#9BA9CA]"></div>
-          </div>
-          {/* 
-          <p className="font-['Poppins'] text-[#8A8BB3] text-lg text-center leading-relaxed">
-            Situated close to Dubai's most famous attractions, best of the city within easy reach.
-            With Dubai International Airport just 25 km away, you'll find us perfectly positioned
-            for seamless travel. Mall of the Emirates (0.5 km). With Dubai International Airport
-            only 22 km away, our hotel is conveniently positioned for seamless travel.
-          </p> */}
-
-          <div className="flex justify-center mt-4" onClick={handlenavigation}>
-            <button className="flex items-center gap-4 bg-[#00B3DD] rounded-[60px] pl-8 pr-3 py-3 text-white transition hover:bg-[#009bc0] group">
-              <span className="font-['Sansation'] font-bold text-lg tracking-[1.25px] uppercase">
-                Learn More
-              </span>
-              <div className="w-[44px] h-[44px] rounded-full border-2 border-white flex items-center justify-center group-hover:bg-white group-hover:text-[#00B3DD] transition-colors">
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 14 14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-[16px] h-[16px]"
-                >
-                  <path
-                    d="M1 13L13 1M13 1H5M13 1V9"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-            </button>
-          </div>
+          </div> */}
         </div>
       </div>
 

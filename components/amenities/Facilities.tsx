@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import React from 'react';
 import facility2 from '../../public/images/facilities2.png';
-import facility3 from '../../public/images/facilities3.png';
+import facility3 from '../../public/images/pool.jpg';
 import facility4 from '../../public/images/sauna.png';
 
 const facilitiesData = [
@@ -63,13 +63,13 @@ const CardGrid = () => {
         {facilitiesData.map((item, index) => (
           <div
             key={index}
-            className="relative max-w-125 w-full rounded-[20px] overflow-hidden group cursor-pointer"
+            className="relative max-w-90 w-full rounded-[20px] overflow-hidden group cursor-pointer"
           >
             {/* Background Image */}
             <Image
               src={item.image}
               alt={item.title}
-              className="object-fill transition-transform duration-700 group-hover:scale-105 h-80 w-full"
+              className="object-fill transition-transform duration-700 group-hover:scale-105 h-70 w-full"
             />
 
             {/* Overlay Container */}

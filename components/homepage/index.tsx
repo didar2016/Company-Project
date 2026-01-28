@@ -27,7 +27,10 @@ export default function HomePage() {
         <Facilities />
       </div>
       <WrapLocationSlider />
-      <MasaTurkishEatery />
+      <div className=" p-4 lg:px-[100px]">
+        {' '}
+        <MasaTurkishEatery />
+      </div>
 
       <OurStory />
 
@@ -40,11 +43,11 @@ export default function HomePage() {
 
 const WrapMapReview = () => (
   <div className="pt-[100px] bg-white">
-    <div className="flex justify-center w-full px-4 xl:px-0">
+    <div className="flex justify-center w-full px-4 lg:px-[100px]">
       <div className="flex flex-col xl:flex-row items-center gap-[100px] w-full max-w-[1720px]">
         <div className="flex flex-col items-start gap-2 w-full max-w-[1234px]">
           <h1 className="font-sansation font-light text-[32px] md:text-[56px] xl:text-[72px] leading-[1.2] xl:leading-[86px] uppercase text-[#454779]">
-            OUR PRIME DESTINATION & WHAT GUESTS ARE SAYING
+            WHAT GUESTS ARE SAYING
           </h1>
           <p className="font-sansation font-normal text-[16px] xl:text-[20px] leading-[30px] tracking-[0.5px] text-[#2A2D71]">
             Discover our ideal location in the vibrant heart of the city and hear what our esteemed
@@ -61,7 +64,7 @@ const WrapMapReview = () => (
 
 const WrapLocationSlider = () => (
   <div className=" bg-white">
-    <div className="flex justify-center w-full px-4 xl:px-0 bg-[#9BA9CA33] pt-[100px]">
+    <div className="flex justify-center w-full px-4 lg:px-[100px] bg-[#9BA9CA33] pt-[100px]">
       <div className="flex flex-col xl:flex-row items-center gap-[100px] w-full max-w-[1720px]">
         <div className="flex flex-col items-start gap-2 w-full max-w-[1234px]">
           <h1 className="font-sansation font-light text-[32px] md:text-[56px] xl:text-[72px] leading-[1.2] xl:leading-[86px] uppercase text-[#454779]">

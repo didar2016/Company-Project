@@ -33,24 +33,6 @@ const hotels: Hotel[] = [
     address: 'Street 13 - Al Barsha - Al Barsha 1 - Dubai - United Arab Emirates',
     image: hotelimage3,
   },
-  {
-    id: 4,
-    name: 'MENA JUBAIL',
-    address: 'Street 13 - Al Barsha - Al Barsha 1 - Dubai - United Arab Emirates',
-    image: hotelimage1,
-  },
-  {
-    id: 5,
-    name: 'MENA JUBAIL',
-    address: 'Street 13 - Al Barsha - Al Barsha 1 - Dubai - United Arab Emirates',
-    image: hotelimage2,
-  },
-  {
-    id: 2,
-    name: 'MENA ANDALUSIA RIYADH',
-    address: 'Street 13 - Al Barsha - Al Barsha 1 - Dubai - United Arab Emirates',
-    image: hotelimage3,
-  },
 ];
 
 const Hotels: React.FC = () => {
@@ -68,8 +50,7 @@ const Hotels: React.FC = () => {
             className="mt-3 sm:mt-4 text-[#454779] max-w-5xl mx-auto font-light text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] px-4 sm:px-0"
             style={{ fontWeight: 300 }}
           >
-            Located just minutes from the Mall of the Emirates, MENA ApartHotel Al Barsha places you
-            at the center of Dubais attractions, shopping, and business hubs.
+            Explore all our locations
           </p>
         </div>
 

@@ -66,14 +66,14 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
           </div>
 
           {/* Search Bar Section */}
-          <div className="max-w-[1720px] z-20 absolute bottom-[3%] right-[10%] left-[10%] sm:bottom-[5%] lg:bottom-[6%] lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:w-[83%] xl:right-20 min-h-[100px] lg:min-h-[178px] bg-gradient-to-r from-[rgba(0,0,0,0.3)] to-[rgba(234,234,234,0.3)] backdrop-blur-[12px] rounded-[10px] p-[20px] sm:p-[30px] lg:p-[40px] flex flex-wrap lg:flex-row items-end gap-4 lg:gap-[25px] pointer-events-auto shadow-lg">
+          <div className="max-w-[1720px] z-20 absolute bottom-[3%] right-[10%] left-[10%] sm:bottom-[5%] lg:bottom-[6%] lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:w-[83%] xl:right-20 min-h-[100px] lg:min-h-[140px] bg-gradient-to-r from-[rgba(0,0,0,0.3)] to-[rgba(234,234,234,0.3)] backdrop-blur-[12px] rounded-[10px] p-[20px] sm:p-[30px] lg:p-[30px] flex flex-wrap lg:flex-row items-end gap-4 lg:gap-[18px] pointer-events-auto shadow-lg">
             {/* Check In */}
-            <div className="flex flex-col gap-[8px] w-full lg:w-[202px]">
-              <span className="font-poppins text-white text-[14px] lg:text-[20px]">
+            <div className="flex flex-col gap-[8px] w-full lg:w-[180px]">
+              <span className="font-poppins text-white text-[14px] lg:text-[16px]">
                 Check In-Date
               </span>
-              <div className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[50px] lg:h-[60px] px-[15px] lg:px-[30px] w-full">
-                <span className="font-poppins text-white text-[14px] lg:text-[20px]">
+              <div className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[40px] lg:h-[50px] px-[15px] lg:px-[20px] w-full">
+                <span className="font-poppins text-white text-[14px] lg:text-[16px]">
                   21 Dec 2025
                 </span>
                 <svg
@@ -93,12 +93,12 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
             </div>
 
             {/* Check Out */}
-            <div className="flex flex-col gap-[8px] w-full lg:w-[202px]">
-              <span className="font-poppins text-white text-[14px] lg:text-[20px]">
+            <div className="flex flex-col gap-[8px] w-full lg:w-[180px]">
+              <span className="font-poppins text-white text-[14px] lg:text-[16px]">
                 Check Out-Date
               </span>
-              <div className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[50px] lg:h-[60px] px-[15px] lg:px-[30px] w-full">
-                <span className="font-poppins text-white text-[14px] lg:text-[18px]">
+              <div className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[40px] lg:h-[50px] px-[15px] lg:px-[20px] w-full">
+                <span className="font-poppins text-white text-[14px] lg:text-[16px]">
                   26 Dec 2025
                 </span>
                 <svg
@@ -118,21 +118,19 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
             </div>
 
             {/* Guests */}
-            <div className="flex flex-col gap-[8px] w-full lg:w-[331px]">
-              <span className="font-poppins text-white text-[14px] lg:text-[20px]">Guests</span>
-              <div className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[50px] lg:h-[60px] px-[15px] lg:px-[30px] w-full cursor-pointer">
-                <span className="font-poppins text-white text-[14px] lg:text-[20px]">
-                  2 Adults, 1 Children
-                </span>
+            <div className="flex flex-col gap-[8px] w-full lg:w-[180px]">
+              <span className="font-poppins text-white text-[14px] lg:text-[16px]">Guests</span>
+              <div className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[40px] lg:h-[50px] px-[15px] lg:px-[20px] w-full cursor-pointer">
+                <span className="font-poppins text-white text-[14px] lg:text-[16px]">2 Adults</span>
                 <span className="text-white text-xs lg:text-sm">▼</span>
               </div>
             </div>
 
             {/* Room Type */}
-            <div className="flex flex-col gap-[8px] w-full lg:w-[331px]">
-              <span className="font-poppins text-white text-[14px] lg:text-[20px]">Room Type</span>
-              <div className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[50px] lg:h-[60px] px-[15px] lg:px-[30px] w-full cursor-pointer">
-                <span className="font-poppins text-white text-[14px] lg:text-[20px]">
+            <div className="flex flex-col gap-[8px] w-full lg:w-[180px]">
+              <span className="font-poppins text-white text-[14px] lg:text-[16px]">Room Type</span>
+              <div className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[40px] lg:h-[50px] px-[15px] lg:px-[20px] w-full cursor-pointer">
+                <span className="font-poppins text-white text-[14px] lg:text-[16px]">
                   Deluxe Suite
                 </span>
                 <span className="text-white text-xs lg:text-sm">▼</span>
@@ -150,7 +148,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
               }}
             >
               <span
-                className="pr-[2px]! p-2 sm:p-2.5 md:p-3 lg:p-3.5 font-sansation text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] uppercase text-white tracking-[1.25px]"
+                className="pr-[2px]! p-2 sm:p-2.5 md:p-3 lg:p-3 font-sansation text-[12px] sm:text-[14px] md:text-[16px] lg:text-[16px] uppercase text-white tracking-[1.25px]"
                 style={{
                   fontWeight: 700,
                   color: 'white',
@@ -163,7 +161,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
               <Image
                 src={visithotelicon}
                 alt="Visit Hotel Icon"
-                className="object-fill object-center h-[24px] w-[28px] sm:h-[30px] sm:w-[36px] md:h-[36px] md:w-[42px] lg:h-[40px] lg:w-[48px]
+                className="object-fill object-center h-[24px] w-[28px] sm:h-[30px] sm:w-[36px] md:h-[36px] md:w-[42px] lg:h-[30px] lg:w-[38px]
               "
                 //
                 style={{

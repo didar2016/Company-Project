@@ -80,7 +80,7 @@ const AboutDescription = () => {
           </div>
 
           <p className="font-['Poppins'] text-[#8A8BB3] text-lg text-center leading-relaxed">
-            <span>An Ideal Location</span>
+            {/* <span>An Ideal Location</span> */}
             <span className="font-[500] text-[20px]">
               {' '}
               MENA ApartHotel Albarsha blends contemporary, spacious accommodations with
@@ -90,12 +90,12 @@ const AboutDescription = () => {
               travelers.{' '}
             </span>
             <br />
-            <div className="flex flex-col items-center mt-5">
+            {/* <span className="flex flex-col items-center mt-5">
               <span className="font-['Sansation'] text-[#454779] uppercase text-xl tracking-wide font-bold">
                 An Ideal Location
               </span>
               <div className="w-[75px] h-[1px] bg-[#9BA9CA]"></div>
-            </div>
+            </span>
             <br />
             <span className="font-[300] text-[20px]">
               {' '}
@@ -104,18 +104,10 @@ const AboutDescription = () => {
               (5.1 km), enjoy a leisurely stroll along The Walk at JBR(7.6 km), or indulge in luxury
               shopping at the nearby Mall of the Emirates (0.5 km). With Dubai International Airport
               only 22 km away, our hotel is conveniently positioned for seamless travel.
-            </span>
+            </span> */}
           </p>
 
-          {/* 
-          <p className="font-['Poppins'] text-[#8A8BB3] text-lg text-center leading-relaxed">
-            Situated close to Dubai's most famous attractions, best of the city within easy reach.
-            With Dubai International Airport just 25 km away, you'll find us perfectly positioned
-            for seamless travel. Mall of the Emirates (0.5 km). With Dubai International Airport
-            only 22 km away, our hotel is conveniently positioned for seamless travel.
-          </p> */}
-
-          <div className="flex justify-center mt-4" onClick={handlenavigation}>
+          {/* <div className="flex justify-center mt-4" onClick={handlenavigation}>
             <button className="flex items-center gap-4 bg-[#00B3DD] rounded-[60px] pl-8 pr-3 py-3 text-white transition hover:bg-[#009bc0] group">
               <span className="font-['Sansation'] font-bold text-lg tracking-[1.25px] uppercase">
                 Learn More
@@ -139,7 +131,7 @@ const AboutDescription = () => {
                 </svg>
               </div>
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
 

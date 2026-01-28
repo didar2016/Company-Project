@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import visithotelicon from '../../public/images/visithotelicon.png';
 import culinary from '../../public/images/lobby.jpg';
+import restaurent from '../../public/images/restaurent.jpg';
 import { useRouter } from 'next/router';
 
 const MasaTurkishEatery: React.FC = () => {
@@ -26,7 +27,7 @@ const MasaTurkishEatery: React.FC = () => {
         <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-stretch">
           {/* Image Section */}
           <div className="w-full lg:w-1/2 h-[300px] sm:h-[400px] md:h-[450px] lg:h-[528px] relative rounded-3xl overflow-hidden shadow-2xl">
-            <Image src={culinary} alt="Culinary" fill className="object-fill object-center" />
+            <Image src={restaurent} alt="Culinary" fill className="object-fill object-center" />
           </div>
 
           {/* Content Section */}
@@ -71,7 +72,7 @@ const MasaTurkishEatery: React.FC = () => {
                   </div>
                   <div className="bg-[#00B3DD] text-white px-[15px] py-[4px] text-center rounded-full min-h-[32px] sm:min-h-[38px] flex items-center justify-center w-full max-w-[222px]">
                     <span
-                      className="font-sansation text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] xl:text-[20px] leading-tight"
+                      className="font-sansation text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] xl:text-[16px] leading-tight"
                       style={{ fontWeight: 400 }}
                     >
                       7:00 AM – 11:00 AM
@@ -89,7 +90,7 @@ const MasaTurkishEatery: React.FC = () => {
                   </div>
                   <div className="bg-[#00B3DD] text-white px-[15px] py-[4px] text-center rounded-full min-h-[32px] sm:min-h-[38px] flex items-center justify-center w-full max-w-[222px]">
                     <span
-                      className="font-sansation text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] xl:text-[20px] leading-tight"
+                      className="font-sansation text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] xl:text-[16px] leading-tight"
                       style={{ fontWeight: 400 }}
                     >
                       12:00 PM – 3:00 PM
@@ -103,11 +104,11 @@ const MasaTurkishEatery: React.FC = () => {
                     className="text-center font-sansation text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] text-[#2A2D71] uppercase leading-tight"
                     style={{ fontWeight: 700 }}
                   >
-                    Dinner
+                    DINNER
                   </div>
                   <div className="bg-[#00B3DD] text-white px-[15px] py-[4px] text-center rounded-full min-h-[32px] sm:min-h-[38px] flex items-center justify-center w-full max-w-[222px]">
                     <span
-                      className="font-sansation text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] xl:text-[20px] leading-tight"
+                      className="font-sansation text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] xl:text-[16px] leading-tight"
                       style={{ fontWeight: 400 }}
                     >
                       7:00 AM – 11:00 AM

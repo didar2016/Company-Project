@@ -80,8 +80,7 @@ const HotelLocations: React.FC = () => {
             className="mt-3 sm:mt-4 text-[#454779] max-w-5xl mx-auto font-light text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] px-4 sm:px-0"
             style={{ fontWeight: 300 }}
           >
-            Located just minutes from the Mall of the Emirates, MENA ApartHotel Al Barsha places you
-            at the center of Dubais attractions, shopping, and business hubs.
+            Explore all our locations
           </p>
         </div>
 
@@ -133,7 +132,7 @@ const HotelLocations: React.FC = () => {
                 >
                   {/* Image Container */}
                   <div className="border-[#A4D5F0] border-l-[4px] h-auto min-h-[80px] sm:min-h-[100px] md:min-h-[116px]">
-                    <h4 className="text-[20px] sm:text-[24px] md:text-[28px] lg:text-[32px] font-sansation font-heading text-[#00B3DD] mb-1 sm:mb-2 ml-3 sm:ml-[20px]">
+                    <h4 className="text-[20px] sm:text-[24px] md:text-[28px] lg:text-[26px] 2xl:text-[32px] font-sansation font-heading text-[#00B3DD] mb-1 sm:mb-2 ml-3 sm:ml-[20px]">
                       {hotel.name}
                     </h4>
                     <div

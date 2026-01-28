@@ -1,12 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
-import burjkhalifa from '../../public/images/burjkhalifa.png';
-import mountain from '../../public/images/maountain.png';
-import sea from '../../public/images/sea.png';
 import hotelmapicon from '../../public/images/location_map_icon.png';
-import mapicon2 from '../../public/images/location_map_icon2.png';
-
 import visithotelicon from '../../public/images/visithotelicon.png';
+import burjalarab from '../../public/images/burjalarab.png';
+import desertsafari from '../../public/images/desertsafari.png';
+import burjkhalifa from '../../public/images/burjalkhlifa.png';
 
 interface Hotel {
   id: number;
@@ -20,7 +18,7 @@ const hotels: Hotel[] = [
     id: 1,
     name: 'Desert Safari',
     address: 'Experience the thrill of dune bashing and traditional Bedouin hospitality',
-    image: mountain,
+    image: desertsafari,
   },
   {
     id: 2,
@@ -32,25 +30,7 @@ const hotels: Hotel[] = [
     id: 3,
     name: 'Desert Safari',
     address: 'Experience the thrill of dune bashing and traditional Bedouin hospitality',
-    image: sea,
-  },
-  {
-    id: 4,
-    name: 'Desert Safari',
-    address: 'Experience the thrill of dune bashing and traditional Bedouin hospitality',
-    image: mountain,
-  },
-  {
-    id: 5,
-    name: 'Desert Safari',
-    address: 'Experience the thrill of dune bashing and traditional Bedouin hospitality',
-    image: burjkhalifa,
-  },
-  {
-    id: 2,
-    name: 'Desert Safari',
-    address: 'Experience the thrill of dune bashing and traditional Bedouin hospitality',
-    image: sea,
+    image: burjalarab,
   },
 ];
 

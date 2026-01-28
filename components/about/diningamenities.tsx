@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 import { useRouter } from 'next/router';
+import restaurent from '../../public/images/restaurent.jpg';
 
 const DiningAmenities = () => {
   const router = useRouter();
@@ -22,12 +23,7 @@ const DiningAmenities = () => {
         <div className="flex flex-col xl:flex-row items-stretch gap-[30px] w-full">
           {/* Left: Image */}
           <div className="w-full xl:w-[815px] min-h-[400px] xl:min-h-[628px] relative rounded-[20px] overflow-hidden order-1 xl:order-none">
-            <Image
-              src="/images/culinary.png" // Using a placeholder since the specific file name in CSS is likely local
-              alt="Masa Turkish Eatery"
-              fill
-              className="object-cover"
-            />
+            <Image src={restaurent} alt="Masa Turkish Eatery" fill className="object-cover" />
           </div>
 
           {/* Right: Text Content */}

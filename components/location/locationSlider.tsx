@@ -7,9 +7,9 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/a11y';
 
-import burjkhalifa from '../../public/images/burjkhalifa.png';
-import mountain from '../../public/images/maountain.png';
-import sea from '../../public/images/sea.png';
+import burjkhalifa from '../../public/images/burjalkhlifa.png';
+import mountain from '../../public/images/desertsafari.png';
+import sea from '../../public/images/burjalarab.png';
 import hotelmapicon from '../../public/images/location_map_icon.png';
 import mapicon2 from '../../public/images/location_map_icon2.png';
 import visithotelicon from '../../public/images/visithotelicon.png';
@@ -25,37 +25,37 @@ const hotels: Hotel[] = [
   {
     id: 1,
     name: 'Desert Safari',
-    address: 'Experience the thrill of dune bashing and traditional Bedouin hospitality',
+    address: 'Visit desert safari for an unforgettable adventure',
     image: mountain,
   },
   {
     id: 2,
     name: 'Burj Khalifa',
-    address: 'Experience the thrill of dune bashing and traditional Bedouin hospitality',
+    address: 'Visit Burj Khalifa for an unforgettable experience',
     image: burjkhalifa,
   },
   {
     id: 3,
     name: 'Burj Al Arab',
-    address: 'Experience the thrill of dune bashing and traditional Bedouin hospitality',
+    address: 'Visit Burj Al Arab for an unforgettable experience',
     image: sea,
   },
   {
     id: 4,
     name: 'Desert Safari',
-    address: 'Experience the thrill of dune bashing and traditional Bedouin hospitality',
+    address: 'Visit desert safari for an unforgettable adventure',
     image: mountain,
   },
   {
     id: 5,
     name: 'Burj Khalifa',
-    address: 'Experience the thrill of dune bashing and traditional Bedouin hospitality',
+    address: 'Visit Burj Khalifa for an unforgettable experience',
     image: burjkhalifa,
   },
   {
-    id: 2,
+    id: 6,
     name: 'Burj Al Arab',
-    address: 'Experience the thrill of dune bashing and traditional Bedouin hospitality',
+    address: 'Visit Burj Al Arab for an unforgettable experience',
     image: sea,
   },
 ];

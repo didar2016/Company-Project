@@ -62,7 +62,6 @@ const RoomDetails: React.FC<RoomDetailsProps> = ({
     { icon: <Coffee className="w-6 h-6" />, label: 'Coffee' },
     { icon: <Wifi className="w-6 h-6" />, label: 'Free Wifi' },
     { icon: <Utensils className="w-6 h-6" />, label: 'Kitchen' },
-    { icon: <Home className="w-6 h-6" />, label: '45 sqm' },
     { icon: <TreePalm className="w-6 h-6" />, label: 'Balcony' },
   ];
 
@@ -309,24 +308,7 @@ const RoomDetails: React.FC<RoomDetailsProps> = ({
                   className="object-fill object-center h-[24px] w-[28px] sm:h-[30px] sm:w-[36px] md:h-[36px] md:w-[42px] lg:h-[40px] lg:w-[48px] filter brightness-0 invert sepia-0 saturate-100 hue-rotate-180"
                 />
               </button>
-
-              {/* <button className="flex flex-row justify-between items-center gap-1.5 sm:gap-2 md:gap-2.5 bg-[#00B3DD] opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3">
-                <span
-                  className="p-2 sm:p-3 md:p-4 font-sansation text-[12px] sm:text-[14px] md:text-[16px] lg:text-[20px] uppercase text-white"
-                  style={{ fontWeight: 700 }}
-                >
-                  {' '}
-                  Check Availability
-                </span>
-                <Image
-                  src={visithotelicon}
-                  alt="Visit Hotel Icon"
-                  className="object-fill object-center h-[30px] w-[36px] sm:h-[36px] sm:w-[44px] md:h-[44px] md:w-[54px] filter brightness-0 invert sepia-0 saturate-100 hue-rotate-180"
-                />
-              </button> */}
             </div>
-
-            {/* CTA Button */}
           </div>
         </div>
       </div>

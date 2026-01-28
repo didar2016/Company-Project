@@ -8,6 +8,7 @@ import MapReview from '@/components/roomdetails/map_review';
 import OurStory from '@/components/about/ourstory';
 import DiningAmenities from '@/components/about/diningamenities';
 import AboutDescription from '@/components/about/aboutDescription';
+import Aboutheroimage from '../../public/images/aboutheroimage.jpg';
 
 export default function About() {
   return (
@@ -21,7 +22,7 @@ export default function About() {
 
       <main className="w-full overflow-hidden ">
         <Hero
-          image={heroimage}
+          image={Aboutheroimage}
           title="About us"
           description="A Smart Stay with Comfort & Style"
           component="about"

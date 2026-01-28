@@ -1,17 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import {
-  MapPin,
-  Mail,
-  Phone,
-  Facebook,
-  Instagram,
-  Linkedin,
-  Twitter,
-  Youtube,
-  ArrowUpRight,
-} from 'lucide-react';
+import { MapPin, Mail, Phone, Facebook, Instagram, Linkedin, ArrowUpRight } from 'lucide-react';
+import footerimage from '../public/images/logomena.png';
 
 const Footer = () => {
   return (
@@ -22,14 +13,15 @@ const Footer = () => {
         <div className="flex flex-col items-start gap-5 w-full xl:w-[444px] shrink-0">
           <div className="relative w-[193px] h-[103px]">
             <Image
-              src="/images/Logo.png"
+              src={footerimage}
               alt="MENA ApartHotel Albarsha"
               fill
               className="object-contain brightness-0 invert"
             />
           </div>
           <p className="font-sansation font-light text-[16px] leading-[20px] tracking-[0.75px] text-white max-w-[444px]">
-            Located just minutes from the Mall of the Emirates, MENA ApartHotel Albarsha places.
+            Situated in the vibrant city of Dubai, MENA ApartHotel Albarsha is the perfect choice
+            for short or extended stays.
           </p>
         </div>
 
