@@ -88,7 +88,7 @@ const Locations: React.FC = () => {
                     className="object-fill object-center rounded-[15px] sm:rounded-[50px] md:rounded-[50px] w-full h-full"
                   />
 
-                  <div className="absolute left-3 sm:left-6 bottom-2 sm:bottom-7 py-[5px] px-[16px] rounded-[30px] flex flex-row gap-[10px] backdrop-blur-[20px]">
+                  {/* <div className="absolute left-3 sm:left-6 bottom-2 sm:bottom-7 py-[5px] px-[16px] rounded-[30px] flex flex-row gap-[10px] backdrop-blur-[20px]">
                     <div
                       className="absolute inset-0 rounded-[30px] pointer-events-none"
                       style={{
@@ -109,7 +109,7 @@ const Locations: React.FC = () => {
                     <div className="text-white font-poppins text-[20px] leading-[30px] font-[400]">
                       45 Min Drive
                     </div>
-                  </div>
+                  </div> */}
 
                   <div className="absolute right-2 sm:right-4 bottom-2 sm:bottom-4">
                     <button className="flex flex-row justify-between items-center w-[160px] sm:w-[200px] md:w-[276px] h-[48px] sm:h-[56px] md:h-[68px] gap-1.5 sm:gap-2.5 bg-white opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3">
