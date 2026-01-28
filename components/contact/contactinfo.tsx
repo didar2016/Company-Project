@@ -53,10 +53,8 @@ const ContactInfo = () => {
         {/* Social Icons */}
         <div className="flex items-center gap-[15px] mt-auto lg:mt-0">
           <SocialIcon icon={<Facebook size={20} />} />
-          <SocialIcon icon={<Instagram size={20} />} active />
-          <SocialIcon icon={<Twitter size={20} />} />
+          <SocialIcon icon={<Instagram size={20} />} />
           <SocialIcon icon={<Linkedin size={20} />} />
-          <SocialIcon icon={<Youtube size={20} />} />
         </div>
       </div>
 

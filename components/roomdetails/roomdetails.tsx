@@ -74,7 +74,7 @@ const RoomDetails: React.FC<RoomDetailsProps> = ({
           {/* Left Side - Image Gallery (60-65%) */}
           <div className="w-full lg:w-[62%] xl:w-[65%] relative">
             {/* Main Image Slider */}
-            <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-lg sm:shadow-xl h-[250px] sm:h-[300px] md:h-[350px] lg:h-[373px]">
+            <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-lg sm:shadow-xl h-[250px] sm:h-[300px] md:h-[350px] lg:h-[573px]">
               <Swiper
                 modules={[Navigation, Pagination, Thumbs]}
                 spaceBetween={0}
@@ -93,8 +93,7 @@ const RoomDetails: React.FC<RoomDetailsProps> = ({
                       <Image
                         src={image}
                         alt={`${roomType} - View ${index + 1}`}
-                        className="w-full h-full object-fill"
-                        quality={90}
+                        className="object-cover w-full h-full"
                       />
                     </div>
                   </SwiperSlide>

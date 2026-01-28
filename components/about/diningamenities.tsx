@@ -1,8 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
+import { useRouter } from 'next/router';
 
 const DiningAmenities = () => {
+  const router = useRouter();
+  const handleNavigate = () => {
+    router.push('/dining');
+  };
   return (
     <section className="w-full max-w-[1920px] mx-auto p-4 lg:p-[100px] flex flex-col gap-[10px] z-[3] relative">
       <div className="w-full bg-[#EBEEF4] rounded-[20px] p-6 lg:p-[30px] flex flex-col gap-[20px]">
@@ -44,7 +49,7 @@ const DiningAmenities = () => {
               {/* Guests can also enjoy */}
               <div className="flex flex-col gap-[20px] lg:gap-[10px]">
                 <h4 className="font-sansation font-light text-[24px] lg:text-[32px] uppercase text-[#454779] leading-[1.4]">
-                  GUESTS CAN ALSO ENJOY:
+                  Guests can also enjoy:
                 </h4>
 
                 <div className="flex flex-col gap-[20px]">
@@ -52,7 +57,6 @@ const DiningAmenities = () => {
                   <AmenityItem text="A fully equipped fitness center to maintain your workout routine" />
                   <AmenityItem text="A rejuvenating sauna for ultimate relaxation" />
                   <AmenityItem text="Free Wi-Fi to stay connected throughout your stay" />
-                  <AmenityItem text="Guests can also enjoy:" />
                 </div>
               </div>
             </div>
@@ -63,7 +67,10 @@ const DiningAmenities = () => {
             <div className="flex flex-col sm:flex-row items-center justify-between gap-[30px] mt-auto pt-4">
               {/* Outline Button */}
               <button className="w-full sm:w-[283px] h-[68px] border border-[#9BA9CA] rounded-[60px] flex items-center justify-center gap-[10px] group hover:bg-[#9BA9CA]/10 transition-colors">
-                <span className="font-sansation font-bold text-[16px] lg:text-[20px] tracking-[1.25px] uppercase text-[#454779] w-auto">
+                <span
+                  onClick={handleNavigate}
+                  className="font-sansation font-bold text-[16px] lg:text-[20px] tracking-[1.25px] uppercase text-[#454779] w-auto"
+                >
                   DISCOVER MORE
                 </span>
                 <div className="w-[54px] h-[44px] rounded-[96px] border-2 border-[#00B3DD] flex items-center justify-center">
@@ -72,14 +79,6 @@ const DiningAmenities = () => {
               </button>
 
               {/* Filled Button */}
-              <button className="w-full sm:w-[236px] h-[68px] bg-[#00B3DD] rounded-[60px] flex items-center justify-center gap-[10px] group hover:bg-[#009ac0] transition-colors">
-                <span className="font-sansation font-bold text-[16px] lg:text-[20px] tracking-[1.25px] uppercase text-[#454779] w-auto">
-                  BOOK NOW
-                </span>
-                <div className="w-[54px] h-[44px] rounded-[96px] border-2 border-[#A4D5F0] flex items-center justify-center group-hover:bg-white/20 transition-all">
-                  <ArrowUpRight className="text-[#A4D5F0] w-[20px] h-[20px]" strokeWidth={3} />
-                </div>
-              </button>
             </div>
           </div>
         </div>

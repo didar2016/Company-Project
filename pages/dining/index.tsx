@@ -25,7 +25,7 @@ export default function Dining() {
       <main className="flex-grow w-full overflow-hidden">
         <Hero
           image={Diningheroimage}
-          title="Dining Experiences"
+          title="Dining Experiences at MENA ApartHotel"
           description="From casual cafés to fine dining, discover a world of flavorscrafted by our talented culinary team."
           component="dining"
         />

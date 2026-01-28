@@ -39,7 +39,6 @@ const Footer = () => {
           <FooterLink text="OUR DESTINATIONS" link="/locations" />
           <FooterLink text="OFFERS" link="/dining" />
           <FooterLink text="contact" link="/contact" />
-          <FooterLink text="CAREERS" link="/" />
         </div>
 
         {/* Column 3: Contact Us */}

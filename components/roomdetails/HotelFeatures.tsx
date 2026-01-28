@@ -52,7 +52,7 @@ const HotelFeatures: React.FC<HotelFeaturesProps> = ({ className = '' }) => {
           </div>
 
           {/* Location & Room Description Paragraphs */}
-          <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8 md:mb-10 text-[#1E293B] text-sm sm:text-base leading-relaxed">
+          {/* <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8 md:mb-10 text-[#1E293B] text-sm sm:text-base leading-relaxed">
             <p>
               Located on Dubais Palm Jumeirah Island and enjoys a private sandy beach, the 5-star
               Atlantis offers stunning views of the Arabian Gulf. It provides complimentary daily
@@ -66,7 +66,7 @@ const HotelFeatures: React.FC<HotelFeaturesProps> = ({ className = '' }) => {
               panoramic views of the palm or an over sized spa bath located in the center of the
               bathroom.
             </p>
-          </div>
+          </div> */}
 
           {/* AMENITIES Section */}
           <div className="mb-6 sm:mb-8 md:mb-10">
@@ -80,6 +80,7 @@ const HotelFeatures: React.FC<HotelFeaturesProps> = ({ className = '' }) => {
                   Fully equipped kitchen with fridge, microwave, washing machine, and toaster
                 </span>
               </li>
+
               <li className="flex items-start gap-2 sm:gap-3 text-[#1E293B] leading-relaxed">
                 <span className="text-[#00B3DD] mt-1 sm:mt-1.5 flex-shrink-0">●</span>
                 <span className="text-sm sm:text-base">
@@ -97,6 +98,13 @@ const HotelFeatures: React.FC<HotelFeaturesProps> = ({ className = '' }) => {
                 <span className="text-sm sm:text-base">Iron, ironing board</span>
               </li>
             </ul>
+          </div>
+
+          <div className="flex items-center gap-2 my-4">
+            <div className="w-2 h-2 bg-[#00B3DD] rounded-full flex-shrink-0 mt-2"></div>
+            <span className="text-[#1E293B] text-sm sm:text-[24px] italic">
+              Ideal for solo travelers or couples seeking comfort and practicality.
+            </span>
           </div>
 
           {/* SERVICES INCLUDED Section */}

@@ -5,9 +5,9 @@ import Hero from '../../components/Hero';
 import Footer from '../../components/Footer';
 import heroimage from '../../public/images/aboutusheroimage.png';
 import MapReview from '@/components/roomdetails/map_review';
-import Description from '@/components/about/description';
 import OurStory from '@/components/about/ourstory';
 import DiningAmenities from '@/components/about/diningamenities';
+import AboutDescription from '@/components/about/aboutDescription';
 
 export default function About() {
   return (
@@ -27,7 +27,7 @@ export default function About() {
           component="about"
         />
 
-        <Description />
+        <AboutDescription />
         <DiningAmenities />
         <OurStory />
         <MapReview />
