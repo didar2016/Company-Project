@@ -2,9 +2,9 @@ import React from 'react';
 import Image from 'next/image';
 import hotelmapicon from '../../public/images/location_map_icon.png';
 import visithotelicon from '../../public/images/visithotelicon.png';
-import burjalarab from '../../public/images/burjalarab.png';
-import desertsafari from '../../public/images/desertsafari.png';
 import burjkhalifa from '../../public/images/burjalkhlifa.png';
+import mountain from '../../public/images/desertsafari.png';
+import sea from '../../public/images/burjalarab.png';
 
 interface Hotel {
   id: number;
@@ -17,20 +17,20 @@ const hotels: Hotel[] = [
   {
     id: 1,
     name: 'Desert Safari',
-    address: 'Experience the thrill of dune bashing and traditional Bedouin hospitality',
-    image: desertsafari,
+    address: 'Visit desert safari for an unforgettable adventure',
+    image: mountain,
   },
   {
     id: 2,
-    name: 'Desert Safari',
-    address: 'Experience the thrill of dune bashing and traditional Bedouin hospitality',
+    name: 'Burj Khalifa',
+    address: 'Visit Burj Khalifa for an unforgettable experience',
     image: burjkhalifa,
   },
   {
     id: 3,
-    name: 'Desert Safari',
-    address: 'Experience the thrill of dune bashing and traditional Bedouin hospitality',
-    image: burjalarab,
+    name: 'Burj Al Arab',
+    address: 'Visit Burj Al Arab for an unforgettable experience',
+    image: sea,
   },
 ];
 

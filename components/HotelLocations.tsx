@@ -98,7 +98,7 @@ const HotelLocations: React.FC = () => {
               clickable: true,
               dynamicBullets: true,
               dynamicMainBullets: hotels.length,
-              el: '.swiper-pagination',
+              el: '.swiper-pagination-location',
             }}
             breakpoints={{
               480: {

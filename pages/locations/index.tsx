@@ -25,12 +25,12 @@ export default function Home() {
           description="A Smart Stay with Comfort & Style"
           component="location"
         />
+        <Hotels />
 
+        <MapReview />
         <div className="mt-32 md:mt-0">
           <Locations />
         </div>
-        <MapReview />
-        <Hotels />
       </main>
 
       <Footer />

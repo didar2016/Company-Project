@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
-  <rect width="100%" height="100%" fill="#e6f7f9"/>
-  <g fill="#c6eef4">
-    <rect x="40" y="60" width="720" height="360" rx="20"/>
-  </g>
-  <text x="50%" y="50%" font-family="Poppins, sans-serif" font-size="36" text-anchor="middle" fill="#036" dy="12">Room Image</text>
-</svg>

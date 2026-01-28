@@ -4,6 +4,19 @@ import React from 'react';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import patatop from '../../public/images/pata_top.png';
+import image1 from '../../public/images/roomcardimage1.png';
+import image2 from '../../public/images/roomcardimage2.jpg';
+import image3 from '../../public/images/roomcardimage3.png';
+import image4 from '../../public/images/contactheroimage.png';
+import image5 from '../../public/images/story05.jpg';
+import image6 from '../../public/images/story06.jpg';
+import image7 from '../../public/images/story07.jpg';
+import image8 from '../../public/images/story01.jpg';
+import image9 from '../../public/images/story02.jpg';
+import image10 from '../../public/images/story03.jpg';
+import image11 from '../../public/images/story04.jpg';
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -11,50 +24,63 @@ import 'swiper/css/pagination';
 // Import images (assuming these exist based on previous file listings)
 // If specific images are missing, Next.js Image will show broken icon or we can use placeholders
 const carouselImages = [
-  '/images/roomcardimage1.png',
-  '/images/roomcardimage2.png',
-  '/images/roomcardimage3.png',
-  '/images/contactheroimage.png',
+  image1,
+  image2,
+  image3,
+  image4,
+  image5,
+  image6,
+  image7,
+  image8,
+  image9,
+  image10,
+  image11,
 ];
 
 const OurStory = () => {
   return (
     <section className="bg-[#2A2D71] relative py-20 overflow-hidden">
       {/* Background Decoration */}
-      <div className="absolute left-[-100px] top-[-100px] w-[500px] h-[500px] opacity-10 pointer-events-none rotate-180 z-0">
-        <Image src="/images/Pata.png" alt="Pattern" layout="fill" objectFit="contain" />
+      <div className="absolute top-0 left-0 w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] xl:w-[356px] h-auto z-0">
+        <Image src={patatop} alt="Decorative Top" className="w-full h-auto object-contain" />
       </div>
 
       <div className="max-w-[1720px] mx-auto px-4 md:px-12 relative z-10 flex flex-col gap-20">
         {/* Header Section */}
-        <div className="flex flex-col xl:flex-row items-center justify-between gap-10 xl:gap-20">
-          {/* Our Story Big Text & Title */}
-          <div className="relative w-full xl:w-1/2 min-h-[200px] flex items-center">
-            {/* Large Background Text */}
-            <h1
-              className="absolute left-0 top-1/2 -translate-y-1/2 font-['Sansation'] font-bold text-[80px] md:text-[150px] lg:text-[200px] leading-none text-transparent opacity-10 select-none whitespace-nowrap"
-              style={{ WebkitTextStroke: '2px #00B3DD' }}
+        <div className="relative flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-8 lg:gap-12 xl:gap-20 items-center">
+          <div className="py-[15px] px-[30px] sm:py-[20px] sm:px-[40px] md:py-[25px] md:px-[50px] lg:py-[30px] lg:px-[60px] backdrop-blur-[9px] bg-[#EDF7FC33] rounded-[20px]">
+            <div
+              className="font-sansation text-[48px] sm:text-[60px] md:text-[80px] lg:text-[100px] xl:text-[126px] leading-[80%] text-[#00B3DD] opacity-40 uppercase"
+              style={{ fontWeight: 400 }}
             >
-              OUR STORY
-            </h1>
+              OUR
+              <br />
+              STORY
+            </div>
           </div>
-
-          {/* Description Text */}
-          <div className="w-full xl:w-1/2 flex flex-col gap-6 text-white text-center xl:text-left">
-            <h2 className="font-['Sansation'] font-light text-3xl md:text-[56px] leading-tight uppercase">
-              Unmatched Hospitality
+          <div className="text-center sm:text-left">
+            <h1
+              className="font-sansation text-[28px] sm:text-[36px] md:text-[48px] lg:text-[60px] xl:text-[72px] leading-tight text-[#454779]"
+              style={{ fontWeight: 300 }}
+            >
+              A LEGACY OF
+              <br />
+              <span className="text-[#00B3DD]"> HOSPITALITY </span> EXCELENCE
+            </h1>
+            <h2
+              className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] leading-relaxed font-light text-[#8A8BB3] tracking-[0.75px] mt-2 sm:mt-3 md:mt-4"
+              style={{ fontWeight: 300 }}
+            >
+              Nestled in the vibrant heart of Al Barsha, MENA Aparthotel represents more than just a
+              place to stay—it's a sanctuary where modern luxury meets the authentic warmth of
+              Arabian hospitality.
             </h2>
-            <p className="font-['Poppins'] text-[#8A8BB3] text-lg leading-relaxed">
-              At MENA ApartHotel Albarsha, we take pride in providing an alcohol-free,
-              family-friendly environment. Our team is dedicated to delivering personalized service
-              that exceeds expectations, ensuring your stay is both comfortable and memorable.
-            </p>
           </div>
         </div>
 
         {/* Stats Section */}
         <div className="w-full">
-          <div className="flex flex-col md:flex-row justify-center items-center gap-10 md:gap-0 divide-y md:divide-y-0 md:divide-x divide-white/20">
+          <div className="flex flex-col md:flex-row justify-evenly items-center gap-10 md:gap-0 divide-y md:divide-y-0 md:divide-x divide-white/20">
             <div className="px-10 py-4 flex flex-col items-center gap-2 text-center">
               <span className="font-['Sansation'] text-[#00B3DD] text-5xl md:text-[80px] font-bold">
                 150+
@@ -89,7 +115,12 @@ const OurStory = () => {
             spaceBetween={30}
             slidesPerView={1}
             navigation
-            pagination={{ clickable: true }}
+            pagination={{
+              clickable: true,
+              dynamicBullets: true,
+              dynamicMainBullets: carouselImages.length,
+              el: '.swiper-pagination-location',
+            }}
             autoplay={{ delay: 3000 }}
             breakpoints={{
               640: {
@@ -102,7 +133,7 @@ const OurStory = () => {
                 slidesPerView: 4,
               },
             }}
-            className="w-full !pb-14"
+            className="pb-12 px-2 sm:px-4"
           >
             {carouselImages.map((src, index) => (
               <SwiperSlide key={index}>

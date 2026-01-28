@@ -2,15 +2,14 @@ import React from 'react';
 import Image from 'next/image';
 import restaurent from '../../public/images/restaurent.jpg';
 import { useRouter } from 'next/router';
-import res2 from '../../public/images/res2.jpg';
-
+import menalive from '../../public/images/meenalive.png';
 const Description = () => {
   const router = useRouter();
   const handlenavigation = () => {
     router.push('/about');
   };
   return (
-    <section className="bg-[#9BA9CA]/20 py-24 px-4 md:px-24 flex flex-col gap-16 relative overflow-hidden">
+    <section className="bg-[#9BA9CA]/20 p-4 lg:p-[100px] flex flex-col gap-16 relative overflow-hidden">
       {/* Decorative Pata Image (Bottom Right) */}
       <div className="absolute right-0 bottom-[-60px] w-[364px] h-[409px] z-0 pointer-events-none hidden xl:block">
         <Image
@@ -45,7 +44,7 @@ const Description = () => {
         {/* Image Side */}
         <div className="relative w-full xl:w-1/2 h-[400px] lg:h-[642px] rounded-[30px] overflow-hidden group">
           <Image
-            src={res2}
+            src={menalive}
             alt="Mena Plaza Hotel Lobby"
             layout="fill"
             objectFit="cover"
