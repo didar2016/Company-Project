@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import Logo from '../public/images/Logo.png';
+import Logo from '../public/images/navlogo.png';
 import Image from 'next/image';
 import visithotelicon from '../public/images/visithotelicon.png';
 
@@ -62,14 +62,12 @@ const Navbar: React.FC = () => {
       <div className="px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 lg:px-8 lg:py-4">
         <div className="flex justify-between items-center h-16 sm:h-18 md:h-20">
           {/* Logo */}
-          <div className="flex-shrink-0 flex items-center p-1 sm:p-2 md:p-3 lg:p-4">
+          <div className="flex-shrink-0 flex items-center p-3 sm:p-2 md:p-3 lg:p-4">
             <Link href="/" className="flex flex-col">
               <Image
                 src={Logo}
                 alt="MENA Logo"
-                width={174}
-                height={80}
-                className="w-[80px] h-auto sm:w-[80px] md:w-[100px] lg:w-[120px] xl:w-[174px]"
+                className="w-[50px] h-[30px]   sm:w-[70px] sm:h-[50px] lg:w-[120px] lg:w-[70px] xl:w-[150px] xl:h-[80px] object-fill"
               />
             </Link>
           </div>

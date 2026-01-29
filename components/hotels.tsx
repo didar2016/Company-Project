@@ -44,7 +44,7 @@ const Hotels: React.FC = () => {
             className="text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] xl:text-[72px] font-sansation font-light text-brand uppercase tracking-wide"
             style={{ fontWeight: 300 }}
           >
-            The Hotels
+            MENA Hotels
           </h2>
           <p
             className="mt-3 sm:mt-4 text-[#454779] max-w-5xl mx-auto font-light text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] px-4 sm:px-0"
