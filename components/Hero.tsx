@@ -66,7 +66,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
           </div>
 
           {/* Search Bar Section */}
-          <div className="max-w-[1720px] z-20 absolute bottom-[3%] right-[10%] left-[10%] sm:bottom-[5%] lg:bottom-[6%] lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:w-[83%] xl:right-20 min-h-[100px] lg:min-h-[140px] bg-gradient-to-r from-[rgba(0,0,0,0.3)] to-[rgba(234,234,234,0.3)] backdrop-blur-[12px] rounded-[10px] p-[20px] sm:p-[30px] lg:p-[30px] flex flex-wrap lg:flex-row items-end gap-4 lg:gap-[18px] pointer-events-auto shadow-lg">
+          <div className="max-w-[1720px] z-20 absolute bottom-[3%] right-[10%] left-[10%] sm:bottom-[5%] lg:bottom-[6%] lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:w-[83%] xl:right-20 min-h-[100px] lg:min-h-[140px] bg-gradient-to-r from-[rgba(0,0,0,0.3)] to-[rgba(234,234,234,0.3)] backdrop-blur-[12px] rounded-[10px] p-[20px] sm:p-[30px] lg:p-[30px] flex flex-wrap justify-between lg:flex-row items-end gap-4 lg:gap-[18px] pointer-events-auto shadow-lg">
             {/* Check In */}
             <div className="flex flex-col gap-[8px] w-full lg:w-[180px]">
               <span className="font-poppins text-white text-[14px] lg:text-[16px]">
