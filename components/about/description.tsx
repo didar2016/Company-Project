@@ -3,13 +3,15 @@ import Image from 'next/image';
 import restaurent from '../../public/images/restaurent.jpg';
 import { useRouter } from 'next/router';
 import menalive from '../../public/images/meenalive.png';
+import visithotelicon from '../../public/images/visithotelicon.png';
+
 const Description = () => {
   const router = useRouter();
   const handlenavigation = () => {
     router.push('/about');
   };
   return (
-    <section className="bg-[#9BA9CA]/20 p-4 lg:p-[100px] flex flex-col gap-16 relative overflow-hidden">
+    <section className="bg-[#9BA9CA]/20 flex flex-col gap-10 sm:gap-16 relative py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
       {/* Decorative Pata Image (Bottom Right) */}
       <div className="absolute right-0 bottom-[-60px] w-[364px] h-[409px] z-0 pointer-events-none hidden xl:block">
         <Image
@@ -107,6 +109,26 @@ const Description = () => {
             </span>
             <div className="w-[75px] h-[1px] bg-[#9BA9CA]"></div>
           </div> */}
+
+          <div className="flex justify-center mt-4" onClick={handlenavigation}>
+            <button className="flex items-center gap-4 bg-[#00B3DD] rounded-[60px] pl-8 pr-3 py-3 text-white transition hover:bg-[#009bc0] group">
+              <span className="font-['Sansation'] font-bold text-lg tracking-[1.25px] uppercase">
+                Learn More
+              </span>
+              <Image
+                src={visithotelicon}
+                alt="Visit Hotel Icon"
+                className="object-fill object-center h-[24px] w-[28px] sm:h-[30px] sm:w-[36px] md:h-[36px] md:w-[42px] lg:h-[30px] lg:w-[38px]
+                           "
+                //
+                style={{
+                  filter:
+                    'brightness(0) saturate(100%) invert(99%) sepia(0%) saturate(6502%) hue-rotate(18deg) brightness(119%) contrast(100%)',
+                  // : 'brightness(0) saturate(100%) invert(41%) sepia(21%) saturate(1108%) hue-rotate(188deg) brightness(100%) contrast(88%)',
+                }}
+              />
+            </button>
+          </div>
         </div>
       </div>
 

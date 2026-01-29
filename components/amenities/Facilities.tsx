@@ -28,8 +28,8 @@ const facilitiesData = [
 
 const Facilities = () => {
   return (
-    <section className="bg-white w-full mx-auto overflow-hidden">
-      <div className="flex flex-col items-center space-y-15 md:p-[100px]">
+    <section className="bg-white w-full mx-auto">
+      <div className="flex flex-col items-center space-y-15 py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
         {/* Header Section */}
         <HeaderSection />
 
@@ -45,11 +45,12 @@ export default Facilities;
 const HeaderSection = () => {
   return (
     <div className="text-center px-4 space-y-[8px] ">
-      <h2 className="font-sansation text-[#454779] text-3xl md:text-[72px] font-normal leading-[86px] uppercase tracking-wide">
+      <h1 className="font-['Sansation'] font-light text-4xl md:text-[72px] uppercase text-[#454779] leading-tight">
         Facilities That Enhance Your Stay
-      </h2>
-      <p className="font-sansation text-[#2A2D71] md:text-[20px] max-w-[1092px] mx-auto font-light">
-        MENA ApartHotel Albarsha offers a range of facilities designed to provide comfort and
+      </h1>
+      <p className="font-['Poppins'] text-[#2A2D71] text-lg md:text-xl max-w-4xl">
+        MENA ApartHotel Albarsha offers a range of facilities designed to provide comfort and MENA
+        ApartHotel Albarsha offers a range of facilities designed to provide comfort and
         convenience, ensuring an exceptional experience for both short and extended stays.
       </p>
     </div>

@@ -96,10 +96,7 @@ const RoomSlider: React.FC = () => {
   }, []);
 
   return (
-    <section
-      id="rooms"
-      className="py-10 sm:py-14 md:py-16 lg:py-20 bg-[#FFFFFF] px-4 sm:px-6 md:px-12 lg:px-16 xl:px-[100px]"
-    >
+    <section id="rooms" className="mt-10 lg:mt-12 bg-[#FFFFFF] ">
       <div className="max-w-[1720px] mx-auto relative">
         <Swiper
           modules={[Navigation, Pagination, A11y]}

@@ -5,7 +5,7 @@ import RoomSlider from '../RoomSlider';
 
 const RelatedRooms: React.FC = () => {
   return (
-    <section className="w-full bg-white relative">
+    <section className="w-full bg-white relative py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
       <div className="absolute top-0 left-0 w-full pointer-events-none overflow-hidden">
         <Image
           src={roomtitle}
@@ -18,19 +18,19 @@ const RelatedRooms: React.FC = () => {
           priority
         />
       </div>
-      <div className="mx-auto max-w-[1720px]">
+      <div className="mx-auto max-w-[1720px] ">
         {/* Header Section */}
-        <div className="relative xl:px-[100px] xl:pt-[100px]">
+        <div className="relative ">
           {/* Background Text "ROOMS" */}
 
           {/* Main Title */}
           <div className="relative z-10">
-            <h2 className="font-sansation text-[#454779] text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px] xl:text-[60px] font-light leading-tight tracking-[0.02em] mb-3 sm:mb-4 md:mb-5 lg:mb-6 uppercase">
+            <h1 className="font-['Sansation'] font-light text-4xl md:text-[72px] uppercase text-[#454779] leading-tight">
               Accommodations Designed for Every Guest
-            </h2>
+            </h1>
 
             {/* Description */}
-            <p className="font-poppins text-[#2A2D71] text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-normal leading-relaxed max-w-[280px] sm:max-w-[400px] md:max-w-[600px] lg:max-w-[800px]">
+            <p className="font-['Poppins'] text-[#2A2D71] text-lg md:text-xl max-w-4xl">
               Your perfect space in Dubai awaits. Our thoughtfully designed suites and apartments
               blend comfort with practicality, creating a true home-away-from-home for a two-night
               getaway or a two-month residence.
