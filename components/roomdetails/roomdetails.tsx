@@ -66,8 +66,8 @@ const RoomDetails: React.FC<RoomDetailsProps> = ({
   ];
 
   return (
-    <section className="w-full bg-white py-6 sm:py-8 md:py-12 lg:py-16 z-50">
-      <div className="mx-auto max-w-[1720px] px-4 sm:px-6">
+    <section className="w-full bg-white relative py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
+      <div className="mx-auto max-w-[1720px]">
         {/* Split Screen Layout */}
         <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-8 xl:gap-12">
           {/* Left Side - Image Gallery (60-65%) */}
