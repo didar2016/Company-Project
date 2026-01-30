@@ -28,8 +28,8 @@ const facilitiesData = [
 
 const Facilities = () => {
   return (
-    <section className="bg-white w-full mx-auto">
-      <div className="flex flex-col items-center space-y-15 py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
+    <section className="bg-white w-full  py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
+      <div className="flex flex-col items-center space-y-15 max-w-[1720px] mx-auto">
         {/* Header Section */}
         <HeaderSection />
 
@@ -48,7 +48,7 @@ const HeaderSection = () => {
       <h1 className="font-['Sansation'] font-light text-4xl md:text-[72px] uppercase text-[#454779] leading-tight">
         Facilities That Enhance Your Stay
       </h1>
-      <p className="font-['Poppins'] text-[#2A2D71] text-lg md:text-xl max-w-4xl">
+      <p className="font-['Poppins'] text-[#2A2D71] text-lg md:text-xl ">
         MENA ApartHotel Albarsha offers a range of facilities designed to provide comfort and MENA
         ApartHotel Albarsha offers a range of facilities designed to provide comfort and
         convenience, ensuring an exceptional experience for both short and extended stays.

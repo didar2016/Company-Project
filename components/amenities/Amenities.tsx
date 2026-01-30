@@ -104,13 +104,9 @@ const AmenityCard: React.FC<AmenityItem> = ({ title, description, icon }) => {
 
 const Amenities: React.FC = () => {
   return (
-    <div className="w-full bg-white p-4 sm:p-8 md:p-12 lg:p-16 xl:p-[100px] flex justify-center">
-      <div className="w-full">
-        <div
-          className="grid grid-cols-1 sm:grid-cols-2 
-                        gap-4 sm:gap-6 md:gap-8 lg:gap-12 xl:gap-[60px] 
-                        justify-items-center max-w-[1720px] mx-auto"
-        >
+    <div className="w-full bg-white flex justify-center py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
+      <div className="w-full max-w-[1720px] mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 xl:gap-[60px] justify-items-center max-w-[1720px] mx-auto">
           {amenitiesData.map((item, index) => (
             <AmenityCard key={index} {...item} />
           ))}

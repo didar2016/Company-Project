@@ -10,10 +10,10 @@ const DiningAmenities = () => {
     router.push('/dining');
   };
   return (
-    <section className="w-full max-w-[1920px] mx-auto p-4 lg:p-[100px] flex flex-col gap-[10px] z-[3] relative">
-      <div className="w-full bg-[#EBEEF4] rounded-[20px] p-6 lg:p-[30px] flex flex-col gap-[20px]">
+    <section className="w-full mx-auto flex flex-col gap-[10px] z-[3] relative  py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
+      <div className="w-full bg-[#EBEEF4] rounded-[20px] p-6 lg:p-[30px] flex flex-col gap-[20px] max-w-[1720px] mx-auto">
         {/* Header Section */}
-        <div className="flex flex-col items-center justify-center w-full min-h-[68px] text-center">
+        <div className="mx-auto flex flex-col items-center justify-center w-full min-h-[68px] text-center">
           <h2 className="font-sansation font-light text-[32px] lg:text-[56px] leading-[40px] lg:leading-[68px] uppercase text-[#454779]">
             DINING AND AMENITIES
           </h2>

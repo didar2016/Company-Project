@@ -15,7 +15,7 @@ const ContactInfo = () => {
   return (
     <div className="flex flex-col lg:flex-row justify-center items-start gap-5 p-8 lg:p-[100px] w-full max-w-[1920px] mx-auto bg-white">
       {/* Left Side */}
-      <div className="flex flex-col items-start p-[30px] gap-[30px] w-full lg:w-[450px] min-h-[666px] bg-[rgba(155,169,202,0.2)] rounded-[30px] shrink-0">
+      <div className="flex flex-col items-start p-[30px] gap-[30px] w-full lg:w-[450px] lg:min-h-[666px] bg-[rgba(155,169,202,0.2)] rounded-[30px] shrink-0">
         {/* Contact Info Title */}
         <div className="flex flex-col gap-[11px] w-full">
           <h3 className="font-sansation text-[18px] uppercase text-[#6D6E87] leading-[27px]">

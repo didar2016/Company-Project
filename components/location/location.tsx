@@ -37,9 +37,9 @@ const hotels: Hotel[] = [
 const Locations: React.FC = () => {
   return (
     <section id="location" className=" bg-white border-none">
-      <div className=" bg-white px-4 sm:px-6 md:px-12 lg:px-16 xl:px-[100px] py-10 sm:py-14 md:py-16 lg:py-20">
-        <div className="max-w-[1720px] mx-auto relative">
-          <div className="flex flex-wrap flex-row gap-x-[20px] gap-y-[80px] justify-center">
+      <div className=" bg-white py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
+        <div className="max-w-[1720px] mx-auto">
+          <div className="flex flex-wrap flex-row gap-x-[20px] gap-y-8 sm:gap-y-12 justify-center">
             {hotels.map((hotel) => (
               <div
                 key={hotel.id}
@@ -92,7 +92,7 @@ const Locations: React.FC = () => {
                   </div> */}
 
                   <div className="absolute right-2 sm:right-4 bottom-2 sm:bottom-4">
-                    <button className="flex flex-row justify-between items-center w-[160px] sm:w-[200px] md:w-[276px] h-[48px] sm:h-[56px] md:h-[68px] gap-1.5 sm:gap-2.5 bg-white opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3">
+                    <button className="flex flex-row justify-between items-center gap-1.5 sm:gap-2.5 bg-white opacity-100 rounded-3xl sm:rounded-4xl p-2 sm:p-3">
                       <span className="pl-2 font-sansation sm:pl-4 font-bold text-[14px] sm:text-[16px] md:text-[20px] uppercase text-[#454779] leading-[30px] tracking-[1.2px]">
                         GET DIRECTION
                       </span>

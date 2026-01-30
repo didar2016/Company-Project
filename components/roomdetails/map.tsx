@@ -19,7 +19,9 @@ interface MapReviewProps {
 
 const Map: React.FC<MapReviewProps> = ({ className = '' }) => {
   return (
-    <section className={`relative w-full bg-white  mx-auto sm:px-6 md:p-[100px] ${className}`}>
+    <section
+      className={`relative w-full bg-white py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25`}
+    >
       <div className="absolute bottom-0 left-0 hidden sm:block">
         <Image
           src={pata}

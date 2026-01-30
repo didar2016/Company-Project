@@ -25,7 +25,7 @@ export default function Home() {
           component="room"
         />
 
-        <div className="mt-32 md:mt-0">
+        <div className="bg-white relative py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
           <RoomSlider />
         </div>
         <HotelLocations />

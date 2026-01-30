@@ -9,7 +9,7 @@ const AboutDescription = () => {
     router.push('/about');
   };
   return (
-    <section className="bg-[#9BA9CA]/20 py-24 px-4 md:px-24 flex flex-col gap-16 relative overflow-hidden">
+    <section className="bg-[#9BA9CA]/20 flex flex-col gap-5 sm:gap-12 relative overflow-hidden relative py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
       {/* Decorative Pata Image (Bottom Right) */}
       <div className="absolute right-0 bottom-[-60px] w-[364px] h-[409px] z-0 pointer-events-none hidden xl:block">
         <Image
@@ -90,54 +90,13 @@ const AboutDescription = () => {
               travelers.{' '}
             </span>
             <br />
-            {/* <span className="flex flex-col items-center mt-5">
-              <span className="font-['Sansation'] text-[#454779] uppercase text-xl tracking-wide font-bold">
-                An Ideal Location
-              </span>
-              <div className="w-[75px] h-[1px] bg-[#9BA9CA]"></div>
-            </span>
-            <br />
-            <span className="font-[300] text-[20px]">
-              {' '}
-              Nestled in the heart of Dubai, MENA ApartHotel Albarsha places you within easy reach
-              of the city’s most famous attractions. Explore the breathtaking Burj Al Arab Tower
-              (5.1 km), enjoy a leisurely stroll along The Walk at JBR(7.6 km), or indulge in luxury
-              shopping at the nearby Mall of the Emirates (0.5 km). With Dubai International Airport
-              only 22 km away, our hotel is conveniently positioned for seamless travel.
-            </span> */}
           </p>
-
-          {/* <div className="flex justify-center mt-4" onClick={handlenavigation}>
-            <button className="flex items-center gap-4 bg-[#00B3DD] rounded-[60px] pl-8 pr-3 py-3 text-white transition hover:bg-[#009bc0] group">
-              <span className="font-['Sansation'] font-bold text-lg tracking-[1.25px] uppercase">
-                Learn More
-              </span>
-              <div className="w-[44px] h-[44px] rounded-full border-2 border-white flex items-center justify-center group-hover:bg-white group-hover:text-[#00B3DD] transition-colors">
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 14 14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-[16px] h-[16px]"
-                >
-                  <path
-                    d="M1 13L13 1M13 1H5M13 1V9"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-            </button>
-          </div> */}
         </div>
       </div>
 
       {/* Accommodations Card */}
       <div className="bg-white rounded-[20px] p-8 md:p-[60px] max-w-[1720px] mx-auto w-full z-10 shadow-sm">
-        <div className="flex flex-col xl:flex-row gap-12 items-start">
+        <div className="flex flex-col xl:flex-row gap-5 sm:gap-12 items-start">
           {/* Left Text */}
           <div className="w-full xl:w-1/3 flex flex-col flex-wrap gap-6 my-auto">
             <h3 className="font-['Sansation'] text-[#454779] font-bold text-3xl md:text-[42px] leading-tight">
