@@ -14,7 +14,7 @@ const MasaTurkishEatery: React.FC = () => {
 
   return (
     <div className="w-full relative py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25 ">
-      <div className="sm:p-6 md:p-[30px]  mx-auto max-w-[1720px] bg-[#EBEEF4] rounded-[20px] ">
+      <div className="p-3 sm:p-6 md:p-[30px]  mx-auto max-w-[1720px] bg-[#EBEEF4] rounded-[20px] ">
         {/* Main Title */}
         <h2
           className="text-center font-sansation text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px] text-[#454779] uppercase mb-4"

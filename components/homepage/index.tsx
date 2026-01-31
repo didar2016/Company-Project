@@ -25,22 +25,16 @@ export default function HomePage() {
       <WeekendOffer />
       <Facilities />
       <WrapLocationSlider />
-      <div className=" p-4 lg:px-[100px]">
-        {' '}
-        <MasaTurkishEatery />
-      </div>
-
+      <MasaTurkishEatery />
       <OurStory />
-
       <WrapMapReview />
-
       <HotelLocations />
     </>
   );
 }
 
 const WrapMapReview = () => (
-  <div className="pt-[100px] bg-white">
+  <div className=" pt-[40px] lg:pt-[100px] bg-white">
     <div className="flex justify-center w-full px-4 lg:px-[100px]">
       <div className="flex flex-col xl:flex-row items-center gap-[100px] w-full max-w-[1720px]">
         <div className="flex flex-col items-start gap-2 w-full max-w-[1234px]">

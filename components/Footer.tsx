@@ -6,9 +6,9 @@ import footerimage from '../public/images/logomena.png';
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-[#2A2D71] flex flex-col items-center pt-[80px] lg:pt-[120px] xl:pt-[140px] 2xl:pt-[160px] pb-[100px] lg:pb-[120px] xl:pb-[140px] 2xl:pb-[160px] px-8 lg:px-[80px] xl:px-[120px] 2xl:px-[160px] gap-[60px] lg:gap-[80px] xl:gap-[100px] 2xl:gap-[120px] relative overflow-hidden">
+    <footer className="w-full bg-[#2A2D71] flex flex-wrap flex-col items-center pt-[80px] lg:pt-[120px] xl:pt-[140px] 2xl:pt-[160px] px-8 lg:px-[80px] xl:px-[120px] 2xl:px-[160px] gap-[60px] lg:gap-[80px] xl:gap-[100px] 2xl:gap-[120px] relative overflow-hidden">
       {/* Main Content */}
-      <div className="flex flex-col lg:grid lg:grid-cols-2 xl:flex xl:flex-row items-start justify-between w-full max-w-[1720px] 2xl:max-w-[1920px] gap-12 lg:gap-[40px] xl:gap-[60px] 2xl:gap-[80px] z-10">
+      <div className="flex flex-wrap flex-col lg:grid lg:grid-cols-2 xl:flex xl:flex-row items-start justify-between w-full max-w-[1720px] 2xl:max-w-[1920px] gap-12 lg:gap-[40px] xl:gap-[60px] 2xl:gap-[80px] z-10">
         {/* Column 1: Brand & Description */}
         <div className="flex flex-col items-start gap-5 lg:gap-6 xl:gap-7 2xl:gap-8 w-full lg:w-auto xl:w-[444px] 2xl:w-[500px] lg:col-span-1 xl:shrink-0">
           <div className="relative w-[193px] lg:w-[220px] xl:w-[193px] 2xl:w-[240px] h-[103px] lg:h-[118px] xl:h-[103px] 2xl:h-[128px]">
@@ -126,8 +126,8 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="mx-auto w-full">
-        <div className="max-w-[1720px] 2xl:max-w-[1920px] w-[90%] lg:w-[85%] xl:w-[90%] 2xl:w-[85%] bg-white rounded-t-[20px] lg:rounded-t-[25px] xl:rounded-t-[20px] 2xl:rounded-t-[30px] py-[20px] lg:py-[24px] xl:py-[20px] 2xl:py-[28px] z-10 relative mt-auto xl:mt-0 xl:absolute xl:bottom-0 xl:left-1/2 xl:-translate-x-1/2 h-[76px] lg:h-[84px] xl:h-[76px] 2xl:h-[92px] flex items-center justify-center">
-          <p className="font-sansation font-light text-[18px] lg:text-[22px] xl:text-[24px] 2xl:text-[26px] leading-[36px] lg:leading-[38px] xl:leading-[36px] 2xl:leading-[42px] tracking-[0.75px] text-[#454779] text-center">
+        <div className="max-w-[1720px] 2xl:max-w-[1920px] w-[90%] lg:w-[85%] xl:w-[90%] 2xl:w-[85%] bg-white rounded-t-[20px] lg:rounded-t-[25px] xl:rounded-t-[20px] 2xl:rounded-t-[30px] py-[20px] lg:py-[24px] xl:py-[20px] 2xl:py-[28px] z-10 relative mt-auto xl:mt-0 xl:absolute xl:bottom-0 xl:left-1/2 xl:-translate-x-1/2 h-[36px] sm:h-[52] lg:h-[64px] xl:h-[76px] 2xl:h-[92px] flex items-center justify-center">
+          <p className="font-sansation font-light text-[16px] sm:text-[18px] lg:text-[22px] xl:text-[24px] 2xl:text-[26px] tracking-[0.75px] text-[#454779] text-center">
             © 2025 MENA Hotels & Resorts
           </p>
         </div>

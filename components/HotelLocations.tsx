@@ -68,7 +68,7 @@ const hotels: Hotel[] = [
 const HotelLocations: React.FC = () => {
   return (
     <section id="location" className=" bg-white border-none">
-      <div className=" bg-[#9BA9CA33] px-4 sm:px-6 md:px-12 lg:px-16 xl:px-[100px] py-10 sm:py-14 md:py-16 lg:py-20">
+      <div className=" bg-[#9BA9CA33] relative py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
         <div className="text-center mb-8 sm:mb-12 md:mb-16">
           <h2
             className="text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] xl:text-[72px] font-sansation font-light text-brand uppercase tracking-wide"

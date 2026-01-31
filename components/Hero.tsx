@@ -7,6 +7,32 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
   description,
   component,
 }) => {
+  const [screenSize, setScreenSize] = React.useState<{
+    width: number;
+    height: number;
+  }>({
+    width: 0,
+    height: 0,
+  });
+
+  React.useEffect(() => {
+    const updateScreenSize = () => {
+      setScreenSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    // Set initial screen size
+    updateScreenSize();
+
+    // Add event listener for window resize
+    window.addEventListener('resize', updateScreenSize);
+
+    // Cleanup event listener on component unmount
+    return () => window.removeEventListener('resize', updateScreenSize);
+  }, []);
+
   return (
     <div className="relative">
       {/* Background Image with Overlay */}
@@ -184,18 +210,28 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
         component === 'contact') && (
         <>
           <div
-            className="absolute top-0 right-0 w-3/5 h-full z-10"
-            style={{
-              backdropFilter: 'blur(14px)',
-              WebkitMaskImage: 'linear-gradient(to right, transparent, black 54px)',
-              maskImage: 'linear-gradient(to right, transparent, black 54px)',
-              background:
-                'radial-gradient(98.23% 73.71% at 16.71% 87.33%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.205) 39.42%)',
-            }}
+            className="absolute bottom-0 md:top-0 md:right-0 w-full md:w-3/5 h-3/7 md:h-full z-10"
+            style={
+              screenSize.width >= 768
+                ? {
+                    backdropFilter: 'blur(14px)',
+                    WebkitMaskImage: 'linear-gradient(to right, transparent, black 54px)',
+                    maskImage: 'linear-gradient(to right, transparent, black 54px)',
+                    background:
+                      'radial-gradient(98.23% 73.71% at 16.71% 87.33%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.205) 39.42%)',
+                  }
+                : {
+                    backdropFilter: 'blur(14px)',
+                    WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 54px)',
+                    maskImage: 'linear-gradient(to bottom, transparent, black 54px)',
+                    background:
+                      'radial-gradient(98.23% 73.71% at 16.71% 87.33%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.205) 39.42%)',
+                  }
+            }
           />
           <div className="absolute z-20 text-center md:text-right text-white px-4 sm:px-6 md:px-8 lg:px-12 max-w-[1130px] mx-auto bottom-[10%] sm:bottom-[15%] md:bottom-[32%] right-0 sm:right-[2%] md:right-[5%] left-4 sm:left-auto ">
             <h1
-              className="text-white font-sansation text-[30px] sm:text-[30px] md:text-[45px] lg:text-[60px] leading-[50px] sm:leading-[70px] md:leading-[90px] lg:leading-[110px] uppercase"
+              className="text-white font-sansation text-[30px] sm:text-[30px] md:text-[45px] lg:text-[60px] uppercase"
               style={{ fontWeight: 700 }}
             >
               {title}

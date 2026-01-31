@@ -21,8 +21,8 @@ const AboutDescription = () => {
         />
       </div>
 
-      <div className="flex flex-col gap-2 max-w-[1720px] mx-auto w-full z-10">
-        <h1 className="font-['Sansation'] font-light text-4xl md:text-[52px] uppercase text-[#454779] leading-tight">
+      <div className="flex flex-col gap-2 max-w-[1720px] mx-auto w-full z-10 text-4xl ">
+        <h1 className="font-['Sansation'] font-light text-4xl md:text-[72px] uppercase text-[#454779] leading-tight">
           Welcome to <span className="font-bold">MENA ApartHotel Albarsha</span>
           <br />
         </h1>

@@ -4,6 +4,7 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 import Logo from '../public/images/navlogo.png';
 import Image from 'next/image';
 import visithotelicon from '../public/images/visithotelicon.png';
+import { useRouter } from 'next/router';
 
 interface NavLink {
   name: string;
@@ -14,6 +15,7 @@ interface NavLink {
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const router = useRouter();
   //no-undef
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -48,7 +50,8 @@ const Navbar: React.FC = () => {
       }
     };
 
-    if (activeDropdown) {
+    // Only add event listener for wide screens (lg and above), not for mobile
+    if (activeDropdown && window.innerWidth >= 1024) {
       document.addEventListener('mousedown', handleClickOutside);
     }
 
@@ -155,8 +158,8 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="lg:hidden bg-gradient-to-b from-white to-gray-50 border-t border-gray-200/50 absolute left-0 right-0 top-full w-full overflow-y-auto max-h-[calc(100vh-6rem)] shadow-xl backdrop-blur-sm">
-            <div className="px-6 pt-6 pb-24 space-y-2 text-center flex flex-col items-center justify-start">
+          <div className="lg:hidden bg-gradient-to-b from-white to-gray-50 border-t border-gray-200/50 absolute left-0 right-0 top-full w-full overflow-y-auto max-h-[calc(100vh-6rem)] shadow-xl backdrop-blur-sm z-[55] touch-manipulation">
+            <div className="px-6 pt-6 pb-24 space-y-2 text-center flex flex-col items-center justify-start relative z-[56]">
               {navLinks.map((link, index) => (
                 <div
                   key={link.name}
@@ -166,11 +169,13 @@ const Navbar: React.FC = () => {
                   {link.subItems ? (
                     <div className="flex flex-col items-center">
                       <button
-                        onClick={(e) => {
-                          e.stopPropagation();
+                        onClick={() => {
                           setActiveDropdown(activeDropdown === link.name ? null : link.name);
                         }}
-                        className="flex items-center justify-center px-6 py-4 text-lg font-semibold text-gray-800 hover:text-[#00B3DD] w-full rounded-2xl hover:bg-white/80 transition-all duration-300 transform hover:scale-[1.02] shadow-sm hover:shadow-md"
+                        className="flex items-center justify-center px-6 py-4 text-lg font-semibold text-gray-800 hover:text-[#00B3DD] w-full rounded-2xl hover:bg-white/80 transition-all duration-300 transform hover:scale-[1.02] shadow-sm hover:shadow-md cursor-pointer touch-manipulation active:bg-blue-100/50 relative z-[57]"
+                        type="button"
+                        aria-expanded={activeDropdown === link.name}
+                        aria-haspopup="true"
                       >
                         <span className="tracking-wide">{link.name}</span>
                         <ChevronDown
@@ -184,23 +189,20 @@ const Navbar: React.FC = () => {
                       </button>
 
                       {activeDropdown === link.name && (
-                        <div className="bg-gradient-to-br from-white to-blue-50/50 w-full rounded-2xl py-3 mt-3 mb-2 shadow-lg border border-blue-100/50 animate-in slide-in-from-top-2 duration-200">
+                        <div className="bg-gradient-to-br from-white to-blue-50/50 w-full rounded-2xl py-3 mt-3 mb-2 shadow-lg border border-blue-100/50 animate-in slide-in-from-top-2 duration-200 relative z-[60]">
                           {link.subItems.map((subItem, subIndex) => (
-                            <Link
-                              key={subItem.name}
-                              href={subItem.href}
-                              className="block py-4 px-6 text-base text-gray-600 hover:text-[#00B3DD] hover:bg-blue-50/50 transition-all duration-200 transform hover:translate-x-1 font-medium tracking-wide"
-                              onClick={() => {
-                                setIsOpen(false);
-                                setActiveDropdown(null);
-                              }}
-                              style={{ animationDelay: `${subIndex * 100}ms` }}
-                            >
-                              <span className="flex items-center justify-center">
-                                <span className="w-2 h-2 bg-[#00B3DD]/40 rounded-full mr-3"></span>
-                                {subItem.name}
-                              </span>
-                            </Link>
+                            <div key={subItem.name} className="relative">
+                              <Link
+                                href={subItem.href}
+                                className="block py-4 px-6 text-base text-gray-600 hover:text-[#00B3DD] hover:bg-blue-50/50 transition-all duration-200 transform hover:translate-x-1 font-medium tracking-wide cursor-pointer touch-manipulation active:bg-blue-100/70"
+                                style={{ animationDelay: `${subIndex * 100}ms` }}
+                              >
+                                <span className="flex items-center justify-center pointer-events-none">
+                                  <span className="w-2 h-2 bg-[#00B3DD]/40 rounded-full mr-3"></span>
+                                  {subItem.name}
+                                </span>
+                              </Link>
+                            </div>
                           ))}
                         </div>
                       )}
@@ -208,11 +210,7 @@ const Navbar: React.FC = () => {
                   ) : (
                     <Link
                       href={link.href}
-                      className="block px-6 py-4 text-lg font-semibold text-gray-800 hover:text-[#00B3DD] rounded-2xl hover:bg-white/80 transition-all duration-300 transform hover:scale-[1.02] shadow-sm hover:shadow-md tracking-wide"
-                      onClick={() => {
-                        setIsOpen(false);
-                        setActiveDropdown(null);
-                      }}
+                      className="block px-6 py-4 text-lg font-semibold text-gray-800 hover:text-[#00B3DD] rounded-2xl hover:bg-white/80 transition-all duration-300 transform hover:scale-[1.02] shadow-sm hover:shadow-md tracking-wide cursor-pointer touch-manipulation active:bg-blue-100/50"
                     >
                       {link.name}
                     </Link>
@@ -223,19 +221,19 @@ const Navbar: React.FC = () => {
               <div className="pt-6">
                 <Link
                   href="#book"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#00B3DD] to-[#0095B8] text-white hover:from-[#0095B8] hover:to-[#007A9A] rounded-2xl text-base font-bold transition-all duration-300 uppercase tracking-wider shadow-lg hover:shadow-xl transform hover:scale-105 min-w-[200px]"
-                  onClick={() => {
+                  className="inline-flex items-center justify-center px-8 py-4 text-[#0095B8] rounded-2xl text-base font-bold transition-all duration-300 uppercase tracking-wider transform hover:scale-105 min-w-[200px] cursor-pointer touch-manipulation active:bg-blue-100/50"
+                  onClick={(e) => {
+                    e.stopPropagation();
                     setIsOpen(false);
                     setActiveDropdown(null);
                   }}
+                  onTouchEnd={(e) => {
+                    e.stopPropagation();
+                  }}
                 >
                   <span>Book Your Stay</span>
-                  <span className="ml-3 inline-block transition-all duration-300">
-                    <Image
-                      src={visithotelicon}
-                      alt="Visit Hotel Icon"
-                      className="w-5 h-auto filter brightness-0 invert"
-                    />
+                  <span className="ml-3 inline-block transition-all duration-300 pointer-events-none">
+                    <Image src={visithotelicon} alt="Visit Hotel Icon" className="w-12 h-auto" />
                   </span>
                 </Link>
               </div>
