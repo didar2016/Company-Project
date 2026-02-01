@@ -71,9 +71,9 @@ const MapReview: React.FC<MapReviewProps> = ({ className = '' }) => {
         />
       </div>
       <div className="mx-auto max-w-[1720px]">
-        <div className="flex flex-col justify-between items-center lg:flex-row gap-6 sm:gap-8 lg:gap-12">
+        <div className="flex flex-col justify-between items-center xl:flex-row gap-6 sm:gap-8 lg:gap-12">
           {/* Left Side - Interactive Map */}
-          <div className=" relative w-full lg:w-1/2 h-[350px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl sm:shadow-2xl">
+          <div className=" relative w-full xl:w-1/2 h-[350px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl sm:shadow-2xl">
             {/* Map Container */}
             <div className="absolute inset-0 bg-gray-200">
               {/* Replace this iframe with your actual map implementation */}
@@ -137,7 +137,7 @@ const MapReview: React.FC<MapReviewProps> = ({ className = '' }) => {
           </div>
 
           {/* Right Side - Review Slider with Swiper */}
-          <div className="max-w-[760px] relative w-full lg:w-1/2 flex items-center justify-center h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px]">
+          <div className="max-w-[760px] relative w-full xl:w-1/2 flex items-center justify-center h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px]">
             <div className="relative w-full flex items-center gap-2 sm:gap-4 lg:gap-8">
               {/* Swiper Container */}
               <div className="flex-1 w-full">

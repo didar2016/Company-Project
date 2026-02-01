@@ -69,9 +69,9 @@ const RoomDetails: React.FC<RoomDetailsProps> = ({
     <section className="w-full bg-white relative py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
       <div className="mx-auto max-w-[1720px]">
         {/* Split Screen Layout */}
-        <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-8 xl:gap-12">
+        <div className="flex flex-col xl:flex-row gap-4 sm:gap-6 lg:gap-8 xl:gap-12">
           {/* Left Side - Image Gallery (60-65%) */}
-          <div className="w-full lg:w-[62%] xl:w-[65%] relative">
+          <div className="w-full  xl:w-[65%] relative">
             {/* Main Image Slider */}
             <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-lg sm:shadow-xl h-[250px] sm:h-[300px] md:h-[350px] lg:h-[573px]">
               <Swiper
@@ -150,7 +150,7 @@ const RoomDetails: React.FC<RoomDetailsProps> = ({
               {facilities.map((facility, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-2 sm:gap-3 md:gap-5 p-[4px] sm:p-[6px] md:p-[8px]"
+                  className="flex items-center gap-2 sm:gap-3 md:gap-5 xl:gap-3.5 p-[4px] sm:p-[6px] md:p-[8px]"
                 >
                   <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-10 md:h-10 rounded-full bg-[#00B3DD] flex items-center justify-center text-white flex-shrink-0">
                     {React.cloneElement(
@@ -169,7 +169,7 @@ const RoomDetails: React.FC<RoomDetailsProps> = ({
           </div>
 
           {/* Right Side - Content Panel (35-40%) */}
-          <div className="relative w-full lg:w-[38%] xl:w-[35%] flex flex-col bg-[#9BA9CA33] p-4 sm:p-5 md:p-6 lg:p-[30px] rounded-[20px] sm:rounded-[25px] md:rounded-[30px]">
+          <div className="relative w-full  xl:w-[35%] flex flex-col bg-[#9BA9CA33] p-4 sm:p-5 md:p-6 lg:p-[30px] rounded-[20px] sm:rounded-[25px] md:rounded-[30px]">
             {/* Rating & Price */}
 
             <div className="flex justify-items-start items-center gap-1 sm:gap-2 my-1 sm:my-2">

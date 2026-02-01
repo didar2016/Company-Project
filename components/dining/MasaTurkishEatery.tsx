@@ -24,14 +24,14 @@ const MasaTurkishEatery: React.FC = () => {
         </h2>
 
         {/* Content Container */}
-        <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-stretch">
+        <div className="flex flex-col xl:flex-row gap-4 lg:gap-6 items-stretch">
           {/* Image Section */}
-          <div className="w-full lg:w-1/2 h-[300px] sm:h-[400px] md:h-[450px] lg:h-[528px] relative rounded-3xl overflow-hidden shadow-2xl">
+          <div className="w-full h-[300px] sm:h-[400px] md:h-[450px] lg:h-[528px] relative rounded-3xl overflow-hidden shadow-2xl">
             <Image src={restaurent} alt="Culinary" fill className="object-fill object-center" />
           </div>
 
           {/* Content Section */}
-          <div className="flex flex-col bg-white rounded-[20px] p-[20px] sm:p-[25px] md:p-[30px] w-full lg:w-1/2">
+          <div className="flex flex-col bg-white rounded-[20px] p-[20px] sm:p-[25px] md:p-[30px] w-full">
             {/* Restaurant Name */}
             <h3
               className="font-sansation text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] xl:text-[42px] text-[#454779] leading-tight mb-4"
@@ -119,39 +119,21 @@ const MasaTurkishEatery: React.FC = () => {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 pt-4 justify-between">
+            <div className="pt-4">
               {/* Explore Menu Button */}
-              <button
-                onClick={handleNavigate}
-                className="flex flex-row max-w-[250px] justify-between items-center border-2 border-[#9BA9CA] gap-2 bg-white opacity-100 rounded-3xl sm:rounded-4xl px-3 py-1 flex-1 hover:bg-gray-50 transition-colors"
-              >
-                <span
-                  className="p-2 sm:p-2.5 md:p-3 font-sansation text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] uppercase text-[#454779]"
-                  style={{ fontWeight: 700 }}
-                >
+
+              <button className="flex flex-row justify-between items-center  gap-1.5 sm:gap-2.5 border-2 border-[#9BA9CA] bg-white  opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3">
+                <span className="pl-2 sm:pl-4 font-sansation font-[700] text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] uppercase text-[#454779]">
                   EXPLORE MENU
                 </span>
-                <Image
-                  src={visithotelicon}
-                  alt="Visit Hotel Icon"
-                  className="object-contain h-[24px] w-[28px] sm:h-[30px] sm:w-[36px] md:h-[36px] md:w-[42px]"
-                />
-              </button>
-
-              {/* Book Now Button */}
-              {/* <button className="flex flex-row max-w-[250px] justify-between items-center gap-2 bg-[#00B3DD] opacity-100 rounded-3xl sm:rounded-4xl px-3 py-1 flex-1 hover:bg-[#009ec7] transition-colors">
-                <span
-                  className="p-2 sm:p-2.5 md:p-3 font-sansation text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] uppercase text-white leading-tight tracking-[1.25px]"
-                  style={{ fontWeight: 700 }}
-                >
-                  BOOK NOW
+                <span className="py-2">
+                  <Image
+                    src={visithotelicon}
+                    alt="Visit Hotel Icon"
+                    className="object-contain h-[24px] w-[28px] sm:h-[30px] sm:w-[36px] md:h-[36px] md:w-[42px]"
+                  />
                 </span>
-                <Image
-                  src={visithotelicon}
-                  alt="Visit Hotel Icon"
-                  className="object-contain h-[24px] w-[28px] sm:h-[30px] sm:w-[36px] md:h-[36px] md:w-[42px] filter brightness-0 invert"
-                />
-              </button> */}
+              </button>
             </div>
           </div>
         </div>

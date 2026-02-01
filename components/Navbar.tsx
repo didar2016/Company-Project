@@ -61,7 +61,7 @@ const Navbar: React.FC = () => {
   }, [activeDropdown]);
 
   return (
-    <nav className="fixed w-[95%] sm:w-[90%] md:w-[85%] lg:w-[90%] z-50 bg-white/95 backdrop-blur-sm shadow-sm transition-all duration-300 top-4 sm:top-8 md:top-12 left-1/2 -translate-x-1/2 rounded-full sm:rounded-[80px] md:rounded-[140px]">
+    <nav className="fixed w-[95%] sm:w-[90%] md:w-[85%] lg:w-[90%] z-50 bg-white/95 backdrop-blur-sm shadow-sm transition-all duration-300 top-4 sm:top-8 lg:top-12 left-1/2 -translate-x-1/2 rounded-full sm:rounded-[80px] md:rounded-[140px]">
       <div className="px-2 py-0 sm:px-3 sm:py-2 md:px-4 md:py-3 lg:px-8 lg:py-4">
         <div className="flex justify-between items-center h-12 sm:h-16 md:h-20">
           {/* Logo */}

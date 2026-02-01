@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 import { useRouter } from 'next/router';
 import restaurent from '../../public/images/restaurent.jpg';
+import visithotelicon from '../../public/images/visithotelicon.png';
 
 const DiningAmenities = () => {
   const router = useRouter();
@@ -60,18 +61,27 @@ const DiningAmenities = () => {
             {/* Buttons - Following CSS structure logic for buttons at the bottom if needed, 
                              though not visible in the prompt image, they are present in the provided CSS. 
                          */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-[30px] mt-auto pt-4">
+            <div className=" pt-4">
               {/* Outline Button */}
-              <button className="w-full sm:w-[283px] h-[68px] border border-[#9BA9CA] rounded-[60px] flex items-center justify-center gap-[10px] group hover:bg-[#9BA9CA]/10 transition-colors">
+
+              <button className="flex flex-row justify-between items-center  gap-1.5 sm:gap-2.5 border-2 border-[#9BA9CA] bg-white  opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3">
                 <span
                   onClick={handleNavigate}
-                  className="font-sansation font-bold text-[16px] lg:text-[20px] tracking-[1.25px] uppercase text-[#454779] w-auto"
+                  className="pl-2 sm:pl-4 font-sansation font-[700] text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] uppercase text-[#454779]"
                 >
                   DISCOVER MORE
                 </span>
-                <div className="w-[54px] h-[44px] rounded-[96px] border-2 border-[#00B3DD] flex items-center justify-center">
-                  <ArrowUpRight className="text-[#00B3DD] w-[20px] h-[20px]" strokeWidth={3} />
-                </div>
+                <span className="py-2">
+                  <Image
+                    src={visithotelicon}
+                    alt="Visit Hotel Icon"
+                    className="object-contain h-[24px] w-[28px] sm:h-[30px] sm:w-[36px] md:h-[36px] md:w-[42px]"
+                    style={{
+                      filter:
+                        'brightness(0) saturate(100%) invert(56%) sepia(93%) saturate(1899%) hue-rotate(161deg) brightness(97%) contrast(101%)',
+                    }}
+                  />
+                </span>
               </button>
 
               {/* Filled Button */}
