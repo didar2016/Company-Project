@@ -31,7 +31,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
 }) => {
   const router = useRouter();
 
-  const [isHovered, setIsHovered] = useState(false);
+  // const [isHovered, setIsHovered] = useState(false);
 
   const handleViewDetailsClick = () => {
     router.push('./roomdetails');
@@ -92,8 +92,8 @@ const RoomCard: React.FC<RoomCardProps> = ({
       {/* Room Image */}
       <div
         className="relative overflow-hidden aspect-square w-full max-w-[540px]"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        // onMouseEnter={() => setIsHovered(true)}
+        // onMouseLeave={() => setIsHovered(false)}
       >
         {room.discountPercentage && (
           // <div
@@ -136,7 +136,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
 
         {/* Amenity Icons Overlay */}
         <div
-          className={`absolute bottom-3 sm:bottom-5 right-[20px] left-[20px] justify-between flex items-center gap-1 sm:gap-2  rounded-full sm:rounded-[30px] px-2.5 sm:px-5 py-2.5 sm:py-2.5 backdrop-blur-[9px] bg-white/30 transition-opacity duration-300 ${isHovered ? 'opacity-0' : 'opacity-100'}`}
+          className={`absolute bottom-3 sm:bottom-5 right-[20px] left-[20px] justify-between flex items-center gap-1 sm:gap-2  rounded-full sm:rounded-[30px] px-2.5 sm:px-5 py-2.5 sm:py-2.5 backdrop-blur-[9px] bg-white/30 transition-opacity duration-300`}
         >
           <div className="flex flex-row gap-1 sm:gap-2 justify-start">
             <div className="bg-[#00B3DD] text-white w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 xl:h-8 xl:w-8 rounded-full flex items-center justify-center">
@@ -188,7 +188,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
         {/* View Details Button Overlay */}
         {showButton && (
           <div
-            className={`absolute bottom-3 sm:bottom-5 right-[20px] transition-all duration-300 ease-in-out ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}
+            className={`absolute bottom-3 sm:bottom-5 right-[20px] transition-all duration-300 ease-in-out`}
           >
             <button
               className="flex flex-row justify-between items-center gap-1.5 sm:gap-2.5 bg-[#00B3DD] rounded-3xl sm:rounded-4xl px-2 sm:px-3 border-1"
