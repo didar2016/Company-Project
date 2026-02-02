@@ -25,12 +25,12 @@ const RelatedRooms: React.FC = () => {
 
           {/* Main Title */}
           <div className="relative z-10">
-            <h1 className="font-['Sansation'] font-light text-4xl md:text-[72px] uppercase text-[#454779] leading-tight">
+            <h1 className="font-['Sansation'] font-light text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] xl:text-[72px] uppercase text-[#454779] leading-tight">
               Accommodations Designed for Every Guest
             </h1>
 
             {/* Description */}
-            <p className="font-['Poppins'] text-[#2A2D71] text-lg md:text-xl max-w-4xl">
+            <p className="font-['Poppins'] text-[#2A2D71] text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] max-w-4xl">
               Your perfect space in Dubai awaits. Our thoughtfully designed suites and apartments
               blend comfort with practicality, creating a true home-away-from-home for a two-night
               getaway or a two-month residence.

@@ -23,7 +23,7 @@ export default function Home() {
           image={heroimage}
           title="EXPLORE OUR FACILITIES"
           description="Designed to cater to every aspect of your stay, from relaxation to productivity, our
-        facilities ensure a memorable and comfortable experience."
+        facilities ensure a memorable and comfortable experience"
           component="facilities"
         />
         <Facilities />

@@ -11,34 +11,15 @@ const Description = () => {
     router.push('/about');
   };
   return (
-    <section className="bg-[#9BA9CA]/20 flex flex-col gap-10 sm:gap-16 relative py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
-      {/* Decorative Pata Image (Bottom Right) */}
-      <div className="absolute right-0 bottom-[-60px] w-[364px] h-[409px] z-0 pointer-events-none hidden xl:block">
-        <Image
-          src="/images/Pata.png"
-          alt="Pattern"
-          layout="fill"
-          objectFit="contain"
-          className="opacity-50"
-        />
-      </div>
-
+    <section className="bg-[#9BA9CA]/20 flex flex-col gap-6 sm:gap-10 lg:gap-16 relative py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
       <div className="flex flex-col gap-2 max-w-[1720px] mx-auto w-full z-10">
-        <h1 className="font-['Sansation'] font-light text-4xl md:text-[72px] uppercase text-[#454779] leading-tight">
+        <h1 className="font-['Sansation'] font-light text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] xl:text-[72px] uppercase text-[#454779] leading-tight">
           Live the <span className="font-bold">Mena Apart</span> Experience
         </h1>
-        <p className="font-['Poppins'] text-[#8A8BB3] text-lg md:text-xl max-w-4xl">
+        <p className="font-['Poppins'] text-[#8A8BB3] text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px]">
           Modern spaces, exceptional service, and everything you need for a seamless stay in the
           city
         </p>
-
-        {/* Large "ABOUT" background text opacity */}
-        <div
-          className="absolute top-[-80px] right-[10%] font-['Sansation'] font-bold text-[230px] leading-none text-transparent opacity-10 pointer-events-none select-none hidden 2xl:block z-0"
-          style={{ WebkitTextStroke: '2px #FFFFFF' }}
-        >
-          ABOUT
-        </div>
       </div>
 
       {/* Content Row: Image + Details Card */}

@@ -37,7 +37,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
     <div className="relative">
       {/* Background Image with Overlay */}
       {component === 'index' ? (
-        <div className="w-full h-[850px] sm:h-[900px]  md:h-[1100px] lg:h-[1100px]">
+        <div className="w-full h-[850px] sm:h-[900px]  md:h-[100vh]">
           {/* Placeholder for Hero Image */}
           <Image
             src={image}
@@ -85,16 +85,17 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
               <span className="font-bold font-sansation">Heart</span> OF Dubai.
             </h1>
             <p className="max-[640px]:text-center font-sansation-light font-light text-[14px] md:text-[18px] lg:text-[20px] leading-[1.2] text-white text-right md:max-w-full">
-              MENA Apart Hotels offers modern, fully equipped suites crafted for both business and
+              MENA ApartHotel offers modern, fully equipped suites crafted for both business and
               leisure stays giving you the space to work, relax, and experience true comfort with
               every visit.
             </p>
           </div>
 
           {/* Search Bar Section */}
-          <div className="max-w-[1720px] z-20 absolute bottom-[3%] right-[10%] left-[10%] sm:bottom-[5%] lg:bottom-[6%] lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:w-[83%] xl:right-20 min-h-[100px] lg:min-h-[140px] bg-gradient-to-r from-[rgba(0,0,0,0.3)] to-[rgba(234,234,234,0.3)] backdrop-blur-[12px] rounded-[10px] p-[20px] sm:p-[30px] lg:p-[30px] flex flex-wrap justify-between lg:flex-row items-end gap-4 lg:gap-[18px] pointer-events-auto shadow-lg">
+          <div className="max-w-[85vw] mx-auto z-20 absolute bottom-[3%] lg:bottom-[6%] right-0 left-0 sm:bottom-[5%]   min-h-[100px] lg:min-h-[140px] bg-gradient-to-r from-[rgba(0,0,0,0.3)] to-[rgba(234,234,234,0.3)] backdrop-blur-[12px] rounded-[10px] p-[20px] sm:p-[30px] lg:p-[30px] flex flex-wrap justify-start lg:flex-row items-end gap-4 lg:gap-[18px] pointer-events-auto shadow-lg">
             {/* Check In */}
-            <div className="flex flex-col gap-[8px] w-full lg:w-[180px]">
+
+            <div className="flex flex-col gap-[8px] w-full  lg:max-w-[200px]">
               <span className="font-poppins text-white text-[14px] lg:text-[16px]">
                 Check In-Date
               </span>
@@ -119,7 +120,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
             </div>
 
             {/* Check Out */}
-            <div className="flex flex-col gap-[8px] w-full lg:w-[180px]">
+            <div className="flex flex-col gap-[8px] w-full lg:max-w-[200px]">
               <span className="font-poppins text-white text-[14px] lg:text-[16px]">
                 Check Out-Date
               </span>
@@ -144,7 +145,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
             </div>
 
             {/* Guests */}
-            <div className="flex flex-col gap-[8px] w-full lg:w-[180px]">
+            <div className="flex flex-col gap-[8px] w-full lg:max-w-[200px]">
               <span className="font-poppins text-white text-[14px] lg:text-[16px]">Guests</span>
               <div className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[40px] lg:h-[50px] px-[15px] lg:px-[20px] w-full cursor-pointer">
                 <span className="font-poppins text-white text-[14px] lg:text-[16px]">2 Adults</span>
@@ -153,7 +154,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
             </div>
 
             {/* Room Type */}
-            <div className="flex flex-col gap-[8px] w-full lg:w-[180px]">
+            <div className="flex flex-col gap-[8px] w-full lg:max-w-[200px]">
               <span className="font-poppins text-white text-[14px] lg:text-[16px]">Room Type</span>
               <div className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[40px] lg:h-[50px] px-[15px] lg:px-[20px] w-full cursor-pointer">
                 <span className="font-poppins text-white text-[14px] lg:text-[16px]">
@@ -164,39 +165,41 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
             </div>
 
             {/* CTA Button */}
-            <button
-              className="flex flex-row justify-between items-center gap-0 bg-[#00B3DD] opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3 border-1"
-              style={{
-                background: '#00B3DD',
-                // : 'white',
-                borderColor: '#00B3DD',
-                // '#00B3DD',
-              }}
-            >
-              <span
-                className="pr-[2px]! p-2 sm:p-2.5 md:p-3 lg:p-3 font-sansation text-[12px] sm:text-[14px] md:text-[16px] lg:text-[16px] uppercase text-white tracking-[1.25px]"
+            <div className="lg:min-w-[260px]">
+              <button
+                className="flex flex-row justify-between items-center gap-0 bg-[#00B3DD] opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3 border-1"
                 style={{
-                  fontWeight: 700,
-                  color: 'white',
-                  // : '#454779'
+                  background: '#00B3DD',
+                  // : 'white',
+                  borderColor: '#00B3DD',
+                  // '#00B3DD',
                 }}
               >
-                {' '}
-                CHECK AVAILABILITY
-              </span>
-              <Image
-                src={visithotelicon}
-                alt="Visit Hotel Icon"
-                className="object-fill object-center h-[24px] w-[28px] sm:h-[30px] sm:w-[36px] md:h-[36px] md:w-[42px] lg:h-[30px] lg:w-[38px]
+                <span
+                  className="pr-[2px]! p-2 sm:p-2.5 md:p-3 lg:p-3 font-sansation text-[12px] sm:text-[14px] md:text-[16px] lg:text-[16px] uppercase text-white tracking-[1.25px]"
+                  style={{
+                    fontWeight: 700,
+                    color: 'white',
+                    // : '#454779'
+                  }}
+                >
+                  {' '}
+                  CHECK AVAILABILITY
+                </span>
+                <Image
+                  src={visithotelicon}
+                  alt="Visit Hotel Icon"
+                  className="object-fill object-center h-[24px] w-[28px] sm:h-[30px] sm:w-[36px] md:h-[36px] md:w-[42px] lg:h-[30px] lg:w-[38px]
               "
-                //
-                style={{
-                  filter:
-                    'brightness(0) saturate(100%) invert(99%) sepia(0%) saturate(6502%) hue-rotate(18deg) brightness(119%) contrast(100%)',
-                  // : 'brightness(0) saturate(100%) invert(41%) sepia(21%) saturate(1108%) hue-rotate(188deg) brightness(100%) contrast(88%)',
-                }}
-              />
-            </button>
+                  //
+                  style={{
+                    filter:
+                      'brightness(0) saturate(100%) invert(99%) sepia(0%) saturate(6502%) hue-rotate(18deg) brightness(119%) contrast(100%)',
+                    // : 'brightness(0) saturate(100%) invert(41%) sepia(21%) saturate(1108%) hue-rotate(188deg) brightness(100%) contrast(88%)',
+                  }}
+                />
+              </button>
+            </div>
           </div>
         </>
       )}

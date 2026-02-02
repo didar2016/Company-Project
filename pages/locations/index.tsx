@@ -26,11 +26,10 @@ export default function Home() {
           component="location"
         />
         <Hotels />
-
-        <MapReview />
         <div className="mt-32 md:mt-0">
           <Locations />
         </div>
+        <MapReview />
       </main>
 
       <Footer />

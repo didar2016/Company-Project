@@ -38,10 +38,10 @@ const WrapMapReview = () => (
     <div className="flex justify-center w-full px-4 lg:px-[100px]">
       <div className="flex flex-col xl:flex-row items-center gap-[100px] w-full max-w-[1720px]">
         <div className="flex flex-col items-start gap-2 w-full max-w-[1234px]">
-          <h1 className="font-sansation font-light text-[32px] md:text-[56px] xl:text-[72px] leading-[1.2] xl:leading-[86px] uppercase text-[#454779]">
+          <h1 className="font-sansation font-light text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] xl:text-[72px] leading-[1.2] xl:leading-[86px] uppercase text-[#454779]">
             WHAT GUESTS ARE SAYING
           </h1>
-          <p className="font-sansation font-normal text-[16px] xl:text-[20px] leading-[30px] tracking-[0.5px] text-[#2A2D71]">
+          <p className="font-sansation font-normal text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] leading-[30px] tracking-[0.5px] text-[#2A2D71]">
             Discover our ideal location in the vibrant heart of the city and hear what our esteemed
             guests have to say about their stays.
           </p>
@@ -59,10 +59,10 @@ const WrapLocationSlider = () => (
     <div className="flex justify-center w-full ">
       <div className="flex flex-col xl:flex-row items-center gap-[100px] w-full max-w-[1720px]">
         <div className="flex flex-col items-start gap-2 w-full max-w-[1234px]">
-          <h1 className="font-['Sansation'] font-light text-4xl md:text-[72px] uppercase text-[#454779] leading-tight">
+          <h1 className="font-['Sansation'] font-light text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] xl:text-[72px] uppercase text-[#454779] leading-tight">
             Nearby Experiences
           </h1>
-          <p className="font-['Poppins'] text-[#8A8BB3] text-lg md:text-xl max-w-4xl">
+          <p className="font-['Poppins'] text-[#8A8BB3] text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] max-w-4xl">
             Discover the best of Dubai with curated experiences just moments away from your
             doorstep.{' '}
           </p>

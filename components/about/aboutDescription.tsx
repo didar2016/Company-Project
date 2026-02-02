@@ -22,11 +22,11 @@ const AboutDescription = () => {
       </div>
 
       <div className="flex flex-col gap-2 max-w-[1720px] mx-auto w-full z-10 text-4xl ">
-        <h1 className="font-['Sansation'] font-light text-4xl md:text-[72px] uppercase text-[#454779] leading-tight">
+        <h1 className="font-['Sansation'] font-light text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] xl:text-[72px] uppercase text-[#454779] leading-tight">
           Welcome to <span className="font-bold">MENA ApartHotel Albarsha</span>
           <br />
         </h1>
-        <p className="font-['Poppins'] text-[#8A8BB3] text-lg md:text-xl max-w-5xl">
+        <p className="font-['Poppins'] text-[#8A8BB3] text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] max-w-5xl">
           Where Comfort Meets Modern Living
         </p>
 

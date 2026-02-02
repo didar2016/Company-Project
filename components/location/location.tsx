@@ -37,13 +37,13 @@ const hotels: Hotel[] = [
 const Locations: React.FC = () => {
   return (
     <section id="location" className=" bg-white border-none">
-      <div className=" bg-white py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
+      <div className=" bg-white py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-20 xl:px-25">
         <div className="max-w-[1720px] mx-auto">
-          <div className="flex flex-wrap flex-row gap-x-[20px] gap-y-8 sm:gap-y-12 justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 justify-items-center gap-x-[20px] gap-y-8 sm:gap-y-12">
             {hotels.map((hotel) => (
               <div
                 key={hotel.id}
-                className="flex flex-col gap-4 sm:gap-[30px] group h-full relative max-w-[540px] overflow-hidden mx-auto"
+                className="flex flex-col gap-4 sm:gap-[30px] group h-full relative w-full min-w-[350px] md:min-w-[350px] max-w-[540px] xl:max-w-[540px] overflow-hidden "
               >
                 {/* Image Container */}
                 <div className="border-[#A4D5F0] border-l-[4px] h-auto min-h-[80px] sm:min-h-[100px] md:min-h-[116px]">
@@ -61,35 +61,12 @@ const Locations: React.FC = () => {
                     <p className="text-[20px] text-[#6D6E87] leading-[30px]">{hotel.address}</p>
                   </div>
                 </div>
-                <div className="relative overflow-hidden aspect-square w-full max-w-[540px]">
+                <div className="relative overflow-hidden aspect-square w-full">
                   <Image
                     src={hotel.image}
                     alt={hotel.name}
                     className="object-fill object-center rounded-[15px] sm:rounded-[50px] md:rounded-[50px] w-full h-full"
                   />
-
-                  {/* <div className="absolute left-3 sm:left-6 bottom-2 sm:bottom-7 py-[5px] px-[16px] rounded-[30px] flex flex-row gap-[10px] backdrop-blur-[20px]">
-                    <div
-                      className="absolute inset-0 rounded-[30px] pointer-events-none"
-                      style={{
-                        padding: '1px',
-                        background:
-                          'radial-gradient(84.35% 86.25% at 5.73% 0%, #FFFFFF 0%, rgba(255, 255, 255, 0.17) 100%)',
-                        WebkitMask:
-                          'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                        WebkitMaskComposite: 'xor',
-                        maskComposite: 'exclude',
-                      }}
-                    />
-                    <Image
-                      src={mapicon2}
-                      alt="Map Icon"
-                      className="w-[16px] h-[21px] translate-y-[3px]"
-                    />
-                    <div className="text-white font-poppins text-[20px] leading-[30px] font-[400]">
-                      45 Min Drive
-                    </div>
-                  </div> */}
 
                   <div className="absolute right-2 sm:right-4 bottom-2 sm:bottom-4">
                     <button className="flex flex-row justify-between items-center gap-1.5 sm:gap-2.5 bg-white opacity-100 rounded-3xl sm:rounded-4xl p-2 sm:p-3">
@@ -108,14 +85,6 @@ const Locations: React.FC = () => {
             ))}
           </div>
         </div>
-
-        {/* Pagination Dots (Mockup match) */}
-        {/* <div className="flex justify-center mt-12 space-x-2">
-          <span className="h-1.5 w-8 bg-accent rounded-full"></span>
-          <span className="h-1.5 w-2 bg-gray-300 rounded-full"></span>
-          <span className="h-1.5 w-2 bg-gray-300 rounded-full"></span>
-          <span className="h-1.5 w-2 bg-gray-300 rounded-full"></span>
-        </div> */}
       </div>
     </section>
   );

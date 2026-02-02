@@ -27,13 +27,26 @@ const Footer = () => {
         </div>
 
         {/* Column 2: Navigation Links */}
-        <div className="flex flex-col items-start gap-[10px] lg:gap-[12px] xl:gap-[10px] 2xl:gap-[14px] w-full lg:w-auto xl:w-[286px] 2xl:w-[320px] lg:col-span-1 xl:shrink-0">
-          <FooterLink text="HOME" link="/" />
-          <FooterLink text="OUR DESTINATIONS" link="/locations" />
-          <FooterLink text="OFFERS" link="/dining" />
-          <FooterLink text="contact" link="/contact" />
-        </div>
+        <div>
+          <div className="flex flex-col items-start gap-[11px] lg:gap-[13px] xl:gap-[11px] 2xl:gap-[15px] w-full mb-[10px] lg:mb-[12px] xl:mb-[10px] 2xl:mb-[14px]">
+            <h4 className="font-sansation text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] xl:text-[22px] 2xl:text-[24px] uppercase text-white leading-[24px] sm:leading-[26px] md:leading-[27px] lg:leading-[30px] xl:leading-[33px] 2xl:leading-[36px]">
+              Quick Links
+            </h4>
+            <div className="w-[115px] lg:w-[135px] xl:w-[145px] 2xl:w-[155px] border-t border-[#9BA9CA]"></div>{' '}
+          </div>
 
+          <div className="flex flex-col items-start gap-[10px] lg:gap-[12px] xl:gap-[10px] 2xl:gap-[14px] w-full lg:w-auto xl:w-[286px] 2xl:w-[320px] lg:col-span-1 xl:shrink-0 text-[13px]">
+            <FooterLink text="HOME" link="/" />
+            <FooterLink text="ABOUT" link="/about" />
+
+            <FooterLink text="ROOMS" link="/room" />
+            <FooterLink text="DINING" link="/dining" />
+
+            <FooterLink text="FACILITIES" link="/facilities" />
+            <FooterLink text="LOCATION" link="/locations" />
+            <FooterLink text="CONTACT" link="/contact" />
+          </div>
+        </div>
         {/* Column 3: Contact Us */}
         <div className="flex flex-col items-start gap-[30px] lg:gap-[35px] xl:gap-[30px] 2xl:gap-[40px] w-full lg:w-auto xl:w-[450px] 2xl:w-[500px] lg:col-span-1 xl:shrink-0">
           {/* Header */}
@@ -41,7 +54,7 @@ const Footer = () => {
             <h4 className="font-sansation text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] xl:text-[22px] 2xl:text-[24px] uppercase text-white leading-[24px] sm:leading-[26px] md:leading-[27px] lg:leading-[30px] xl:leading-[33px] 2xl:leading-[36px]">
               CONTACT US
             </h4>
-            <div className="w-[75px] lg:w-[85px] xl:w-[75px] 2xl:w-[95px] border-t border-[#9BA9CA]"></div>
+            <div className="w-[115px] lg:w-[135px] xl:w-[145px] 2xl:w-[155px] border-t border-[#9BA9CA]"></div>
           </div>
 
           {/* Details */}
@@ -103,26 +116,13 @@ const Footer = () => {
             <h4 className="font-sansation text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] xl:text-[22px] 2xl:text-[24px] uppercase text-white leading-[24px] sm:leading-[26px] md:leading-[27px] lg:leading-[30px] xl:leading-[33px] 2xl:leading-[36px]">
               NEWSLETTER
             </h4>
-            <div className="w-[75px] lg:w-[85px] xl:w-[75px] 2xl:w-[95px] border-t border-[#9BA9CA]"></div>
+            <div className="w-[115px] lg:w-[135px] xl:w-[145px] 2xl:w-[155px] border-t border-[#9BA9CA]"></div>
           </div>
 
           <p className="font-sansation font-light text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] 2xl:text-[20px] leading-[18px] sm:leading-[19px] md:leading-[20px] lg:leading-[22px] xl:leading-[24px] 2xl:leading-[26px] tracking-[0.75px] text-white mb-[20px] sm:mb-[24px] md:mb-[28px] lg:mb-[32px] xl:mb-[36px] 2xl:mb-[40px] z-10 relative">
             Get our newest offers and exclusive
             <br /> news sent right to your inbox
           </p>
-
-          {/* <button className="w-[201px] lg:w-[220px] xl:w-[201px] 2xl:w-[240px] h-[68px] lg:h-[72px] xl:h-[68px] 2xl:h-[76px] bg-[#00B3DD] rounded-[60px] flex items-center justify-center gap-[16px] lg:gap-[18px] xl:gap-[16px] 2xl:gap-[20px] hover:bg-[#009ac0] transition-colors cursor-pointer group z-10">
-            <span className="font-sansation font-bold text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] xl:text-[21px] 2xl:text-[23px] tracking-[1.25px] uppercase text-white">
-              SIGN UP
-            </span>
-            <div className="w-[54px] lg:w-[58px] xl:w-[54px] 2xl:w-[62px] h-[44px] lg:h-[48px] xl:h-[44px] 2xl:h-[52px] rounded-[96px] border-2 border-white flex items-center justify-center group-hover:bg-white group-hover:text-[#00B3DD] text-white transition-all">
-              <ArrowUpRight
-                size={20}
-                className="lg:w-[22px] lg:h-[22px] xl:w-[20px] xl:h-[20px] 2xl:w-[24px] 2xl:h-[24px]"
-                strokeWidth={3}
-              />
-            </div>
-          </button> */}
 
           <button className="flex flex-row justify-between items-center  gap-1.5 sm:gap-2.5 bg-[#00B3DD] opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3">
             <span className="pl-2 sm:pl-4 font-['Sansation'] text-[14px] sm:text-[16px] md:text-[20px] uppercase text-white">
@@ -145,16 +145,6 @@ const Footer = () => {
           © 2025 MENA Hotels & Resorts
         </p>
       </div>
-
-      {/* Background "M" Watermark */}
-      <div className="absolute right-0 bottom-0 pointer-events-none opacity-10 hidden lg:block xl:block 2xl:block z-0 select-none">
-        <span className="font-sansation text-[400px] lg:text-[450px] xl:text-[500px] 2xl:text-[600px] leading-none text-white opacity-20 transform translate-x-16 lg:translate-x-18 xl:translate-x-20 2xl:translate-x-24 translate-y-16 lg:translate-y-18 xl:translate-y-20 2xl:translate-y-24 block">
-          M
-        </span>
-        {/* This is a fallback if no specific image is available. 
-                     If the large 'M' image is strictly required, we'd place an <Image /> here. 
-                     Based on file list, no obvious 'watermark.png' found, so css text fallback or empty div. */}
-      </div>
     </footer>
   );
 };
@@ -172,12 +162,12 @@ const FooterLink = ({
     <div className="flex flex-col items-start gap-[11px] lg:gap-[13px] xl:gap-[11px] 2xl:gap-[15px] w-full group cursor-pointer">
       <Link
         href={link}
-        className="font-sansation text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] xl:text-[22px] 2xl:text-[24px] uppercase text-white leading-[24px] sm:leading-[26px] md:leading-[27px] lg:leading-[30px] xl:leading-[33px] 2xl:leading-[36px] hover:text-[#00B3DD] transition-colors"
+        className="font-sansation text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] xl:text-[20px] uppercase text-white leading-[24px] sm:leading-[26px] md:leading-[27px] lg:leading-[30px] xl:leading-[33px] 2xl:leading-[36px] hover:text-[#00B3DD] transition-colors"
       >
         {text}
       </Link>
       <div
-        className={`w-[75px] lg:w-[85px] xl:w-[75px] 2xl:w-[95px] border-t ${active ? 'border-[#00B3DD]' : 'border-[#9BA9CA] group-hover:border-[#00B3DD] transition-colors'}`}
+        className={`w-[75px] lg:w-[85px] xl:w-[75px] 2xl:w-[95px] border-t ${active ? 'border-[#00B3DD]' : 'border-transparent group-hover:border-[#00B3DD] transition-colors'}`}
       ></div>
     </div>
   );

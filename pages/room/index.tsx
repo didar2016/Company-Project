@@ -21,7 +21,7 @@ export default function Home() {
         <Hero
           image={heroimage}
           title="Rooms"
-          description="Mena Apart Hotels offers modern, relax, and experience true comfort with every visit."
+          description="Mena Apart Hotels offers modern, relax, and experience true comfort with every visit"
           component="room"
         />
 
