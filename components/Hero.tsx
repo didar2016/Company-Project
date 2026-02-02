@@ -37,7 +37,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
     <div className="relative">
       {/* Background Image with Overlay */}
       {component === 'index' ? (
-        <div className="w-full h-[850px] sm:h-[900px]  md:h-[100vh]">
+        <div className="w-full h-[800px] sm:h-[65vh] md:h-[75vh]  lg:h-[100vh]">
           {/* Placeholder for Hero Image */}
           <Image
             src={image}
@@ -92,10 +92,10 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
           </div>
 
           {/* Search Bar Section */}
-          <div className="max-w-[85vw] mx-auto z-20 absolute bottom-[3%] lg:bottom-[6%] right-0 left-0 sm:bottom-[5%]   min-h-[100px] lg:min-h-[140px] bg-gradient-to-r from-[rgba(0,0,0,0.3)] to-[rgba(234,234,234,0.3)] backdrop-blur-[12px] rounded-[10px] p-[20px] sm:p-[30px] lg:p-[30px] flex flex-wrap justify-start lg:flex-row items-end gap-4 lg:gap-[18px] pointer-events-auto shadow-lg">
+          <div className="max-w-[80vw] sm:max-w-[480px] lg:max-w-[920px]  xl:max-w-[1200px] mx-auto z-20 absolute bottom-[3%] lg:bottom-[6%] right-0 left-0 sm:bottom-[5%]   min-h-[100px] lg:min-h-[140px] bg-gradient-to-r from-[rgba(0,0,0,0.3)] to-[rgba(234,234,234,0.3)] backdrop-blur-[12px] rounded-[10px] p-[20px] sm:p-[30px] lg:p-[30px] flex flex-wrap justify-center md:flex-row items-end gap-4 lg:gap-[18px] pointer-events-auto shadow-lg">
             {/* Check In */}
 
-            <div className="flex flex-col gap-[8px] w-full  lg:max-w-[200px]">
+            <div className="flex flex-col gap-[8px] w-full  sm:max-w-[200px]">
               <span className="font-poppins text-white text-[14px] lg:text-[16px]">
                 Check In-Date
               </span>
@@ -120,7 +120,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
             </div>
 
             {/* Check Out */}
-            <div className="flex flex-col gap-[8px] w-full lg:max-w-[200px]">
+            <div className="flex flex-col gap-[8px] w-full sm:max-w-[200px]">
               <span className="font-poppins text-white text-[14px] lg:text-[16px]">
                 Check Out-Date
               </span>
@@ -145,7 +145,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
             </div>
 
             {/* Guests */}
-            <div className="flex flex-col gap-[8px] w-full lg:max-w-[200px]">
+            <div className="flex flex-col gap-[8px] w-full sm:max-w-[200px]">
               <span className="font-poppins text-white text-[14px] lg:text-[16px]">Guests</span>
               <div className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[40px] lg:h-[50px] px-[15px] lg:px-[20px] w-full cursor-pointer">
                 <span className="font-poppins text-white text-[14px] lg:text-[16px]">2 Adults</span>
@@ -154,7 +154,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
             </div>
 
             {/* Room Type */}
-            <div className="flex flex-col gap-[8px] w-full lg:max-w-[200px]">
+            <div className="flex flex-col gap-[8px] w-full sm:max-w-[200px]">
               <span className="font-poppins text-white text-[14px] lg:text-[16px]">Room Type</span>
               <div className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[40px] lg:h-[50px] px-[15px] lg:px-[20px] w-full cursor-pointer">
                 <span className="font-poppins text-white text-[14px] lg:text-[16px]">

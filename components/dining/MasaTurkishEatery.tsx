@@ -14,10 +14,10 @@ const MasaTurkishEatery: React.FC = () => {
 
   return (
     <div className="w-full relative py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25 ">
-      <div className="p-3 sm:p-6 md:p-[30px]  mx-auto max-w-[1720px] bg-[#EBEEF4] rounded-[20px] ">
-        {/* Main Title */}
+      <div className="p-3 sm:p-6 md:p-[30px]  mx-auto max-w-[1720px] bg-white rounded-[20px] ">
+        {/* Main Title bg-[#EBEEF4] */}
         <h2
-          className="text-center font-sansation text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px] text-[#454779] uppercase mb-4"
+          className="text-center font-sansation text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px] text-[#454779] uppercase mb-6"
           style={{ fontWeight: 400 }}
         >
           A CULINARY JOURNEY AWAITS
@@ -26,12 +26,12 @@ const MasaTurkishEatery: React.FC = () => {
         {/* Content Container */}
         <div className="flex flex-col xl:flex-row gap-4 lg:gap-6 items-stretch">
           {/* Image Section */}
-          <div className="w-full relative rounded-3xl overflow-hidden shadow-2xl">
+          <div className="w-full h-[300px] sm:h-[400px] md:h-[450px] lg:h-[528px] relative rounded-3xl overflow-hidden shadow-2xl">
             <Image src={restaurent} alt="Culinary" fill className="object-cover object-center" />
           </div>
 
           {/* Content Section */}
-          <div className="flex flex-col bg-white rounded-[20px] p-[20px] sm:p-[25px] md:p-[30px] w-full">
+          <div className="flex flex-col bg-[#EBEEF4] rounded-[20px] p-[20px] sm:p-[25px] md:p-[30px] w-full">
             {/* Restaurant Name */}
             <h3
               className="font-sansation text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] xl:text-[42px] text-[#454779] leading-tight mb-4"

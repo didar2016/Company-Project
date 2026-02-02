@@ -14,6 +14,7 @@ interface RoomCardProps {
   imageSrc?: string;
   onViewDetails?: () => void;
   amenities?: string[];
+  showButton?: boolean;
   room: any;
   index?: number;
 }
@@ -23,6 +24,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
   subtitle = 'APARTMENT',
   price = 899,
   currency = '$',
+  showButton = true,
   amenities = ['maximize', 'coffee', 'wifi', 'gift', 'printer', 'bed'],
   room = {},
   index = 1,
@@ -184,6 +186,40 @@ const RoomCard: React.FC<RoomCardProps> = ({
         </div>
 
         {/* View Details Button Overlay */}
+        {/* View Details Button */}
+
+        <div className="flex justify-end mt-4 sm:mt-6 md:mt-8">
+          {showButton && (
+            <button
+              className="flex flex-row justify-between items-center gap-1.5 sm:gap-2.5 bg-[#00B3DD] opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3 border-1"
+              style={{
+                background: index % 2 == 1 ? '#00B3DD' : 'white',
+                borderColor: index % 2 == 1 ? '#00B3DD' : '#00B3DD',
+              }}
+            >
+              <span
+                className="p-2 sm:p-2.5 md:p-3 lg:p-3.5 font-sansation text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] uppercase text-white"
+                style={{ fontWeight: 700, color: index % 2 == 1 ? 'white' : '#454779' }}
+              >
+                {' '}
+                VIEW DETAILS
+              </span>
+              <Image
+                src={visithotelicon}
+                alt="Visit Hotel Icon"
+                className="object-fill object-center h-[24px] w-[28px] sm:h-[30px] sm:w-[36px] md:h-[36px] md:w-[42px] lg:h-[40px] lg:w-[48px]
+              "
+                //
+                style={{
+                  filter:
+                    index % 2 == 1
+                      ? 'brightness(0) saturate(100%) invert(99%) sepia(0%) saturate(6502%) hue-rotate(18deg) brightness(119%) contrast(100%)'
+                      : 'brightness(0) saturate(100%) invert(41%) sepia(21%) saturate(1108%) hue-rotate(188deg) brightness(100%) contrast(88%)',
+                }}
+              />
+            </button>
+          )}
+        </div>
       </div>
 
       {/* View Details Button */}
