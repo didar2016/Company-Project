@@ -26,8 +26,8 @@ const MasaTurkishEatery: React.FC = () => {
         {/* Content Container */}
         <div className="flex flex-col xl:flex-row gap-4 lg:gap-6 items-stretch">
           {/* Image Section */}
-          <div className="w-full h-[300px] sm:h-[400px] md:h-[450px] lg:h-[528px] relative rounded-3xl overflow-hidden shadow-2xl">
-            <Image src={restaurent} alt="Culinary" fill className="object-fill object-center" />
+          <div className="w-full relative rounded-3xl overflow-hidden shadow-2xl">
+            <Image src={restaurent} alt="Culinary" fill className="object-cover object-center" />
           </div>
 
           {/* Content Section */}

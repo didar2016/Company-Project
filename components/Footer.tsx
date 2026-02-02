@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className=" bg-[#2A2D71] pt-8 lg:pt-[70px] xl:pt-[100px] px-8 lg:px-[70px] xl:px-[100px] relative overflow-hidden">
       {/* Main Content */}
-      <div className="flex flex-wrap flex-col sm:grid sm:grid-cols-2 xl:flex xl:flex-row items-start justify-between w-full max-w-[1720px] mx-auto gap-12 lg:gap-[40px] xl:gap-[60px] z-10 pb-10">
+      <div className="flex flex-wrap md:flex-nowrap flex-col sm:flex-row items-start md:justify-between w-full max-w-[1720px] mx-auto gap-12 lg:gap-[20px] xl:gap-[30px] z-10 pb-10">
         {/* Column 1: Brand & Description */}
         <div className="flex flex-col items-start gap-5 lg:gap-6 xl:gap-7 2xl:gap-8 w-full lg:w-auto xl:w-[444px] 2xl:w-[500px] lg:col-span-1 xl:shrink-0">
           <div className="relative w-[140px] sm:w-[160px] md:w-[180px] lg:w-[200px] xl:w-[220px] 2xl:w-[250px] h-[75px] sm:h-[85px] md:h-[95px] lg:h-[105px] xl:h-[115px] 2xl:h-[130px]">
@@ -20,7 +20,7 @@ const Footer = () => {
               className="object-contain brightness-0 invert"
             />
           </div>
-          <p className="font-sansation font-light text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] 2xl:text-[20px] leading-[18px] sm:leading-[19px] md:leading-[20px] lg:leading-[22px] xl:leading-[24px] 2xl:leading-[26px] tracking-[0.75px] text-white max-w-[320px] sm:max-w-[360px] md:max-w-[400px] lg:max-w-[440px] xl:max-w-[480px] 2xl:max-w-[520px]">
+          <p className="font-sansation font-light text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] 2xl:text-[20px] leading-[18px] sm:leading-[19px] md:leading-[20px] lg:leading-[22px] xl:leading-[24px] 2xl:leading-[26px] tracking-[0.75px] text-white max-w-[320px] sm:max-w-[360px] md:max-w-[300px] ">
             Situated in the vibrant city of Dubai, MENA ApartHotel Albarsha is the perfect choice
             for short or extended stays.
           </p>
@@ -107,36 +107,37 @@ const Footer = () => {
             <SocialIcon icon={<Instagram size={20} />} />
             <SocialIcon icon={<Linkedin size={20} />} />
           </div>
+
+          <div className="flex flex-col items-start w-full lg:w-auto xl:w-[286px] 2xl:w-[320px] lg:col-span-1 xl:shrink-0 h-auto lg:h-[240px] xl:h-[220px] 2xl:h-[260px] relative">
+            {/* Header */}
+            <div className="flex flex-col items-start gap-[11px] lg:gap-[13px] xl:gap-[11px] 2xl:gap-[15px] w-full mb-[10px] lg:mb-[12px] xl:mb-[10px] 2xl:mb-[14px]">
+              <h4 className="font-sansation text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] xl:text-[22px] 2xl:text-[24px] uppercase text-white leading-[24px] sm:leading-[26px] md:leading-[27px] lg:leading-[30px] xl:leading-[33px] 2xl:leading-[36px]">
+                NEWSLETTER
+              </h4>
+              <div className="w-[115px] lg:w-[135px] xl:w-[145px] 2xl:w-[155px] border-t border-[#9BA9CA]"></div>
+            </div>
+
+            <p className="font-sansation font-light text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] 2xl:text-[20px] leading-[18px] sm:leading-[19px] md:leading-[20px] lg:leading-[22px] xl:leading-[24px] 2xl:leading-[26px] tracking-[0.75px] text-white mb-[20px] sm:mb-[24px] md:mb-[28px] lg:mb-[32px] xl:mb-[36px] 2xl:mb-[40px] z-10 relative">
+              Get our newest offers and exclusive
+              <br /> news sent right to your inbox
+            </p>
+
+            <button className="flex flex-row justify-between items-center  gap-1.5 sm:gap-2.5 bg-[#00B3DD] opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3">
+              <span className="pl-2 sm:pl-4 font-['Sansation'] text-[14px] sm:text-[16px] md:text-[20px] uppercase text-white">
+                SIGN UP
+              </span>
+              <span className="py-2">
+                <Image
+                  src={visithotelicon}
+                  alt="Visit Hotel Icon"
+                  className="object-fill object-center h-[30px] w-[36px] sm:h-[36px] sm:w-[44px] md:h-[44px] md:w-[54px] filter brightness-0 invert sepia-0 saturate-100 hue-rotate-180"
+                />
+              </span>
+            </button>
+          </div>
         </div>
 
         {/* Column 4: Newsletter */}
-        <div className="flex flex-col items-start w-full lg:w-auto xl:w-[286px] 2xl:w-[320px] lg:col-span-1 xl:shrink-0 h-auto lg:h-[240px] xl:h-[220px] 2xl:h-[260px] relative">
-          {/* Header */}
-          <div className="flex flex-col items-start gap-[11px] lg:gap-[13px] xl:gap-[11px] 2xl:gap-[15px] w-full mb-[10px] lg:mb-[12px] xl:mb-[10px] 2xl:mb-[14px]">
-            <h4 className="font-sansation text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] xl:text-[22px] 2xl:text-[24px] uppercase text-white leading-[24px] sm:leading-[26px] md:leading-[27px] lg:leading-[30px] xl:leading-[33px] 2xl:leading-[36px]">
-              NEWSLETTER
-            </h4>
-            <div className="w-[115px] lg:w-[135px] xl:w-[145px] 2xl:w-[155px] border-t border-[#9BA9CA]"></div>
-          </div>
-
-          <p className="font-sansation font-light text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] 2xl:text-[20px] leading-[18px] sm:leading-[19px] md:leading-[20px] lg:leading-[22px] xl:leading-[24px] 2xl:leading-[26px] tracking-[0.75px] text-white mb-[20px] sm:mb-[24px] md:mb-[28px] lg:mb-[32px] xl:mb-[36px] 2xl:mb-[40px] z-10 relative">
-            Get our newest offers and exclusive
-            <br /> news sent right to your inbox
-          </p>
-
-          <button className="flex flex-row justify-between items-center  gap-1.5 sm:gap-2.5 bg-[#00B3DD] opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3">
-            <span className="pl-2 sm:pl-4 font-['Sansation'] text-[14px] sm:text-[16px] md:text-[20px] uppercase text-white">
-              SIGN UP
-            </span>
-            <span className="py-2">
-              <Image
-                src={visithotelicon}
-                alt="Visit Hotel Icon"
-                className="object-fill object-center h-[30px] w-[36px] sm:h-[36px] sm:w-[44px] md:h-[44px] md:w-[54px] filter brightness-0 invert sepia-0 saturate-100 hue-rotate-180"
-              />
-            </span>
-          </button>
-        </div>
       </div>
 
       {/* Bottom Bar */}
