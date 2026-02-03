@@ -31,7 +31,8 @@ const RoomCard: React.FC<RoomCardProps> = ({
 }) => {
   const router = useRouter();
 
-  // const [isHovered, setIsHovered] = useState(false);
+  const [hoveredAmenityIndex, setHoveredAmenityIndex] = useState<number | null>(null);
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleViewDetailsClick = () => {
     router.push('./roomdetails');
@@ -41,6 +42,8 @@ const RoomCard: React.FC<RoomCardProps> = ({
     <div
       className="relative w-full max-w-[540px] bg-white overflow-hidden mx-auto cursor-pointer"
       onClick={handleViewDetailsClick}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       {/* Header Section with Title and Pricing */}
 
@@ -49,7 +52,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
         <div className="">
           <h2
             className="font-sansation font-light text-[18px] sm:text-[22px] md:text-[26px] lg:text-[28px] xl:text-[28px] 2xl:text-[32px] leading-[24px] sm:leading-[30px] md:leading-[36px] lg:leading-[40px] xl:leading-[46px] uppercase"
-            style={{ fontWeight: 400, color: index % 2 == 1 ? '#00B3DD' : '#454779' }}
+            style={{ fontWeight: 400, color: isHovered ? '#00B3DD' : '#454779' }}
           >
             {room.title}
             <br />
@@ -70,7 +73,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
               <div className="flex items-baseline gap-1">
                 <span
                   className="font-sansation text-[20px] sm:text-[26px] md:text-[32px] lg:text-[42px] xl:text-[38px] 2xl:text-[42px] font-black text-gray-900 leading-none"
-                  style={{ fontWeight: 700, color: index % 2 == 1 ? '#00B3DD' : '#454779' }}
+                  style={{ fontWeight: 700, color: isHovered ? '#00B3DD' : '#454779' }}
                 >
                   {price} {currency}
                 </span>
@@ -114,7 +117,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
                 maskComposite: 'exclude',
               }}
             />
-            <div className=" px-5 xl:px-4 2xl:px-5 py-[5px] text-[#00B3DD] font-bold font-sansation font-700 text-[18px] sm:text-[20px] xl:text-[18px] 2xl:text-[20px] leading-[30px] tracking-[1.25px]">
+            <div className="px-3 xl:px-4 2xl:px-5 py-1 lg:py-2 text-[#00B3DD] font-bold font-sansation font-700 text-[16px] sm:text-[20px] xl:text-[18px] 2xl:text-[20px] leading-[30px] tracking-[1.25px]">
               {room.discountPercentage}
             </div>
           </div>
@@ -143,13 +146,15 @@ const RoomCard: React.FC<RoomCardProps> = ({
               <Maximize2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 lg:w-5 lg:h-5" />
             </div>
             <div
-              className="text-[#454779] font-sansation font-normal not-italic text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[16px]"
+              className={`text-[#454779] font-sansation font-normal not-italic text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[16px] transition-all duration-300 ease-in-out whitespace-nowrap overflow-hidden ${
+                hoveredAmenityIndex !== null ? 'max-w-0 opacity-0' : 'max-w-[100px] opacity-100'
+              }`}
               style={{ fontWeight: 400, alignSelf: 'center' }}
             >
               45 sqm
             </div>
           </div>
-
+          {/* icon component */}
           <div className="flex flex-row gap-1 sm:gap-2 xl:gap-1.5 2xl:gap-2">
             {amenities.slice(1).map((amenity, index) => {
               const IconComponent =
@@ -166,19 +171,25 @@ const RoomCard: React.FC<RoomCardProps> = ({
                           : null;
 
               return IconComponent ? (
-                <div className="flex flex-wrap flex-row gap-1 justify-center items-center">
-                  <div
-                    key={index}
-                    className="bg-[#00B3DD] text-white w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 xl:h-8 xl:w-8 2xl:h-9 2xl:w-9 rounded-full flex items-center justify-center"
-                  >
+                <div
+                  key={index}
+                  className="flex flex-row items-center cursor-pointer gap-2"
+                  onMouseEnter={() => setHoveredAmenityIndex(index)}
+                  onMouseLeave={() => setHoveredAmenityIndex(null)}
+                >
+                  <div className="bg-[#00B3DD] text-white w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 xl:h-8 xl:w-8 2xl:h-9 2xl:w-9 rounded-full flex items-center justify-center">
                     <IconComponent className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 lg:w-5 lg:h-5" />
                   </div>
-                  {/* <div
-                    className="text-[#454779] font-sansation font-normal not-italic text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[16px]"
-                    style={{ fontWeight: 400, alignSelf: 'center' }}
+                  <div
+                    className={`text-[#454779] font-sansation font-normal not-italic text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[16px] transition-all duration-800 ease-in-out whitespace-nowrap overflow-hidden ${
+                      hoveredAmenityIndex === index
+                        ? 'max-w-[100px] opacity-100 mr-1 sm:mr-2'
+                        : 'max-w-0 opacity-0 mr-0'
+                    }`}
+                    style={{ fontWeight: 400 }}
                   >
                     {amenity}
-                  </div> */}
+                  </div>
                 </div>
               ) : null;
             })}
@@ -187,42 +198,38 @@ const RoomCard: React.FC<RoomCardProps> = ({
 
         {/* View Details Button Overlay */}
         {/* View Details Button */}
-
-        <div className="flex justify-end mt-4 sm:mt-6 md:mt-8">
-          {showButton && (
-            <button
-              className="flex flex-row justify-between items-center gap-1.5 sm:gap-2.5 bg-[#00B3DD] opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3 border-1"
-              style={{
-                background: index % 2 == 1 ? '#00B3DD' : 'white',
-                borderColor: index % 2 == 1 ? '#00B3DD' : '#00B3DD',
-              }}
-            >
-              <span
-                className="p-2 sm:p-2.5 md:p-3 lg:p-3.5 font-sansation text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] uppercase text-white"
-                style={{ fontWeight: 700, color: index % 2 == 1 ? 'white' : '#454779' }}
-              >
-                {' '}
-                VIEW DETAILS
-              </span>
-              <Image
-                src={visithotelicon}
-                alt="Visit Hotel Icon"
-                className="object-fill object-center h-[24px] w-[28px] sm:h-[30px] sm:w-[36px] md:h-[36px] md:w-[42px] lg:h-[40px] lg:w-[48px]
-              "
-                //
-                style={{
-                  filter:
-                    index % 2 == 1
-                      ? 'brightness(0) saturate(100%) invert(99%) sepia(0%) saturate(6502%) hue-rotate(18deg) brightness(119%) contrast(100%)'
-                      : 'brightness(0) saturate(100%) invert(41%) sepia(21%) saturate(1108%) hue-rotate(188deg) brightness(100%) contrast(88%)',
-                }}
-              />
-            </button>
-          )}
-        </div>
       </div>
 
       {/* View Details Button */}
+      <div className="flex justify-end mt-4 sm:mt-6 md:mt-8">
+        <button
+          className="flex flex-row justify-between items-center gap-1.5 sm:gap-2.5 bg-[#00B3DD] opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3 border-1"
+          style={{
+            background: isHovered ? '#00B3DD' : 'white',
+            borderColor: isHovered ? '#00B3DD' : '#00B3DD',
+          }}
+        >
+          <span
+            className="p-2 sm:p-2.5 md:p-3 lg:p-3.5 font-sansation text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] uppercase text-white"
+            style={{ fontWeight: 700, color: isHovered ? 'white' : '#454779' }}
+          >
+            {' '}
+            VIEW DETAILS
+          </span>
+          <Image
+            src={visithotelicon}
+            alt="Visit Hotel Icon"
+            className="object-fill object-center h-[24px] w-[28px] sm:h-[30px] sm:w-[36px] md:h-[36px] md:w-[42px] lg:h-[40px] lg:w-[48px]
+              "
+            //
+            style={{
+              filter: isHovered
+                ? 'brightness(0) saturate(100%) invert(99%) sepia(0%) saturate(6502%) hue-rotate(18deg) brightness(119%) contrast(100%)'
+                : 'brightness(0) saturate(100%) invert(41%) sepia(21%) saturate(1108%) hue-rotate(188deg) brightness(100%) contrast(88%)',
+            }}
+          />
+        </button>
+      </div>
     </div>
   );
 };

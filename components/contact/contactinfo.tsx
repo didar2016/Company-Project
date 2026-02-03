@@ -10,6 +10,8 @@ import {
   Youtube,
   ArrowUpRight,
 } from 'lucide-react';
+import Image from 'next/image';
+import visithotelicon from '../../public/images/visithotelicon.png';
 
 const ContactInfo = () => {
   return (
@@ -101,16 +103,23 @@ const ContactInfo = () => {
           </div>
 
           {/* Submit Button */}
-          <button className="w-full h-[56px] sm:h-[60px] md:h-[68px] lg:h-[68px] xl:h-[72px] 2xl:h-[76px] bg-[#00B3DD] rounded-[60px] flex items-center justify-between px-[24px] sm:px-[28px] md:px-[32px] mt-auto hover:bg-[#009ac0] transition-colors cursor-pointer group">
-            <span className="font-sansation font-bold text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] xl:text-[21px] 2xl:text-[22px] tracking-[1.25px] uppercase text-white">
+
+          <button className="flex items-center gap-4 bg-[#00B3DD] rounded-[60px] pl-8 pr-3 py-3 text-white transition hover:bg-[#009bc0] group">
+            <span className="font-['Sansation'] font-bold text-lg tracking-[1.25px] uppercase">
               SEND MESSAGE
             </span>
-            <div className="w-[44px] sm:w-[48px] md:w-[54px] lg:w-[54px] xl:w-[58px] 2xl:w-[62px] h-[36px] sm:h-[40px] md:h-[44px] lg:h-[44px] xl:h-[48px] 2xl:h-[52px] rounded-[96px] border-2 border-white flex items-center justify-center group-hover:bg-white group-hover:text-[#00B3DD] text-white transition-all">
-              <ArrowUpRight
-                className="w-[16px] h-[16px] sm:w-[18px] sm:h-[18px] md:w-[20px] md:h-[20px] lg:w-[20px] lg:h-[20px] xl:w-[22px] xl:h-[22px] 2xl:w-[24px] 2xl:h-[24px]"
-                strokeWidth={3}
-              />
-            </div>
+            <Image
+              src={visithotelicon}
+              alt="Visit Hotel Icon"
+              className="object-fill object-center h-[24px] w-[28px] sm:h-[30px] sm:w-[36px] md:h-[36px] md:w-[42px] lg:h-[30px] lg:w-[38px]
+                                     "
+              //
+              style={{
+                filter:
+                  'brightness(0) saturate(100%) invert(99%) sepia(0%) saturate(6502%) hue-rotate(18deg) brightness(119%) contrast(100%)',
+                // : 'brightness(0) saturate(100%) invert(41%) sepia(21%) saturate(1108%) hue-rotate(188deg) brightness(100%) contrast(88%)',
+              }}
+            />
           </button>
         </div>
       </div>

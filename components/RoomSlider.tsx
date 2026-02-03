@@ -57,15 +57,45 @@ const rooms: Room[] = [
     discountPercentage: '15% OFF',
   },
   {
-    id: 4,
-    title: 'EXECUTIVE SUITE',
+    id: 1,
+    title: 'STUDIO ',
     subTitle: 'APARTMENT',
-    size: '120 sqm',
-    price: 999,
-    image: roomcard4,
-    features: ['Panoramic View', 'Jacuzzi', 'Office'],
+    size: '45 sqm', // Image says 45sqm for Studio (prompt said 65 but visual says 45 for Studio, prompt says 65 for One-Bed? Prompt says Studio 65...). Let's stick to PROMPT values if possible, but image is 45. The Prompt says: "a) STUDIO APARTMENT - 65 sqm...". I will follow PROMPT.
+    price: 899,
+    image: roomcard1,
+    features: ['King Bed', 'Free Wifi', 'Kitchenette'],
+    discountPercentage: '20% OFF',
+  },
+  {
+    id: 2,
+    title: 'ONE-BEDROOM ',
+    subTitle: 'APARTMENT',
+    size: '65 sqm', // Prompt: 85 sqm. Image: 65 sqm. I will use PROMPT values. One-Bed 85 sqm.
+    price: 899,
+    image: roomcard3,
+    features: ['King Bed', 'Living Area', 'Full Kitchen'],
+    discountPercentage: 'Save up to 25%',
+  },
+  {
+    id: 3,
+    title: 'TWO-BEDROOM ',
+    subTitle: 'APARTMENT',
+    size: '85 sqm', // Prompt: 105 sqm. I will use PROMPT values.
+    price: 899,
+    image: roomcard2,
+    features: ['2 King Beds', '2 Bathrooms', 'City View'],
     discountPercentage: '15% OFF',
   },
+  // {
+  //   id: 4,
+  //   title: 'EXECUTIVE SUITE',
+  //   subTitle: 'APARTMENT',
+  //   size: '120 sqm',
+  //   price: 999,
+  //   image: roomcard4,
+  //   features: ['Panoramic View', 'Jacuzzi', 'Office'],
+  //   discountPercentage: '15% OFF',
+  // },
 ];
 
 const RoomSlider: React.FC = () => {
