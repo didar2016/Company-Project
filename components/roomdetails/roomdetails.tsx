@@ -146,7 +146,7 @@ const RoomDetails: React.FC<RoomDetailsProps> = ({
               </Swiper>
             </div>
 
-            <div className="flex flex-wrap justify-between items-center gap-3 sm:gap-4 md:gap-6 rounded-[20px] sm:rounded-[30px] md:rounded-[40px] bg-[#9BA9CA33] mt-3 sm:mt-4 md:mt-[20px] p-2 sm:py-3 sm:px-5">
+            <div className="flex flex-wrap justify-start md:justify-between items-start gap-3 sm:gap-4 md:gap-6 rounded-[20px] sm:rounded-[30px] md:rounded-[40px] bg-[#9BA9CA33] mt-3 sm:mt-4 md:mt-[20px] p-2 sm:py-3 sm:px-5">
               {facilities.map((facility, index) => (
                 <div
                   key={index}

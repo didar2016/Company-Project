@@ -41,6 +41,16 @@ const wordVariants: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 };
 
+const focusWordVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.8, filter: 'blur(10px)' },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    filter: 'blur(0px)',
+    transition: { duration: 0.8, ease: 'easeOut' },
+  },
+};
+
 // Helper: Animated Characters
 const AnimatedChars = ({ text, className = '' }: { text: string; className?: string }) => (
   <>
@@ -57,6 +67,17 @@ const AnimatedWords = ({ text }: { text: string }) => (
   <>
     {text.split(' ').map((word, index) => (
       <motion.span variants={wordVariants} key={index} className="inline-block mr-2">
+        {word}
+      </motion.span>
+    ))}
+  </>
+);
+
+// Helper: Animated Focus Words
+const AnimatedFocusWords = ({ text }: { text: string }) => (
+  <>
+    {text.split(' ').map((word, index) => (
+      <motion.span variants={focusWordVariants} key={index} className="inline-block mr-2">
         {word}
       </motion.span>
     ))}
@@ -132,7 +153,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
           {/* Placeholder for Hero Image */}
           <Image
             src={image}
-            alt="Mena Hotel Interior"
+            alt="Mena Hotel "
             fill
             className="object-cover object-center"
             priority
@@ -181,7 +202,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
                 opacity: 1,
                 transition: {
                   staggerChildren: 0.3,
-                  delayChildren: 1.5, // Wait for hero image fade-in (1.5s)
+                  delayChildren: 1, // Wait for hero image fade-in (1.5s)
                 },
               },
             }}
@@ -197,7 +218,8 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
               }}
               className="max-[640px]:text-center font-sansation font-bold text-[18px] md:text-[24px] lg:text-[30px] leading-[1.3] text-[#A4D5F0] uppercase text-right mb-2 lg:mb-[18px]"
             >
-              <AnimatedWords text="WELCOME TO MENA APARTHOTEL ALBARSHA" />
+              <AnimatedWords text="WELCOME TO" />
+              <AnimatedFocusWords text="MENA APARTHOTEL ALBARSHA" />
             </motion.h2>
             <motion.h1
               variants={charContainer}
@@ -207,7 +229,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
               <AnimatedChars text="Home " className="font-bold font-sansation" />
               <AnimatedChars text="in the " />
               <AnimatedChars text="Heart" className="font-bold font-sansation" />
-              <AnimatedChars text=" OF Dubai." />
+              <AnimatedChars text=" OF Dubai" />
             </motion.h1>
             <motion.p
               variants={fadeInUp}
