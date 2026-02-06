@@ -9,14 +9,6 @@ import chiken from '../../public/images/chiken.png';
 const WeekendOffer: React.FC = () => {
   return (
     <div className="relative w-full bg-[#A4D5F0] py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
-      <div className="absolute top-0 left-0 w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] xl:w-[356px] h-auto z-0">
-        <Image src={patatop} alt="Decorative Top" className="w-full h-auto object-contain" />
-      </div>
-
-      {/* <div className="hidden lg:block absolute bottom-0 right-0 w-[400px] lg:w-[550px] xl:w-[778px] h-auto z-0">
-        <Image src={chef} alt="Decorative Chef" className="w-full h-auto object-contain" />
-      </div> */}
-
       <div className="absolute top-2 sm:top-4 right-0 w-[250px] sm:w-[350px] md:w-[450px] lg:w-[600px] xl:w-[733px] z-0">
         <Image src={offertop} alt="Decorative Top" className="w-full h-auto object-contain" />
       </div>

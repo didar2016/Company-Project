@@ -4,11 +4,11 @@ import Image from 'next/image';
 import { MapPin, Mail, Phone, Facebook, Instagram, Linkedin, ArrowUpRight } from 'lucide-react';
 import footerimage from '../public/images/logomena.png';
 import visithotelicon from '../public/images/visithotelicon.png';
+import pata from '../public/images/Pata.png';
 
 const Footer = () => {
   return (
     <footer className=" bg-[#2A2D71] pt-8 lg:pt-[70px] xl:pt-[100px] px-8 lg:px-[70px] xl:px-[100px] relative overflow-hidden">
-      {/* Main Content */}
       <div className="flex flex-wrap md:flex-nowrap flex-col sm:flex-row items-start md:justify-between w-full max-w-[1720px] mx-auto gap-12 lg:gap-[20px] xl:gap-[30px] z-10 pb-10">
         {/* Column 1: Brand & Description */}
         <div className="flex flex-col items-start gap-5 lg:gap-6 xl:gap-7 2xl:gap-8 w-full lg:w-auto xl:w-[444px] 2xl:w-[500px] lg:col-span-1 xl:shrink-0">

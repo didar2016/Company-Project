@@ -1,6 +1,68 @@
 import React from 'react';
 import Image from 'next/image';
+import { motion, Variants } from 'framer-motion';
 import visithotelicon from '../public/images/visithotelicon.png';
+
+// Animation Variants
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 1, ease: 'easeOut' } },
+};
+
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2, // Stagger main elements (H2, H1, P)
+      delayChildren: 0.3,
+    },
+  },
+};
+
+const charContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05,
+      delayChildren: 0.5,
+    },
+  },
+};
+
+const charVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+};
+
+const wordVariants: Variants = {
+  hidden: { opacity: 0, y: 15 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+};
+
+// Helper: Animated Characters
+const AnimatedChars = ({ text, className = '' }: { text: string; className?: string }) => (
+  <>
+    {text.split('').map((char, index) => (
+      <motion.span variants={charVariants} key={index} className={`inline-block ${className}`}>
+        {char === ' ' ? '\u00A0' : char}
+      </motion.span>
+    ))}
+  </>
+);
+
+// Helper: Animated Words
+const AnimatedWords = ({ text }: { text: string }) => (
+  <>
+    {text.split(' ').map((word, index) => (
+      <motion.span variants={wordVariants} key={index} className="inline-block mr-2">
+        {word}
+      </motion.span>
+    ))}
+  </>
+);
+
 const Hero: React.FC<{ image: any; title: string; description: string; component: string }> = ({
   image,
   title,
@@ -34,10 +96,39 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden">
+      {/* Floating Elements */}
+      {component === 'index' && (
+        <>
+          <motion.div
+            animate={{ y: [0, -20, 0] }}
+            transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
+            className="absolute top-20 left-10 w-16 h-16 bg-white/10 rounded-full blur-xl z-10"
+          />
+          <motion.div
+            animate={{ y: [0, 25, 0] }}
+            transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut', delay: 1 }}
+            className="absolute bottom-40 right-20 w-24 h-24 bg-[#00B3DD]/20 rounded-full blur-xl z-10"
+          />
+          <motion.div
+            animate={{ y: [0, -15, 0] }}
+            transition={{ repeat: Infinity, duration: 6, ease: 'easeInOut', delay: 2 }}
+            className="absolute top-1/3 left-1/4 w-12 h-12 bg-white/5 rounded-full blur-lg z-10"
+          />
+        </>
+      )}
+
       {/* Background Image with Overlay */}
       {component === 'index' ? (
-        <div className="w-full h-[800px] sm:h-[65vh] md:h-[75vh]  lg:h-[100vh]">
+        <motion.div
+          initial={{ opacity: 0, scale: 1 }}
+          animate={{ opacity: 1, scale: [1, 1.15] }}
+          transition={{
+            opacity: { duration: 1.5, ease: 'easeOut' },
+            scale: { duration: 20, repeat: Infinity, repeatType: 'reverse', ease: 'linear' },
+          }}
+          className="w-full h-[800px] sm:h-[650px] md:h-[850px]  lg:h-[100vh]"
+        >
           {/* Placeholder for Hero Image */}
           <Image
             src={image}
@@ -48,9 +139,14 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
             quality={90}
             style={{ objectFit: 'fill' }}
           />
-        </div>
+        </motion.div>
       ) : (
-        <div className="w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[694px]">
+        <motion.div
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.5, ease: 'easeOut' }}
+          className="w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[694px]"
+        >
           <Image
             src={image}
             alt="Mena Hotel Interior"
@@ -60,7 +156,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
             quality={90}
             style={{ objectFit: 'cover' }}
           />
-        </div>
+        </motion.div>
       )}
 
       {component === 'index' && (
@@ -76,23 +172,60 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
             }}
           />
 
-          <div className="absolute z-20 text-center  md:text-right text-white px-4 sm:px-6 md:px-8 lg:px-12 max-w-[1130px] mx-auto top-[17%] sm:top-[23%] lg:top-[25%] right-0 sm:right-[2%] md:right-[5%] left-4 sm:left-auto ">
-            <h2 className="max-[640px]:text-center font-sansation font-bold text-[18px] md:text-[24px] lg:text-[30px] leading-[1.3] text-[#A4D5F0] uppercase text-right mb-2 lg:mb-[18px]">
-              WELCOME TO MENA APARTHOTEL ALBARSHA
-            </h2>
-            <h1 className=" max-[640px]:text-center font-sansation-light font-light text-[26px] md:text-[45px] lg:text-[65px] xl:text-[80px] leading-[1.1] lg:leading-[110px] text-white uppercase text-right mb-2 lg:mb-[18px]">
-              YOUR <span className="font-bold font-sansation">Home </span> in the{' '}
-              <span className="font-bold font-sansation">Heart</span> OF Dubai.
-            </h1>
-            <p className="max-[640px]:text-center font-sansation-light font-light text-[14px] md:text-[18px] lg:text-[20px] leading-[1.2] text-white text-right md:max-w-full">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.3,
+                  delayChildren: 1.5, // Wait for hero image fade-in (1.5s)
+                },
+              },
+            }}
+            className="absolute z-20 text-center  md:text-right text-white px-4 sm:px-6 md:px-8 lg:px-12 max-w-[1130px] mx-auto top-[17%] sm:top-[23%] lg:top-[25%] right-0 sm:right-[2%] md:right-[5%] left-4 sm:left-auto "
+          >
+            <motion.h2
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: { staggerChildren: 0.1 },
+                },
+              }}
+              className="max-[640px]:text-center font-sansation font-bold text-[18px] md:text-[24px] lg:text-[30px] leading-[1.3] text-[#A4D5F0] uppercase text-right mb-2 lg:mb-[18px]"
+            >
+              <AnimatedWords text="WELCOME TO MENA APARTHOTEL ALBARSHA" />
+            </motion.h2>
+            <motion.h1
+              variants={charContainer}
+              className=" max-[640px]:text-center font-sansation-light font-light text-[26px] md:text-[45px] lg:text-[65px] xl:text-[80px] leading-[1.1] lg:leading-[110px] text-white uppercase text-right mb-2 lg:mb-[18px]"
+            >
+              <AnimatedChars text="YOUR " />
+              <AnimatedChars text="Home " className="font-bold font-sansation" />
+              <AnimatedChars text="in the " />
+              <AnimatedChars text="Heart" className="font-bold font-sansation" />
+              <AnimatedChars text=" OF Dubai." />
+            </motion.h1>
+            <motion.p
+              variants={fadeInUp}
+              className="max-[640px]:text-center font-sansation-light font-light text-[14px] md:text-[18px] lg:text-[20px] leading-[1.2] text-white text-right md:max-w-full"
+            >
               MENA ApartHotel offers modern, fully equipped suites crafted for both business and
               leisure stays giving you the space to work, relax, and experience true comfort with
               every visit.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
           {/* Search Bar Section */}
-          <div className="max-w-[80vw] sm:max-w-[480px] lg:max-w-[920px]  xl:max-w-[1200px] mx-auto z-20 absolute bottom-[3%] lg:bottom-[6%] right-0 left-0 sm:bottom-[5%]   min-h-[100px] lg:min-h-[140px] bg-gradient-to-r from-[rgba(0,0,0,0.3)] to-[rgba(234,234,234,0.3)] backdrop-blur-[12px] rounded-[10px] p-[20px] sm:p-[30px] lg:p-[30px] flex flex-wrap justify-center md:flex-row items-end gap-4 lg:gap-[18px] pointer-events-auto shadow-lg">
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 2.5, duration: 0.8, ease: 'easeOut' }} // Wait for text animation
+            className="max-w-[80vw] sm:max-w-[480px] lg:max-w-[920px]  xl:max-w-[1200px] mx-auto z-20 absolute bottom-[3%] lg:bottom-[6%] right-0 left-0 sm:bottom-[5%]   min-h-[100px] lg:min-h-[140px] bg-gradient-to-r from-[rgba(0,0,0,0.3)] to-[rgba(234,234,234,0.3)] backdrop-blur-[12px] rounded-[10px] p-[20px] sm:p-[30px] lg:p-[30px] flex flex-wrap justify-center md:flex-row items-end gap-4 lg:gap-[18px] pointer-events-auto shadow-lg"
+          >
             {/* Check In */}
 
             <div className="flex flex-col gap-[8px] w-full  sm:max-w-[200px]">
@@ -166,7 +299,9 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
 
             {/* CTA Button */}
             <div className="lg:min-w-[260px]">
-              <button
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 className="flex flex-row justify-between items-center gap-0 bg-[#00B3DD] opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3 border-1"
                 style={{
                   background: '#00B3DD',
@@ -198,9 +333,9 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
                     // : 'brightness(0) saturate(100%) invert(41%) sepia(21%) saturate(1108%) hue-rotate(188deg) brightness(100%) contrast(88%)',
                   }}
                 />
-              </button>
+              </motion.button>
             </div>
-          </div>
+          </motion.div>
         </>
       )}
 
@@ -210,7 +345,8 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
         component === 'room' ||
         component === 'singleroom' ||
         component === 'about' ||
-        component === 'contact') && (
+        component === 'contact' ||
+        component === 'longterm') && (
         <>
           <div
             className="absolute bottom-0 md:top-0 md:right-0 w-full md:w-3/5 h-3/7 md:h-full z-10"
@@ -232,20 +368,27 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
                   }
             }
           />
-          <div className="absolute z-20 text-center md:text-right text-white px-4 sm:px-6 md:px-8 lg:px-12 max-w-[1130px] mx-auto bottom-[10%] sm:bottom-[15%] md:bottom-[32%] right-0 sm:right-[2%] md:right-[5%] left-4 sm:left-auto ">
-            <h1
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={staggerContainer}
+            className="absolute z-20 text-center md:text-right text-white px-4 sm:px-6 md:px-8 lg:px-12 max-w-[1130px] mx-auto bottom-[10%] sm:bottom-[15%] md:bottom-[32%] right-0 sm:right-[2%] md:right-[5%] left-4 sm:left-auto "
+          >
+            <motion.h1
+              variants={charContainer}
               className="text-white font-sansation text-[30px] sm:text-[30px] md:text-[45px] lg:text-[60px] uppercase"
               style={{ fontWeight: 700 }}
             >
-              {title}
-            </h1>
-            <p
+              <AnimatedChars text={title} />
+            </motion.h1>
+            <motion.p
+              variants={fadeInUp}
               className="font-sansation font-light text-white text-[13px] sm:text-[14px] md:text-[17px] lg:text-[25px] leading-[120%] text-center md:text-right max-w-[90%] sm:max-w-[500px] md:max-w-[600px] lg:max-w-none mx-auto md:mx-0 uppercase"
               style={{ fontWeight: 700 }}
             >
               {description}
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
         </>
       )}
     </div>

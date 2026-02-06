@@ -29,8 +29,8 @@ const Description = () => {
           <Image
             src={menalive}
             alt="Mena Plaza Hotel Lobby"
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: 'cover' }}
             className="transition-transform duration-500 group-hover:scale-105"
           />
           {/* Play Button Overlay */}

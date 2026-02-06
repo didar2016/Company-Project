@@ -10,17 +10,6 @@ const AboutDescription = () => {
   };
   return (
     <section className="bg-[#9BA9CA]/20 flex flex-col gap-5 sm:gap-12 relative overflow-hidden relative py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
-      {/* Decorative Pata Image (Bottom Right) */}
-      <div className="absolute right-0 bottom-[-60px] w-[364px] h-[409px] z-0 pointer-events-none hidden xl:block">
-        <Image
-          src="/images/Pata.png"
-          alt="Pattern"
-          layout="fill"
-          objectFit="contain"
-          className="opacity-50"
-        />
-      </div>
-
       <div className="flex flex-col gap-2 max-w-[1720px] mx-auto w-full z-10 text-4xl ">
         <h1 className="font-['Sansation'] font-light text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] xl:text-[72px] uppercase text-[#454779] leading-tight">
           Welcome to <span className="font-bold">MENA ApartHotel Albarsha</span>
@@ -46,8 +35,8 @@ const AboutDescription = () => {
           <Image
             src={space}
             alt="Mena Plaza Hotel Lobby"
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: 'cover' }}
             className="transition-transform duration-500 group-hover:scale-105"
           />
           {/* Play Button Overlay */}

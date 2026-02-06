@@ -5,8 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "cross-env NODE_OPTIONS=--max-old-space-size=8192 next dev",
+    "build": "cross-env NODE_OPTIONS=--max-old-space-size=8192 next build",
     "start": "next start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/didar2016/Company-Project#readme",
   "dependencies": {
+    "framer-motion": "^12.33.0",
     "lucide-react": "^0.562.0",
     "next": "^16.1.1",
     "react": "^19.2.3",
@@ -38,6 +39,7 @@
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "autoprefixer": "^10.4.23",
+    "cross-env": "^10.1.0",
     "eslint": "^9.39.2",
     "eslint-config-next": "^16.1.1",
     "husky": "^8.0.0",

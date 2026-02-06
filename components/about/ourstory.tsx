@@ -40,10 +40,6 @@ const carouselImages = [
 const OurStory = () => {
   return (
     <section className="bg-[#2A2D71] relative overflow-hidden mx-auto">
-      {/* Background Decoration */}
-      <div className="absolute top-0 left-0 w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] xl:w-[356px] h-auto z-0">
-        <Image src={patatop} alt="Decorative Top" className="w-full h-auto object-contain" />
-      </div>
       <div className="py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
         <div className="mx-auto max-w-[1720px] relative z-10 flex flex-col gap-10 sm:gap-20">
           {/* Header Section */}
@@ -141,8 +137,8 @@ const OurStory = () => {
                     <Image
                       src={src}
                       alt={`Hotel Image ${index + 1}`}
-                      layout="fill"
-                      objectFit="cover"
+                      fill
+                      style={{ objectFit: 'cover' }}
                       className="transition-transform duration-500 group-hover:scale-110"
                     />
                     {/* Gradient Overlay */}

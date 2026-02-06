@@ -11,6 +11,7 @@ const nextConfig = {
       },
     ],
     dangerouslyAllowSVG: true,
+    qualities: [75, 90],
   },
 };
 

@@ -76,7 +76,11 @@ const Locations: React.FC = () => {
                       <Image
                         src={visithotelicon}
                         alt="Visit Hotel Icon"
-                        className="object-fill object-center h-[30px] w-[36px] sm:h-[36px] sm:w-[44px] md:h-[44px] md:w-[54px] filter: brightness(0) saturate(100%) invert(43%) sepia(29%) saturate(794%) hue-rotate(188deg) brightness(94%) contrast(89%)"
+                        className="object-fill object-center h-[30px] w-[36px] sm:h-[36px] sm:w-[44px] md:h-[44px] md:w-[54px]"
+                        style={{
+                          filter:
+                            'brightness(0) saturate(100%) invert(43%) sepia(29%) saturate(794%) hue-rotate(188deg) brightness(94%) contrast(89%)',
+                        }}
                       />
                     </button>
                   </div>

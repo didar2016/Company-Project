@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from 'next/image';
-import pata from '../../public/images/Pata.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Mousewheel } from 'swiper/modules';
 import 'swiper/css';
@@ -63,13 +62,6 @@ const MapReview: React.FC<MapReviewProps> = ({ className = '' }) => {
     <section
       className={`relative w-full bg-white py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25`}
     >
-      <div className="absolute bottom-0 left-0 hidden sm:block">
-        <Image
-          src={pata}
-          alt="Map Image"
-          className="w-[200px] h-[200px] sm:w-[280px] sm:h-[280px] md:w-[320px] md:h-[320px] lg:w-[365px] lg:h-[365px]"
-        />
-      </div>
       <div className="mx-auto max-w-[1720px]">
         <div className="flex flex-col justify-between items-center xl:flex-row gap-6 sm:gap-8 lg:gap-12">
           {/* Left Side - Interactive Map */}

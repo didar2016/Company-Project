@@ -51,7 +51,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
         {/* Title */}
         <div className="">
           <h2
-            className="font-sansation font-light text-[18px] sm:text-[22px] md:text-[26px] lg:text-[28px] xl:text-[28px] 2xl:text-[32px] leading-[24px] sm:leading-[30px] md:leading-[36px] lg:leading-[40px] xl:leading-[46px] uppercase"
+            className="font-sansation font-light text-[18px] sm:text-[22px] md:text-[26px] lg:text-[28px] xl:text-[28px] 2xl:text-[32px] leading-[24px] sm:leading-[30px] md:leading-[36px] lg:leading-[40px] xl:leading-[46px] uppercase transition-all duration-300"
             style={{ fontWeight: 400, color: isHovered ? '#00B3DD' : '#454779' }}
           >
             {room.title}
@@ -72,7 +72,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
               </span>
               <div className="flex items-baseline gap-1">
                 <span
-                  className="font-sansation text-[20px] sm:text-[26px] md:text-[32px] lg:text-[42px] xl:text-[38px] 2xl:text-[42px] font-black text-gray-900 leading-none"
+                  className="font-sansation text-[20px] sm:text-[26px] md:text-[32px] lg:text-[42px] xl:text-[38px] 2xl:text-[42px] font-black text-gray-900 leading-none transition-all duration-300"
                   style={{ fontWeight: 700, color: isHovered ? '#00B3DD' : '#454779' }}
                 >
                   {price} {currency}
@@ -203,14 +203,14 @@ const RoomCard: React.FC<RoomCardProps> = ({
       {/* View Details Button */}
       <div className="flex justify-end mt-4 sm:mt-6 md:mt-8">
         <button
-          className="flex flex-row justify-between items-center gap-1.5 sm:gap-2.5 bg-[#00B3DD] opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3 border-1"
+          className="flex flex-row justify-between items-center gap-1.5 sm:gap-2.5 bg-[#00B3DD] opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3 border-1 transition-all duration-300"
           style={{
             background: isHovered ? '#00B3DD' : 'white',
             borderColor: isHovered ? '#00B3DD' : '#00B3DD',
           }}
         >
           <span
-            className="p-2 sm:p-2.5 md:p-3 lg:p-3.5 font-sansation text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] uppercase text-white"
+            className="p-2 sm:p-2.5 md:p-3 lg:p-3.5 font-sansation text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] uppercase text-white transition-all duration-300"
             style={{ fontWeight: 700, color: isHovered ? 'white' : '#454779' }}
           >
             {' '}
@@ -219,7 +219,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
           <Image
             src={visithotelicon}
             alt="Visit Hotel Icon"
-            className="object-fill object-center h-[24px] w-[28px] sm:h-[30px] sm:w-[36px] md:h-[36px] md:w-[42px] lg:h-[40px] lg:w-[48px]
+            className="object-fill object-center h-[24px] w-[28px] sm:h-[30px] sm:w-[36px] md:h-[36px] md:w-[42px] lg:h-[40px] lg:w-[48px] transition-all duration-300
               "
             //
             style={{

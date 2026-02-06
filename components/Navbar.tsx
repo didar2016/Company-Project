@@ -131,7 +131,7 @@ const Navbar: React.FC = () => {
               >
                 <span className="hidden min-[1385px]:inline">Book Your Stay</span>
                 <span className="min-[1385px]:hidden">Book</span>
-                <span className="ml-1.5 lg:ml-2 xl:ml-3 inline-block transition-all duration-300 visit-hotel-icon">
+                <span className="ml-1.5 lg:ml-2 xl:ml-3 inline-block transition-all duration-300">
                   <Image
                     src={visithotelicon}
                     alt="Visit Hotel Icon"
