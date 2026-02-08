@@ -398,7 +398,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
           >
             <motion.h1
               variants={charContainer}
-              className="text-white font-sansation text-[30px] sm:text-[30px] md:text-[45px] lg:text-[60px] uppercase"
+              className="text-white font-sansation text-[30px] sm:text-[30px] md:text-[45px] lg:text-[60px] uppercase whitespace-nowrap"
               style={{ fontWeight: 700 }}
             >
               <AnimatedChars text={title} />

@@ -1,9 +1,68 @@
 import React from 'react';
 import Image from 'next/image';
-import restaurent from '../../public/images/restaurent.jpg';
 import { useRouter } from 'next/router';
 import menalive from '../../public/images/meenalive.png';
 import visithotelicon from '../../public/images/visithotelicon.png';
+import { motion, Variants } from 'framer-motion';
+
+// Animation Variants
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 1, ease: 'easeOut' } },
+};
+
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3,
+    },
+  },
+};
+
+const charContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05,
+      delayChildren: 0.5,
+    },
+  },
+};
+
+const charVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+};
+
+const wordVariants: Variants = {
+  hidden: { opacity: 0, y: 15 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+};
+
+const focusWordVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.8, filter: 'blur(10px)' },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    filter: 'blur(0px)',
+    transition: { duration: 0.8, ease: 'easeOut' },
+  },
+};
+
+// Helper: Animated Characters
+const AnimatedChars = ({ text, className = '' }: { text: string; className?: string }) => (
+  <>
+    {text.split('').map((char, index) => (
+      <motion.span variants={charVariants} key={index} className={`inline-block ${className}`}>
+        {char === ' ' ? '\u00A0' : char}
+      </motion.span>
+    ))}
+  </>
+);
 
 const Description = () => {
   const router = useRouter();
@@ -12,15 +71,29 @@ const Description = () => {
   };
   return (
     <section className="bg-[#9BA9CA]/20 flex flex-col gap-6 sm:gap-10 lg:gap-16 relative py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
-      <div className="flex flex-col gap-2 max-w-[1720px] mx-auto w-full z-10">
-        <h1 className="font-['Sansation'] font-light text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] xl:text-[72px] uppercase text-[#454779] leading-tight">
-          Live the <span className="font-bold">Mena Apart</span> Experience
-        </h1>
-        <p className="font-['Poppins'] text-[#8A8BB3] text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px]">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+        className="flex flex-col gap-2 max-w-[1720px] mx-auto w-full z-10"
+      >
+        <motion.h1
+          variants={charContainer}
+          className="font-['Sansation'] font-light text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] xl:text-[72px] uppercase text-[#454779] leading-tight"
+        >
+          <AnimatedChars text="Live the " />
+          <AnimatedChars text="Mena Apart" className="font-bold" />
+          <AnimatedChars text=" Experience" />
+        </motion.h1>
+        <motion.p
+          variants={fadeInUp}
+          className="font-['Poppins'] text-[#8A8BB3] text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px]"
+        >
           Modern spaces, exceptional service, and everything you need for a seamless stay in the
           city
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
 
       {/* Content Row: Image + Details Card */}
       <div className="flex flex-col xl:flex-row gap-8 max-w-[1720px] mx-auto w-full z-10 relative">

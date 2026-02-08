@@ -1,9 +1,62 @@
 import React from 'react';
 import Image from 'next/image';
-import { ArrowUpRight } from 'lucide-react';
 import { useRouter } from 'next/router';
 import restaurent from '../../public/images/restaurent.jpg';
 import visithotelicon from '../../public/images/visithotelicon.png';
+import { motion, Variants } from 'framer-motion';
+
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3,
+    },
+  },
+};
+
+const charContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05,
+      delayChildren: 0.5,
+    },
+  },
+};
+
+const charVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+};
+
+const wordVariants: Variants = {
+  hidden: { opacity: 0, y: 15 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+};
+
+const focusWordVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.8, filter: 'blur(10px)' },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    filter: 'blur(0px)',
+    transition: { duration: 0.8, ease: 'easeOut' },
+  },
+};
+
+// Helper: Animated Characters
+const AnimatedChars = ({ text, className = '' }: { text: string; className?: string }) => (
+  <>
+    {text.split('').map((char, index) => (
+      <motion.span variants={charVariants} key={index} className={`inline-block ${className}`}>
+        {char === ' ' ? '\u00A0' : char}
+      </motion.span>
+    ))}
+  </>
+);
 
 const DiningAmenities = () => {
   const router = useRouter();
@@ -14,11 +67,20 @@ const DiningAmenities = () => {
     <section className="w-full mx-auto flex flex-col gap-[10px] z-[3] relative  py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
       <div className="w-full bg-[#EBEEF4] rounded-[20px] p-6 lg:p-[30px] flex flex-col gap-[20px] max-w-[1720px] mx-auto">
         {/* Header Section */}
-        <div className="mx-auto flex flex-col items-center justify-center w-full min-h-[68px] text-center">
-          <h2 className="font-sansation font-light text-[32px] lg:text-[56px] leading-[40px] lg:leading-[68px] uppercase text-[#454779]">
-            DINING AND AMENITIES
-          </h2>
-        </div>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false }}
+          variants={staggerContainer}
+          className="mx-auto flex flex-col items-center justify-center w-full min-h-[68px] text-center"
+        >
+          <motion.h2
+            variants={charContainer}
+            className="font-sansation font-light text-[32px] lg:text-[56px] leading-[40px] lg:leading-[68px] uppercase text-[#454779]"
+          >
+            <AnimatedChars text="DINING AND AMENITIES" />
+          </motion.h2>
+        </motion.div>
 
         {/* Content Section */}
         <div className="flex flex-col xl:flex-row items-stretch gap-[30px] w-full">

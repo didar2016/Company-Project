@@ -29,11 +29,11 @@ const Navbar: React.FC = () => {
 
     {
       name: 'ROOMS',
-      href: '/rooms',
+      href: '/room',
       subItems: [
-        { name: 'Studio Apartment', href: '/room', image: room1 },
-        { name: 'One Bedroom Apartment', href: '/room', image: room2 },
-        { name: 'Two Bedroom Apartment', href: '/room', image: room3 },
+        { name: 'Studio Apartment', href: '/room?type=studio', image: room1 },
+        { name: 'One Bedroom Apartment', href: '/room?type=one-bedroom', image: room2 },
+        { name: 'Two Bedroom Apartment', href: '/room?type=two-bedroom', image: room3 },
       ],
     },
     { name: 'DINING', href: '/dining' },
@@ -46,6 +46,19 @@ const Navbar: React.FC = () => {
     { name: 'LOCATIONS', href: '/locations' },
     { name: 'CONTACT', href: '/contact' },
   ];
+
+  // Helper function to check if link is active
+  const isActiveLink = (href: string) => {
+    if (href === '/' && router.pathname === '/') return true;
+    if (href !== '/' && router.pathname.startsWith(href)) return true;
+    return false;
+  };
+
+  // Helper function to get hover color based on current page
+  const getHoverColor = (linkHref: string) => {
+    if (isActiveLink(linkHref)) return 'text-[#00B3DD]';
+    return 'hover:text-[#00B3DD]';
+  };
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -87,74 +100,82 @@ const Navbar: React.FC = () => {
                 <div key={link.name} className="relative group">
                   {link.subItems ? (
                     <>
-                      <button
-                        onClick={() =>
-                          setActiveDropdown(activeDropdown === link.name ? null : link.name)
-                        }
-                        className={`flex flex-row items-center font-[--font-sansation] font-normal not-italic text-[18px] leading-[27px] uppercase transition-all duration-300
-                          ${
-                            activeDropdown === link.name
-                              ? 'bg-[#EBF0F8] text-[#00B3DD] px-5 py-2 rounded-full'
-                              : 'text-[#454779] hover:text-[#00B3DD] px-5 py-2'
-                          }`}
+                      <div
+                        onMouseEnter={() => setActiveDropdown(link.name)}
+                        onMouseLeave={() => setActiveDropdown(null)}
+                        className="relative"
                       >
-                        {link.name}
-                        <ChevronDown
-                          size={24}
-                          className={`ml-1 transition-transform duration-200 ${
-                            activeDropdown === link.name
-                              ? 'rotate-180 text-[#00B3DD]'
-                              : 'text-[#454779] group-hover:text-[#00B3DD]'
-                          }`}
-                        />
-                      </button>
+                        <Link
+                          href={link.href}
+                          className={`flex flex-row items-center font-[--font-sansation] font-normal not-italic text-[18px] leading-[27px] uppercase transition-all duration-300
+                            ${
+                              isActiveLink(link.href)
+                                ? 'bg-[#EBF0F8] text-[#00B3DD] px-5 py-2 rounded-full'
+                                : `text-[#454779] ${getHoverColor(link.href)} px-5 py-2`
+                            }`}
+                        >
+                          {link.name}
+                          <ChevronDown
+                            size={24}
+                            className={`ml-1 transition-transform duration-200 ${
+                              activeDropdown === link.name
+                                ? 'rotate-180 text-[#00B3DD]'
+                                : `${isActiveLink(link.href) ? 'text-[#00B3DD]' : 'text-[#454779] group-hover:text-[#00B3DD]'}`
+                            }`}
+                          />
+                        </Link>
 
-                      {/* Dropdown Menu */}
-                      {activeDropdown === link.name &&
-                        (link.name === 'ROOMS' ? (
-                          <div className="hidden lg:flex flex-row items-center p-5 gap-4 absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[672px] h-[330px] bg-white/70 backdrop-blur-[5px] rounded-[20px] shadow-lg border border-gray-100 animate-in fade-in zoom-in-95 duration-200 z-50">
-                            {link.subItems.map((subItem) => (
-                              <Link
-                                key={subItem.name}
-                                href={subItem.href}
-                                className="group/card flex flex-col items-start gap-2.5 w-[200px] h-full transition-all"
-                                onClick={() => setActiveDropdown(null)}
-                              >
-                                <div className="w-[200px] h-[60px] flex flex-col justify-start items-start px-2.5 gap-2.5 border-l border-[#9BA9CA] group-hover/card:border-[#A4D5F0] transition-colors duration-300">
-                                  <span className="font-sansation font-normal text-[20px] leading-[30px] tracking-[0.5px] text-[#454779] group-hover/card:text-[#00B3DD] transition-colors duration-300">
-                                    {subItem.name}
-                                  </span>
-                                </div>
-                                <div className="w-[200px] h-[200px] rounded-[18.5px] relative overflow-hidden group-hover/card:drop-shadow-[0px_30px_50px_rgba(0,179,221,0.1)] transition-all duration-300">
-                                  <Image
-                                    src={subItem.image}
-                                    alt={subItem.name}
-                                    fill
-                                    className="object-cover"
-                                  />
-                                </div>
-                              </Link>
-                            ))}
-                          </div>
-                        ) : (
-                          <div className="text-[18px] font-weight-400 absolute top-full left-0 mt-4 w-[200px] bg-white rounded-lg shadow-xl py-2 border border-gray-100 animate-in fade-in zoom-in-95 duration-200 z-50">
-                            {link.subItems.map((subItem) => (
-                              <Link
-                                key={subItem.name}
-                                href={subItem.href}
-                                className="font-sansation font-normal not-italic text-[18px] leading-6.75 uppercase text-[#454779]  font-weight-400 block px-4 py-3 hover:bg-gray-50 hover:text-accent transition-colors"
-                                onClick={() => setActiveDropdown(null)}
-                              >
-                                {subItem.name}
-                              </Link>
-                            ))}
-                          </div>
-                        ))}
+                        {/* Dropdown Menu */}
+                        {activeDropdown === link.name &&
+                          (link.name === 'ROOMS' ? (
+                            <div className="hidden lg:flex flex-row items-center p-5 gap-4 absolute top-[170%] left-1/2 -translate-x-1/2 mt-4 w-[672px] h-[330px] bg-white/70 backdrop-blur-[5px] rounded-[20px] shadow-lg border border-gray-100 animate-in fade-in zoom-in-95 duration-200 z-50">
+                              {link.subItems.map((subItem) => (
+                                <Link
+                                  key={subItem.name}
+                                  href={subItem.href}
+                                  className="group/card flex flex-col items-start gap-2.5 w-[200px] h-full transition-all"
+                                  onClick={() => setActiveDropdown(null)}
+                                >
+                                  <div className="w-[200px] h-[60px] flex flex-col justify-start items-start px-2.5 gap-2.5 border-l border-[#9BA9CA] group-hover/card:border-[#A4D5F0] transition-colors duration-300">
+                                    <span className="font-sansation font-normal text-[20px] leading-[30px] tracking-[0.5px] text-[#454779] group-hover/card:text-[#00B3DD] transition-colors duration-300">
+                                      {subItem.name}
+                                    </span>
+                                  </div>
+                                  <div className="w-[200px] h-[200px] rounded-[18.5px] relative overflow-hidden group-hover/card:drop-shadow-[0px_30px_50px_rgba(0,179,221,0.1)] transition-all duration-300">
+                                    <Image
+                                      src={subItem.image}
+                                      alt={subItem.name}
+                                      fill
+                                      className="object-cover"
+                                    />
+                                  </div>
+                                </Link>
+                              ))}
+                            </div>
+                          ) : (
+                            <div className="text-[18px] font-weight-400 absolute top-full left-0 mt-4 w-[200px] bg-white rounded-lg shadow-xl py-2 border border-gray-100 animate-in fade-in zoom-in-95 duration-200 z-50">
+                              {link.subItems.map((subItem) => (
+                                <Link
+                                  key={subItem.name}
+                                  href={subItem.href}
+                                  className="font-sansation font-normal not-italic text-[18px] leading-6.75 uppercase text-[#454779]  font-weight-400 block px-4 py-3 hover:bg-gray-50 hover:text-accent transition-colors"
+                                  onClick={() => setActiveDropdown(null)}
+                                >
+                                  {subItem.name}
+                                </Link>
+                              ))}
+                            </div>
+                          ))}
+                      </div>
                     </>
                   ) : (
                     <Link
                       href={link.href}
-                      className="font-sansation not-italic text-[18px] leading-6.75 uppercase text-[#454779] text-xs font-medium  hover:text-accent transition-colors tracking-wide"
+                      className={`font-sansation not-italic text-[18px] leading-6.75 uppercase text-xs font-medium transition-colors tracking-wide px-5 py-2 ${
+                        isActiveLink(link.href)
+                          ? 'bg-[#EBF0F8] text-[#00B3DD] rounded-full'
+                          : `text-[#454779] ${getHoverColor(link.href)}`
+                      }`}
                     >
                       {link.name}
                     </Link>
@@ -211,7 +232,11 @@ const Navbar: React.FC = () => {
                       onClick={() => {
                         setActiveDropdown(activeDropdown === link.name ? null : link.name);
                       }}
-                      className="flex items-center justify-center px-6 py-4 text-xl font-semibold text-gray-800 hover:text-[#00B3DD] w-full rounded-2xl bg-white/20 shadow-sm hover:shadow-md hover:bg-white/50 transition-all duration-300 transform active:scale-[0.98] cursor-pointer touch-manipulation relative z-[57]"
+                      className={`flex items-center justify-center px-6 py-4 text-xl font-semibold w-full rounded-2xl bg-white/20 shadow-sm hover:shadow-md hover:bg-white/50 transition-all duration-300 transform active:scale-[0.98] cursor-pointer touch-manipulation relative z-[57] ${
+                        isActiveLink(link.href)
+                          ? 'text-[#00B3DD]'
+                          : 'text-gray-800 hover:text-[#00B3DD]'
+                      }`}
                       type="button"
                       aria-expanded={activeDropdown === link.name}
                       aria-haspopup="true"
@@ -222,7 +247,9 @@ const Navbar: React.FC = () => {
                         className={`ml-3 transition-all duration-300 pointer-events-none ${
                           activeDropdown === link.name
                             ? 'rotate-180 text-[#00B3DD]'
-                            : 'text-gray-400'
+                            : isActiveLink(link.href)
+                              ? 'text-[#00B3DD]'
+                              : 'text-gray-400'
                         }`}
                       />
                     </button>
@@ -237,7 +264,11 @@ const Navbar: React.FC = () => {
                               setIsOpen(false);
                               setActiveDropdown(null);
                             }}
-                            className="block w-full py-2 px-6 text-lg font-bold text-[#454779]/80 hover:text-[#00B3DD] transition-all duration-300 text-center uppercase tracking-wide"
+                            className={`block w-full py-2 px-6 text-lg font-bold transition-all duration-300 text-center uppercase tracking-wide ${
+                              isActiveLink(subItem.href)
+                                ? 'text-[#00B3DD]'
+                                : 'text-[#454779]/80 hover:text-[#00B3DD]'
+                            }`}
                             style={{ animationDelay: `${subIndex * 50}ms` }}
                           >
                             {subItem.name}
@@ -249,7 +280,12 @@ const Navbar: React.FC = () => {
                 ) : (
                   <Link
                     href={link.href}
-                    className="block px-6 py-4 text-xl font-semibold text-gray-800 hover:text-[#00B3DD] rounded-2xl bg-white/20 shadow-sm hover:shadow-md hover:bg-white/50 transition-all duration-300 transform active:scale-[0.98] tracking-wide uppercase cursor-pointer touch-manipulation"
+                    onClick={() => setIsOpen(false)}
+                    className={`block px-6 py-4 text-xl font-semibold rounded-2xl bg-white/20 shadow-sm hover:shadow-md hover:bg-white/50 transition-all duration-300 transform active:scale-[0.98] tracking-wide uppercase cursor-pointer touch-manipulation ${
+                      isActiveLink(link.href)
+                        ? 'text-[#00B3DD]'
+                        : 'text-gray-800 hover:text-[#00B3DD]'
+                    }`}
                   >
                     {link.name}
                   </Link>

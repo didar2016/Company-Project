@@ -2,6 +2,66 @@ import React from 'react';
 import Image from 'next/image';
 import space from '../../public/images/space.jpg';
 import { useRouter } from 'next/router';
+import { motion, Variants } from 'framer-motion';
+
+// Animation Variants
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 1, ease: 'easeOut' } },
+};
+
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3,
+    },
+  },
+};
+
+const charContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05,
+      delayChildren: 0.5,
+    },
+  },
+};
+
+const charVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+};
+
+const wordVariants: Variants = {
+  hidden: { opacity: 0, y: 15 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+};
+
+const focusWordVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.8, filter: 'blur(10px)' },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    filter: 'blur(0px)',
+    transition: { duration: 0.8, ease: 'easeOut' },
+  },
+};
+
+// Helper: Animated Characters
+const AnimatedChars = ({ text, className = '' }: { text: string; className?: string }) => (
+  <>
+    {text.split('').map((char, index) => (
+      <motion.span variants={charVariants} key={index} className={`inline-block ${className}`}>
+        {char === ' ' ? '\u00A0' : char}
+      </motion.span>
+    ))}
+  </>
+);
 
 const AboutDescription = () => {
   const router = useRouter();
@@ -10,14 +70,27 @@ const AboutDescription = () => {
   };
   return (
     <section className="bg-[#9BA9CA]/20 flex flex-col gap-5 sm:gap-12 relative overflow-hidden relative py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
-      <div className="flex flex-col gap-2 max-w-[1720px] mx-auto w-full z-10 text-4xl ">
-        <h1 className="font-['Sansation'] font-light text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] xl:text-[72px] uppercase text-[#454779] leading-tight">
-          Welcome to <span className="font-bold">MENA ApartHotel Albarsha</span>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false }}
+        variants={staggerContainer}
+        className="flex flex-col gap-2 max-w-[1720px] mx-auto w-full z-10 text-4xl "
+      >
+        <motion.h1
+          variants={charContainer}
+          className="font-['Sansation'] font-light text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] xl:text-[72px] uppercase text-[#454779] leading-tight"
+        >
+          <AnimatedChars text="Welcome to " />
+          <AnimatedChars text="MENA ApartHotel Albarsha" className="font-bold" />
           <br />
-        </h1>
-        <p className="font-['Poppins'] text-[#8A8BB3] text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] max-w-5xl">
+        </motion.h1>
+        <motion.p
+          variants={fadeInUp}
+          className="font-['Poppins'] text-[#8A8BB3] text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] max-w-5xl"
+        >
           Where Comfort Meets Modern Living
-        </p>
+        </motion.p>
 
         {/* Large "ABOUT" background text opacity */}
         <div
@@ -26,7 +99,7 @@ const AboutDescription = () => {
         >
           ABOUT
         </div>
-      </div>
+      </motion.div>
 
       {/* Content Row: Image + Details Card */}
       <div className="flex flex-col xl:flex-row gap-8 max-w-[1720px] mx-auto w-full z-10 relative">

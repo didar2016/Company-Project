@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image';
 import React from 'react';
+import { motion, Variants } from 'framer-motion';
 import facility2 from '../../public/images/facilities2.png';
 import facility3 from '../../public/images/pool.jpg';
 import facility4 from '../../public/images/sauna.png';
@@ -26,6 +27,50 @@ const facilitiesData = [
   },
 ];
 
+// Animation Variants
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 1, ease: 'easeOut' } },
+};
+
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2, // Stagger main elements (H2, H1, P)
+      delayChildren: 0.3,
+    },
+  },
+};
+
+const charContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05,
+      delayChildren: 0.5,
+    },
+  },
+};
+
+const charVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+};
+
+// Helper: Animated Characters
+const AnimatedChars = ({ text, className = '' }: { text: string; className?: string }) => (
+  <>
+    {text.split('').map((char, index) => (
+      <motion.span variants={charVariants} key={index} className={`inline-block ${className}`}>
+        {char === ' ' ? '\u00A0' : char}
+      </motion.span>
+    ))}
+  </>
+);
+
 const Facilities = () => {
   return (
     <section className="bg-white w-full  py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
@@ -44,16 +89,28 @@ export default Facilities;
 
 const HeaderSection = () => {
   return (
-    <div className="text-center px-4 space-y-[8px] ">
-      <h1 className="font-['Sansation'] font-light text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] xl:text-[72px] uppercase text-[#454779] leading-tight">
-        Facilities That Enhance Your Stay
-      </h1>
-      <p className="font-['Poppins'] text-[#2A2D71] text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] ">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={staggerContainer}
+      className="text-center px-4 space-y-[8px] "
+    >
+      <motion.h1
+        variants={charContainer}
+        className="font-['Sansation'] font-light text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] xl:text-[72px] uppercase text-[#454779] leading-tight"
+      >
+        <AnimatedChars text="Facilities That Enhance Your Stay" />
+      </motion.h1>
+      <motion.p
+        variants={fadeInUp}
+        className="font-['Poppins'] text-[#2A2D71] text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] "
+      >
         MENA ApartHotel Albarsha offers a range of facilities designed to provide comfort and MENA
         ApartHotel Albarsha offers a range of facilities designed to provide comfort and
         convenience, ensuring an exceptional experience for both short and extended stays.
-      </p>
-    </div>
+      </motion.p>
+    </motion.div>
   );
 };
 

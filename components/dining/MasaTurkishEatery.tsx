@@ -1,9 +1,68 @@
 import React from 'react';
 import Image from 'next/image';
 import visithotelicon from '../../public/images/visithotelicon.png';
-import culinary from '../../public/images/lobby.jpg';
 import restaurent from '../../public/images/restaurent.jpg';
 import { useRouter } from 'next/router';
+import { motion, Variants } from 'framer-motion';
+
+// Animation Variants
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 1, ease: 'easeOut' } },
+};
+
+const charContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05,
+      delayChildren: 0.5,
+    },
+  },
+};
+
+const charVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+};
+
+const wordVariants: Variants = {
+  hidden: { opacity: 0, y: 15 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+};
+
+const focusWordVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.8, filter: 'blur(10px)' },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    filter: 'blur(0px)',
+    transition: { duration: 0.8, ease: 'easeOut' },
+  },
+};
+
+// Helper: Animated Characters
+const AnimatedChars = ({ text, className = '' }: { text: string; className?: string }) => (
+  <>
+    {text.split('').map((char, index) => (
+      <motion.span variants={charVariants} key={index} className={`inline-block ${className}`}>
+        {char === ' ' ? '\u00A0' : char}
+      </motion.span>
+    ))}
+  </>
+);
+
+// Helper: Animated Words
+const AnimatedWords = ({ text }: { text: string }) => (
+  <>
+    {text.split(' ').map((word, index) => (
+      <motion.span variants={wordVariants} key={index} className="inline-block mr-2">
+        {word}
+      </motion.span>
+    ))}
+  </>
+);
 
 const MasaTurkishEatery: React.FC = () => {
   const router = useRouter();
@@ -16,12 +75,16 @@ const MasaTurkishEatery: React.FC = () => {
     <div className="w-full relative py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25 ">
       <div className="p-3 sm:p-6 md:p-[30px]  mx-auto max-w-[1720px] bg-white rounded-[20px] ">
         {/* Main Title bg-[#EBEEF4] */}
-        <h2
+        <motion.h2
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false }}
+          variants={charContainer}
           className="text-center font-sansation text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px] text-[#454779] uppercase mb-6"
           style={{ fontWeight: 400 }}
         >
-          A CULINARY JOURNEY AWAITS
-        </h2>
+          <AnimatedChars text="A CULINARY JOURNEY AWAITS" />
+        </motion.h2>
 
         {/* Content Container */}
         <div className="flex flex-col xl:flex-row gap-4 lg:gap-6 items-stretch">
