@@ -195,14 +195,15 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
 
           <motion.div
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.3 }}
             variants={{
               hidden: { opacity: 0 },
               visible: {
                 opacity: 1,
                 transition: {
                   staggerChildren: 0.3,
-                  delayChildren: 1, // Wait for hero image fade-in (1.5s)
+                  delayChildren: 0.2,
                 },
               },
             }}
@@ -244,8 +245,9 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
           {/* Search Bar Section */}
           <motion.div
             initial={{ opacity: 0, y: 100 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 2.5, duration: 0.8, ease: 'easeOut' }} // Wait for text animation
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ delay: 0.3, duration: 0.8, ease: 'easeOut' }}
             className="max-w-[80vw] sm:max-w-[480px] lg:max-w-[920px]  xl:max-w-[1200px] mx-auto z-20 absolute bottom-[3%] lg:bottom-[6%] right-0 left-0 sm:bottom-[5%]   min-h-[100px] lg:min-h-[140px] bg-gradient-to-r from-[rgba(0,0,0,0.3)] to-[rgba(234,234,234,0.3)] backdrop-blur-[12px] rounded-[10px] p-[20px] sm:p-[30px] lg:p-[30px] flex flex-wrap justify-center md:flex-row items-end gap-4 lg:gap-[18px] pointer-events-auto shadow-lg"
           >
             {/* Check In */}
@@ -392,7 +394,8 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
           />
           <motion.div
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.3 }}
             variants={staggerContainer}
             className="absolute z-20 text-center md:text-right text-white px-4 sm:px-6 md:px-8 lg:px-12 max-w-[1130px] mx-auto bottom-[10%] sm:bottom-[15%] md:bottom-[32%] right-0 sm:right-[2%] md:right-[5%] left-4 sm:left-auto "
           >

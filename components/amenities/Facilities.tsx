@@ -92,7 +92,7 @@ const HeaderSection = () => {
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true }}
+      viewport={{ once: false }}
       variants={staggerContainer}
       className="text-center px-4 space-y-[8px] "
     >

@@ -20,9 +20,12 @@ interface NavLink {
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const router = useRouter();
   //no-undef
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const navLinks: NavLink[] = [
     { name: 'ABOUT', href: '/about' },
@@ -60,6 +63,32 @@ const Navbar: React.FC = () => {
     return 'hover:text-[#00B3DD]';
   };
 
+  // Dropdown hover handlers
+  const handleMouseEnterDropdown = (linkName: string) => {
+    // Clear any existing timeout
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setActiveDropdown(linkName);
+  };
+
+  const handleMouseLeaveDropdown = () => {
+    // Set a timeout to close dropdown after 1 second
+    timeoutRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+      timeoutRef.current = null;
+    }, 600);
+  };
+
+  const handleMouseEnterDropdownMenu = () => {
+    // Clear timeout if hovering over dropdown menu
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+  };
+
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -75,12 +104,56 @@ const Navbar: React.FC = () => {
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+      // Clean up timeout on unmount
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
+      }
     };
   }, [activeDropdown]);
 
+  // Handle scroll-based navbar visibility
+  useEffect(() => {
+    const controlNavbar = () => {
+      if (typeof window !== 'undefined') {
+        // Get current scroll position
+        const currentScrollY = window.scrollY;
+
+        // Show navbar when at top of page
+        if (currentScrollY < 10) {
+          setIsVisible(true);
+        }
+        // Show navbar when scrolling up, hide when scrolling down
+        else if (currentScrollY < lastScrollY) {
+          setIsVisible(true);
+        } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+          setIsVisible(false);
+          // Close dropdown when hiding navbar
+          setActiveDropdown(null);
+        }
+
+        // Update last scroll position
+        setLastScrollY(currentScrollY);
+      }
+    };
+
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', controlNavbar);
+
+      // Cleanup function
+      return () => {
+        window.removeEventListener('scroll', controlNavbar);
+      };
+    }
+  }, [lastScrollY]);
+
   return (
     <>
-      <nav className="fixed w-[95%] sm:w-[90%] md:w-[85%] lg:w-[90%] z-50 bg-white/95 backdrop-blur-sm shadow-sm duration-300 top-4 sm:top-8 lg:top-12 left-0 right-0 mx-auto rounded-full sm:rounded-[80px] md:rounded-[140px]">
+      <nav
+        className={`fixed w-[95%] sm:w-[90%] md:w-[85%] lg:w-[90%] z-50 bg-white/95 backdrop-blur-sm shadow-sm duration-300 top-4 sm:top-8 lg:top-12 left-0 right-0 mx-auto rounded-full sm:rounded-[80px] md:rounded-[140px] transition-transform ${
+          isVisible ? 'translate-y-0' : '-translate-y-[200px]'
+        }`}
+      >
         <div className="px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-3 lg:px-8 lg:py-4">
           <div className="flex justify-between items-center h-12 sm:h-16 md:h-20">
             {/* Logo */}
@@ -95,19 +168,22 @@ const Navbar: React.FC = () => {
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-2 xl:space-x-5" ref={dropdownRef}>
+            <div
+              className="hidden lg:flex items-center space-x-[2px] xl:space-x-1"
+              ref={dropdownRef}
+            >
               {navLinks.map((link) => (
                 <div key={link.name} className="relative group">
                   {link.subItems ? (
                     <>
                       <div
-                        onMouseEnter={() => setActiveDropdown(link.name)}
-                        onMouseLeave={() => setActiveDropdown(null)}
+                        onMouseEnter={() => handleMouseEnterDropdown(link.name)}
+                        onMouseLeave={handleMouseLeaveDropdown}
                         className="relative"
                       >
                         <Link
                           href={link.href}
-                          className={`flex flex-row items-center font-[--font-sansation] font-normal not-italic text-[18px] leading-[27px] uppercase transition-all duration-300
+                          className={`flex flex-row items-center font-[--font-sansation] font-normal not-italic text-[16px] xl:text-[18px] uppercase transition-all duration-300
                             ${
                               isActiveLink(link.href)
                                 ? 'bg-[#EBF0F8] text-[#00B3DD] px-5 py-2 rounded-full'
@@ -128,7 +204,11 @@ const Navbar: React.FC = () => {
                         {/* Dropdown Menu */}
                         {activeDropdown === link.name &&
                           (link.name === 'ROOMS' ? (
-                            <div className="hidden lg:flex flex-row items-center p-5 gap-4 absolute top-[170%] left-1/2 -translate-x-1/2 mt-4 w-[672px] h-[330px] bg-white/70 backdrop-blur-[5px] rounded-[20px] shadow-lg border border-gray-100 animate-in fade-in zoom-in-95 duration-200 z-50">
+                            <div
+                              onMouseEnter={handleMouseEnterDropdownMenu}
+                              onMouseLeave={handleMouseLeaveDropdown}
+                              className="hidden lg:flex flex-row items-center p-5 gap-4 absolute top-[170%] left-1/2 -translate-x-1/2 mt-4 w-[672px] h-[330px] bg-white/70 backdrop-blur-[5px] rounded-[20px] shadow-lg border border-gray-100 animate-in fade-in zoom-in-95 duration-200 z-50"
+                            >
                               {link.subItems.map((subItem) => (
                                 <Link
                                   key={subItem.name}
@@ -153,7 +233,11 @@ const Navbar: React.FC = () => {
                               ))}
                             </div>
                           ) : (
-                            <div className="text-[18px] font-weight-400 absolute top-full left-0 mt-4 w-[200px] bg-white rounded-lg shadow-xl py-2 border border-gray-100 animate-in fade-in zoom-in-95 duration-200 z-50">
+                            <div
+                              onMouseEnter={handleMouseEnterDropdownMenu}
+                              onMouseLeave={handleMouseLeaveDropdown}
+                              className="text-[18px] font-weight-400 absolute top-full left-0 mt-4 w-[200px] bg-white rounded-lg shadow-xl py-2 border border-gray-100 animate-in fade-in zoom-in-95 duration-200 z-50"
+                            >
                               {link.subItems.map((subItem) => (
                                 <Link
                                   key={subItem.name}
@@ -171,7 +255,7 @@ const Navbar: React.FC = () => {
                   ) : (
                     <Link
                       href={link.href}
-                      className={`font-sansation not-italic text-[18px] leading-6.75 uppercase text-xs font-medium transition-colors tracking-wide px-5 py-2 ${
+                      className={`font-sansation not-italic text-[16px] xl:text-[18px] leading-6.75 uppercase transition-colors tracking-wide px-3 py-2 ${
                         isActiveLink(link.href)
                           ? 'bg-[#EBF0F8] text-[#00B3DD] rounded-full'
                           : `text-[#454779] ${getHoverColor(link.href)}`

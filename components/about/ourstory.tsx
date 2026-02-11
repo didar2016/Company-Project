@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
@@ -37,7 +37,66 @@ const carouselImages = [
   image11,
 ];
 
+// Counter animation hook
+const useCounter = (endValue: number, duration: number = 1000, suffix: string = '') => {
+  const [count, setCount] = useState(0);
+  const [isInView, setIsInView] = useState(false);
+  const countRef = useRef<HTMLDivElement>(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated.current) {
+          setIsInView(true);
+          hasAnimated.current = true;
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (countRef.current) {
+      observer.observe(countRef.current);
+    }
+
+    return () => {
+      if (countRef.current) {
+        observer.unobserve(countRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isInView) return;
+
+    const incrementTime = duration / endValue;
+    let current = 0;
+    const interval = setInterval(() => {
+      current += 1;
+      setCount(current);
+      if (current >= endValue) {
+        clearInterval(interval);
+      }
+    }, incrementTime);
+
+    return () => clearInterval(interval);
+  }, [isInView, endValue, duration]);
+
+  const displayValue = () => {
+    if (suffix === '%') return `${count}%`;
+    if (suffix === '+') return `${count}+`;
+    if (suffix === '/7') return count >= 24 ? '24/7' : `${count}/7`;
+    return count.toString();
+  };
+
+  return { displayValue: displayValue(), countRef };
+};
+
 const OurStory = () => {
+  const suitesCounter = useCounter(150, 500, '+');
+  const satisfactionCounter = useCounter(98, 1000, '%');
+  const conciergeCounter = useCounter(24, 1500, '/7');
+
   return (
     <section className="bg-[#2A2D71] relative overflow-hidden mx-auto">
       <div className="py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
@@ -78,24 +137,33 @@ const OurStory = () => {
           <div className="w-full">
             <div className="flex flex-col md:flex-row justify-evenly items-center gap-10 md:gap-0 divide-y md:divide-y-0 md:divide-x divide-white/20">
               <div className="px-10 py-4 flex flex-col items-center gap-2 text-center">
-                <span className="font-['Sansation'] text-[#00B3DD] text-5xl md:text-[80px] font-bold">
-                  150+
+                <span
+                  ref={suitesCounter.countRef}
+                  className="font-['Sansation'] text-[#00B3DD] text-5xl md:text-[80px] font-bold"
+                >
+                  {suitesCounter.displayValue}
                 </span>
                 <span className="font-['Sansation'] text-white text-xl uppercase tracking-wider">
                   Suites
                 </span>
               </div>
               <div className="px-10 py-4 flex flex-col items-center gap-2 text-center">
-                <span className="font-['Sansation'] text-[#00B3DD] text-5xl md:text-[80px] font-bold">
-                  98%
+                <span
+                  ref={satisfactionCounter.countRef}
+                  className="font-['Sansation'] text-[#00B3DD] text-5xl md:text-[80px] font-bold"
+                >
+                  {satisfactionCounter.displayValue}
                 </span>
                 <span className="font-['Sansation'] text-white text-xl uppercase tracking-wider">
                   Guest Satisfaction
                 </span>
               </div>
               <div className="px-10 py-4 flex flex-col items-center gap-2 text-center">
-                <span className="font-['Sansation'] text-[#00B3DD] text-5xl md:text-[80px] font-bold">
-                  24/7
+                <span
+                  ref={conciergeCounter.countRef}
+                  className="font-['Sansation'] text-[#00B3DD] text-5xl md:text-[80px] font-bold"
+                >
+                  {conciergeCounter.displayValue}
                 </span>
                 <span className="font-['Sansation'] text-white text-xl uppercase tracking-wider">
                   Concierge Service

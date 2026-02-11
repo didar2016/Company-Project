@@ -74,7 +74,7 @@ const Description = () => {
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         variants={staggerContainer}
         className="flex flex-col gap-2 max-w-[1720px] mx-auto w-full z-10"
       >

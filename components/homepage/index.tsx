@@ -117,7 +117,7 @@ const WrapLocationSlider = () => (
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         variants={staggerContainer}
         className="flex flex-col xl:flex-row items-center gap-[100px] w-full max-w-[1720px]"
       >
