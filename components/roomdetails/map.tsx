@@ -1,23 +1,16 @@
 import React from 'react';
 import Image from 'next/image';
-import pata from '../../public/images/Pata.png';
+import { motion, Variants } from 'framer-motion';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import visithotelicon from '../../public/images/visithotelicon.png';
 
-interface Review {
-  id: number;
-  name: string;
-  avatar: string;
-  rating: number;
-  text: string;
-}
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: 'easeOut' } },
+};
 
-interface MapReviewProps {
-  className?: string;
-}
-
-const Map: React.FC<MapReviewProps> = ({ className = '' }) => {
+const Map: React.FC = () => {
   return (
     <section
       className={`relative w-full bg-white py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25`}
@@ -25,7 +18,13 @@ const Map: React.FC<MapReviewProps> = ({ className = '' }) => {
       <div className="mx-auto max-w-[1720px]">
         <div className="flex flex-col justify-between items-center lg:flex-row gap-6 sm:gap-8 lg:gap-12">
           {/* Left Side - Interactive Map */}
-          <div className=" relative w-full h-[350px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl sm:shadow-2xl">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false }}
+            variants={fadeInUp}
+            className=" relative w-full h-[350px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl sm:shadow-2xl"
+          >
             {/* Map Container */}
             <div className="absolute inset-0 bg-gray-200">
               {/* Replace this iframe with your actual map implementation */}
@@ -86,7 +85,7 @@ const Map: React.FC<MapReviewProps> = ({ className = '' }) => {
                 <div className="h-1 bg-gray-200 rounded animate-pulse"></div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

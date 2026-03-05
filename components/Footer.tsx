@@ -1,28 +1,31 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { MapPin, Mail, Phone, Facebook, Instagram, Linkedin, ArrowUpRight } from 'lucide-react';
-import footerimage from '../public/images/logomena.png';
+import { MapPin, Mail, Phone, Facebook, Instagram, Linkedin } from 'lucide-react';
 import visithotelicon from '../public/images/visithotelicon.png';
-import pata from '../public/images/Pata.png';
+import { useHotelInfo, useSiteSettings } from '@/hooks/useWebsite';
+import { getImageUrl } from '@/hooks/imageMake';
 
 const Footer = () => {
+  const siteSettings = useSiteSettings();
+  const hotelInfo = useHotelInfo();
+  const contact = hotelInfo?.contact;
+  const socialLinks = hotelInfo?.socialLinks;
+
   return (
     <footer className=" bg-[#2A2D71] pt-8 lg:pt-[70px] xl:pt-[100px] px-8 lg:px-[70px] xl:px-[100px] relative overflow-hidden">
       <div className="flex flex-wrap md:flex-nowrap flex-col sm:flex-row items-start md:justify-between w-full max-w-[1720px] mx-auto gap-12 lg:gap-[20px] xl:gap-[30px] z-10 pb-10">
-        {/* Column 1: Brand & Description */}
         <div className="flex flex-col items-start gap-5 lg:gap-6 xl:gap-7 2xl:gap-8 w-full lg:w-auto xl:w-[444px] 2xl:w-[500px] lg:col-span-1 xl:shrink-0">
           <div className="relative w-[140px] sm:w-[160px] md:w-[180px] lg:w-[200px] xl:w-[220px] 2xl:w-[250px] h-[75px] sm:h-[85px] md:h-[95px] lg:h-[105px] xl:h-[115px] 2xl:h-[130px]">
             <Image
-              src={footerimage}
+              src={getImageUrl(siteSettings?.footerLogo)}
               alt="MENA ApartHotel Albarsha"
               fill
               className="object-contain brightness-0 invert"
             />
           </div>
           <p className="font-sansation font-light text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] 2xl:text-[20px] leading-[18px] sm:leading-[19px] md:leading-[20px] lg:leading-[22px] xl:leading-[24px] 2xl:leading-[26px] tracking-[0.75px] text-white max-w-[320px] sm:max-w-[360px] md:max-w-[300px] ">
-            Situated in the vibrant city of Dubai, MENA ApartHotel Albarsha is the perfect choice
-            for short or extended stays.
+            {siteSettings?.footerDescription}
           </p>
         </div>
 
@@ -70,7 +73,7 @@ const Footer = () => {
                 />
               </div>
               <span className="font-poppins text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[21px] leading-[22px] sm:leading-[24px] md:leading-[26px] lg:leading-[28px] xl:leading-[30px] 2xl:leading-[33px]">
-                4a Street – Al Barsha 1
+                {contact?.address || ''}
               </span>
             </div>
 
@@ -83,7 +86,7 @@ const Footer = () => {
                 />
               </div>
               <span className="font-poppins text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[21px] leading-[22px] sm:leading-[24px] md:leading-[26px] lg:leading-[28px] xl:leading-[30px] 2xl:leading-[33px] break-all">
-                menahoteluae@alhokair.com
+                {contact?.email || ''}
               </span>
             </div>
 
@@ -96,16 +99,25 @@ const Footer = () => {
                 />
               </div>
               <span className="font-poppins text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[21px] leading-[22px] sm:leading-[24px] md:leading-[26px] lg:leading-[28px] xl:leading-[30px] 2xl:leading-[33px]">
-                +97143417474
+                {contact?.phone || ''}
               </span>
             </div>
           </div>
 
           {/* Socials */}
           <div className="flex items-center gap-[15px] lg:gap-[18px] xl:gap-[15px] 2xl:gap-[20px]">
-            <SocialIcon icon={<Facebook size={20} />} />
-            <SocialIcon icon={<Instagram size={20} />} />
-            <SocialIcon icon={<Linkedin size={20} />} />
+            <SocialIcon
+              icon={<Facebook size={20} />}
+              onClick={() => socialLinks?.facebook && window.open(socialLinks.facebook, '_blank')}
+            />
+            <SocialIcon
+              icon={<Instagram size={20} />}
+              onClick={() => socialLinks?.instagram && window.open(socialLinks.instagram, '_blank')}
+            />
+            <SocialIcon
+              icon={<Linkedin size={20} />}
+              onClick={() => socialLinks?.linkedin && window.open(socialLinks.linkedin, '_blank')}
+            />
           </div>
 
           <div className="flex flex-col items-start w-full lg:w-auto xl:w-[286px] 2xl:w-[320px] lg:col-span-1 xl:shrink-0 h-auto lg:h-[240px] xl:h-[220px] 2xl:h-[260px] relative">
@@ -174,9 +186,18 @@ const FooterLink = ({
   );
 };
 
-const SocialIcon = ({ icon, active = false }: { icon: React.ReactNode; active?: boolean }) => {
+const SocialIcon = ({
+  icon,
+  active = false,
+  onClick,
+}: {
+  icon: React.ReactNode;
+  active?: boolean;
+  onClick?: () => void;
+}) => {
   return (
     <div
+      onClick={onClick}
       className={`w-[44px] lg:w-[48px] xl:w-[44px] 2xl:w-[52px] h-[44px] lg:h-[48px] xl:h-[44px] 2xl:h-[52px] shrink-0 rounded-full flex justify-center items-center transition-colors cursor-pointer ${active ? 'bg-[#00B3DD] text-white' : 'border border-[#9BA9CA] text-[#6D6E87] hover:bg-[#00B3DD] hover:text-white hover:border-[#00B3DD]'}`}
     >
       {icon}

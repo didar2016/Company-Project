@@ -3,6 +3,8 @@ import Image from 'next/image';
 import roomtitle from '../../public/images/roomtitle.png';
 import RoomSlider from '../RoomSlider';
 import { motion, Variants } from 'framer-motion';
+import AnimatedText from '../animation/AnimateText';
+import { ALLDATA } from '@/contexts/titles';
 
 // Animation Variants
 const fadeInUp: Variants = {
@@ -31,37 +33,6 @@ const charContainer: Variants = {
     },
   },
 };
-
-const charVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
-};
-
-const wordVariants: Variants = {
-  hidden: { opacity: 0, y: 15 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
-};
-
-const focusWordVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.8, filter: 'blur(10px)' },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    filter: 'blur(0px)',
-    transition: { duration: 0.8, ease: 'easeOut' },
-  },
-};
-
-// Helper: Animated Characters
-const AnimatedChars = ({ text, className = '' }: { text: string; className?: string }) => (
-  <>
-    {text.split('').map((char, index) => (
-      <motion.span variants={charVariants} key={index} className={`inline-block ${className}`}>
-        {char === ' ' ? '\u00A0' : char}
-      </motion.span>
-    ))}
-  </>
-);
 
 const RelatedRooms: React.FC = () => {
   return (
@@ -95,8 +66,9 @@ const RelatedRooms: React.FC = () => {
               variants={charContainer}
               className="font-['Sansation'] font-light text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] xl:text-[72px] uppercase text-[#454779] leading-tight"
             >
-              <AnimatedChars text="Accommodations Designed for " />
-              <AnimatedChars text="Every Guest" className="font-bold" />
+              <AnimatedText>
+                <div dangerouslySetInnerHTML={{ __html: ALLDATA.room.title }}></div>
+              </AnimatedText>
             </motion.h1>
 
             {/* Description */}
@@ -104,9 +76,7 @@ const RelatedRooms: React.FC = () => {
               variants={fadeInUp}
               className="font-['Poppins'] text-[#2A2D71] text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] max-w-4xl"
             >
-              Your perfect space in Dubai awaits. Our thoughtfully designed suites and apartments
-              blend comfort with practicality, creating a true home-away-from-home for a two-night
-              getaway or a two-month residence.
+              {ALLDATA.room.subtitle}
             </motion.p>
           </motion.div>
         </div>

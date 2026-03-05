@@ -5,6 +5,11 @@ import restaurent from '../../public/images/restaurent.jpg';
 import visithotelicon from '../../public/images/visithotelicon.png';
 import { motion, Variants } from 'framer-motion';
 
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: 'easeOut' } },
+};
+
 const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -30,21 +35,6 @@ const charContainer: Variants = {
 const charVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
-};
-
-const wordVariants: Variants = {
-  hidden: { opacity: 0, y: 15 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
-};
-
-const focusWordVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.8, filter: 'blur(10px)' },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    filter: 'blur(0px)',
-    transition: { duration: 0.8, ease: 'easeOut' },
-  },
 };
 
 // Helper: Animated Characters
@@ -85,12 +75,24 @@ const DiningAmenities = () => {
         {/* Content Section */}
         <div className="flex flex-col xl:flex-row items-stretch gap-[30px] w-full">
           {/* Left: Image */}
-          <div className="w-full xl:w-[815px] min-h-[400px] xl:min-h-[628px] relative rounded-[20px] overflow-hidden order-1 xl:order-none">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false }}
+            variants={fadeInUp}
+            className="w-full xl:w-[815px] min-h-[400px] xl:min-h-[628px] relative rounded-[20px] overflow-hidden order-1 xl:order-none"
+          >
             <Image src={restaurent} alt="Masa Turkish Eatery" fill className="object-cover" />
-          </div>
+          </motion.div>
 
           {/* Right: Text Content */}
-          <div className="flex flex-col justify-between p-6 lg:p-[20px] lg:gap-[40px] gap-6 w-full xl:w-[815px] bg-white rounded-[20px] backdrop-blur-[12px] order-2 xl:order-none">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false }}
+            variants={fadeInUp}
+            className="flex flex-col justify-between p-6 lg:p-[20px] lg:gap-[40px] gap-6 w-full xl:w-[815px] bg-white rounded-[20px] backdrop-blur-[12px] order-2 xl:order-none"
+          >
             {/* Top Text Content */}
             <div className="flex flex-col gap-6 lg:gap-[40px]">
               {/* Title & Description */}
@@ -148,7 +150,7 @@ const DiningAmenities = () => {
 
               {/* Filled Button */}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,9 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
 import space from '../../public/images/space.jpg';
-import { useRouter } from 'next/router';
 import { motion, Variants } from 'framer-motion';
-
+import AnimatedText from '../animation/AnimateText';
+import { ALLDATA } from '../../contexts/titles';
 // Animation Variants
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -32,42 +32,7 @@ const charContainer: Variants = {
   },
 };
 
-const charVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
-};
-
-const wordVariants: Variants = {
-  hidden: { opacity: 0, y: 15 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
-};
-
-const focusWordVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.8, filter: 'blur(10px)' },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    filter: 'blur(0px)',
-    transition: { duration: 0.8, ease: 'easeOut' },
-  },
-};
-
-// Helper: Animated Characters
-const AnimatedChars = ({ text, className = '' }: { text: string; className?: string }) => (
-  <>
-    {text.split('').map((char, index) => (
-      <motion.span variants={charVariants} key={index} className={`inline-block ${className}`}>
-        {char === ' ' ? '\u00A0' : char}
-      </motion.span>
-    ))}
-  </>
-);
-
 const AboutDescription = () => {
-  const router = useRouter();
-  const handlenavigation = () => {
-    router.push('/about');
-  };
   return (
     <section className="bg-[#9BA9CA]/20 flex flex-col gap-5 sm:gap-12 relative overflow-hidden relative py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
       <motion.div
@@ -81,15 +46,15 @@ const AboutDescription = () => {
           variants={charContainer}
           className="font-['Sansation'] font-light text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] xl:text-[72px] uppercase text-[#454779] leading-tight"
         >
-          <AnimatedChars text="Welcome to " />
-          <AnimatedChars text="MENA ApartHotel Albarsha" className="font-bold" />
-          <br />
+          <AnimatedText>
+            <div dangerouslySetInnerHTML={{ __html: ALLDATA.aboutdescription.title }}></div>
+          </AnimatedText>
         </motion.h1>
         <motion.p
           variants={fadeInUp}
           className="font-['Poppins'] text-[#8A8BB3] text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] max-w-5xl"
         >
-          Where Comfort Meets Modern Living
+          {ALLDATA.aboutdescription.subtitle}
         </motion.p>
 
         {/* Large "ABOUT" background text opacity */}
@@ -104,7 +69,13 @@ const AboutDescription = () => {
       {/* Content Row: Image + Details Card */}
       <div className="flex flex-col xl:flex-row gap-8 max-w-[1720px] mx-auto w-full z-10 relative">
         {/* Image Side */}
-        <div className="relative w-full xl:w-1/2 h-[400px] lg:h-[642px] rounded-[30px] overflow-hidden group">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false }}
+          variants={fadeInUp}
+          className="relative w-full xl:w-1/2 h-[400px] lg:h-[642px] rounded-[30px] overflow-hidden group"
+        >
           <Image
             src={space}
             alt="Mena Plaza Hotel Lobby"
@@ -132,10 +103,16 @@ const AboutDescription = () => {
               </svg>
             </button>
           </div>
-        </div>
+        </motion.div>
 
         {/* Content Side (White Card) */}
-        <div className="w-full xl:w-1/2 bg-white rounded-[30px] p-8 md:p-12 lg:px-20 lg:py-14 flex flex-col justify-center gap-8 relative shadow-sm">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false }}
+          variants={fadeInUp}
+          className="w-full xl:w-1/2 bg-white rounded-[30px] p-8 md:p-12 lg:px-20 lg:py-14 flex flex-col justify-center gap-8 relative shadow-sm"
+        >
           {/* Background vector decoration (Placeholder for Vector 2/3) */}
           <div className="absolute right-0 bottom-[-60px] opacity-10 pointer-events-none">
             {/* Vector here if available */}
@@ -153,11 +130,17 @@ const AboutDescription = () => {
             </span>
             <br />
           </p>
-        </div>
+        </motion.div>
       </div>
 
       {/* Accommodations Card */}
-      <div className="bg-white rounded-[20px] p-8 md:p-[60px] max-w-[1720px] mx-auto w-full z-10 shadow-sm">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false }}
+        variants={fadeInUp}
+        className="bg-white rounded-[20px] p-8 md:p-[60px] max-w-[1720px] mx-auto w-full z-10 shadow-sm"
+      >
         <div className="flex flex-col xl:flex-row gap-5 sm:gap-12 items-start">
           {/* Left Text */}
           <div className="w-full xl:w-1/3 flex flex-col flex-wrap gap-6 my-auto">
@@ -194,7 +177,7 @@ const AboutDescription = () => {
             </ul>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

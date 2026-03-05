@@ -3,100 +3,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, A11y } from 'swiper/modules';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import type { Swiper as SwiperType } from 'swiper';
-import roomcard1 from '../public/images/roomcardimage1.png';
-import roomcard3 from '../public/images/roomcardimage3.png';
-import roomcard2 from '../public/images/roomcardimage2.jpg';
-import roomcard4 from '../public/images/roomcardimage4.png';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import RoomCard from './roomcard';
-
-interface Room {
-  id: number;
-  title: string;
-  subTitle: string;
-  size: string;
-  price: number;
-  image: any;
-  features: string[];
-  discountPercentage?: string;
-}
-
-const rooms: Room[] = [
-  {
-    id: 1,
-    title: 'STUDIO ',
-    subTitle: 'APARTMENT',
-    size: '45 sqm', // Image says 45sqm for Studio (prompt said 65 but visual says 45 for Studio, prompt says 65 for One-Bed? Prompt says Studio 65...). Let's stick to PROMPT values if possible, but image is 45. The Prompt says: "a) STUDIO APARTMENT - 65 sqm...". I will follow PROMPT.
-    price: 899,
-    image: roomcard1,
-    features: ['King Bed', 'Free Wifi', 'Kitchenette'],
-    discountPercentage: '20% OFF',
-  },
-  {
-    id: 2,
-    title: 'ONE-BEDROOM ',
-    subTitle: 'APARTMENT',
-    size: '65 sqm', // Prompt: 85 sqm. Image: 65 sqm. I will use PROMPT values. One-Bed 85 sqm.
-    price: 899,
-    image: roomcard3,
-    features: ['King Bed', 'Living Area', 'Full Kitchen'],
-    discountPercentage: 'Save up to 25%',
-  },
-  {
-    id: 3,
-    title: 'TWO-BEDROOM ',
-    subTitle: 'APARTMENT',
-    size: '85 sqm', // Prompt: 105 sqm. I will use PROMPT values.
-    price: 899,
-    image: roomcard2,
-    features: ['2 King Beds', '2 Bathrooms', 'City View'],
-    discountPercentage: '15% OFF',
-  },
-  {
-    id: 1,
-    title: 'STUDIO ',
-    subTitle: 'APARTMENT',
-    size: '45 sqm', // Image says 45sqm for Studio (prompt said 65 but visual says 45 for Studio, prompt says 65 for One-Bed? Prompt says Studio 65...). Let's stick to PROMPT values if possible, but image is 45. The Prompt says: "a) STUDIO APARTMENT - 65 sqm...". I will follow PROMPT.
-    price: 899,
-    image: roomcard1,
-    features: ['King Bed', 'Free Wifi', 'Kitchenette'],
-    discountPercentage: '20% OFF',
-  },
-  {
-    id: 2,
-    title: 'ONE-BEDROOM ',
-    subTitle: 'APARTMENT',
-    size: '65 sqm', // Prompt: 85 sqm. Image: 65 sqm. I will use PROMPT values. One-Bed 85 sqm.
-    price: 899,
-    image: roomcard3,
-    features: ['King Bed', 'Living Area', 'Full Kitchen'],
-    discountPercentage: 'Save up to 25%',
-  },
-  {
-    id: 3,
-    title: 'TWO-BEDROOM ',
-    subTitle: 'APARTMENT',
-    size: '85 sqm', // Prompt: 105 sqm. I will use PROMPT values.
-    price: 899,
-    image: roomcard2,
-    features: ['2 King Beds', '2 Bathrooms', 'City View'],
-    discountPercentage: '15% OFF',
-  },
-  // {
-  //   id: 4,
-  //   title: 'EXECUTIVE SUITE',
-  //   subTitle: 'APARTMENT',
-  //   size: '120 sqm',
-  //   price: 999,
-  //   image: roomcard4,
-  //   features: ['Panoramic View', 'Jacuzzi', 'Office'],
-  //   discountPercentage: '15% OFF',
-  // },
-];
+import { useRooms } from '@/contexts/WebsiteContext';
 
 const RoomSlider: React.FC = () => {
   const prevRef = React.useRef<HTMLButtonElement>(null);
@@ -124,6 +35,8 @@ const RoomSlider: React.FC = () => {
       }
     }
   }, []);
+
+  const rooms = useRooms();
 
   return (
     <section id="rooms" className="mt-10 lg:mt-12 bg-[#FFFFFF] ">
@@ -162,11 +75,17 @@ const RoomSlider: React.FC = () => {
           }}
           className="pb-12 !px-2 sm:!px-4" // Padding for shadow clipping
         >
-          {rooms.map((room, index) => (
-            <SwiperSlide key={room.id} className="h-full">
-              <RoomCard room={room} index={index} />
-            </SwiperSlide>
-          ))}
+          {rooms.length > 0 ? (
+            rooms.map((room, index) => (
+              <SwiperSlide key={index} className="h-full">
+                <RoomCard room={room} index={index} />
+              </SwiperSlide>
+            ))
+          ) : (
+            <div className="text-center w-full py-20">
+              <p className="text-gray-500 text-lg">No rooms available at the moment.</p>
+            </div>
+          )}
         </Swiper>
 
         {/* Custom Navigation Buttons */}

@@ -2,30 +2,11 @@
 import Image from 'next/image';
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
-import facility2 from '../../public/images/facilities2.png';
-import facility3 from '../../public/images/pool.jpg';
-import facility4 from '../../public/images/sauna.png';
+import AnimatedText from '../animation/AnimateText';
 
-const facilitiesData = [
-  {
-    title: 'Fitness Center',
-    image: facility2,
-    subTitle:
-      'Stay active at our fitness center, equipped with state-of-the-art cardio and strength-training equipment. Whether you’re maintaining your routine or starting fresh, our facilities cater to all your fitness needs.',
-  },
-  {
-    title: 'Rooftop Pool',
-    image: facility3,
-    subTitle:
-      'Relax and rejuvenate in our rooftop pool, open daily from 9:00 AM to 6:00 PM. With stunning city views, it’s the perfect spot to unwind after a busy day or enjoy quality time with family and friends.',
-  },
-  {
-    title: 'Sauna',
-    image: facility4,
-    subTitle:
-      'Indulge in ultimate relaxation in our sauna, available from 9:00 AM to 6:00 PM. Designed for tranquility, it’s the ideal retreat to refresh your body and mind.',
-  },
-];
+const facilitiesTitleHTML = 'Facilities That Enhance Your Stay';
+import { useFacilities } from '@/hooks/useWebsite';
+import { getImageUrl } from '@/hooks/imageMake';
 
 // Animation Variants
 const fadeInUp: Variants = {
@@ -43,33 +24,6 @@ const staggerContainer: Variants = {
     },
   },
 };
-
-const charContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.05,
-      delayChildren: 0.5,
-    },
-  },
-};
-
-const charVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
-};
-
-// Helper: Animated Characters
-const AnimatedChars = ({ text, className = '' }: { text: string; className?: string }) => (
-  <>
-    {text.split('').map((char, index) => (
-      <motion.span variants={charVariants} key={index} className={`inline-block ${className}`}>
-        {char === ' ' ? '\u00A0' : char}
-      </motion.span>
-    ))}
-  </>
-);
 
 const Facilities = () => {
   return (
@@ -97,10 +51,12 @@ const HeaderSection = () => {
       className="text-center px-4 space-y-[8px] "
     >
       <motion.h1
-        variants={charContainer}
+        variants={fadeInUp}
         className="font-['Sansation'] font-light text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] xl:text-[72px] uppercase text-[#454779] leading-tight"
       >
-        <AnimatedChars text="Facilities That Enhance Your Stay" />
+        <AnimatedText>
+          <div dangerouslySetInnerHTML={{ __html: facilitiesTitleHTML }} />
+        </AnimatedText>
       </motion.h1>
       <motion.p
         variants={fadeInUp}
@@ -115,22 +71,26 @@ const HeaderSection = () => {
 };
 
 const CardGrid = () => {
+  const facilities = useFacilities();
+
   return (
     <div className="w-full max-w-[1720px]">
       <div className="mx-auto">
         {' '}
         {/* Spacer */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 justify-items-center gap-x-[20px] gap-y-8 sm:gap-y-12">
-          {facilitiesData.map((item, index) => (
+          {facilities.map((item, index) => (
             <div
               key={index}
               className="flex flex-col gap-4 sm:gap-[30px] group h-full relative w-full min-w-[350px] md:min-w-[350px] max-w-[540px] xl:max-w-[540px] overflow-hidden rounded-lg shadow-lg cursor-pointer"
             >
               {/* Background Image */}
               <Image
-                src={item.image}
+                src={getImageUrl(item.image)}
                 alt={item.title}
                 className="object-fill transition-transform duration-700 group-hover:scale-105 h-70 w-full"
+                width={800}
+                height={500}
               />
 
               {/* Overlay Container */}

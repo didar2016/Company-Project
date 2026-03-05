@@ -163,3 +163,19 @@ body {
     --tw-translate-x: 0px !important; 
     
   } */
+
+.animated-heading .word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.animated-heading .char {
+  display: inline-block;
+}
+
+.animated-heading {
+  font-size: clamp(32px, 6vw, 82px);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  line-height: 1.2;
+}

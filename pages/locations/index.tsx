@@ -5,7 +5,6 @@ import Hero from '../../components/Hero';
 import Footer from '../../components/Footer';
 import Locations from '@/components/location/location';
 import MapReview from '@/components/roomdetails/map_review';
-import heroimage from '../../public/images/locationheroimage.png';
 import Hotels from '@/components/hotels';
 
 export default function Home() {
@@ -19,12 +18,7 @@ export default function Home() {
       <Navbar />
 
       <main className="flex-grow w-full overflow-hidden ">
-        <Hero
-          image={heroimage}
-          title="Locations"
-          description="A Smart Stay with Comfort & Style"
-          component="location"
-        />
+        <Hero component="location" />
         <Hotels />
         <div className="mt-32 md:mt-0">
           <Locations />

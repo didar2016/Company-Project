@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Maximize2, Coffee, Wifi, Gift, Printer, Bed } from 'lucide-react';
 import visithotelicon from '../public/images/visithotelicon.png';
 import { useRouter } from 'next/router';
+import { getImageUrl } from '@/hooks/imageMake';
 
 interface RoomCardProps {
   title?: string;
@@ -20,14 +21,10 @@ interface RoomCardProps {
 }
 
 const RoomCard: React.FC<RoomCardProps> = ({
-  title = 'STUDIO',
   subtitle = 'APARTMENT',
-  price = 899,
   currency = '$',
-  showButton = true,
   amenities = ['maximize', 'coffee', 'wifi', 'gift', 'printer', 'bed'],
   room = {},
-  index = 1,
 }) => {
   const router = useRouter();
 
@@ -35,7 +32,10 @@ const RoomCard: React.FC<RoomCardProps> = ({
   const [isHovered, setIsHovered] = useState(false);
 
   const handleViewDetailsClick = () => {
-    router.push('./roomdetails');
+    router.push({
+      pathname: '/roomdetails',
+      query: { id: room._id },
+    });
   };
 
   return (
@@ -54,9 +54,9 @@ const RoomCard: React.FC<RoomCardProps> = ({
             className="font-sansation font-light text-[18px] sm:text-[22px] md:text-[26px] lg:text-[28px] xl:text-[28px] 2xl:text-[32px] leading-[24px] sm:leading-[30px] md:leading-[36px] lg:leading-[40px] xl:leading-[46px] uppercase transition-all duration-300"
             style={{ fontWeight: 400, color: isHovered ? '#00B3DD' : '#454779' }}
           >
-            {room.title}
+            {room.name}
             <br />
-            {room.subTitle}
+            {subtitle}
           </h2>
         </div>
 
@@ -75,7 +75,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
                   className="font-sansation text-[20px] sm:text-[26px] md:text-[32px] lg:text-[42px] xl:text-[38px] 2xl:text-[42px] font-black text-gray-900 leading-none transition-all duration-300"
                   style={{ fontWeight: 700, color: isHovered ? '#00B3DD' : '#454779' }}
                 >
-                  {price} {currency}
+                  {room?.discountPrice || ''} {currency}
                 </span>
               </div>
               <span
@@ -124,11 +124,10 @@ const RoomCard: React.FC<RoomCardProps> = ({
         )}
 
         <Image
-          src={room.image}
-          alt={`${title} ${subtitle}`}
+          src={getImageUrl(room.mainImage || '')}
+          alt={`${room.name} ${room.subTitle}`}
+          className="object-cover object-center rounded-[30px]"
           fill
-          className="object-fill object-center rounded-[30px]"
-          sizes="(max-width: 768px) 100vw, 540px"
         />
 
         {/* Area Info Overlay */}

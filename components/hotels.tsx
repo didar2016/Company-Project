@@ -5,8 +5,11 @@ import hotelimage1 from '../public/images/hotel1.png';
 import hotelimage2 from '../public/images/hotel2.png';
 import hotelimage3 from '../public/images/hotel3.png';
 import { motion, Variants } from 'framer-motion';
+import AnimatedText from './animation/AnimateText';
 
 import visithotelicon from '../public/images/visithotelicon.png';
+
+const hotelsTitleHTML = 'MENA Hotels';
 
 // Animation Variants
 const fadeInUp: Variants = {
@@ -24,59 +27,6 @@ const staggerContainer: Variants = {
     },
   },
 };
-
-const charContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.05,
-      delayChildren: 0.5,
-    },
-  },
-};
-
-const charVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
-};
-
-const wordVariants: Variants = {
-  hidden: { opacity: 0, y: 15 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
-};
-
-const focusWordVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.8, filter: 'blur(10px)' },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    filter: 'blur(0px)',
-    transition: { duration: 0.8, ease: 'easeOut' },
-  },
-};
-
-// Helper: Animated Characters
-const AnimatedChars = ({ text, className = '' }: { text: string; className?: string }) => (
-  <>
-    {text.split('').map((char, index) => (
-      <motion.span variants={charVariants} key={index} className={`inline-block ${className}`}>
-        {char === ' ' ? '\u00A0' : char}
-      </motion.span>
-    ))}
-  </>
-);
-
-// Helper: Animated Focus Words
-const AnimatedFocusWords = ({ text }: { text: string }) => (
-  <>
-    {text.split(' ').map((word, index) => (
-      <motion.span variants={focusWordVariants} key={index} className="inline-block mr-2">
-        {word}
-      </motion.span>
-    ))}
-  </>
-);
 
 interface Hotel {
   id: number;
@@ -121,11 +71,13 @@ const Hotels: React.FC = () => {
           className="text-center mb-8 sm:mb-12 md:mb-16"
         >
           <motion.h2
-            variants={charContainer}
+            variants={fadeInUp}
             className="text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] xl:text-[72px] font-sansation font-light text-brand uppercase tracking-wide"
             style={{ fontWeight: 300 }}
           >
-            <AnimatedChars text="MENA Hotels" />
+            <AnimatedText>
+              <div dangerouslySetInnerHTML={{ __html: hotelsTitleHTML }} />
+            </AnimatedText>
           </motion.h2>
           <motion.p
             variants={fadeInUp}

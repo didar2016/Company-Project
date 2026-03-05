@@ -3,9 +3,6 @@ import Head from 'next/head';
 import Navbar from '../../components/Navbar';
 import Hero from '../../components/Hero';
 import Footer from '../../components/Footer';
-
-import contactheroimage from '../../public/images/contactheroimage.png';
-
 import ContactInfo from '@/components/contact/contactinfo';
 import Map from '@/components/roomdetails/map';
 
@@ -20,12 +17,7 @@ export default function About() {
       <Navbar />
 
       <main className="w-full overflow-hidden ">
-        <Hero
-          image={contactheroimage}
-          title="contact us"
-          description="A Smart Stay with Comfort & Style"
-          component="contact"
-        />
+        <Hero component="contact" />
 
         <ContactInfo />
         <Map />

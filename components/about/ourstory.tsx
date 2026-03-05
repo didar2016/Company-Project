@@ -4,38 +4,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import patatop from '../../public/images/pata_top.png';
-import image1 from '../../public/images/roomcardimage1.png';
-import image2 from '../../public/images/roomcardimage2.jpg';
-import image3 from '../../public/images/roomcardimage3.png';
-import image4 from '../../public/images/contactheroimage.png';
-import image5 from '../../public/images/story05.jpg';
-import image6 from '../../public/images/story06.jpg';
-import image7 from '../../public/images/story07.jpg';
-import image8 from '../../public/images/story01.jpg';
-import image9 from '../../public/images/story02.jpg';
-import image10 from '../../public/images/story03.jpg';
-import image11 from '../../public/images/story04.jpg';
-
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-
-// Import images (assuming these exist based on previous file listings)
-// If specific images are missing, Next.js Image will show broken icon or we can use placeholders
-const carouselImages = [
-  image1,
-  image2,
-  image3,
-  image4,
-  image5,
-  image6,
-  image7,
-  image8,
-  image9,
-  image10,
-  image11,
-];
+import { useOurStory } from '@/contexts/WebsiteContext';
+import { getImageUrl } from '@/hooks/imageMake';
 
 // Counter animation hook
 const useCounter = (endValue: number, duration: number = 1000, suffix: string = '') => {
@@ -96,6 +69,8 @@ const OurStory = () => {
   const suitesCounter = useCounter(150, 500, '+');
   const satisfactionCounter = useCounter(98, 1000, '%');
   const conciergeCounter = useCounter(24, 1500, '/7');
+
+  const ourstory = useOurStory();
 
   return (
     <section className="bg-[#2A2D71] relative overflow-hidden mx-auto">
@@ -182,7 +157,7 @@ const OurStory = () => {
               pagination={{
                 clickable: true,
                 dynamicBullets: true,
-                dynamicMainBullets: carouselImages.length,
+                dynamicMainBullets: ourstory?.images?.length,
                 el: '.swiper-pagination-location',
               }}
               autoplay={{ delay: 3000 }}
@@ -199,21 +174,22 @@ const OurStory = () => {
               }}
               className="pb-12 px-2 sm:px-4"
             >
-              {carouselImages.map((src, index) => (
-                <SwiperSlide key={index}>
-                  <div className="relative h-[400px] w-full rounded-[20px] overflow-hidden group">
-                    <Image
-                      src={src}
-                      alt={`Hotel Image ${index + 1}`}
-                      fill
-                      style={{ objectFit: 'cover' }}
-                      className="transition-transform duration-500 group-hover:scale-110"
-                    />
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </div>
-                </SwiperSlide>
-              ))}
+              {ourstory?.images?.length > 0 &&
+                ourstory?.images?.map((src: string, index: number) => (
+                  <SwiperSlide key={index}>
+                    <div className="relative h-[400px] w-full rounded-[20px] overflow-hidden group">
+                      <Image
+                        src={getImageUrl(src)}
+                        alt={`Hotel Image ${index + 1}`}
+                        fill
+                        style={{ objectFit: 'cover' }}
+                        className="transition-transform duration-500 group-hover:scale-110"
+                      />
+                      {/* Gradient Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                  </SwiperSlide>
+                ))}
             </Swiper>
           </div>
         </div>

@@ -1,12 +1,15 @@
 import React from 'react';
 import Image from 'next/image';
 import visithotelicon from '../../public/images/visithotelicon.png';
-import patatop from '../../public/images/pata_top.png';
 import offertop from '../../public/images/offer_top.png';
-import chef from '../../public/images/chef.png';
-import chiken from '../../public/images/chiken.png';
+import { useOffer } from '@/contexts/WebsiteContext';
+import { getImageUrl } from '@/hooks/imageMake';
 
 const WeekendOffer: React.FC = () => {
+  const offer = useOffer();
+
+  if (!offer?.offer_available) return null;
+
   return (
     <div className="relative w-full bg-[#A4D5F0] py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
       <div className="absolute top-2 sm:top-4 right-0 w-[250px] sm:w-[350px] md:w-[450px] lg:w-[600px] xl:w-[733px] z-0">
@@ -34,7 +37,7 @@ const WeekendOffer: React.FC = () => {
                 className="text-[28px] sm:text-[36px] md:text-[48px] lg:text-[60px] xl:text-[72px] leading-tight font-bold"
                 style={{ fontWeight: 700 }}
               >
-                20% Off
+                {offer?.offer_percentage || ''}% Off
               </span>{' '}
               Weekend Lunch
             </h1>
@@ -54,16 +57,13 @@ const WeekendOffer: React.FC = () => {
               className="font-sansation text-[20px] sm:text-[24px] md:text-[28px] lg:text-[32px] xl:text-[36px] leading-tight text-[#454779] mb-3 sm:mb-4 md:mb-5"
               style={{ fontWeight: 600 }}
             >
-              A Taste of Turkey
+              {offer?.title || ''}
             </h2>
             <p
               className="font-sansation text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] leading-relaxed text-[#8A8BB3] tracking-[0.75px]"
               style={{ fontWeight: 300 }}
             >
-              Discover the rich flavors of Turkish cuisine at Masa Turkish Eatery, open from 7:00 AM
-              – 11:30 PM. From hearty breakfasts to authentic dinners, our family-friendly
-              restaurant offers a dining experience that's both convenient and delicious. For added
-              privacy, take advantage of our in-room dining service.
+              {offer?.subtitle || ''}
             </p>
           </div>
         </div>
@@ -85,9 +85,11 @@ const WeekendOffer: React.FC = () => {
 
           <div className="mt-4 sm:mt-5 md:mt-6">
             <Image
-              src={chiken}
+              src={getImageUrl(offer?.offer_image)}
               alt="Delicious Chicken Dish"
               className="w-full h-auto rounded-[15px] sm:rounded-[20px]"
+              width={800}
+              height={500}
             />
           </div>
           <div className="flex justify-center sm:justify-end mt-6 sm:mt-7 md:mt-8 lg:mt-9">

@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
+import AnimatedText from '../animation/AnimateText';
 import Hero from '../Hero';
 import HotelLocations from '../HotelLocations';
-import menaheroimage from '../../public/images/menaapartheroimage.png';
 import Description from '@/components/about/description';
 import RelatedRooms from '@/components/roomdetails/relatedRooms';
 import WeekendOffer from '@/components/dining/WeekendOffer';
@@ -11,6 +11,9 @@ import OurStory from '@/components/about/ourstory';
 import MasaTurkishEatery from '@/components/dining/MasaTurkishEatery';
 import MapReview from '@/components/roomdetails/map_review';
 import LocationSlider from '../location/locationSlider';
+
+const guestsTitleHTML = 'WHAT GUESTS ARE SAYING';
+const nearbyTitleHTML = 'Nearby Experiences';
 
 // Animation Variants
 const fadeInUp: Variants = {
@@ -29,42 +32,15 @@ const staggerContainer: Variants = {
   },
 };
 
-const charContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.05,
-      delayChildren: 0.5,
-    },
-  },
-};
-
 const charVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
 };
 
-// Helper: Animated Characters
-const AnimatedChars = ({ text, className = '' }: { text: string; className?: string }) => (
-  <>
-    {text.split('').map((char, index) => (
-      <motion.span variants={charVariants} key={index} className={`inline-block ${className}`}>
-        {char === ' ' ? '\u00A0' : char}
-      </motion.span>
-    ))}
-  </>
-);
-
 export default function HomePage() {
   return (
     <>
-      <Hero
-        image={menaheroimage}
-        title="Welcome to MENA ApartHotel Albarsha"
-        description=""
-        component="index"
-      />
+      <Hero component="index" />
       <Description />
       <RelatedRooms />
       <WeekendOffer />
@@ -90,10 +66,12 @@ const WrapMapReview = () => (
           className="flex flex-col items-start gap-2 w-full max-w-[1234px]"
         >
           <motion.h1
-            variants={charContainer}
+            variants={fadeInUp}
             className="font-sansation font-light text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] xl:text-[72px] leading-[1.2] xl:leading-[86px] uppercase text-[#454779]"
           >
-            <AnimatedChars text="WHAT GUESTS ARE SAYING" />
+            <AnimatedText>
+              <div dangerouslySetInnerHTML={{ __html: guestsTitleHTML }} />
+            </AnimatedText>
           </motion.h1>
           <motion.p
             variants={fadeInUp}
@@ -123,10 +101,12 @@ const WrapLocationSlider = () => (
       >
         <div className="flex flex-col items-start gap-2 w-full max-w-[1234px]">
           <motion.h1
-            variants={charContainer}
+            variants={fadeInUp}
             className="font-['Sansation'] font-light text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] xl:text-[72px] uppercase text-[#454779] leading-tight"
           >
-            <AnimatedChars text="Nearby Experiences" />
+            <AnimatedText>
+              <div dangerouslySetInnerHTML={{ __html: nearbyTitleHTML }} />
+            </AnimatedText>
           </motion.h1>
           <motion.p
             variants={fadeInUp}

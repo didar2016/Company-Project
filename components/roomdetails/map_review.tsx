@@ -2,10 +2,16 @@ import React from 'react';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Mousewheel } from 'swiper/modules';
+import { motion, Variants } from 'framer-motion';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import visithotelicon from '../../public/images/visithotelicon.png';
 import starIcon from '../../public/images/Star.png';
+
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: 'easeOut' } },
+};
 
 interface Review {
   id: number;
@@ -15,11 +21,7 @@ interface Review {
   text: string;
 }
 
-interface MapReviewProps {
-  className?: string;
-}
-
-const MapReview: React.FC<MapReviewProps> = ({ className = '' }) => {
+const MapReview: React.FC = () => {
   const reviews: Review[] = [
     {
       id: 1,
@@ -65,7 +67,13 @@ const MapReview: React.FC<MapReviewProps> = ({ className = '' }) => {
       <div className="mx-auto max-w-[1720px]">
         <div className="flex flex-col justify-between items-center xl:flex-row gap-6 sm:gap-8 lg:gap-12">
           {/* Left Side - Interactive Map */}
-          <div className=" relative w-full xl:w-1/2 h-[350px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl sm:shadow-2xl">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false }}
+            variants={fadeInUp}
+            className=" relative w-full xl:w-1/2 h-[350px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl sm:shadow-2xl"
+          >
             {/* Map Container */}
             <div className="absolute inset-0 bg-gray-200">
               {/* Replace this iframe with your actual map implementation */}
@@ -126,10 +134,16 @@ const MapReview: React.FC<MapReviewProps> = ({ className = '' }) => {
                 <div className="h-1 bg-gray-200 rounded animate-pulse"></div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Side - Review Slider with Swiper */}
-          <div className="max-w-[760px] relative w-full xl:w-1/2 flex items-center justify-center h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px]">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false }}
+            variants={fadeInUp}
+            className="max-w-[760px] relative w-full xl:w-1/2 flex items-center justify-center h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px]"
+          >
             <div className="relative w-full flex items-center gap-2 sm:gap-4 lg:gap-8">
               {/* Swiper Container */}
               <div className="flex-1 w-full">
@@ -214,7 +228,7 @@ const MapReview: React.FC<MapReviewProps> = ({ className = '' }) => {
               {/* Vertical Pagination Dots */}
               <div className="review-pagination-vertical flex-shrink-0"></div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -222,63 +236,3 @@ const MapReview: React.FC<MapReviewProps> = ({ className = '' }) => {
 };
 
 export default MapReview;
-
-// Add this to your global CSS file (globals.css)
-// Custom Swiper pagination styles for vertical dots
-/*
-.review-pagination-vertical {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-
-.custom-bullet {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #D1D5DB;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  opacity: 1;
-}
-
-.custom-bullet:hover {
-  background: #9CA3AF;
-}
-
-.custom-bullet-active {
-  width: 8px;
-  height: 32px;
-  border-radius: 4px;
-  background: #00B3DD !important;
-}
-
-.review-swiper {
-  width: 100%;
-}
-
-.review-swiper .swiper-slide {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@media (max-width: 640px) {
-  .review-pagination-vertical {
-    gap: 8px;
-  }
-  
-  .custom-bullet {
-    width: 6px;
-    height: 6px;
-  }
-  
-  .custom-bullet-active {
-    width: 6px;
-    height: 24px;
-  }
-}
-*/

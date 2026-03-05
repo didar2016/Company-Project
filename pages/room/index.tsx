@@ -5,7 +5,6 @@ import Hero from '../../components/Hero';
 import RoomSlider from '../../components/RoomSlider';
 import HotelLocations from '../../components/HotelLocations';
 import Footer from '../../components/Footer';
-import heroimage from '../../public/images/room_cover_photo.png';
 
 export default function Home() {
   return (
@@ -18,12 +17,7 @@ export default function Home() {
       <Navbar />
 
       <main className="flex-grow w-full overflow-hidden ">
-        <Hero
-          image={heroimage}
-          title="Rooms"
-          description="Mena Apart Hotels offers modern, relax, and experience true comfort with every visit"
-          component="room"
-        />
+        <Hero component="room" />
 
         <div className="bg-white relative py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
           <RoomSlider />

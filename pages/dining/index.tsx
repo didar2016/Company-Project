@@ -4,8 +4,6 @@ import Navbar from '../../components/Navbar';
 import Hero from '../../components/Hero';
 import MasaTurkishEatery from '../../components/dining/MasaTurkishEatery';
 import Footer from '../../components/Footer';
-import MapReview from '@/components/roomdetails/map_review';
-import Diningheroimage from '../../public/images/diningheroimage.png';
 import Map from '@/components/roomdetails/map';
 import WeekendOffer from '@/components/dining/WeekendOffer';
 
@@ -23,12 +21,7 @@ export default function Dining() {
       <Navbar />
 
       <main className="flex-grow w-full overflow-hidden">
-        <Hero
-          image={Diningheroimage}
-          title="Dining Experiences"
-          description="discover a world of flavorscrafted by our talented culinary team"
-          component="dining"
-        />
+        <Hero component="dining" />
         <MasaTurkishEatery />
         <WeekendOffer />
         <Map />

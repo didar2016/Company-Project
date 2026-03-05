@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { motion, Variants } from 'framer-motion';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import visithotelicon from '../public/images/visithotelicon.png';
+import { useHeroSections } from '@/hooks/useWebsite';
+import { getImageUrl } from '@/hooks/imageMake';
+import AnimatedText from './animation/AnimateText';
+import { ALLDATA } from '@/contexts/titles';
 
 // Animation Variants
 const fadeInUp: Variants = {
@@ -41,55 +48,39 @@ const wordVariants: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 };
 
-const focusWordVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.8, filter: 'blur(10px)' },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    filter: 'blur(0px)',
-    transition: { duration: 0.8, ease: 'easeOut' },
-  },
+// Helper: Animated Characters
+const AnimatedChars = ({ text, className = '' }: { text: string; className?: string }) => {
+  if (!text) return null;
+  return (
+    <>
+      {text.split('').map((char, index) => (
+        <motion.span variants={charVariants} key={index} className={`inline-block ${className}`}>
+          {char === ' ' ? '\u00A0' : char}
+        </motion.span>
+      ))}
+    </>
+  );
 };
 
-// Helper: Animated Characters
-const AnimatedChars = ({ text, className = '' }: { text: string; className?: string }) => (
-  <>
-    {text.split('').map((char, index) => (
-      <motion.span variants={charVariants} key={index} className={`inline-block ${className}`}>
-        {char === ' ' ? '\u00A0' : char}
-      </motion.span>
-    ))}
-  </>
-);
-
 // Helper: Animated Words
-const AnimatedWords = ({ text }: { text: string }) => (
-  <>
-    {text.split(' ').map((word, index) => (
-      <motion.span variants={wordVariants} key={index} className="inline-block mr-2">
-        {word}
-      </motion.span>
-    ))}
-  </>
-);
+const AnimatedWords = ({ text }: { text: string }) => {
+  if (!text) return null;
+  return (
+    <>
+      {text.split(' ').map((word, index) => (
+        <motion.span variants={wordVariants} key={index} className="inline-block mr-2">
+          {word}
+        </motion.span>
+      ))}
+    </>
+  );
+};
 
-// Helper: Animated Focus Words
-const AnimatedFocusWords = ({ text }: { text: string }) => (
-  <>
-    {text.split(' ').map((word, index) => (
-      <motion.span variants={focusWordVariants} key={index} className="inline-block mr-2">
-        {word}
-      </motion.span>
-    ))}
-  </>
-);
-
-const Hero: React.FC<{ image: any; title: string; description: string; component: string }> = ({
-  image,
-  title,
-  description,
-  component,
-}) => {
+const Hero: React.FC<{
+  component: string;
+  singleroomDescription?: string;
+  singleroomName?: string;
+}> = ({ component, singleroomDescription, singleroomName }) => {
   const [screenSize, setScreenSize] = React.useState<{
     width: number;
     height: number;
@@ -97,6 +88,48 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
     width: 0,
     height: 0,
   });
+
+  // Booking form state
+  const [checkInDate, setCheckInDate] = React.useState(new Date('2025-12-21'));
+  const [checkOutDate, setCheckOutDate] = React.useState(new Date('2025-12-26'));
+  const [guests, setGuests] = React.useState('2 Adults/1 Children');
+  const [roomType, setRoomType] = React.useState('Deluxe Suite');
+  const [showGuestsDropdown, setShowGuestsDropdown] = React.useState(false);
+  const [showRoomTypeDropdown, setShowRoomTypeDropdown] = React.useState(false);
+  const [showCheckInCalendar, setShowCheckInCalendar] = React.useState(false);
+  const [showCheckOutCalendar, setShowCheckOutCalendar] = React.useState(false);
+
+  const containerRef = React.useRef<HTMLDivElement>(null);
+
+  // Dummy data and date formatting
+  const formatDate = (date: Date) => {
+    return date.toLocaleDateString('en-GB', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric',
+    });
+  };
+
+  const guestOptions = [
+    '1 Adult',
+    '2 Adults',
+    '2 Adults/1 Children',
+    '2 Adults/2 Children',
+    '3 Adults',
+    '3 Adults/1 Children',
+    '4 Adults',
+    '4 Adults/2 Children',
+  ];
+
+  const roomTypes = [
+    'Standard Room',
+    'Deluxe Suite',
+    'Premium Suite',
+    'Executive Suite',
+    'Presidential Suite',
+    'Family Room',
+    'Studio Apartment',
+  ];
 
   React.useEffect(() => {
     const updateScreenSize = () => {
@@ -116,9 +149,33 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
     return () => window.removeEventListener('resize', updateScreenSize);
   }, []);
 
+  // Handle click outside to close dropdowns
+  React.useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setShowGuestsDropdown(false);
+        setShowRoomTypeDropdown(false);
+        setShowCheckInCalendar(false);
+        setShowCheckOutCalendar(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const herodata = useHeroSections();
+
+  const router = useRouter();
+  const { component: routeComponent } = router.query;
+
+  const currentHero = useMemo(() => {
+    const heroItem = herodata?.find((hero: any) => hero.page === (routeComponent || component));
+    return heroItem || herodata?.[0];
+  }, [herodata, routeComponent, component]);
+
   return (
     <div className="relative overflow-hidden">
-      {/* Floating Elements */}
       {component === 'index' && (
         <>
           <motion.div
@@ -152,8 +209,8 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
         >
           {/* Placeholder for Hero Image */}
           <Image
-            src={image}
-            alt="Mena Hotel "
+            src={getImageUrl(currentHero?.image)}
+            alt="Mena Hotel"
             fill
             className="object-cover object-center"
             priority
@@ -169,7 +226,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
           className="w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[694px]"
         >
           <Image
-            src={image}
+            src={getImageUrl(currentHero?.image)}
             alt="Mena Hotel Interior"
             fill
             className="object-cover object-center"
@@ -210,6 +267,7 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
             className="absolute z-20 text-center  md:text-right text-white px-4 sm:px-6 md:px-8 lg:px-12 max-w-[1130px] mx-auto top-[17%] sm:top-[23%] lg:top-[25%] right-0 sm:right-[2%] md:right-[5%] left-4 sm:left-auto "
           >
             <motion.h2
+              key={currentHero?.text || 'loading-text'}
               variants={{
                 hidden: { opacity: 0 },
                 visible: {
@@ -219,31 +277,31 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
               }}
               className="max-[640px]:text-center font-sansation font-bold text-[18px] md:text-[24px] lg:text-[30px] leading-[1.3] text-[#A4D5F0] uppercase text-right mb-2 lg:mb-[18px]"
             >
-              <AnimatedWords text="WELCOME TO" />
-              <AnimatedFocusWords text="MENA APARTHOTEL ALBARSHA" />
+              <AnimatedWords text={currentHero?.text || ''} />
             </motion.h2>
             <motion.h1
+              initial="hidden"
+              animate="visible"
               variants={charContainer}
-              className=" max-[640px]:text-center font-sansation-light font-light text-[26px] md:text-[45px] lg:text-[65px] xl:text-[80px] leading-[1.1] lg:leading-[110px] text-white uppercase text-right mb-2 lg:mb-[18px]"
+              key={ALLDATA.index_page_header_text || 'loading-subtext'}
+              className="max-[640px]:text-center font-sansation font-light text-[20px] sm:text-[30px] md:text-[42px] lg:text-[50px] xl:text-[65px] leading-[1.1] text-white uppercase text-right mb-2 lg:mb-4.5"
             >
-              <AnimatedChars text="YOUR " />
-              <AnimatedChars text="Home " className="font-bold font-sansation" />
-              <AnimatedChars text="in the " />
-              <AnimatedChars text="Heart" className="font-bold font-sansation" />
-              <AnimatedChars text=" OF Dubai" />
+              <AnimatedText>
+                <div dangerouslySetInnerHTML={{ __html: ALLDATA.index_page_header_text }}></div>
+              </AnimatedText>
             </motion.h1>
             <motion.p
+              key={currentHero?.detailsText || 'loading-description'}
               variants={fadeInUp}
               className="max-[640px]:text-center font-sansation-light font-light text-[14px] md:text-[18px] lg:text-[20px] leading-[1.2] text-white text-right md:max-w-full"
             >
-              MENA ApartHotel offers modern, fully equipped suites crafted for both business and
-              leisure stays giving you the space to work, relax, and experience true comfort with
-              every visit.
+              {currentHero?.detailsText || ''}
             </motion.p>
           </motion.div>
 
           {/* Search Bar Section */}
           <motion.div
+            ref={containerRef}
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2 }}
@@ -251,14 +309,21 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
             className="max-w-[80vw] sm:max-w-[480px] lg:max-w-[920px]  xl:max-w-[1200px] mx-auto z-20 absolute bottom-[3%] lg:bottom-[6%] right-0 left-0 sm:bottom-[5%]   min-h-[100px] lg:min-h-[140px] bg-gradient-to-r from-[rgba(0,0,0,0.3)] to-[rgba(234,234,234,0.3)] backdrop-blur-[12px] rounded-[10px] p-[20px] sm:p-[30px] lg:p-[30px] flex flex-wrap justify-center md:flex-row items-end gap-4 lg:gap-[18px] pointer-events-auto shadow-lg"
           >
             {/* Check In */}
-
-            <div className="flex flex-col gap-[8px] w-full  sm:max-w-[200px]">
+            <div className="flex flex-col gap-[8px] w-full sm:max-w-[200px] relative">
               <span className="font-poppins text-white text-[14px] lg:text-[16px]">
                 Check In-Date
               </span>
-              <div className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[40px] lg:h-[50px] px-[15px] lg:px-[20px] w-full">
+              <div
+                className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[40px] lg:h-[50px] px-[15px] lg:px-[20px] w-full cursor-pointer hover:border-[rgba(255,255,255,0.6)] transition-colors"
+                onClick={() => {
+                  setShowCheckInCalendar(!showCheckInCalendar);
+                  setShowCheckOutCalendar(false);
+                  setShowGuestsDropdown(false);
+                  setShowRoomTypeDropdown(false);
+                }}
+              >
                 <span className="font-poppins text-white text-[14px] lg:text-[16px]">
-                  21 Dec 2025
+                  {formatDate(checkInDate)}
                 </span>
                 <svg
                   width="24"
@@ -274,16 +339,43 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
                   />
                 </svg>
               </div>
+              {showCheckInCalendar && (
+                <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/20 backdrop-blur-sm">
+                  <div className="relative bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl p-4 border border-white/30">
+                    <DatePicker
+                      selected={checkInDate}
+                      onChange={(date: Date | null) => {
+                        if (date) {
+                          setCheckInDate(date);
+                          setShowCheckInCalendar(false);
+                        }
+                      }}
+                      minDate={new Date()}
+                      maxDate={checkOutDate}
+                      inline
+                      className="font-poppins"
+                    />
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Check Out */}
-            <div className="flex flex-col gap-[8px] w-full sm:max-w-[200px]">
+            <div className="flex flex-col gap-[8px] w-full sm:max-w-[200px] relative">
               <span className="font-poppins text-white text-[14px] lg:text-[16px]">
                 Check Out-Date
               </span>
-              <div className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[40px] lg:h-[50px] px-[15px] lg:px-[20px] w-full">
+              <div
+                className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[40px] lg:h-[50px] px-[15px] lg:px-[20px] w-full cursor-pointer hover:border-[rgba(255,255,255,0.6)] transition-colors"
+                onClick={() => {
+                  setShowCheckOutCalendar(!showCheckOutCalendar);
+                  setShowCheckInCalendar(false);
+                  setShowGuestsDropdown(false);
+                  setShowRoomTypeDropdown(false);
+                }}
+              >
                 <span className="font-poppins text-white text-[14px] lg:text-[16px]">
-                  26 Dec 2025
+                  {formatDate(checkOutDate)}
                 </span>
                 <svg
                   width="24"
@@ -299,26 +391,126 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
                   />
                 </svg>
               </div>
+              {showCheckOutCalendar && (
+                <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/20 backdrop-blur-sm">
+                  <div className="relative bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl p-4 border border-white/30">
+                    <DatePicker
+                      selected={checkOutDate}
+                      onChange={(date: Date | null) => {
+                        if (date) {
+                          setCheckOutDate(date);
+                          setShowCheckOutCalendar(false);
+                        }
+                      }}
+                      minDate={checkInDate}
+                      inline
+                      className="font-poppins"
+                    />
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Guests */}
-            <div className="flex flex-col gap-[8px] w-full sm:max-w-[200px]">
+            <div className="flex flex-col gap-[8px] w-full sm:max-w-[200px] relative">
               <span className="font-poppins text-white text-[14px] lg:text-[16px]">Guests</span>
-              <div className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[40px] lg:h-[50px] px-[15px] lg:px-[20px] w-full cursor-pointer">
-                <span className="font-poppins text-white text-[14px] lg:text-[16px]">2 Adults</span>
-                <span className="text-white text-xs lg:text-sm">▼</span>
+              <div
+                className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[40px] lg:h-[50px] px-[15px] lg:px-[20px] w-full cursor-pointer hover:border-[rgba(255,255,255,0.6)] transition-colors"
+                onClick={() => {
+                  setShowGuestsDropdown(!showGuestsDropdown);
+                  setShowCheckInCalendar(false);
+                  setShowCheckOutCalendar(false);
+                  setShowRoomTypeDropdown(false);
+                }}
+              >
+                <span className="font-poppins text-white text-[14px] lg:text-[16px]">{guests}</span>
+                <span
+                  className={`text-white text-xs lg:text-sm transition-transform ${showGuestsDropdown ? 'rotate-180' : ''}`}
+                >
+                  ▼
+                </span>
               </div>
+              {showGuestsDropdown && (
+                <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/20 backdrop-blur-sm">
+                  <div className="relative bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl p-4 border border-white/30 min-w-[280px] max-w-[320px]">
+                    <button
+                      onClick={() => setShowGuestsDropdown(false)}
+                      className="absolute top-2 right-2 w-8 h-8 bg-red-500/80 hover:bg-red-600 rounded-full flex items-center justify-center text-white font-bold transition-colors"
+                    >
+                      ×
+                    </button>
+                    <h3 className="font-poppins font-semibold text-gray-800 text-[16px] mb-4 pr-8">
+                      Select Guests
+                    </h3>
+                    <div className="space-y-1 max-h-60 overflow-y-auto">
+                      {guestOptions.map((option, index) => (
+                        <div
+                          key={index}
+                          className="px-4 py-3 hover:bg-[#00B3DD]/20 cursor-pointer text-gray-800 font-poppins text-[14px] transition-colors rounded-lg border-b border-gray-200/30 last:border-b-0"
+                          onClick={() => {
+                            setGuests(option);
+                            setShowGuestsDropdown(false);
+                          }}
+                        >
+                          {option}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Room Type */}
-            <div className="flex flex-col gap-[8px] w-full sm:max-w-[200px]">
+            <div className="flex flex-col gap-[8px] w-full sm:max-w-[200px] relative">
               <span className="font-poppins text-white text-[14px] lg:text-[16px]">Room Type</span>
-              <div className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[40px] lg:h-[50px] px-[15px] lg:px-[20px] w-full cursor-pointer">
+              <div
+                className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[40px] lg:h-[50px] px-[15px] lg:px-[20px] w-full cursor-pointer hover:border-[rgba(255,255,255,0.6)] transition-colors"
+                onClick={() => {
+                  setShowRoomTypeDropdown(!showRoomTypeDropdown);
+                  setShowCheckInCalendar(false);
+                  setShowCheckOutCalendar(false);
+                  setShowGuestsDropdown(false);
+                }}
+              >
                 <span className="font-poppins text-white text-[14px] lg:text-[16px]">
-                  Deluxe Suite
+                  {roomType}
                 </span>
-                <span className="text-white text-xs lg:text-sm">▼</span>
+                <span
+                  className={`text-white text-xs lg:text-sm transition-transform ${showRoomTypeDropdown ? 'rotate-180' : ''}`}
+                >
+                  ▼
+                </span>
               </div>
+              {showRoomTypeDropdown && (
+                <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/20 backdrop-blur-sm">
+                  <div className="relative bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl p-4 border border-white/30 min-w-[280px] max-w-[320px]">
+                    <button
+                      onClick={() => setShowRoomTypeDropdown(false)}
+                      className="absolute top-2 right-2 w-8 h-8 bg-red-500/80 hover:bg-red-600 rounded-full flex items-center justify-center text-white font-bold transition-colors"
+                    >
+                      ×
+                    </button>
+                    <h3 className="font-poppins font-semibold text-gray-800 text-[16px] mb-4 pr-8">
+                      Select Room Type
+                    </h3>
+                    <div className="space-y-1 max-h-60 overflow-y-auto">
+                      {roomTypes.map((type, index) => (
+                        <div
+                          key={index}
+                          className="px-4 py-3 hover:bg-[#00B3DD]/20 cursor-pointer text-gray-800 font-poppins text-[14px] transition-colors rounded-lg border-b border-gray-200/30 last:border-b-0"
+                          onClick={() => {
+                            setRoomType(type);
+                            setShowRoomTypeDropdown(false);
+                          }}
+                        >
+                          {type}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* CTA Button */}
@@ -366,8 +558,9 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
       {(component === 'facilities' ||
         component === 'location' ||
         component === 'dining' ||
+        component === 'meeting' ||
         component === 'room' ||
-        component === 'singleroom' ||
+        component === 'roomdetails' ||
         component === 'about' ||
         component === 'contact' ||
         component === 'longterm') && (
@@ -397,21 +590,33 @@ const Hero: React.FC<{ image: any; title: string; description: string; component
             whileInView="visible"
             viewport={{ once: false, amount: 0.3 }}
             variants={staggerContainer}
-            className="absolute z-20 text-center md:text-right text-white px-4 sm:px-6 md:px-8 lg:px-12 max-w-[1130px] mx-auto bottom-[10%] sm:bottom-[15%] md:bottom-[32%] right-0 sm:right-[2%] md:right-[5%] left-4 sm:left-auto "
+            className="absolute z-20 text-center sm:text-right text-white px-4 sm:px-6 md:px-8 lg:px-12 max-w-[1130px] mx-auto bottom-[10%] sm:bottom-[15%] md:bottom-[32%] right-0 sm:right-[2%] md:right-[5%] left-4 sm:left-auto "
           >
             <motion.h1
               variants={charContainer}
               className="text-white font-sansation text-[30px] sm:text-[30px] md:text-[45px] lg:text-[60px] uppercase whitespace-nowrap"
               style={{ fontWeight: 700 }}
             >
-              <AnimatedChars text={title} />
+              <AnimatedText>
+                {component === 'roomdetails' ? (
+                  <div dangerouslySetInnerHTML={{ __html: singleroomName || '' }}></div>
+                ) : (
+                  <div dangerouslySetInnerHTML={{ __html: currentHero?.text || '' }}></div>
+                )}
+              </AnimatedText>
             </motion.h1>
             <motion.p
               variants={fadeInUp}
-              className="font-sansation font-light text-white text-[13px] sm:text-[14px] md:text-[17px] lg:text-[25px] leading-[120%] text-center md:text-right max-w-[90%] sm:max-w-[500px] md:max-w-[600px] lg:max-w-none mx-auto md:mx-0 uppercase"
+              className="font-sansation font-light text-white text-[13px] sm:text-[14px] md:text-[17px] lg:text-[25px] leading-[120%] max-w-[90%] sm:max-w-[500px] md:max-w-[600px] lg:max-w-none mx-auto md:mx-0 uppercase"
               style={{ fontWeight: 700 }}
             >
-              {description}
+              <AnimatedChars
+                text={
+                  component === 'roomdetails'
+                    ? singleroomDescription || ''
+                    : currentHero?.subText || ''
+                }
+              />
             </motion.p>
           </motion.div>
         </>

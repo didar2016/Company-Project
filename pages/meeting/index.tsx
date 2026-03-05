@@ -5,14 +5,15 @@ import Navbar from '../../components/Navbar';
 import Hero from '../../components/Hero';
 import Footer from '../../components/Footer';
 import MapReview from '@/components/roomdetails/map_review';
-import OurStory from '@/components/about/ourstory';
-import DiningAmenities from '@/components/about/diningamenities';
-import AboutDescription from '@/components/about/aboutDescription';
+import MeetingComponent from '@/components/meeting/Meeting';
+import { useMeeting } from '@/contexts/WebsiteContext';
 
-export default function About() {
-  const { websiteData, loading } = useWebsite();
+export default function Meeting() {
+  const { websiteData, loading: websiteLoading } = useWebsite();
 
-  if (loading) {
+  const meeting = useMeeting();
+
+  if (websiteLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
@@ -20,21 +21,23 @@ export default function About() {
     );
   }
 
+  if (meeting?.available == false) {
+    return null;
+  }
+
   return (
     <div className="min-h-screen bg-white flex flex-col mx-auto">
       <Head>
-        <title>{websiteData?.website?.name || 'MENA'} | Agent Hotel Alliance</title>
+        <title>{websiteData?.website?.name || 'MENA'}</title>
         <meta name="description" content="Official website of MENA Agent Hotel Alliance" />
       </Head>
 
       <Navbar />
 
       <main className="w-full overflow-hidden ">
-        <Hero component="about" />
+        <Hero component="meeting" />
 
-        <AboutDescription />
-        <DiningAmenities />
-        <OurStory />
+        <MeetingComponent meeting={meeting} />
         <MapReview />
       </main>
 

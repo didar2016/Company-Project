@@ -1,10 +1,24 @@
 import React from 'react';
 import Image from 'next/image';
+import { motion, Variants } from 'framer-motion';
 import hotelmapicon from '../../public/images/location_map_icon.png';
 import visithotelicon from '../../public/images/visithotelicon.png';
 import burjkhalifa from '../../public/images/burjalkhlifa.png';
 import mountain from '../../public/images/desertsafari.png';
 import sea from '../../public/images/burjalarab.png';
+
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: 'easeOut' } },
+};
+
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2, delayChildren: 0.15 },
+  },
+};
 
 interface Hotel {
   id: number;
@@ -39,10 +53,17 @@ const Locations: React.FC = () => {
     <section id="location" className=" bg-white border-none">
       <div className=" bg-white py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-20 xl:px-25">
         <div className="max-w-[1720px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 justify-items-center gap-x-[20px] gap-y-8 sm:gap-y-12">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 justify-items-center gap-x-[20px] gap-y-8 sm:gap-y-12"
+          >
             {hotels.map((hotel) => (
-              <div
+              <motion.div
                 key={hotel.id}
+                variants={fadeInUp}
                 className="flex flex-col gap-4 sm:gap-[30px] group h-full relative w-full min-w-[350px] md:min-w-[350px] max-w-[540px] xl:max-w-[540px] overflow-hidden "
               >
                 {/* Image Container */}
@@ -85,9 +106,9 @@ const Locations: React.FC = () => {
                     </button>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

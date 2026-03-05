@@ -2,8 +2,10 @@ import React from 'react';
 import Image from 'next/image';
 import visithotelicon from '../../public/images/visithotelicon.png';
 import restaurent from '../../public/images/restaurent.jpg';
-import { useRouter } from 'next/router';
 import { motion, Variants } from 'framer-motion';
+import AnimatedText from '../animation/AnimateText';
+
+const culinaryTitleHTML = 'A CULINARY JOURNEY AWAITS';
 
 // Animation Variants
 const fadeInUp: Variants = {
@@ -11,66 +13,7 @@ const fadeInUp: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 1, ease: 'easeOut' } },
 };
 
-const charContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.05,
-      delayChildren: 0.5,
-    },
-  },
-};
-
-const charVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
-};
-
-const wordVariants: Variants = {
-  hidden: { opacity: 0, y: 15 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
-};
-
-const focusWordVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.8, filter: 'blur(10px)' },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    filter: 'blur(0px)',
-    transition: { duration: 0.8, ease: 'easeOut' },
-  },
-};
-
-// Helper: Animated Characters
-const AnimatedChars = ({ text, className = '' }: { text: string; className?: string }) => (
-  <>
-    {text.split('').map((char, index) => (
-      <motion.span variants={charVariants} key={index} className={`inline-block ${className}`}>
-        {char === ' ' ? '\u00A0' : char}
-      </motion.span>
-    ))}
-  </>
-);
-
-// Helper: Animated Words
-const AnimatedWords = ({ text }: { text: string }) => (
-  <>
-    {text.split(' ').map((word, index) => (
-      <motion.span variants={wordVariants} key={index} className="inline-block mr-2">
-        {word}
-      </motion.span>
-    ))}
-  </>
-);
-
 const MasaTurkishEatery: React.FC = () => {
-  const router = useRouter();
-
-  const handleNavigate = () => {
-    router.push('/dining');
-  };
-
   return (
     <div className="w-full relative py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25 ">
       <div className="p-3 sm:p-6 md:p-[30px]  mx-auto max-w-[1720px] bg-white rounded-[20px] ">
@@ -79,22 +22,36 @@ const MasaTurkishEatery: React.FC = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false }}
-          variants={charContainer}
+          variants={fadeInUp}
           className="text-center font-sansation text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px] text-[#454779] uppercase mb-6"
           style={{ fontWeight: 400 }}
         >
-          <AnimatedChars text="A CULINARY JOURNEY AWAITS" />
+          <AnimatedText>
+            <div dangerouslySetInnerHTML={{ __html: culinaryTitleHTML }} />
+          </AnimatedText>
         </motion.h2>
 
         {/* Content Container */}
         <div className="flex flex-col xl:flex-row gap-4 lg:gap-6 items-stretch">
           {/* Image Section */}
-          <div className="w-full h-[300px] sm:h-[400px] md:h-[450px] lg:h-[528px] relative rounded-3xl overflow-hidden shadow-2xl">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false }}
+            variants={fadeInUp}
+            className="w-full h-[300px] sm:h-[400px] md:h-[450px] lg:h-[528px] relative rounded-3xl overflow-hidden shadow-2xl"
+          >
             <Image src={restaurent} alt="Culinary" fill className="object-cover object-center" />
-          </div>
+          </motion.div>
 
           {/* Content Section */}
-          <div className="flex flex-col bg-[#EBEEF4] rounded-[20px] p-[20px] sm:p-[25px] md:p-[30px] w-full">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false }}
+            variants={fadeInUp}
+            className="flex flex-col bg-[#EBEEF4] rounded-[20px] p-[20px] sm:p-[25px] md:p-[30px] w-full"
+          >
             {/* Restaurant Name */}
             <h3
               className="font-sansation text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] xl:text-[42px] text-[#454779] leading-tight mb-4"
@@ -198,7 +155,7 @@ const MasaTurkishEatery: React.FC = () => {
                 </span>
               </button>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

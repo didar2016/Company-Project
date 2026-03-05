@@ -5,7 +5,6 @@ import Hero from '../../components/Hero';
 import Footer from '../../components/Footer';
 import Amenities from '@/components/amenities/Amenities';
 import Facilities from '@/components/amenities/Facilities';
-import heroimage from '../../public/images/amenitiesheroimage.png';
 import MapReview from '@/components/roomdetails/map_review';
 
 export default function Home() {
@@ -19,13 +18,7 @@ export default function Home() {
       <Navbar />
 
       <main className="w-full overflow-hidden ">
-        <Hero
-          image={heroimage}
-          title="EXPLORE OUR FACILITIES"
-          description="Designed to cater to every aspect of your stay, from relaxation to productivity, our
-        facilities ensure a memorable and comfortable experience"
-          component="facilities"
-        />
+        <Hero component="facilities" />
         <Facilities />
         <Amenities />
 
