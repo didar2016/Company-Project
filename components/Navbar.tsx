@@ -13,7 +13,7 @@ import { getImageUrl } from '@/hooks/imageMake';
 interface NavLink {
   name: string;
   href: string;
-  subItems?: { name: string; href: string; image?: any }[];
+  subItems?: { name: string; href: string }[];
 }
 
 const Navbar: React.FC = () => {
@@ -37,9 +37,9 @@ const Navbar: React.FC = () => {
       name: 'ROOMS',
       href: '/room',
       subItems: [
-        { name: 'Studio Apartment', href: '/room?type=studio', image: room1 },
-        { name: 'One Bedroom Apartment', href: '/room?type=one-bedroom', image: room2 },
-        { name: 'Two Bedroom Apartment', href: '/room?type=two-bedroom', image: room3 },
+        { name: 'Studio Apartment', href: '/room?type=studio' },
+        { name: 'One Bedroom Apartment', href: '/room?type=one-bedroom' },
+        { name: 'Two Bedroom Apartment', href: '/room?type=two-bedroom' },
       ],
     },
     { name: 'DINING', href: '/dining' },

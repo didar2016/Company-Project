@@ -7,6 +7,7 @@ import AnimatedText from '../animation/AnimateText';
 const facilitiesTitleHTML = 'Facilities That Enhance Your Stay';
 import { useFacilities } from '@/hooks/useWebsite';
 import { getImageUrl } from '@/hooks/imageMake';
+import { ALLDATA } from '@/contexts/titles';
 
 // Animation Variants
 const fadeInUp: Variants = {
@@ -55,16 +56,14 @@ const HeaderSection = () => {
         className="font-['Sansation'] font-light text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] xl:text-[72px] uppercase text-[#454779] leading-tight"
       >
         <AnimatedText>
-          <div dangerouslySetInnerHTML={{ __html: facilitiesTitleHTML }} />
+          <div dangerouslySetInnerHTML={{ __html: ALLDATA.facilities.title }} />
         </AnimatedText>
       </motion.h1>
       <motion.p
         variants={fadeInUp}
         className="font-['Poppins'] text-[#2A2D71] text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] "
       >
-        MENA ApartHotel Albarsha offers a range of facilities designed to provide comfort and MENA
-        ApartHotel Albarsha offers a range of facilities designed to provide comfort and
-        convenience, ensuring an exceptional experience for both short and extended stays.
+        {ALLDATA.facilities.subtitle}{' '}
       </motion.p>
     </motion.div>
   );

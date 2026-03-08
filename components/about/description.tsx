@@ -115,26 +115,14 @@ const Description = () => {
           variants={fadeInUp}
           className="w-full xl:w-1/2 bg-white rounded-[30px] p-8 md:p-12 lg:px-20 lg:py-14 flex flex-col justify-center gap-8 relative shadow-sm"
         >
-          {/* Background vector decoration (Placeholder for Vector 2/3) */}
-          <div className="absolute right-0 bottom-[-60px] opacity-10 pointer-events-none">
-            {/* Vector here if available */}
-          </div>
+          <div className="absolute right-0 bottom-[-60px] opacity-10 pointer-events-none"></div>
 
           <p className="font-['Poppins'] text-[#8A8BB3] text-lg text-center leading-relaxed">
-            <span className="font-500 text-[20px]">
-              {' '}
-              Situated in the vibrant city of Dubai, MENA ApartHotel Albarsha is the perfect choice
-              for short or extended stays. A short walk from the Mall of the Emirates, we combine
-              the comforts of home with genuine hospitality, offering outstanding value for
-              families, business travelers, and explorers.
-            </span>
+            <span className="font-600 text-[20px]">{ALLDATA.description.des1 || ''}</span>
             <br />
+            <span className="font-500 text-[20px]"> {ALLDATA.description.des2 || ''}</span>
             <br />
-            <span className="font-[700] text-[20px]">
-              {' '}
-              Book your stay today and experience the perfect blend of modern living and warm
-              hospitality at MENA ApartHotel Albarsha.
-            </span>
+            <span className="font-[700] text-[20px]"> {ALLDATA.description.des3 || ''}</span>
           </p>
           <div className="flex justify-center mt-4" onClick={handlenavigation}>
             <button className="flex items-center gap-4 bg-[#00B3DD] rounded-[60px] pl-8 pr-3 py-3 text-white transition hover:bg-[#009bc0] group">

@@ -4,8 +4,9 @@ import visithotelicon from '../../public/images/visithotelicon.png';
 import restaurent from '../../public/images/restaurent.jpg';
 import { motion, Variants } from 'framer-motion';
 import AnimatedText from '../animation/AnimateText';
-
-const culinaryTitleHTML = 'A CULINARY JOURNEY AWAITS';
+import { ALLDATA } from '@/contexts/titles';
+import { getImageUrl } from '@/hooks/imageMake';
+import { forgotPassword } from './../../../backend/src/controllers/authController';
 
 // Animation Variants
 const fadeInUp: Variants = {
@@ -27,7 +28,7 @@ const MasaTurkishEatery: React.FC = () => {
           style={{ fontWeight: 400 }}
         >
           <AnimatedText>
-            <div dangerouslySetInnerHTML={{ __html: culinaryTitleHTML }} />
+            <div dangerouslySetInnerHTML={{ __html: ALLDATA.food.title || '' }} />
           </AnimatedText>
         </motion.h2>
 
@@ -41,7 +42,12 @@ const MasaTurkishEatery: React.FC = () => {
             variants={fadeInUp}
             className="w-full h-[300px] sm:h-[400px] md:h-[450px] lg:h-[528px] relative rounded-3xl overflow-hidden shadow-2xl"
           >
-            <Image src={restaurent} alt="Culinary" fill className="object-cover object-center" />
+            <Image
+              src={getImageUrl(ALLDATA.food.image)}
+              alt="Culinary"
+              fill
+              className="object-cover object-center"
+            />
           </motion.div>
 
           {/* Content Section */}
@@ -57,7 +63,7 @@ const MasaTurkishEatery: React.FC = () => {
               className="font-sansation text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] xl:text-[42px] text-[#454779] leading-tight mb-4"
               style={{ fontWeight: 700 }}
             >
-              Masa Turkish Eatery
+              {ALLDATA.food.hotelname || ''}
             </h3>
 
             {/* Description */}
@@ -65,10 +71,7 @@ const MasaTurkishEatery: React.FC = () => {
               className="mb-6 sm:mb-8 font-sansation text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] xl:text-[20px] text-[#454779] leading-relaxed tracking-[0.5px]"
               style={{ fontWeight: 400 }}
             >
-              Savor the rich flavors of Turkish cuisine and experience the warmth of Arabian
-              hospitality at MENA ApartHotel Albarsha. Our dining options are designed to delight
-              every palate, offering convenience and quality for an unforgettable gastronomic
-              experience.
+              {ALLDATA.food.description || ''}
             </p>
 
             {/* Hours of Operation */}

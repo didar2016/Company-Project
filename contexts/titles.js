@@ -2,20 +2,40 @@
 const websiteTitles = {
   MENA_PLAZA: {
     index_page_header_text:
-      'Where <span style="font-weight:900">Elegance</span> Meets Unmatched <span style="font-weight:900">Hospitality</span>',
+      'Your Gateway to <span style="font-weight:900">Dubai’s</span> Treasures',
     description: {
-      title: 'Live the Mena Apart <span style="font-weight:900">Experience</span>',
+      title: 'LIVE THE <span style="font-weight:900">PLAZA</span> EXPERIENCE',
       subtitle:
-        'Modern spaces, exceptional service, and everything you need for a seamless stay in the city',
+        'Modern space, exceptional service and everything you need for a seamless stay in the city.',
+      des1: 'Nestled in the heart of vibrant Al Barsha, the MENA Plaza Hotel offers an exceptional 4-star experience, defined by genuine hospitality and prime convenience. Our enviable location places you just a short walk from the iconic Mall of the Emirates and the Dubai Metro, providing effortless access to the city’s top attractions.',
+      des2: 'Designed as a refined, alcohol-free retreat, we welcome families, business travelers, and small groups to unwind in modern, spacious accommodations. Savor diverse culinary delights at La Mode Café & Restaurant, refresh in our outdoor pool, and recharge in our well-equipped fitness center—all complemented by warm, attentive service dedicated to making your stay seamless and memorable.',
+      des3: 'Book your stay to discover the perfect balance of comfort, value, and authentic Arabian warmth in the center of Dubai.',
     },
     aboutdescription: {
-      title: 'Welcome to <span style="font-weight:900">MENA ApartHotel Albarsha</span>',
-      subtitle: 'Where Comfort Meets Modern Living',
+      title: 'Welcome to <span style="font-weight:900">MENA Plaza Hotel Albarsha</span>',
+      subtitle:
+        'Modern space, exceptional service and everything you need for a seamless stay in the city',
+      des1: 'Nestled in the heart of vibrant Al Barsha, the MENA Plaza Hotel offers an exceptional 4-star experience, defined by genuine Arab hospitality and prime convenience. Our enviable location places you just a short walk from the iconic Mall of the Emirates and the Dubai Metro, providing effortless access to the city’s top attractions',
+      des2: 'Designed as a refined, alcohol-free retreat, we welcome families, business travelers, and small groups to unwind in modern, spacious accommodations. Savor diverse culinary delights at La Mode Café & Restaurant, refresh in our outdoor pool, and recharge in our well-equipped fitness center—all complemented by warm, attentive service dedicated to making your stay seamless and memorable',
+      locationText: 'An Ideal Location in Al Barsha',
     },
     room: {
-      title: 'Accommodations Designed for <span style="font-weight:900">Every Guest</span>',
+      title: 'Accommodations Designed for Your Comfort',
       subtitle:
-        ' Your perfect space in Dubai awaits. Our thoughtfully designed suites and apartments blend comfort with practicality, creating a true home-away-from-home for a two-night getaway or a two-month residence.',
+        'Step into a haven of modern tranquility. Our rooms are thoughtfully designed with a calming palette of light tones and rich accents, creating an atmosphere of refined relaxation from the moment you arrive.',
+    },
+    facilities: {
+      title:
+        "Unwind and Recharge: <span style='font-weight:900'> Signature Hotel Facilities</span>",
+      subtitle:
+        'Discover our carefully curated amenities, designed for your relaxation and well-being. From an energizing workout to a refreshing swim, find your perfect balance during your Dubai stay',
+    },
+    food: {
+      title: 'A Culinary Journey Awaits',
+      hotelname: 'La Mode Café & Restaurant',
+      description:
+        'avor the best of Mediterranean flavors and Arabic hospitality at MENA Plaza Hotel Albarsha. Our dining options are designed to suit every palate, ensuring a memorable gastronomic experience',
+      image: '/mena-plaza/048d961d-55c4-4e2c-9557-8a23dd261d28.jpg',
     },
   },
 

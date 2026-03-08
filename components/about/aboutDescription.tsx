@@ -120,14 +120,7 @@ const AboutDescription = () => {
 
           <p className="font-['Poppins'] text-[#8A8BB3] text-lg text-center leading-relaxed">
             {/* <span>An Ideal Location</span> */}
-            <span className="font-[500] text-[20px]">
-              {' '}
-              MENA ApartHotel Albarsha blends contemporary, spacious accommodations with
-              warm,authentic Arabian hospitality. Located just steps from the iconic Mall of the
-              Emirates, we provide the ideal and practical base for both short getaways and extended
-              stays, offering outstanding value for exploring families, busy professionals and savvy
-              travelers.{' '}
-            </span>
+            <span className="font-[500] text-[20px]"> {ALLDATA.aboutdescription.des1 || ''}</span>
             <br />
           </p>
         </motion.div>
