@@ -70,7 +70,7 @@ const DiningAmenities = () => {
             variants={charContainer}
             className="font-sansation font-light text-[32px] lg:text-[56px] leading-[40px] lg:leading-[68px] uppercase text-[#454779]"
           >
-            <AnimatedChars text="DINING AND AMENITIES" />
+            <AnimatedChars text={ALLDATA.aboutFood.title} />
           </motion.h2>
         </motion.div>
 
@@ -86,7 +86,7 @@ const DiningAmenities = () => {
           >
             <Image
               src={getImageUrl(ALLDATA.food.image)}
-              alt="Masa Turkish Eatery"
+              alt={ALLDATA.food.hotelname}
               fill
               className="object-cover"
             />
@@ -105,33 +105,43 @@ const DiningAmenities = () => {
               {/* Title & Description */}
               <div className="flex flex-col gap-2">
                 <h3 className="font-sansation font-bold text-[32px] lg:text-[42px] leading-[1.3] text-[#454779]">
-                  {ALLDATA.food.hotelname}
+                  {ALLDATA.aboutFood.text}
                 </h3>
                 <p className="font-sansation text-[16px] lg:text-[20px] leading-[1.5] tracking-[0.5px] text-[#2A2D71]">
-                  {ALLDATA.food.description}
+                  {ALLDATA.aboutFood.subText}
                 </p>
               </div>
+              {/* In-room dining note */}
+              <p className="font-sansation italic text-[14px] lg:text-[18px] leading-[1.5] tracking-[0.5px] text-[#9BA9CA] border-l-2 border-[#00B3DD] pl-4">
+                Enjoy the added convenience of 24-hour in-room dining.
+              </p>
 
               {/* Guests can also enjoy */}
               <div className="flex flex-col gap-[20px] lg:gap-[10px]">
                 <h4 className="font-sansation font-light text-[24px] lg:text-[32px] uppercase text-[#454779] leading-[1.4]">
-                  Guests can also enjoy:
+                  Complimentary Hotel Facilities
                 </h4>
 
+                <p className="font-sansation text-[14px] lg:text-[18px] leading-[1.5] tracking-[0.5px] text-[#9BA9CA]">
+                  Guests are welcome to enjoy our range of included amenities:
+                </p>
+
                 <div className="flex flex-col gap-[20px]">
-                  <AmenityItem text="A rooftop swimming pool for relaxation with a view" />
-                  <AmenityItem text="A fully equipped fitness center to maintain your workout routine" />
-                  <AmenityItem text="A rejuvenating sauna for ultimate relaxation" />
-                  <AmenityItem text="Free Wi-Fi to stay connected throughout your stay" />
+                  {ALLDATA.aboutFood.points.map((point: string, idx: number) => (
+                    <AmenityItem key={idx} text={point} />
+                  ))}
                 </div>
+
+                <p className="font-sansation text-[14px] lg:text-[18px] leading-[1.5] tracking-[0.5px] text-[#9BA9CA]">
+                  Everything you need for a seamless and enjoyable visit.
+                </p>
               </div>
             </div>
 
             {/* Buttons - Following CSS structure logic for buttons at the bottom if needed, 
                              though not visible in the prompt image, they are present in the provided CSS. 
                          */}
-            <div className=" pt-4">
-              {/* Outline Button */}
+            {/* <div className=" pt-4">
 
               <button className="flex flex-row justify-between items-center  gap-1.5 sm:gap-2.5 border-2 border-[#9BA9CA] bg-white  opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3">
                 <span
@@ -152,9 +162,7 @@ const DiningAmenities = () => {
                   />
                 </span>
               </button>
-
-              {/* Filled Button */}
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </div>

@@ -42,7 +42,7 @@ const Description = () => {
   };
 
   return (
-    <section className="bg-[#9BA9CA]/20 flex flex-col gap-6 sm:gap-10 lg:gap-16 relative py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
+    <section className="bg-[#9BA9CA]/20 flex flex-col gap-6 sm:gap-10 lg:gap-16 relative py-6 sm:py-8 md:py-12 lg:py-14 xl:py-18 [@media(min-width:1920px)]:py-25  overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-14 xl:px-18 [@media(min-width:1920px)]:px-25">
       <motion.div
         initial="hidden"
         whileInView="visible"

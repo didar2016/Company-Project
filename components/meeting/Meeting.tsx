@@ -152,7 +152,7 @@ const MeetingComponent: React.FC<{ meeting: any }> = ({ meeting }) => {
           whileInView="visible"
           viewport={{ once: false }}
           variants={staggerContainer}
-          className="flex flex-col gap-3 sm:gap-4"
+          className="bg-[#EBEEF4] rounded-[20px] p-6 sm:p-8 md:p-10 lg:p-[50px] flex flex-col gap-3 sm:gap-4"
         >
           <motion.h2
             variants={fadeInUp}
@@ -181,52 +181,30 @@ const MeetingComponent: React.FC<{ meeting: any }> = ({ meeting }) => {
             From business meetings to private gatherings, our spaces provide the perfect setting for
             memorable events.
           </motion.p>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false }}
+            variants={fadeInUp}
+            className="flex flex-col sm:flex-row justify-start gap-3 sm:gap-4"
+          >
+            <Link
+              href="/contact"
+              className="font-sansation font-bold text-xs lg:text-sm xl:text-base inline-flex items-center px-2 lg:px-3 xl:px-4 py-1.5 lg:py-2 xl:py-2.5 border-[0.5px] border-[#9BA9CA] text-[#9BA9CA] hover:bg-accent hover:text-white rounded-full transition-all duration-300 uppercase tracking-wider group justify-between"
+            >
+              <span className="hidden min-[1385px]:inline"> BOOK NOW</span>
+              <span className="ml-1.5 lg:ml-2 xl:ml-3 inline-block transition-all duration-300">
+                <Image
+                  src={visithotelicon}
+                  alt="Visit Hotel Icon"
+                  className="h-[24px] w-[28px] sm:h-[30px] sm:w-[36px] md:h-[36px] md:w-[42px] [filter:brightness(0)_saturate(100%)_invert(56%)_sepia(93%)_saturate(1899%)_hue-rotate(161deg)_brightness(97%)_contrast(101%)] group-hover:[filter:brightness(0)_invert(1)] transition-all duration-300"
+                />
+              </span>
+            </Link>
+          </motion.div>
         </motion.div>
 
         {/* ── CTA Buttons ── */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false }}
-          variants={fadeInUp}
-          className="flex flex-col sm:flex-row justify-end gap-3 sm:gap-4"
-        >
-          <Link
-            href="#book"
-            className="font-sansation font-bold text-xs lg:text-sm xl:text-base inline-flex items-center px-2 lg:px-3 xl:px-4 py-1.5 lg:py-2 xl:py-2.5 border-[0.5px] border-[#9BA9CA] text-[#9BA9CA] hover:bg-accent hover:text-white rounded-full transition-all duration-300 uppercase tracking-wider group justify-between"
-          >
-            <span className="hidden min-[1385px]:inline">EXPLORE MENU</span>
-            <span className="ml-1.5 lg:ml-2 xl:ml-3 inline-block transition-all duration-300">
-              <Image
-                src={visithotelicon}
-                alt="Visit Hotel Icon"
-                className="h-[24px] w-[28px] sm:h-[30px] sm:w-[36px] md:h-[36px] md:w-[42px]"
-                style={{
-                  filter:
-                    'brightness(0) saturate(100%) invert(56%) sepia(93%) saturate(1899%) hue-rotate(161deg) brightness(97%) contrast(101%)',
-                }}
-              />
-            </span>
-          </Link>
-
-          <Link
-            href="#book"
-            className="font-sansation font-bold text-xs lg:text-sm xl:text-base inline-flex items-center px-2 lg:px-3 xl:px-4 py-1.5 lg:py-2 xl:py-2.5 border-[0.5px] border-[#9BA9CA] text-[#9BA9CA] hover:bg-accent hover:text-white rounded-full transition-all duration-300 uppercase tracking-wider group justify-between"
-          >
-            <span className="hidden min-[1385px]:inline"> BOOK NOW</span>
-            <span className="ml-1.5 lg:ml-2 xl:ml-3 inline-block transition-all duration-300">
-              <Image
-                src={visithotelicon}
-                alt="Visit Hotel Icon"
-                className="h-[24px] w-[28px] sm:h-[30px] sm:w-[36px] md:h-[36px] md:w-[42px]"
-                style={{
-                  filter:
-                    'brightness(0) saturate(100%) invert(56%) sepia(93%) saturate(1899%) hue-rotate(161deg) brightness(97%) contrast(101%)',
-                }}
-              />
-            </span>
-          </Link>
-        </motion.div>
       </div>
     </section>
   );

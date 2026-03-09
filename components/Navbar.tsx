@@ -391,24 +391,34 @@ const Navbar: React.FC = () => {
 
                       {activeDropdown === link.name && (
                         <div className="w-full flex flex-col items-center gap-1 mt-2 mb-4 animate-in slide-in-from-top-2 duration-200 relative z-[60]">
-                          {link.subItems.map((subItem, subIndex) => (
-                            <Link
-                              key={subItem.name}
-                              href={subItem.href}
-                              onClick={() => {
-                                setIsOpen(false);
-                                setActiveDropdown(null);
-                              }}
-                              className={`block w-full py-2 px-6 text-lg font-bold transition-all duration-300 text-center uppercase tracking-wide ${
-                                isActiveLink(subItem.href)
-                                  ? 'text-[#00B3DD]'
-                                  : 'text-[#454779]/80 hover:text-[#00B3DD]'
-                              }`}
-                              style={{ animationDelay: `${subIndex * 50}ms` }}
-                            >
-                              {subItem.name}
-                            </Link>
-                          ))}
+                          {(link.name === 'ROOMS' ? rooms : link.subItems).map(
+                            (subItem: any, subIndex: number) => (
+                              <Link
+                                key={subItem.name}
+                                href={
+                                  link.name === 'ROOMS'
+                                    ? `/roomdetails?id=${subItem._id}`
+                                    : subItem.href
+                                }
+                                onClick={() => {
+                                  setIsOpen(false);
+                                  setActiveDropdown(null);
+                                }}
+                                className={`block w-full py-2 px-6 text-lg font-bold transition-all duration-300 text-center uppercase tracking-wide ${
+                                  isActiveLink(
+                                    link.name === 'ROOMS'
+                                      ? `/roomdetails?id=${subItem._id}`
+                                      : subItem.href
+                                  )
+                                    ? 'text-[#00B3DD]'
+                                    : 'text-[#454779]/80 hover:text-[#00B3DD]'
+                                }`}
+                                style={{ animationDelay: `${subIndex * 50}ms` }}
+                              >
+                                {subItem.name}
+                              </Link>
+                            )
+                          )}
                         </div>
                       )}
                     </div>

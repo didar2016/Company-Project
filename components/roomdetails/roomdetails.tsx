@@ -60,8 +60,8 @@ const RoomDetails: React.FC<RoomDetailsProps> = ({
   const [lightboxIndex, setLightboxIndex] = useState(0);
 
   // Booking details state
-  const [checkIn, setCheckIn] = useState<Date>(new Date(checkInDate));
-  const [checkOut, setCheckOut] = useState<Date>(new Date(checkOutDate));
+  const [checkIn, setCheckIn] = useState<Date>(new Date());
+  const [checkOut, setCheckOut] = useState<Date>(new Date());
   const [guestCount, setGuestCount] = useState<string>('2 Adults/1 Children');
   const [showCheckInCalendar, setShowCheckInCalendar] = useState(false);
   const [showCheckOutCalendar, setShowCheckOutCalendar] = useState(false);
@@ -123,7 +123,6 @@ const RoomDetails: React.FC<RoomDetailsProps> = ({
     { id: 'bar', label: 'Bar', icon: Wine },
     { id: 'free-wifi', label: 'Free Wifi', icon: Wifi },
     { id: 'fitness-centre', label: 'Fitness Centre', icon: Dumbbell },
-    { id: '45-sqm', label: '45 sqm', icon: Home },
     { id: 'coffee', label: 'Coffee', icon: Coffee },
     { id: 'kitchen', label: 'Kitchen', icon: Utensils },
     { id: 'free-parking', label: 'Free Parking', icon: Car },
@@ -348,12 +347,13 @@ const RoomDetails: React.FC<RoomDetailsProps> = ({
                   />
                 </div>
                 {showCheckInCalendar && (
-                  <div className="absolute top-[85px] left-0 z-50 bg-white border border-gray-200 shadow-lg rounded-lg p-2">
+                  <div className="absolute bottom-full left-0 z-50 mb-2 bg-white rounded-2xl shadow-2xl p-4 border border-gray-200">
                     <DatePicker
                       selected={checkIn}
                       onChange={(date: Date | null) => {
                         if (date) {
                           setCheckIn(date);
+                          if (date > checkOut) setCheckOut(date);
                           setShowCheckInCalendar(false);
                         }
                       }}
@@ -390,7 +390,7 @@ const RoomDetails: React.FC<RoomDetailsProps> = ({
                   />
                 </div>
                 {showCheckOutCalendar && (
-                  <div className="absolute top-[85px] left-0 z-50 bg-white border border-gray-200 shadow-lg rounded-lg p-2">
+                  <div className="absolute bottom-full left-0 z-50 mb-2 bg-white rounded-2xl shadow-2xl p-4 border border-gray-200">
                     <DatePicker
                       selected={checkOut}
                       onChange={(date: Date | null) => {

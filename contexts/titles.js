@@ -37,6 +37,19 @@ const websiteTitles = {
         'Savor the best of Mediterranean flavors and Arabic hospitality at MENA Plaza Hotel Albarsha. Our dining options are designed to suit every palate, ensuring a memorable gastronomic experience',
       image: '/mena-plaza/048d961d-55c4-4e2c-9557-8a23dd261d28.jpg',
     },
+    aboutFood: {
+      title: 'Dining and Hotel Amenities',
+      text: 'Culinary Experience at La Mode',
+      subText:
+        'Indulge in a diverse selection of international cuisine at our on-site restaurant, featuring vegetarian, dairy-free, and halal options. From a generous breakfast buffet to à la carte dinners, every meal is prepared with care to suit a variety of tastes.',
+      points: [
+        'Outdoor Swimming Pool: A refreshing spot to relax.',
+        'Fitness Center: A well-equipped gym to maintain your routine.',
+        'Rejuvenating Sauna: For deep relaxation after a day of exploring.',
+        'Complimentary High-Speed Wi-Fi: Stay connected throughout the hotel.',
+        'Shared Lounge Area: A comfortable space to unwind or socialize.',
+      ],
+    },
     ourStory: {
       title: 'Unmatched Hospitality',
       subTitle:

@@ -90,8 +90,8 @@ const Hero: React.FC<{
   });
 
   // Booking form state
-  const [checkInDate, setCheckInDate] = React.useState(new Date('2025-12-21'));
-  const [checkOutDate, setCheckOutDate] = React.useState(new Date('2025-12-26'));
+  const [checkInDate, setCheckInDate] = React.useState(new Date());
+  const [checkOutDate, setCheckOutDate] = React.useState(new Date());
   const [guests, setGuests] = React.useState('2 Adults/1 Children');
   const [roomType, setRoomType] = React.useState('Deluxe Suite');
   const [showGuestsDropdown, setShowGuestsDropdown] = React.useState(false);
@@ -340,22 +340,20 @@ const Hero: React.FC<{
                 </svg>
               </div>
               {showCheckInCalendar && (
-                <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/20 backdrop-blur-sm">
-                  <div className="relative bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl p-4 border border-white/30">
-                    <DatePicker
-                      selected={checkInDate}
-                      onChange={(date: Date | null) => {
-                        if (date) {
-                          setCheckInDate(date);
-                          setShowCheckInCalendar(false);
-                        }
-                      }}
-                      minDate={new Date()}
-                      maxDate={checkOutDate}
-                      inline
-                      className="font-poppins"
-                    />
-                  </div>
+                <div className="absolute bottom-full left-0 z-50 mb-2 bg-white rounded-2xl shadow-2xl p-4 border border-gray-200">
+                  <DatePicker
+                    selected={checkInDate}
+                    onChange={(date: Date | null) => {
+                      if (date) {
+                        setCheckInDate(date);
+                        if (date > checkOutDate) setCheckOutDate(date);
+                        setShowCheckInCalendar(false);
+                      }
+                    }}
+                    minDate={new Date()}
+                    inline
+                    className="font-poppins"
+                  />
                 </div>
               )}
             </div>
@@ -392,21 +390,19 @@ const Hero: React.FC<{
                 </svg>
               </div>
               {showCheckOutCalendar && (
-                <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/20 backdrop-blur-sm">
-                  <div className="relative bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl p-4 border border-white/30">
-                    <DatePicker
-                      selected={checkOutDate}
-                      onChange={(date: Date | null) => {
-                        if (date) {
-                          setCheckOutDate(date);
-                          setShowCheckOutCalendar(false);
-                        }
-                      }}
-                      minDate={checkInDate}
-                      inline
-                      className="font-poppins"
-                    />
-                  </div>
+                <div className="absolute bottom-full left-0 z-50 mb-2 bg-white rounded-2xl shadow-2xl p-4 border border-gray-200">
+                  <DatePicker
+                    selected={checkOutDate}
+                    onChange={(date: Date | null) => {
+                      if (date) {
+                        setCheckOutDate(date);
+                        setShowCheckOutCalendar(false);
+                      }
+                    }}
+                    minDate={checkInDate}
+                    inline
+                    className="font-poppins"
+                  />
                 </div>
               )}
             </div>
@@ -431,31 +427,20 @@ const Hero: React.FC<{
                 </span>
               </div>
               {showGuestsDropdown && (
-                <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/20 backdrop-blur-sm">
-                  <div className="relative bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl p-4 border border-white/30 min-w-[280px] max-w-[320px]">
-                    <button
-                      onClick={() => setShowGuestsDropdown(false)}
-                      className="absolute top-2 right-2 w-8 h-8 bg-red-500/80 hover:bg-red-600 rounded-full flex items-center justify-center text-white font-bold transition-colors"
-                    >
-                      ×
-                    </button>
-                    <h3 className="font-poppins font-semibold text-gray-800 text-[16px] mb-4 pr-8">
-                      Select Guests
-                    </h3>
-                    <div className="space-y-1 max-h-60 overflow-y-auto">
-                      {guestOptions.map((option, index) => (
-                        <div
-                          key={index}
-                          className="px-4 py-3 hover:bg-[#00B3DD]/20 cursor-pointer text-gray-800 font-poppins text-[14px] transition-colors rounded-lg border-b border-gray-200/30 last:border-b-0"
-                          onClick={() => {
-                            setGuests(option);
-                            setShowGuestsDropdown(false);
-                          }}
-                        >
-                          {option}
-                        </div>
-                      ))}
-                    </div>
+                <div className="absolute bottom-full left-0 z-50 mb-2 w-full bg-white rounded-2xl shadow-2xl p-4 border border-gray-200">
+                  <div className="space-y-1 max-h-60 overflow-y-auto">
+                    {guestOptions.map((option, index) => (
+                      <div
+                        key={index}
+                        className="px-4 py-3 hover:bg-[#00B3DD]/20 cursor-pointer text-gray-800 font-poppins text-[14px] transition-colors rounded-lg border-b border-gray-200/30 last:border-b-0"
+                        onClick={() => {
+                          setGuests(option);
+                          setShowGuestsDropdown(false);
+                        }}
+                      >
+                        {option}
+                      </div>
+                    ))}
                   </div>
                 </div>
               )}
@@ -483,31 +468,20 @@ const Hero: React.FC<{
                 </span>
               </div>
               {showRoomTypeDropdown && (
-                <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/20 backdrop-blur-sm">
-                  <div className="relative bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl p-4 border border-white/30 min-w-[280px] max-w-[320px]">
-                    <button
-                      onClick={() => setShowRoomTypeDropdown(false)}
-                      className="absolute top-2 right-2 w-8 h-8 bg-red-500/80 hover:bg-red-600 rounded-full flex items-center justify-center text-white font-bold transition-colors"
-                    >
-                      ×
-                    </button>
-                    <h3 className="font-poppins font-semibold text-gray-800 text-[16px] mb-4 pr-8">
-                      Select Room Type
-                    </h3>
-                    <div className="space-y-1 max-h-60 overflow-y-auto">
-                      {roomTypes.map((type, index) => (
-                        <div
-                          key={index}
-                          className="px-4 py-3 hover:bg-[#00B3DD]/20 cursor-pointer text-gray-800 font-poppins text-[14px] transition-colors rounded-lg border-b border-gray-200/30 last:border-b-0"
-                          onClick={() => {
-                            setRoomType(type);
-                            setShowRoomTypeDropdown(false);
-                          }}
-                        >
-                          {type}
-                        </div>
-                      ))}
-                    </div>
+                <div className="absolute bottom-full left-0 z-50 mb-2 w-full bg-white rounded-2xl shadow-2xl p-4 border border-gray-200">
+                  <div className="space-y-1 max-h-60 overflow-y-auto">
+                    {roomTypes.map((type, index) => (
+                      <div
+                        key={index}
+                        className="px-4 py-3 hover:bg-[#00B3DD]/20 cursor-pointer text-gray-800 font-poppins text-[14px] transition-colors rounded-lg border-b border-gray-200/30 last:border-b-0"
+                        onClick={() => {
+                          setRoomType(type);
+                          setShowRoomTypeDropdown(false);
+                        }}
+                      >
+                        {type}
+                      </div>
+                    ))}
                   </div>
                 </div>
               )}
@@ -590,11 +564,11 @@ const Hero: React.FC<{
             whileInView="visible"
             viewport={{ once: false, amount: 0.3 }}
             variants={staggerContainer}
-            className="absolute z-20 text-center sm:text-right text-white px-4 sm:px-6 md:px-8 lg:px-12 max-w-[1130px] mx-auto bottom-[10%] sm:bottom-[15%] md:bottom-[32%] right-0 sm:right-[2%] md:right-[5%] left-4 sm:left-auto "
+            className="absolute z-20 text-center sm:text-right text-white px-4 sm:px-6 md:px-8 lg:px-12 max-w-[1320px] mx-auto bottom-[10%] sm:bottom-[15%] md:bottom-[32%] right-0 sm:right-[2%] md:right-[5%] left-4 sm:left-auto "
           >
             <motion.h1
               variants={charContainer}
-              className="text-white font-sansation text-[30px] sm:text-[30px] md:text-[45px] lg:text-[60px] uppercase whitespace-nowrap"
+              className="text-white font-sansation text-[30px] sm:text-[30px] md:text-[45px] lg:text-[50px] xl:text-[60px] uppercase max-w-[90%] sm:max-w-[500px] md:max-w-[600px] lg:max-w-none mx-auto md:mx-0"
               style={{ fontWeight: 700 }}
             >
               <AnimatedText>

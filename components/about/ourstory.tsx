@@ -92,7 +92,7 @@ const OurStory = () => {
             </div>
             <div className="text-center sm:text-left">
               <h1
-                className="font-sansation text-[28px] sm:text-[36px] md:text-[48px] lg:text-[60px] xl:text-[72px] leading-tight text-[#454779]"
+                className="font-sansation text-[28px] sm:text-[36px] md:text-[48px] lg:text-[60px] xl:text-[72px] leading-tight text-white"
                 style={{ fontWeight: 300 }}
               >
                 <div

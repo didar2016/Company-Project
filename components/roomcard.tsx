@@ -1,6 +1,20 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { Maximize2, Coffee, Wifi, Gift, Printer, Bed } from 'lucide-react';
+import {
+  Waves,
+  Wine,
+  Wifi,
+  Dumbbell,
+  Home,
+  Coffee,
+  Utensils,
+  Car,
+  Gift,
+  Printer,
+  Bed,
+  Maximize2,
+} from 'lucide-react';
+
 import visithotelicon from '../public/images/visithotelicon.png';
 import { useRouter } from 'next/router';
 import { getImageUrl } from '@/hooks/imageMake';
@@ -20,8 +34,18 @@ interface RoomCardProps {
   index?: number;
 }
 
+const ALL_FACILITIES = [
+  { id: 'swimming-pools', label: 'Swimming Pools', icon: Waves },
+  { id: 'bar', label: 'Bar', icon: Wine },
+  { id: 'free-wifi', label: 'Free Wifi', icon: Wifi },
+  { id: 'fitness-centre', label: 'Fitness Centre', icon: Dumbbell },
+  { id: 'coffee', label: 'Coffee', icon: Coffee },
+  { id: 'kitchen', label: 'Kitchen', icon: Utensils },
+  { id: 'free-parking', label: 'Free Parking', icon: Car },
+  { id: 'beachfront', label: 'Beachfront', icon: Home },
+];
+
 const RoomCard: React.FC<RoomCardProps> = ({
-  subtitle = 'APARTMENT',
   currency = '$',
   amenities = ['maximize', 'coffee', 'wifi', 'gift', 'printer', 'bed'],
   room = {},
@@ -70,7 +94,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
               </span>
               <div className="flex items-baseline gap-1">
                 <span
-                  className="font-sansation text-[20px] sm:text-[26px] md:text-[32px] lg:text-[42px] xl:text-[38px] 2xl:text-[42px] font-black text-gray-900 leading-none transition-all duration-300"
+                  className="font-sansation text-[20px] sm:text-[26px] md:text-[32px] lg:text-[42px] xl:text-[38px] 2xl:text-[42px] font-black text-gray-900 leading-none transition-all duration-300 whitespace-nowrap"
                   style={{ fontWeight: 700, color: isHovered ? '#00B3DD' : '#454779' }}
                 >
                   {room?.discountPrice || ''} {currency}
@@ -148,26 +172,16 @@ const RoomCard: React.FC<RoomCardProps> = ({
               }`}
               style={{ fontWeight: 400, alignSelf: 'center' }}
             >
-              45 sqm
+              {room.size} sqm
             </div>
           </div>
           {/* icon component */}
           <div className="flex flex-row gap-1 sm:gap-2 xl:gap-1.5 2xl:gap-2">
-            {amenities.slice(1).map((amenity, index) => {
-              const IconComponent =
-                amenity === 'coffee'
-                  ? Coffee
-                  : amenity === 'wifi'
-                    ? Wifi
-                    : amenity === 'gift'
-                      ? Gift
-                      : amenity === 'printer'
-                        ? Printer
-                        : amenity === 'bed'
-                          ? Bed
-                          : null;
-
-              return IconComponent ? (
+            {ALL_FACILITIES.filter((facility) =>
+              room?.popularFacilities?.some((f: any) => f === facility.id || f?.id === facility.id)
+            )
+              .slice(0, 5)
+              .map((facility, index) => (
                 <div
                   key={index}
                   className="flex flex-row items-center cursor-pointer gap-2"
@@ -175,7 +189,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
                   onMouseLeave={() => setHoveredAmenityIndex(null)}
                 >
                   <div className="bg-[#00B3DD] text-white w-6 h-6 sm:w-7 sm:h-7 md:w-5 md:h-5 lg:w-9 lg:h-9 xl:h-8 xl:w-8 2xl:h-9 2xl:w-9 rounded-full flex items-center justify-center">
-                    <IconComponent className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-2.5 md:h-2.5 lg:w-5 lg:h-5" />
+                    <facility.icon className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-2.5 md:h-2.5 lg:w-5 lg:h-5" />
                   </div>
                   <div
                     className={`text-[#454779] font-sansation font-normal not-italic text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[16px] transition-all duration-800 ease-in-out whitespace-nowrap overflow-hidden ${
@@ -185,11 +199,10 @@ const RoomCard: React.FC<RoomCardProps> = ({
                     }`}
                     style={{ fontWeight: 400 }}
                   >
-                    {amenity}
+                    {facility.label}
                   </div>
                 </div>
-              ) : null;
-            })}
+              ))}
           </div>
         </div>
 
