@@ -52,7 +52,7 @@ const AboutDescription = () => {
         </motion.h1>
         <motion.p
           variants={fadeInUp}
-          className="font-['Poppins'] text-[#8A8BB3] text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] max-w-5xl"
+          className="font-['Poppins'] text-[#8A8BB3] text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px]"
         >
           {ALLDATA.aboutdescription.subtitle}
         </motion.p>
@@ -122,6 +122,7 @@ const AboutDescription = () => {
             {/* <span>An Ideal Location</span> */}
             <span className="font-[500] text-[20px]"> {ALLDATA.aboutdescription.des1 || ''}</span>
             <br />
+            <span className="font-[500] text-[20px]"> {ALLDATA.aboutdescription.des2 || ''}</span>
           </p>
         </motion.div>
       </div>
@@ -138,7 +139,7 @@ const AboutDescription = () => {
           {/* Left Text */}
           <div className="w-full xl:w-1/3 flex flex-col flex-wrap gap-6 my-auto">
             <h3 className="font-['Sansation'] text-[#454779] font-bold text-3xl md:text-[42px] leading-tight">
-              Designed for Living
+              Exceptional Accommodations
             </h3>
             <p className="font-['Poppins'] text-[#8A8BB3] text-lg leading-relaxed">
               Our suites and apartments are designed to make you feel at home, offering spacious

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { Menu, ChevronDown, X } from 'lucide-react';
+import { Menu, ChevronDown, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import visithotelicon from '../public/images/visithotelicon.png';
 import { useRouter } from 'next/router';
@@ -152,6 +152,7 @@ const Navbar: React.FC = () => {
   }, [lastScrollY]);
 
   const rooms = useRooms();
+  const [roomSlideIndex, setRoomSlideIndex] = useState(0);
 
   return (
     <>
@@ -221,33 +222,61 @@ const Navbar: React.FC = () => {
                           {/* Dropdown Menu */}
                           {activeDropdown === link.name &&
                             (link.name === 'ROOMS' ? (
-                              <div
-                                onMouseEnter={handleMouseEnterDropdownMenu}
-                                onMouseLeave={handleMouseLeaveDropdown}
-                                className="hidden lg:flex flex-row items-center p-5 gap-4 absolute top-[170%] left-1/2 -translate-x-1/2 mt-4 w-[672px] h-[330px] bg-white/70 backdrop-blur-[5px] rounded-[20px] shadow-lg border border-gray-100 animate-in fade-in zoom-in-95 duration-200 z-50"
-                              >
-                                {rooms.map((subItem) => (
-                                  <Link
-                                    key={subItem.name}
-                                    href={`/roomdetails?id=${subItem._id}`}
-                                    className="group/card flex flex-col items-start gap-2.5 w-[200px] h-full transition-all"
-                                    onClick={() => setActiveDropdown(null)}
-                                  >
-                                    <div className="w-[200px] h-[60px] flex flex-col justify-start items-start px-2.5 gap-2.5 border-l border-[#9BA9CA] group-hover/card:border-[#A4D5F0] transition-colors duration-300">
-                                      <span className="font-sansation font-normal text-[20px] leading-[30px] tracking-[0.5px] text-[#454779] group-hover/card:text-[#00B3DD] transition-colors duration-300">
-                                        {subItem.name}
-                                      </span>
-                                    </div>
-                                    <div className="w-[200px] h-[200px] rounded-[18.5px] relative overflow-hidden group-hover/card:drop-shadow-[0px_30px_50px_rgba(0,179,221,0.1)] transition-all duration-300">
-                                      <Image
-                                        src={getImageUrl(subItem.mainImage)}
-                                        alt={subItem.name}
-                                        fill
-                                        className="object-cover"
-                                      />
-                                    </div>
-                                  </Link>
-                                ))}
+                              <div className="hidden lg:block absolute top-[170%] left-1/2 -translate-x-1/2 mt-4 z-50 animate-in fade-in zoom-in-95 duration-200">
+                                <div
+                                  onMouseEnter={handleMouseEnterDropdownMenu}
+                                  onMouseLeave={handleMouseLeaveDropdown}
+                                  className="relative flex flex-row items-center p-5 gap-4 w-[672px] h-[330px] bg-white/70 backdrop-blur-[5px] rounded-[20px] shadow-lg border border-gray-100"
+                                >
+                                  {rooms
+                                    .slice(roomSlideIndex, roomSlideIndex + 3)
+                                    .map((subItem) => (
+                                      <Link
+                                        key={subItem.name}
+                                        href={`/roomdetails?id=${subItem._id}`}
+                                        className="group/card flex flex-col items-start gap-2.5 w-[200px] h-full transition-all"
+                                        onClick={() => setActiveDropdown(null)}
+                                      >
+                                        <div className="w-[200px] h-[60px] flex flex-col justify-start items-start px-2.5 gap-2.5 border-l border-[#9BA9CA] group-hover/card:border-[#A4D5F0] transition-colors duration-300">
+                                          <span className="font-sansation font-normal text-[20px] leading-[30px] tracking-[0.5px] text-[#454779] group-hover/card:text-[#00B3DD] transition-colors duration-300">
+                                            {subItem.name}
+                                          </span>
+                                        </div>
+                                        <div className="w-[200px] h-[200px] rounded-[18.5px] relative overflow-hidden group-hover/card:drop-shadow-[0px_30px_50px_rgba(0,179,221,0.1)] transition-all duration-300">
+                                          <Image
+                                            src={getImageUrl(subItem.mainImage)}
+                                            alt={subItem.name}
+                                            fill
+                                            className="object-cover"
+                                          />
+                                        </div>
+                                      </Link>
+                                    ))}
+                                  {rooms.length > 3 && roomSlideIndex > 0 && (
+                                    <button
+                                      onClick={(e) => {
+                                        e.preventDefault();
+                                        e.stopPropagation();
+                                        setRoomSlideIndex((prev) => prev - 1);
+                                      }}
+                                      className="absolute left-2 top-3/5 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-1.5 shadow-md transition-all duration-200 text-[#454779] hover:text-[#00B3DD]"
+                                    >
+                                      <ChevronLeft size={18} />
+                                    </button>
+                                  )}
+                                  {rooms.length > 3 && roomSlideIndex + 3 < rooms.length && (
+                                    <button
+                                      onClick={(e) => {
+                                        e.preventDefault();
+                                        e.stopPropagation();
+                                        setRoomSlideIndex((prev) => prev + 1);
+                                      }}
+                                      className="absolute right-2 top-3/5 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-1.5 shadow-md transition-all duration-200 text-[#454779] hover:text-[#00B3DD]"
+                                    >
+                                      <ChevronRight size={18} />
+                                    </button>
+                                  )}
+                                </div>
                               </div>
                             ) : (
                               <div

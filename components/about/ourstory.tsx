@@ -9,6 +9,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { useOurStory } from '@/contexts/WebsiteContext';
 import { getImageUrl } from '@/hooks/imageMake';
+import { ALL } from 'node:dns';
+import { ALLDATA } from '@/contexts/titles';
 
 // Counter animation hook
 const useCounter = (endValue: number, duration: number = 1000, suffix: string = '') => {
@@ -93,17 +95,17 @@ const OurStory = () => {
                 className="font-sansation text-[28px] sm:text-[36px] md:text-[48px] lg:text-[60px] xl:text-[72px] leading-tight text-[#454779]"
                 style={{ fontWeight: 300 }}
               >
-                A LEGACY OF
-                <br />
-                <span className="text-[#00B3DD]"> HOSPITALITY </span> EXCELENCE
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: ALLDATA.ourStory?.title || 'Unmatched Hospitality',
+                  }}
+                />
               </h1>
               <h2
                 className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] leading-relaxed font-light text-[#8A8BB3] tracking-[0.75px] mt-2 sm:mt-3 md:mt-4"
                 style={{ fontWeight: 300 }}
               >
-                Nestled in the vibrant heart of Al Barsha, MENA Aparthotel represents more than just
-                a place to stay—it's a sanctuary where modern luxury meets the authentic warmth of
-                Arabian hospitality.
+                <div dangerouslySetInnerHTML={{ __html: ALLDATA.ourStory?.subTitle || '' }} />
               </h2>
             </div>
           </div>

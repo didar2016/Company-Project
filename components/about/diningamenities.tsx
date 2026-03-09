@@ -4,6 +4,8 @@ import { useRouter } from 'next/router';
 import restaurent from '../../public/images/restaurent.jpg';
 import visithotelicon from '../../public/images/visithotelicon.png';
 import { motion, Variants } from 'framer-motion';
+import { getImageUrl } from '@/hooks/imageMake';
+import { ALLDATA } from '@/contexts/titles';
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -82,7 +84,12 @@ const DiningAmenities = () => {
             variants={fadeInUp}
             className="w-full xl:w-[815px] min-h-[400px] xl:min-h-[628px] relative rounded-[20px] overflow-hidden order-1 xl:order-none"
           >
-            <Image src={restaurent} alt="Masa Turkish Eatery" fill className="object-cover" />
+            <Image
+              src={getImageUrl(ALLDATA.food.image)}
+              alt="Masa Turkish Eatery"
+              fill
+              className="object-cover"
+            />
           </motion.div>
 
           {/* Right: Text Content */}
@@ -98,12 +105,10 @@ const DiningAmenities = () => {
               {/* Title & Description */}
               <div className="flex flex-col gap-2">
                 <h3 className="font-sansation font-bold text-[32px] lg:text-[42px] leading-[1.3] text-[#454779]">
-                  Masa Turkish Eatery
+                  {ALLDATA.food.hotelname}
                 </h3>
                 <p className="font-sansation text-[16px] lg:text-[20px] leading-[1.5] tracking-[0.5px] text-[#2A2D71]">
-                  Savor the flavors of authentic Turkish cuisine at our on-site restaurant, Masa
-                  Turkish Eatery, whether dining in the cozy restaurant or enjoying in-room dining,
-                  every meal is crafted to delight your palate.
+                  {ALLDATA.food.description}
                 </p>
               </div>
 

@@ -4,6 +4,7 @@ import { motion, Variants } from 'framer-motion';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import visithotelicon from '../../public/images/visithotelicon.png';
+import { ALLDATA } from '@/contexts/titles';
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -55,24 +56,26 @@ const Map: React.FC = () => {
                   access to the citys best.
                 </p>
 
-                <button className="flex flex-row justify-between items-center gap-1.5 sm:gap-2.5 border-1 border-[#00B3DD] opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3">
-                  <span
-                    className="p-2 sm:p-3 md:p-4 font-sansation text-[12px] sm:text-[14px] md:text-[16px] lg:text-[20px] uppercase text-white"
-                    style={{ fontWeight: 700 }}
-                  >
-                    {' '}
-                    GET DIRECTION
-                  </span>
-                  <Image
-                    src={visithotelicon}
-                    alt="Visit Hotel Icon"
-                    className="h-[24px] w-[28px] sm:h-[30px] sm:w-[36px] md:h-[36px] md:w-[42px]"
-                    style={{
-                      filter:
-                        'brightness(0) saturate(100%) invert(56%) sepia(93%) saturate(1899%) hue-rotate(161deg) brightness(97%) contrast(101%)',
-                    }}
-                  />
-                </button>
+                <a href={ALLDATA.map.link} target="_blank" rel="noopener noreferrer">
+                  <button className="flex flex-row justify-between items-center gap-1.5 sm:gap-2.5 border-1 border-[#00B3DD] opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3">
+                    <span
+                      className="p-2 sm:p-3 md:p-4 font-sansation text-[12px] sm:text-[14px] md:text-[16px] lg:text-[20px] uppercase text-white"
+                      style={{ fontWeight: 700 }}
+                    >
+                      {' '}
+                      GET DIRECTION
+                    </span>
+                    <Image
+                      src={visithotelicon}
+                      alt="Visit Hotel Icon"
+                      className="h-[24px] w-[28px] sm:h-[30px] sm:w-[36px] md:h-[36px] md:w-[42px]"
+                      style={{
+                        filter:
+                          'brightness(0) saturate(100%) invert(56%) sepia(93%) saturate(1899%) hue-rotate(161deg) brightness(97%) contrast(101%)',
+                      }}
+                    />
+                  </button>
+                </a>
               </div>
             </div>
 

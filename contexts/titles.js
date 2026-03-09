@@ -34,8 +34,16 @@ const websiteTitles = {
       title: 'A Culinary Journey Awaits',
       hotelname: 'La Mode Café & Restaurant',
       description:
-        'avor the best of Mediterranean flavors and Arabic hospitality at MENA Plaza Hotel Albarsha. Our dining options are designed to suit every palate, ensuring a memorable gastronomic experience',
+        'Savor the best of Mediterranean flavors and Arabic hospitality at MENA Plaza Hotel Albarsha. Our dining options are designed to suit every palate, ensuring a memorable gastronomic experience',
       image: '/mena-plaza/048d961d-55c4-4e2c-9557-8a23dd261d28.jpg',
+    },
+    ourStory: {
+      title: 'Unmatched Hospitality',
+      subTitle:
+        'At MENA Plaza Hotel Albarsha, our values are deeply rooted in <span style="font-weight:900"> traditional Arabian hospitality</span>. Our alcohol-free environment makes us an ideal choice for families and gatherings with friends. Our dedicated team strives to exceed your expectations. We promise an experience that combines comfort, elegance, and world-class service.',
+    },
+    map: {
+      link: 'https://maps.app.goo.gl/46wZWk85Sb7gYpYK7',
     },
   },
 

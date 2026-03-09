@@ -62,7 +62,7 @@ const HotelFeatures: React.FC<HotelFeaturesProps> = ({ room }) => {
             <ul className="space-y-2 sm:space-y-3">
               {room?.features?.map((feature: any) => (
                 <li className="flex items-start gap-2 sm:gap-3 text-[#1E293B] leading-relaxed">
-                  <span className="text-[#00B3DD] mt-1 sm:mt-1.5 flex-shrink-0">●</span>
+                  <span className="text-[#00B3DD] translate-y-[-3px] flex-shrink-0">●</span>
                   <span className="text-sm sm:text-base">{feature}</span>
                 </li>
               ))}
@@ -80,7 +80,7 @@ const HotelFeatures: React.FC<HotelFeaturesProps> = ({ room }) => {
                   key={index}
                   className="flex items-start gap-2 sm:gap-3 text-[#1E293B] leading-relaxed"
                 >
-                  <span className="text-[#00B3DD] mt-1 sm:mt-1.5 flex-shrink-0">●</span>
+                  <span className="text-[#00B3DD] translate-y-[-3px] flex-shrink-0">●</span>
                   <span className="text-sm sm:text-base">{amenity}</span>
                 </li>
               ))}
@@ -105,7 +105,7 @@ const HotelFeatures: React.FC<HotelFeaturesProps> = ({ room }) => {
                   key={index}
                   className="flex items-start gap-2 sm:gap-3 text-[#1E293B] leading-relaxed"
                 >
-                  <span className="text-[#00B3DD] mt-1 sm:mt-1.5 flex-shrink-0">●</span>
+                  <span className="text-[#00B3DD] translate-y-[-3px] flex-shrink-0">●</span>
                   <span className="text-sm sm:text-base">{service}</span>
                 </li>
               ))}

@@ -1,12 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
 import visithotelicon from '../../public/images/visithotelicon.png';
-import restaurent from '../../public/images/restaurent.jpg';
 import { motion, Variants } from 'framer-motion';
 import AnimatedText from '../animation/AnimateText';
 import { ALLDATA } from '@/contexts/titles';
 import { getImageUrl } from '@/hooks/imageMake';
-import { forgotPassword } from './../../../backend/src/controllers/authController';
 
 // Animation Variants
 const fadeInUp: Variants = {
@@ -116,7 +114,7 @@ const MasaTurkishEatery: React.FC = () => {
                       className="font-sansation text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] xl:text-[16px] leading-tight"
                       style={{ fontWeight: 400 }}
                     >
-                      12:00 PM – 3:00 PM
+                      12:30 PM – 4:00 PM
                     </span>
                   </div>
                 </div>
@@ -134,7 +132,7 @@ const MasaTurkishEatery: React.FC = () => {
                       className="font-sansation text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] xl:text-[16px] leading-tight"
                       style={{ fontWeight: 400 }}
                     >
-                      7:00 AM – 11:00 AM
+                      7:00 PM – 11:00 PM
                     </span>
                   </div>
                 </div>

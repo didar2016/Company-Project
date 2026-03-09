@@ -55,8 +55,6 @@ const RoomCard: React.FC<RoomCardProps> = ({
             style={{ fontWeight: 400, color: isHovered ? '#00B3DD' : '#454779' }}
           >
             {room.name}
-            <br />
-            {subtitle}
           </h2>
         </div>
 
