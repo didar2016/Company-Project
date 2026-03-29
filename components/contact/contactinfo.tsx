@@ -50,7 +50,7 @@ const ContactInfo = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row justify-center items-start gap-5 p-5 lg:p-[100px] w-full max-w-[1920px] mx-auto bg-white">
+    <div className="flex flex-col lg:flex-row justify-center items-start gap-5 w-full max-w-[1920px] mx-auto bg-white  px-4 sm:px-6 md:px-8 lg:px-14 xl:px-16 2xl:px-18 [@media(min-width:1920px)]:px-25 py-6 sm:py-8 md:py-12 lg:py-14 xl:py-16 2xl:py-18 [@media(min-width:1920px)]:py-25 ">
       {/* Left Side */}
       <motion.div
         initial="hidden"
@@ -101,15 +101,36 @@ const ContactInfo = () => {
         <div className="flex items-center gap-[15px] mt-auto lg:mt-0">
           <SocialIcon
             icon={<Facebook size={20} />}
-            onClick={() => window.open(socialLinks?.facebook, '_blank', 'noopener,noreferrer')}
+            onClick={() => {
+              if (socialLinks?.facebook) {
+                const url = /^https?:\/\//i.test(socialLinks.facebook)
+                  ? socialLinks.facebook
+                  : `https://${socialLinks.facebook}`;
+                window.open(url, '_blank', 'noopener,noreferrer');
+              }
+            }}
           />
           <SocialIcon
             icon={<Instagram size={20} />}
-            onClick={() => window.open(socialLinks?.instagram, '_blank', 'noopener,noreferrer')}
+            onClick={() => {
+              if (socialLinks?.instagram) {
+                const url = /^https?:\/\//i.test(socialLinks.instagram)
+                  ? socialLinks.instagram
+                  : `https://${socialLinks.instagram}`;
+                window.open(url, '_blank', 'noopener,noreferrer');
+              }
+            }}
           />
           <SocialIcon
             icon={<Linkedin size={20} />}
-            onClick={() => window.open(socialLinks?.linkedin, '_blank', 'noopener,noreferrer')}
+            onClick={() => {
+              if (socialLinks?.linkedin) {
+                const url = /^https?:\/\//i.test(socialLinks.linkedin)
+                  ? socialLinks.linkedin
+                  : `https://${socialLinks.linkedin}`;
+                window.open(url, '_blank', 'noopener,noreferrer');
+              }
+            }}
           />
         </div>
       </motion.div>

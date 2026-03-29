@@ -109,11 +109,11 @@ const LocationSlider: React.FC = () => {
                     {hotel.name}
                   </h4>
                   <div
-                    className="flex items-start space-x-2 text-[12px] sm:text-sm mb-4 sm:mb-6 ml-3 sm:ml-[20px] text-[#6D6E87] font-poppins"
+                    className="flex items-start space-x-2 text-[14px] sm:text-sm mb-4 sm:mb-6 ml-3 sm:ml-[20px] text-[#6D6E87] font-poppins max-h-8"
                     style={{ fontWeight: 400 }}
                   >
                     <Image src={hotelmapicon} alt="Map Icon" className="w-6 h-6" />
-                    <p className="text-[20px] text-[#6D6E87] leading-[30px]">{hotel.address}</p>
+                    <p className="text-[#6D6E87]">{hotel.address}</p>
                   </div>
                 </div>
                 <div className="relative overflow-hidden aspect-square w-full max-w-[540px]">

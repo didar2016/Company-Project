@@ -76,7 +76,7 @@ const OurStory = () => {
 
   return (
     <section className="bg-[#2A2D71] relative overflow-hidden mx-auto">
-      <div className="py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
+      <div className=" overflow-hidden  px-4 sm:px-6 md:px-8 lg:px-14 xl:px-16 2xl:px-18 [@media(min-width:1920px)]:px-25 py-6 sm:py-8 md:py-12 lg:py-14 xl:py-16 2xl:py-18 [@media(min-width:1920px)]:py-25 ">
         <div className="mx-auto max-w-[1720px] relative z-10 flex flex-col gap-10 sm:gap-20">
           {/* Header Section */}
           <div className="relative flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-8 lg:gap-12 xl:gap-20 items-center">

@@ -51,7 +51,7 @@ const hotels: Hotel[] = [
 const Locations: React.FC = () => {
   return (
     <section id="location" className=" bg-white border-none">
-      <div className=" bg-white py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-20 xl:px-25">
+      <div className=" bg-white overflow-hidden mx-auto  px-4 sm:px-6 md:px-8 lg:px-14 xl:px-16 2xl:px-18 [@media(min-width:1920px)]:px-25 py-6 sm:py-8 md:py-12 lg:py-14 xl:py-16 2xl:py-18 [@media(min-width:1920px)]:py-25 ">
         <div className="max-w-[1720px] mx-auto">
           <motion.div
             initial="hidden"

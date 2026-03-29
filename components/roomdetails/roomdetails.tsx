@@ -130,7 +130,7 @@ const RoomDetails: React.FC<RoomDetailsProps> = ({
   ];
 
   return (
-    <section className="w-full bg-white relative py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
+    <section className="w-full bg-white relative py-6 sm:py-8 md:py-12 lg:pt-25 xl:pt-25 lg:pt-6 xl:pt-10 overflow-hidden px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
       <div className="mx-auto max-w-[1720px]">
         {/* Split Screen Layout */}
         <div className="flex flex-col xl:flex-row gap-4 sm:gap-6 lg:gap-8 xl:gap-12">
@@ -437,7 +437,7 @@ const RoomDetails: React.FC<RoomDetailsProps> = ({
                   </div>
                 </div>
                 {showGuestsDropdown && (
-                  <div className="absolute top-[85px] w-full z-50 bg-white border border-gray-200 shadow-lg rounded-[20px] overflow-hidden max-h-[200px] overflow-y-auto">
+                  <div className="absolute bottom-full mb-2 w-full z-50 bg-white border border-gray-200 shadow-lg rounded-[20px] overflow-hidden max-h-[200px] overflow-y-auto">
                     {guestOptions.map((option, index) => (
                       <div
                         key={index}

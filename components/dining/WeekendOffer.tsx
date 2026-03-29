@@ -11,7 +11,7 @@ const WeekendOffer: React.FC = () => {
   if (!offer?.offer_available) return null;
 
   return (
-    <div className="relative w-full bg-[#A4D5F0] py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25">
+    <div className="relative w-full bg-[#A4D5F0] overflow-hidden mx-auto  px-4 sm:px-6 md:px-8 lg:px-14 xl:px-16 2xl:px-18 [@media(min-width:1920px)]:px-25 py-6 sm:py-8 md:py-12 lg:py-14 xl:py-16 2xl:py-18 [@media(min-width:1920px)]:py-25">
       <div className="absolute top-2 sm:top-4 right-0 w-[250px] sm:w-[350px] md:w-[450px] lg:w-[600px] xl:w-[733px] z-0">
         <Image src={offertop} alt="Decorative Top" className="w-full h-auto object-contain" />
       </div>

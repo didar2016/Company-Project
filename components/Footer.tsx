@@ -108,15 +108,36 @@ const Footer = () => {
           <div className="flex items-center gap-[15px] lg:gap-[18px] xl:gap-[15px] 2xl:gap-[20px]">
             <SocialIcon
               icon={<Facebook size={20} />}
-              onClick={() => socialLinks?.facebook && window.open(socialLinks.facebook, '_blank')}
+              onClick={() => {
+                if (socialLinks?.facebook) {
+                  const url = /^https?:\/\//i.test(socialLinks.facebook)
+                    ? socialLinks.facebook
+                    : `https://${socialLinks.facebook}`;
+                  window.open(url, '_blank', 'noopener,noreferrer');
+                }
+              }}
             />
             <SocialIcon
               icon={<Instagram size={20} />}
-              onClick={() => socialLinks?.instagram && window.open(socialLinks.instagram, '_blank')}
+              onClick={() => {
+                if (socialLinks?.instagram) {
+                  const url = /^https?:\/\//i.test(socialLinks.instagram)
+                    ? socialLinks.instagram
+                    : `https://${socialLinks.instagram}`;
+                  window.open(url, '_blank', 'noopener,noreferrer');
+                }
+              }}
             />
             <SocialIcon
               icon={<Linkedin size={20} />}
-              onClick={() => socialLinks?.linkedin && window.open(socialLinks.linkedin, '_blank')}
+              onClick={() => {
+                if (socialLinks?.linkedin) {
+                  const url = /^https?:\/\//i.test(socialLinks.linkedin)
+                    ? socialLinks.linkedin
+                    : `https://${socialLinks.linkedin}`;
+                  window.open(url, '_blank', 'noopener,noreferrer');
+                }
+              }}
             />
           </div>
 

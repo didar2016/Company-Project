@@ -108,25 +108,11 @@ const RoomCard: React.FC<RoomCardProps> = ({
               </span>
             </div>
           </div>
-
-          {/* Discount Badge */}
         </div>
       </div>
 
-      {/* <div style={{ paddingTop: isHovered ? '0' : '138px' }}></div> */}
-      {/* Room Image */}
-      <div
-        className="relative overflow-hidden aspect-square w-full max-w-[540px]"
-        // onMouseEnter={() => setIsHovered(true)}
-        // onMouseLeave={() => setIsHovered(false)}
-      >
+      <div className="relative overflow-hidden aspect-square w-full max-w-[540px]">
         {room.discountPercentage && (
-          // <div
-          //   className="font-sansation text-[#00B3DD] text-xs font-bold px-3 py-1 absolute top-4 left-4 z-40 border border-solid rounded-full"
-          //   style={cardStyle}
-          // >
-          //   {room.discountPercentage}
-          // </div>
           <div className=" absolute top-4 left-4 z-40 rounded-full backdrop-blur-[20px] bg-white/30">
             <div
               className="absolute inset-0 rounded-[30px] pointer-events-none"
@@ -139,7 +125,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
                 maskComposite: 'exclude',
               }}
             />
-            <div className="px-3 xl:px-4 2xl:px-5 py-1 lg:py-2 text-[#00B3DD] font-bold font-sansation font-700 text-[16px] sm:text-[20px] xl:text-[18px] 2xl:text-[20px] leading-[30px] tracking-[1.25px]">
+            <div className="px-2 sm:px-3 xl:px-4 2xl:px-5 py-0.5 sm:py-1 lg:py-1.5 xl:py-2 text-[#00B3DD] font-bold font-sansation font-700 text-[10px] sm:text-[13px] md:text-[15px] lg:text-[16px] xl:text-[17px] 2xl:text-[19px] leading-[18px] sm:leading-[22px] lg:leading-[26px] xl:leading-[30px] tracking-[1.25px]">
               {room.discountPercentage}
             </div>
           </div>
@@ -152,13 +138,6 @@ const RoomCard: React.FC<RoomCardProps> = ({
           fill
         />
 
-        {/* Area Info Overlay */}
-        {/* <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-cyan-400 text-white px-3 py-2 rounded-full">
-          <Maximize2 className="w-4 h-4" />
-          <span className="text-lg font-medium">{area} {unit}</span>
-        </div> */}
-
-        {/* Amenity Icons Overlay */}
         <div
           className={`absolute bottom-3 sm:bottom-5 right-[20px] left-[20px] justify-between flex items-center gap-1 sm:gap-2  rounded-full sm:rounded-[30px] px-2.5 sm:px-5 py-2.5 sm:py-2.5 backdrop-blur-[9px] bg-white/30 transition-opacity duration-300`}
         >
@@ -175,7 +154,6 @@ const RoomCard: React.FC<RoomCardProps> = ({
               {room.size} sqm
             </div>
           </div>
-          {/* icon component */}
           <div className="flex flex-row gap-1 sm:gap-2 xl:gap-1.5 2xl:gap-2">
             {ALL_FACILITIES.filter((facility) =>
               room?.popularFacilities?.some((f: any) => f === facility.id || f?.id === facility.id)

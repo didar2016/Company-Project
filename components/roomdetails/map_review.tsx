@@ -29,41 +29,41 @@ const MapReview: React.FC = () => {
       name: 'Zbeshion Holder',
       avatar: 'https://i.pravatar.cc/150?img=12',
       rating: 5,
-      text: '"It\'s really a nice Hotel for both eally a nice Hotel for botheally a nice Hotel for botheally a nice Hotel for botheally a nice Hotel for botheally a nice Hotel for botheally a nice Hotel for botheally a nice Hotel for botheally a nice Hotel for botheally a nice Hotel for botheally a nice Hotel for botheally a nice Hotel for both (Business and Pleasure) Stay.. Located on prime location just 7 minutes from Airport..All living hood on Door step."',
+      text: '"Absolutely one of the best stays I have ever had. The room was spotless, the bed was incredibly comfortable, and the view was breathtaking. The complimentary breakfast was a delight — fresh, varied, and beautifully presented. The staff remembered my name from day one and made every interaction feel genuinely warm. Truly a 5-star experience in every sense."',
     },
     {
       id: 2,
       name: 'Prashika Rajuya',
       avatar: 'https://i.pravatar.cc/150?img=45',
-      rating: 5,
-      text: '"A well maintained comfy place thats near the omaintained comfy place thats near the omaintained comfy place thats near the omaintained comfy place thats near the omaintained comfy place thats near the omaintained comfy place thats near the omaintained comfy place thats near the office and eateries. Special thanks to Sabina Lama for keeping my room in tip top condition. She has been seeing to my request of dust free and clean room. Kudos! Thank you"',
+      rating: 4,
+      text: '"From the moment I arrived, I felt like a VIP. The check-in was seamless and the room exceeded all expectations — beautifully decorated, impeccably clean, and stocked with every amenity you could think of. The rooftop pool and the spa were outstanding. I especially loved the 24-hour in-room dining; the food was restaurant-quality at any hour. Will absolutely return!"',
     },
     {
       id: 3,
       name: 'Yogesh Singhmar',
       avatar: 'https://i.pravatar.cc/150?img=33',
       rating: 5,
-      text: '"MENA Apart hotel is an amazing budget hotel is an amazing budgehotel is an amazing budgehotel is an amazing budgehotel is an amazing budgehotel is an amazing budgehotel is an amazing budgehotel is an amazing budgehotel is an amazing budgehotel is an amazing budgehotel is an amazing budgehotel is an amazing budgefriendly place in dubai. They provide some great services and care taking. All hotel staff is very friendly and amazing in behaviour"',
+      text: '"MENA Apart Hotel is a hidden gem in the heart of the city. The fitness centre is top-notch with modern equipment, and the free high-speed WiFi worked flawlessly throughout my stay. The location is perfect — just minutes from major landmarks and business hubs. Special shoutout to the concierge team for arranging everything with a smile. Phenomenal service!"',
     },
     {
       id: 4,
       name: 'Sarah Johnson',
       avatar: 'https://i.pravatar.cc/150?img=25',
-      rating: 5,
-      text: '"Exceptional service anmaintained comfy place thational service anmaintained comfy place thional service anmaintained comfy place thional service anmaintained comfy place thional service anmaintained comfy place thional service anmaintained comfy place thional service anmaintained comfy place thional service anmaintained comfy place ths near the omaintained comfy place thats near the omaintained comfy place thats near the omaintained comfy place thats near the omaintained comfy place thats near the omaintained comfy place thats near the od beautiful location. The staff went above and beyond to make our stay comfortable. Highly recommend!"',
+      rating: 4,
+      text: '"I travel frequently for work and this hotel has set a new benchmark for me. The executive suite was stunning — spacious, modern, and immaculately maintained. The business facilities were excellent, and the complimentary airport transfer was a wonderful touch. The restaurant served some of the finest cuisine I have had on any business trip. Highly recommended for both leisure and corporate stays!"',
     },
     {
       id: 5,
       name: 'Michael Chen',
       avatar: 'https://i.pravatar.cc/150?img=60',
       rating: 5,
-      text: '"Perfect blend of comfort and maintained comfy place thats near the omaintained comfy place thats near the omaintained comfy place thats near the omaintained comfy place thats near the omaintained comfy place thats near the omaintained comfy place thats near the omaintained comfy place thats near the omaintained comfy place thats near the omaintained comfy place thats near the o luxury. The rooms are spacious, clean, and well-maintained. Will definitely return!"',
+      text: '"A perfect blend of luxury and comfort. The swimming pool area is stunning, the bar serves excellent cocktails, and the room service was prompt and delicious. What really stood out was how attentive the housekeeping team was — the room was always immaculate and refreshed beautifully each day. My family and I loved every single moment of our stay here!"',
     },
   ];
 
   return (
     <section
-      className={`relative w-full bg-white py-6 sm:py-8 md:py-12 lg:py-25 xl:py-25 overflow-hidden mx-auto px-4 sm:px-6 md:px-8 lg:px-25 xl:px-25`}
+      className={`relative w-full bg-white overflow-hidden mx-auto  px-4 sm:px-6 md:px-8 lg:px-14 xl:px-16 2xl:px-18 [@media(min-width:1920px)]:px-25 py-6 sm:py-8 md:py-12 lg:py-14 xl:py-16 2xl:py-18 [@media(min-width:1920px)]:py-25 `}
     >
       <div className="mx-auto max-w-[1720px]">
         <div className="flex flex-col justify-between items-center xl:flex-row gap-6 sm:gap-8 lg:gap-12">
@@ -126,16 +126,6 @@ const MapReview: React.FC = () => {
                     />
                   </button>
                 </a>
-              </div>
-            </div>
-
-            {/* Location Pin Popup (Optional - shown on map) */}
-            <div className="absolute bottom-24 sm:bottom-32 left-1/2 transform -translate-x-1/2 hidden lg:block">
-              <div className="bg-white rounded-lg shadow-xl p-3 sm:p-4 min-w-[160px] sm:min-w-[200px]">
-                <h3 className="font-semibold text-gray-800 mb-1 text-sm sm:text-base">
-                  MENA ApartHotel
-                </h3>
-                <div className="h-1 bg-gray-200 rounded animate-pulse"></div>
               </div>
             </div>
           </motion.div>

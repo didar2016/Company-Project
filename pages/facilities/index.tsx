@@ -21,7 +21,6 @@ export default function Home() {
         <Hero component="facilities" />
         <Facilities />
         <Amenities />
-
         <MapReview />
       </main>
 
