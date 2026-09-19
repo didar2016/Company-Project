@@ -61,7 +61,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
       query: { id: room._id },
     });
   };
-
+  console.log({ room });
   return (
     <div
       className="relative w-full max-w-[540px] bg-white overflow-hidden mx-auto cursor-pointer"

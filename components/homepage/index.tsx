@@ -77,8 +77,8 @@ const WrapMapReview = () => (
             variants={fadeInUp}
             className="font-sansation font-normal text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] leading-[30px] tracking-[0.5px] text-[#2A2D71]"
           >
-            Discover our ideal location in the vibrant heart of the city and hear what our esteemed
-            guests have to say about their stays.
+            Discover our ideal location in the vibrant heart of the city and see what our guests
+            have to say about their stays.
           </motion.p>
         </motion.div>
       </div>

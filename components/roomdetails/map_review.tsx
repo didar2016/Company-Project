@@ -7,7 +7,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import visithotelicon from '../../public/images/visithotelicon.png';
 import starIcon from '../../public/images/Star.png';
-import { ALLDATA } from '@/contexts/titles';
+import { ALLDATA, currentWebsite } from '@/contexts/titles';
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -100,9 +100,21 @@ const MapReview: React.FC = () => {
 
                 {/* Description */}
                 <p className="font-sansation text-white text-[12px] sm:text-[14px] md:text-[18px] lg:text-[24px] leading-[18px] sm:leading-[22px] md:leading-[28px] lg:leading-[36px] mb-4 sm:mb-6 md:mb-8 tracking-[0.5px] sm:tracking-[0.75px]">
-                  Located in the vibrant heart of downtown, our hotel is just minutes from major
-                  attractions, business districts, and cultural landmarks, offering unparalleled
-                  access to the citys best.
+                  {currentWebsite == 'MENA_PLAZA' && (
+                    <>
+                      Located in the vibrant heart of Al Barsha, our hotel is just minutes from
+                      major attractions, business districts, and cultural landmarks, offering
+                      unparalleled access to the citys best.
+                    </>
+                  )}
+
+                  {currentWebsite == 'MENA_APART' && (
+                    <>
+                      Located in the vibrant heart of downtown, our hotel is just minutes from major
+                      attractions, business districts, and cultural landmarks, offering unparalleled
+                      access to the citys best.
+                    </>
+                  )}
                 </p>
 
                 <a

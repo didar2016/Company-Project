@@ -4,6 +4,7 @@ const websiteTitles = {
     index_page_header_text:
       'Your Gateway to <span style="font-weight:900">Dubai’s</span> Treasures',
     description: {
+      image: '/public/mena-plaza-hotel/2a591547-2074-4a56-823b-5146f0d6f1f7.jpg',
       title: 'LIVE THE <span style="font-weight:900">PLAZA</span> EXPERIENCE',
       subtitle:
         'Modern space, exceptional service and everything you need for a seamless stay in the city.',
@@ -35,7 +36,7 @@ const websiteTitles = {
       hotelname: 'La Mode Café & Restaurant',
       description:
         'Savor the best of Mediterranean flavors and Arabic hospitality at MENA Plaza Hotel Albarsha. Our dining options are designed to suit every palate, ensuring a memorable gastronomic experience',
-      image: '/mena-plaza/048d961d-55c4-4e2c-9557-8a23dd261d28.jpg',
+      image: '/public/mena-plaza-hotel/2e14ee21-6f83-494c-8565-f68cdc810eab.png',
     },
     aboutFood: {
       title: 'Dining and Hotel Amenities',
@@ -59,7 +60,6 @@ const websiteTitles = {
       link: 'https://maps.app.goo.gl/46wZWk85Sb7gYpYK7',
     },
   },
-
   MENA_APART: {
     index_page_header_text: 'Your Gateway to <span style="font-weight:900">Dubai’s</span> Comfort',
     description: {
@@ -141,7 +141,7 @@ const websiteTitles = {
 };
 
 // Get the current website name from the environment variable
-const currentWebsite = process.env.NEXT_PUBLIC_WEBSITE_NAME || 'default';
+export const currentWebsite = process.env.NEXT_PUBLIC_WEBSITE_NAME || 'default';
 
 // Export the titles for the current website
 export const ALLDATA = websiteTitles[currentWebsite] || {};

@@ -5,7 +5,8 @@ import menalive from '../../public/images/meenalive.png';
 import visithotelicon from '../../public/images/visithotelicon.png';
 import { motion, Variants } from 'framer-motion';
 import AnimatedText from '../animation/AnimateText';
-import { ALLDATA } from '@/contexts/titles';
+import { ALLDATA, currentWebsite } from '@/contexts/titles';
+import { getImageUrl } from '@/hooks/imageMake';
 
 // Animation Variants
 const fadeInUp: Variants = {
@@ -78,13 +79,25 @@ const Description = () => {
           variants={fadeInUp}
           className="relative w-full xl:w-1/2 h-[400px] lg:h-[642px] rounded-[30px] overflow-hidden group"
         >
-          <Image
-            src={menalive}
-            alt="Mena Plaza Hotel Lobby"
-            fill
-            style={{ objectFit: 'cover' }}
-            className="transition-transform duration-500 group-hover:scale-105"
-          />
+          {currentWebsite == 'MENA_PLAZA' && (
+            <Image
+              src={getImageUrl(ALLDATA.description.image) || ''}
+              alt="Mena Plaza Hotel Lobby"
+              fill
+              style={{ objectFit: 'cover' }}
+              className="transition-transform duration-500 group-hover:scale-105"
+            />
+          )}
+
+          {currentWebsite == 'MENA_APART' && (
+            <Image
+              src={getImageUrl(ALLDATA.description.image) || ''}
+              alt="Mena Apart Hotel Lobby"
+              fill
+              style={{ objectFit: 'cover' }}
+              className="transition-transform duration-500 group-hover:scale-105"
+            />
+          )}
           {/* Play Button Overlay */}
           <div className="absolute right-[20px] bottom-[20px] flex items-center justify-center">
             <button className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform group-hover:shadow-xl">
@@ -120,7 +133,10 @@ const Description = () => {
           <p className="font-['Poppins'] text-[#8A8BB3] text-lg text-center leading-relaxed">
             <span className="font-600 text-[20px]">{ALLDATA.description.des1 || ''}</span>
             <br />
+            <br />
+
             <span className="font-500 text-[20px]"> {ALLDATA.description.des2 || ''}</span>
+            <br />
             <br />
             <span className="font-[700] text-[20px]"> {ALLDATA.description.des3 || ''}</span>
           </p>
@@ -158,16 +174,68 @@ const Description = () => {
               Exceptional Accommodations
             </h3>
             <p className="font-['Poppins'] text-[#8A8BB3] text-lg leading-relaxed">
-              Our suites and apartments are designed to make you feel at home, offering spacious
-              layouts and premium amenities to ensure a relaxing and enjoyable stay.
+              {currentWebsite === 'MENA_PLAZA' && (
+                <>
+                  Our rooms are designed to make you feel at home, offering spacious layouts and
+                  premium amenities to ensure a relaxing and enjoyable stay.
+                  <br />
+                </>
+              )}
+
+              {currentWebsite === 'MENA_APART' && (
+                <>
+                  Our suites and apartments are designed to make you feel at home, offering spacious
+                  layouts and premium amenities to ensure a relaxing and enjoyable stay.
+                  <br />
+                </>
+              )}
             </p>
           </div>
 
           {/* Right List */}
           <div className="w-full xl:w-2/3 flex flex-col gap-8">
             <h4 className="font-['Sansation'] font-light text-[#454779] text-2xl md:text-[32px] uppercase tracking-wide">
-              Every suite and apartment includes:
+              {currentWebsite === 'MENA_PLAZA' && 'Every room includes:'}
+
+              {currentWebsite === 'MENA_APART' && 'Every suite and apartment includes:'}
             </h4>
+
+            {currentWebsite === 'MENA_PLAZA' && (
+              <ul className="grid grid-cols-1 gap-6">
+                {[
+                  'Air conditioning and free high-speed Wi-Fi',
+                  'Flat-screen TVs with interactive entertainment systems',
+                  'Private bathrooms featuring a refreshing shower, free toiletries, and a hairdryer',
+                  'Separate living areas for added comfort in One- and Two-Bedroom Apartments',
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start gap-4">
+                    <div className="mt-3 w-2 h-2 bg-[#00B3DD] rotate-45 flex-shrink-0" />
+                    <span className="font-['Sansation'] text-[#2A2D71] text-lg md:text-[20px] tracking-[0.5px]">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {currentWebsite === 'MENA_APART' && (
+              <ul className="grid grid-cols-1 gap-6">
+                {[
+                  'Fully equipped kitchens with a fridge, microwave, washing machine, and essential appliances',
+                  'Air conditioning and free high-speed Wi-Fi',
+                  'Flat-screen TVs with interactive entertainment systems',
+                  'Private bathrooms featuring a refreshing shower, free toiletries, and a hairdryer',
+                  'Separate living areas for added comfort in One- and Two-Bedroom Apartments',
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start gap-4">
+                    <div className="mt-3 w-2 h-2 bg-[#00B3DD] rotate-45 flex-shrink-0" />
+                    <span className="font-['Sansation'] text-[#2A2D71] text-lg md:text-[20px] tracking-[0.5px]">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
             <ul className="grid grid-cols-1 gap-6">
               {[
                 'Fully equipped kitchens with a fridge, microwave, washing machine, and essential appliances',
