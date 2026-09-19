@@ -71,6 +71,7 @@ const OurStory = () => {
   const suitesCounter = useCounter(150, 500, '+');
   const satisfactionCounter = useCounter(98, 1000, '%');
   const conciergeCounter = useCounter(24, 1500, '/7');
+  const roomcounter = useCounter(90, 400, '');
 
   const ourstory = useOurStory();
 
@@ -127,10 +128,10 @@ const OurStory = () => {
 
               <div className="px-10 py-4 flex flex-col items-center gap-2 text-center">
                 <span
-                  ref={suitesCounter.countRef}
+                  ref={roomcounter.countRef}
                   className="font-['Sansation'] text-[#00B3DD] text-5xl md:text-[80px] font-bold"
                 >
-                  90
+                  {roomcounter.displayValue}
                 </span>
                 <span className="font-['Sansation'] text-white text-xl uppercase tracking-wider">
                   Rooms
