@@ -3,7 +3,8 @@ import Image from 'next/image';
 import space from '../../public/images/space.jpg';
 import { motion, Variants } from 'framer-motion';
 import AnimatedText from '../animation/AnimateText';
-import { ALLDATA } from '../../contexts/titles';
+import { ALLDATA, currentWebsite } from '../../contexts/titles';
+import { getImageUrl } from '@/hooks/imageMake';
 // Animation Variants
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -76,13 +77,26 @@ const AboutDescription = () => {
           variants={fadeInUp}
           className="relative w-full xl:w-1/2 h-[400px] lg:h-[642px] rounded-[30px] overflow-hidden group"
         >
-          <Image
-            src={space}
-            alt="Mena Plaza Hotel Lobby"
-            fill
-            style={{ objectFit: 'cover' }}
-            className="transition-transform duration-500 group-hover:scale-105"
-          />
+          {currentWebsite == 'MENA_PLAZA' && (
+            <Image
+              src={getImageUrl(ALLDATA.aboutdescription.image) || ''}
+              alt="Mena Plaza Hotel Lobby"
+              fill
+              style={{ objectFit: 'cover' }}
+              className="transition-transform duration-500 group-hover:scale-105"
+            />
+          )}
+
+          {currentWebsite == 'MENA_APART' && (
+            <Image
+              src={space}
+              alt="Mena Plaza Hotel Lobby"
+              fill
+              style={{ objectFit: 'cover' }}
+              className="transition-transform duration-500 group-hover:scale-105"
+            />
+          )}
+
           {/* Play Button Overlay */}
           <div className="absolute right-[20px] bottom-[20px] flex items-center justify-center">
             <button className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform group-hover:shadow-xl">

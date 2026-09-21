@@ -13,6 +13,7 @@ const websiteTitles = {
       des3: 'Book your stay to discover the perfect balance of comfort, value, and authentic Arabian warmth in the center of Dubai.',
     },
     aboutdescription: {
+      image: '/public/mena-plaza-hotel/6f7cef60-1916-4e4e-a822-e20a9686dd1f.jpg',
       title: 'Welcome to <span style="font-weight:900">MENA Plaza Hotel Albarsha</span>',
       subtitle:
         'Modern space, exceptional service and everything you need for a seamless stay in the city',
@@ -63,12 +64,12 @@ const websiteTitles = {
   MENA_APART: {
     index_page_header_text: 'Your Gateway to <span style="font-weight:900">Dubai’s</span> Comfort',
     description: {
-      title: 'LIVE THE <span style="font-weight:900">APART</span> EXPERIENCE',
+      title: 'LIVE THE <span style="font-weight:900">MENA APART</span> EXPERIENCE',
       subtitle:
         'Modern space, exceptional service and everything you need for a seamless stay in the city.',
-      des1: 'Nestled in the heart of vibrant Al Barsha, MENA ApartHotel offers an exceptional experience, defined by genuine hospitality and prime convenience. Our enviable location places you just a short walk from the iconic Mall of the Emirates and the Dubai Metro, providing effortless access to the city’s top attractions.',
-      des2: 'Designed as a refined, alcohol-free retreat, we welcome families, business travelers, and small groups to unwind in modern, spacious accommodations. Savor diverse culinary delights, refresh in our outdoor pool, and recharge in our well-equipped fitness center—all complemented by warm, attentive service dedicated to making your stay seamless and memorable.',
-      des3: 'Book your stay to discover the perfect balance of comfort, value, and authentic Arabian warmth in the center of Dubai.',
+      des1: 'Situated in the vibrant city of Dubai, MENA ApartHotel Albarsha is the perfect choice for short or extended stays. A short walk from the Mall of the Emirates, we combine the comforts of home with genuine hospitality, offering outstanding value for families, business travelers, and explorers.',
+      des2: '',
+      des3: 'Book your stay today and experience the perfect blend of modern living and warm hospitality at MENA ApartHotel Albarsha.',
     },
     aboutdescription: {
       title: 'Welcome to <span style="font-weight:900">MENA ApartHotel Albarsha</span>',
@@ -84,10 +85,9 @@ const websiteTitles = {
         'Step into a haven of modern tranquility. Our rooms are thoughtfully designed with a calming palette of light tones and rich accents, creating an atmosphere of refined relaxation from the moment you arrive.',
     },
     facilities: {
-      title:
-        "Unwind and Recharge: <span style='font-weight:900'> Signature Hotel Facilities</span>",
+      title: 'Facilities That Enhance Your Stay',
       subtitle:
-        'Discover our carefully curated amenities, designed for your relaxation and well-being. From an energizing workout to a refreshing swim, find your perfect balance during your Dubai stay',
+        'MENA ApartHotel Albarsha offers a range of facilities designed to provide comfort and MENA ApartHotel Albarsha offers a range of facilities designed to provide comfort and convenience, ensuring an exceptional experience for both short and extended stays.',
     },
     food: {
       title: 'A Culinary Journey Awaits',

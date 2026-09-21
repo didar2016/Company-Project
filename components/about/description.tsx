@@ -236,22 +236,6 @@ const Description = () => {
                 ))}
               </ul>
             )}
-            <ul className="grid grid-cols-1 gap-6">
-              {[
-                'Fully equipped kitchens with a fridge, microwave, washing machine, and essential appliances',
-                'Air conditioning and free high-speed Wi-Fi',
-                'Flat-screen TVs with interactive entertainment systems',
-                'Private bathrooms featuring a refreshing shower, free toiletries, and a hairdryer',
-                'Separate living areas for added comfort in One- and Two-Bedroom Apartments',
-              ].map((item, index) => (
-                <li key={index} className="flex items-start gap-4">
-                  <div className="mt-3 w-2 h-2 bg-[#00B3DD] rotate-45 flex-shrink-0" />
-                  <span className="font-['Sansation'] text-[#2A2D71] text-lg md:text-[20px] tracking-[0.5px]">
-                    {item}
-                  </span>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </motion.div>

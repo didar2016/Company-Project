@@ -10,7 +10,7 @@ import 'swiper/css/pagination';
 import { useOurStory } from '@/contexts/WebsiteContext';
 import { getImageUrl } from '@/hooks/imageMake';
 import { ALL } from 'node:dns';
-import { ALLDATA } from '@/contexts/titles';
+import { ALLDATA, currentWebsite } from '@/contexts/titles';
 
 // Counter animation hook
 const useCounter = (endValue: number, duration: number = 1000, suffix: string = '') => {
@@ -114,29 +114,32 @@ const OurStory = () => {
           {/* Stats Section */}
           <div className="w-full">
             <div className="flex flex-col md:flex-row justify-evenly items-center gap-10 md:gap-0 divide-y md:divide-y-0 md:divide-x divide-white/20">
-              <div className="px-10 py-4 flex flex-col items-center gap-2 text-center">
-                <span
-                  ref={suitesCounter.countRef}
-                  className="font-['Sansation'] text-[#00B3DD] text-5xl md:text-[80px] font-bold"
-                >
-                  {suitesCounter.displayValue}
-                </span>
-                <span className="font-['Sansation'] text-white text-xl uppercase tracking-wider">
-                  Suites
-                </span>
-              </div>
-
-              <div className="px-10 py-4 flex flex-col items-center gap-2 text-center">
-                <span
-                  ref={roomcounter.countRef}
-                  className="font-['Sansation'] text-[#00B3DD] text-5xl md:text-[80px] font-bold"
-                >
-                  {roomcounter.displayValue}
-                </span>
-                <span className="font-['Sansation'] text-white text-xl uppercase tracking-wider">
-                  Rooms
-                </span>
-              </div>
+              {currentWebsite == 'MENA_APART' && (
+                <div className="px-10 py-4 flex flex-col items-center gap-2 text-center">
+                  <span
+                    ref={suitesCounter.countRef}
+                    className="font-['Sansation'] text-[#00B3DD] text-5xl md:text-[80px] font-bold"
+                  >
+                    {suitesCounter.displayValue}
+                  </span>
+                  <span className="font-['Sansation'] text-white text-xl uppercase tracking-wider">
+                    Suites
+                  </span>
+                </div>
+              )}
+              {currentWebsite == 'MENA_PLAZA' && (
+                <div className="px-10 py-4 flex flex-col items-center gap-2 text-center">
+                  <span
+                    ref={roomcounter.countRef}
+                    className="font-['Sansation'] text-[#00B3DD] text-5xl md:text-[80px] font-bold"
+                  >
+                    {roomcounter.displayValue}
+                  </span>
+                  <span className="font-['Sansation'] text-white text-xl uppercase tracking-wider">
+                    Rooms
+                  </span>
+                </div>
+              )}
 
               <div className="px-10 py-4 flex flex-col items-center gap-2 text-center">
                 <span
