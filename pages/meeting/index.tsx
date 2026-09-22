@@ -21,7 +21,11 @@ export default function Meeting() {
     );
   }
 
-  if (meeting?.available == false) {
+  console.log('Meeting data:', meeting);
+
+  if (meeting?.available != true) {
+    console.log('return null');
+
     return null;
   }
 

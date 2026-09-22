@@ -185,7 +185,7 @@ const Navbar: React.FC = () => {
               ref={dropdownRef}
             >
               {navLinks.map((link) => {
-                if (meeting?.available == false && link.name === 'MEETING') {
+                if (meeting?.available != true && link.name === 'MEETING') {
                   return null;
                 }
 

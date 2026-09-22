@@ -64,6 +64,7 @@ const websiteTitles = {
   MENA_APART: {
     index_page_header_text: 'Your Gateway to <span style="font-weight:900">Dubai’s</span> Comfort',
     description: {
+      image: '/public/mena-apart-hotel/d45007a1-e917-461b-8d87-69bec1fdeecf.jpg',
       title: 'LIVE THE <span style="font-weight:900">MENA APART</span> EXPERIENCE',
       subtitle:
         'Modern space, exceptional service and everything you need for a seamless stay in the city.',
@@ -94,7 +95,7 @@ const websiteTitles = {
       hotelname: 'MENA ApartHotel Dining',
       description:
         'Savor the best of Mediterranean flavors and Arabic hospitality at MENA ApartHotel Albarsha. Our dining options are designed to suit every palate, ensuring a memorable gastronomic experience',
-      image: '/mena-plaza/048d961d-55c4-4e2c-9557-8a23dd261d28.jpg',
+      image: '/public/mena-apart-hotel/3b5d3488-66ce-484a-b433-93f02dbded84.jpg',
     },
     aboutFood: {
       title: 'Dining and Hotel Amenities',
