@@ -174,9 +174,20 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="bg-white rounded-t-[20px] lg:rounded-t-[25px] xl:rounded-t-[20px] py-[20px] lg:py-[24px] xl:py-[20px] z-10 relative h-[36px] sm:h-[52] lg:h-[64px] xl:h-[76px] flex items-center justify-center">
+      <div className="bg-white rounded-t-[20px] lg:rounded-t-[25px] xl:rounded-t-[20px] py-[12px] sm:py-[16px] lg:py-[24px] xl:py-[20px] z-10 relative min-h-[36px] sm:min-h-[52px] lg:min-h-[64px] xl:min-h-[76px] flex flex-col-reverse sm:flex-row items-center justify-between gap-1 sm:gap-2 px-5">
         <p className="font-sansation font-light text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[0.75px] text-[#454779] text-center">
           © 2025 MENA Hotels & Resorts
+        </p>
+        <p className="font-sansation font-light text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[0.75px] text-[#454779] text-center">
+          powered by{' '}
+          <a
+            href="https://www.ingeniohub.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#00B3DD] transition-colors"
+          >
+            ingeniohub
+          </a>
         </p>
       </div>
     </footer>

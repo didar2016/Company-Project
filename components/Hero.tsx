@@ -293,7 +293,7 @@ const Hero: React.FC<{
             <motion.p
               key={currentHero?.detailsText || 'loading-description'}
               variants={fadeInUp}
-              className="max-[640px]:text-center font-sansation-light font-medium text-[14px] md:text-[18px] lg:text-[20px] leading-[1.2] text-white text-right md:max-w-full"
+              className="max-[640px]:text-center font-sansation font-medium text-[14px] md:text-[18px] lg:text-[20px] leading-[1.2] text-white text-right md:max-w-full"
             >
               {currentHero?.detailsText || ''}
             </motion.p>
