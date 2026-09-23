@@ -22,9 +22,6 @@ export default function RoomDetailsPage() {
     return rooms.find((r: any) => r._id === id);
   }, [id, rooms]);
 
-  const [singleroomName, setSingleroomName] = React.useState('');
-  const [singleroomDescription, setSingleroomDescription] = React.useState('');
-
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col font-body">
       <Head>
@@ -35,15 +32,12 @@ export default function RoomDetailsPage() {
 
       <main className="flex-grow w-full overflow-hidden">
         <Hero
+          key={typeof id === 'string' ? id : 'roomdetails'}
           component="roomdetails"
-          singleroomName={singleroomName}
-          singleroomDescription={singleroomDescription}
+          singleroomName={room?.name || ''}
+          singleroomDescription={room?.description || ''}
         />
-        <RoomDetails
-          room={room}
-          setSingleroomDescription={setSingleroomDescription}
-          setSingleroomName={setSingleroomName}
-        />
+        <RoomDetails room={room} />
         <HotelFeatures room={room} />
         <MapReview />
         <RelatedRooms />

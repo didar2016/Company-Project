@@ -38,8 +38,6 @@ interface RoomDetailsProps {
   amenities?: Array<{ icon: React.ReactNode; label: string }>;
   images?: string[];
   room?: any;
-  setSingleroomName?: React.Dispatch<React.SetStateAction<string>>;
-  setSingleroomDescription?: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const RoomDetails: React.FC<RoomDetailsProps> = ({
@@ -52,8 +50,6 @@ const RoomDetails: React.FC<RoomDetailsProps> = ({
   checkInDate = '21 Dec 2025',
   checkOutDate = '26 Dec 2025',
   room,
-  setSingleroomName,
-  setSingleroomDescription,
 }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -107,16 +103,6 @@ const RoomDetails: React.FC<RoomDetailsProps> = ({
   const displayDescription = room?.description || description;
   const displayOriginalPrice = room?.basePrice || originalPrice;
   const displayDiscountedPrice = room?.discountPrice || discountedPrice;
-
-  // Update parent state if setters are provided
-  React.useEffect(() => {
-    if (setSingleroomName) {
-      setSingleroomName(displayRoomType);
-    }
-    if (setSingleroomDescription) {
-      setSingleroomDescription(displayDescription);
-    }
-  }, [displayRoomType, displayDescription, setSingleroomName, setSingleroomDescription]);
 
   const ALL_FACILITIES = [
     { id: 'swimming-pools', label: 'Swimming Pools', icon: Waves },
