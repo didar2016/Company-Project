@@ -293,7 +293,7 @@ const Hero: React.FC<{
             <motion.p
               key={currentHero?.detailsText || 'loading-description'}
               variants={fadeInUp}
-              className="max-[640px]:text-center font-sansation font-medium text-[14px] md:text-[18px] lg:text-[20px] leading-[1.2] text-white text-right md:max-w-full"
+              className="max-[640px]:text-center font-sansation font-bold text-[14px] md:text-[18px] lg:text-[20px] leading-[1.2] text-white text-right md:max-w-full"
             >
               {currentHero?.detailsText || ''}
             </motion.p>
@@ -581,8 +581,7 @@ const Hero: React.FC<{
             </motion.h1>
             <motion.p
               variants={fadeInUp}
-              className="font-sansation font-light text-white text-[13px] sm:text-[14px] md:text-[17px] lg:text-[25px] leading-[120%] max-w-[90%] sm:max-w-[500px] md:max-w-[600px] lg:max-w-none mx-auto md:mx-0 uppercase"
-              style={{ fontWeight: 700 }}
+              className="font-sansation font-bold text-white text-[13px] sm:text-[14px] md:text-[17px] lg:text-[25px] leading-[120%] max-w-[90%] sm:max-w-[500px] md:max-w-[600px] lg:max-w-none mx-auto md:mx-0 uppercase"
             >
               <AnimatedChars
                 text={
