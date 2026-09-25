@@ -136,6 +136,7 @@ const AboutDescription = () => {
             {/* <span>An Ideal Location</span> */}
             <span className="font-[500] text-[20px]"> {ALLDATA.aboutdescription.des1 || ''}</span>
             <br />
+            <br />
             <span className="font-[500] text-[20px]"> {ALLDATA.aboutdescription.des2 || ''}</span>
           </p>
         </motion.div>
