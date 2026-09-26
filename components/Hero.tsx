@@ -10,11 +10,6 @@ import AnimatedText from './animation/AnimateText';
 import { ALLDATA } from '@/contexts/titles';
 
 // Animation Variants
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 1, ease: 'easeOut' } },
-};
-
 const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -170,8 +165,6 @@ const Hero: React.FC<{
     return herodata.find((hero: any) => hero.page === component) || herodata[0];
   }, [herodata, component]);
 
-  console.log(currentHero);
-
   return (
     <div className="relative overflow-hidden">
       {component === 'index' && (
@@ -266,6 +259,8 @@ const Hero: React.FC<{
           >
             <motion.h2
               key={currentHero ? currentHero._id : 'loading'}
+              initial="hidden"
+              animate="visible"
               variants={{
                 hidden: { opacity: 0 },
                 visible: {
@@ -290,7 +285,9 @@ const Hero: React.FC<{
             </motion.h1>
             <motion.p
               key={currentHero ? currentHero._id : 'loading'}
-              variants={fadeInUp}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: 'easeOut' }}
               className="max-[640px]:text-center font-sansation font-bold text-[14px] md:text-[18px] lg:text-[20px] leading-[1.2] text-white text-right md:max-w-full"
             >
               {currentHero?.detailsText || ''}
@@ -565,6 +562,8 @@ const Hero: React.FC<{
             className="absolute z-20 text-center sm:text-right text-white px-4 sm:px-6 md:px-8 lg:px-12 max-w-[1320px] mx-auto bottom-[10%] sm:bottom-[15%] md:bottom-[32%] right-0 sm:right-[2%] md:right-[5%] left-4 sm:left-auto "
           >
             <motion.h1
+              initial="hidden"
+              animate="visible"
               variants={charContainer}
               className="text-white font-sansation text-[30px] sm:text-[30px] md:text-[45px] lg:text-[50px] xl:text-[60px] uppercase max-w-[90%] sm:max-w-[500px] md:max-w-[600px] lg:max-w-none mx-auto md:mx-0"
               style={{ fontWeight: 700 }}
@@ -585,6 +584,7 @@ const Hero: React.FC<{
                 )}
               </AnimatedText>
             </motion.h1>
+
             <motion.p
               key={
                 component === 'roomdetails'
@@ -593,16 +593,15 @@ const Hero: React.FC<{
                     ? currentHero._id
                     : 'loading'
               }
-              variants={fadeInUp}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.3 }}
+              transition={{ duration: 1, ease: 'easeOut' }}
               className="font-sansation font-bold text-white text-[13px] sm:text-[14px] md:text-[17px] lg:text-[25px] leading-[120%] max-w-[90%] sm:max-w-[500px] md:max-w-[600px] lg:max-w-none mx-auto md:mx-0 uppercase"
             >
-              <AnimatedChars
-                text={
-                  component === 'roomdetails'
-                    ? singleroomDescription || ''
-                    : currentHero?.subText || ''
-                }
-              />
+              {component === 'roomdetails'
+                ? singleroomDescription || ''
+                : currentHero?.subText || ''}{' '}
             </motion.p>
           </motion.div>
         </>
