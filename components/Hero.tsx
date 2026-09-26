@@ -1,6 +1,5 @@
 import React, { useMemo } from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 import { motion, Variants } from 'framer-motion';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -166,13 +165,12 @@ const Hero: React.FC<{
 
   const herodata = useHeroSections();
 
-  const router = useRouter();
-  const { component: routeComponent } = router.query;
-
   const currentHero = useMemo(() => {
-    const heroItem = herodata?.find((hero: any) => hero.page === (routeComponent || component));
-    return heroItem || herodata?.[0];
-  }, [herodata, routeComponent, component]);
+    if (!herodata?.length) return undefined;
+    return herodata.find((hero: any) => hero.page === component) || herodata[0];
+  }, [herodata, component]);
+
+  console.log(currentHero);
 
   return (
     <div className="relative overflow-hidden">
@@ -267,7 +265,7 @@ const Hero: React.FC<{
             className="absolute z-20 text-center  md:text-right text-white px-4 sm:px-6 md:px-8 lg:px-12 max-w-[1130px] mx-auto top-[17%] sm:top-[23%] lg:top-[25%] right-0 sm:right-[2%] md:right-[5%] left-4 sm:left-auto "
           >
             <motion.h2
-              key={currentHero?.text || 'loading-text'}
+              key={currentHero ? currentHero._id : 'loading'}
               variants={{
                 hidden: { opacity: 0 },
                 visible: {
@@ -291,7 +289,7 @@ const Hero: React.FC<{
               </AnimatedText>
             </motion.h1>
             <motion.p
-              key={currentHero?.detailsText || 'loading-description'}
+              key={currentHero ? currentHero._id : 'loading'}
               variants={fadeInUp}
               className="max-[640px]:text-center font-sansation font-bold text-[14px] md:text-[18px] lg:text-[20px] leading-[1.2] text-white text-right md:max-w-full"
             >
@@ -571,7 +569,15 @@ const Hero: React.FC<{
               className="text-white font-sansation text-[30px] sm:text-[30px] md:text-[45px] lg:text-[50px] xl:text-[60px] uppercase max-w-[90%] sm:max-w-[500px] md:max-w-[600px] lg:max-w-none mx-auto md:mx-0"
               style={{ fontWeight: 700 }}
             >
-              <AnimatedText>
+              <AnimatedText
+                key={
+                  component === 'roomdetails'
+                    ? singleroomName || 'loading'
+                    : currentHero
+                      ? currentHero._id
+                      : 'loading'
+                }
+              >
                 {component === 'roomdetails' ? (
                   <div dangerouslySetInnerHTML={{ __html: singleroomName || '' }}></div>
                 ) : (
@@ -580,6 +586,13 @@ const Hero: React.FC<{
               </AnimatedText>
             </motion.h1>
             <motion.p
+              key={
+                component === 'roomdetails'
+                  ? singleroomDescription || 'loading'
+                  : currentHero
+                    ? currentHero._id
+                    : 'loading'
+              }
               variants={fadeInUp}
               className="font-sansation font-bold text-white text-[13px] sm:text-[14px] md:text-[17px] lg:text-[25px] leading-[120%] max-w-[90%] sm:max-w-[500px] md:max-w-[600px] lg:max-w-none mx-auto md:mx-0 uppercase"
             >

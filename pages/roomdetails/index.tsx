@@ -32,7 +32,7 @@ export default function RoomDetailsPage() {
 
       <main className="flex-grow w-full overflow-hidden">
         <Hero
-          key={typeof id === 'string' ? id : 'roomdetails'}
+          key={room ? room._id : `loading-${typeof id === 'string' ? id : 'roomdetails'}`}
           component="roomdetails"
           singleroomName={room?.name || ''}
           singleroomDescription={room?.description || ''}

@@ -56,7 +56,7 @@ const MeetingComponent: React.FC<{ meeting: any }> = ({ meeting }) => {
             className="font-sansation uppercase text-[28px] sm:text-[38px] md:text-[50px] lg:text-[60px] xl:text-[68px] leading-tight text-[#454779]"
             style={{ fontWeight: 300 }}
           >
-            <AnimatedText>
+            <AnimatedText key={meetingTitleHTML}>
               <div dangerouslySetInnerHTML={{ __html: meetingTitleHTML }} />
             </AnimatedText>
           </motion.h1>
