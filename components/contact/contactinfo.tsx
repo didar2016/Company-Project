@@ -29,6 +29,10 @@ const ContactInfo = () => {
       setErrorMsg('Please fill in your email and message.');
       return;
     }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formEmail.trim())) {
+      setErrorMsg('Please enter a valid email address.');
+      return;
+    }
     setIsSending(true);
     setErrorMsg('');
     setSuccessMsg('');
@@ -43,7 +47,11 @@ const ContactInfo = () => {
       setFormPhone('');
       setFormMessage('');
     } catch (error: any) {
-      setErrorMsg(error.message || 'Failed to send message. Please try again.');
+      setErrorMsg(
+        error?.response?.data?.message ||
+          error.message ||
+          'Failed to send message. Please try again.'
+      );
     } finally {
       setIsSending(false);
     }
@@ -99,39 +107,39 @@ const ContactInfo = () => {
 
         {/* Social Icons */}
         <div className="flex items-center gap-[15px] mt-auto lg:mt-0">
-          <SocialIcon
-            icon={<Facebook size={20} />}
-            onClick={() => {
-              if (socialLinks?.facebook) {
+          {socialLinks?.facebook && (
+            <SocialIcon
+              icon={<Facebook size={20} />}
+              onClick={() => {
                 const url = /^https?:\/\//i.test(socialLinks.facebook)
                   ? socialLinks.facebook
-                  : `https://${socialLinks.facebook}`;
+                  : `${socialLinks.facebook}`;
                 window.open(url, '_blank', 'noopener,noreferrer');
-              }
-            }}
-          />
-          <SocialIcon
-            icon={<Instagram size={20} />}
-            onClick={() => {
-              if (socialLinks?.instagram) {
-                const url = /^https?:\/\//i.test(socialLinks.instagram)
+              }}
+            />
+          )}
+          {socialLinks?.instagram && (
+            <SocialIcon
+              icon={<Instagram size={20} />}
+              onClick={() => {
+                const url = /^https?:\/\//i.test(socialLinks?.instagram)
                   ? socialLinks.instagram
-                  : `https://${socialLinks.instagram}`;
+                  : `${socialLinks.instagram}`;
                 window.open(url, '_blank', 'noopener,noreferrer');
-              }
-            }}
-          />
-          <SocialIcon
-            icon={<Linkedin size={20} />}
-            onClick={() => {
-              if (socialLinks?.linkedin) {
-                const url = /^https?:\/\//i.test(socialLinks.linkedin)
+              }}
+            />
+          )}
+          {socialLinks?.linkedin && (
+            <SocialIcon
+              icon={<Linkedin size={20} />}
+              onClick={() => {
+                const url = /^https?:\/\//i.test(socialLinks?.linkedin)
                   ? socialLinks.linkedin
-                  : `https://${socialLinks.linkedin}`;
+                  : `${socialLinks.linkedin}`;
                 window.open(url, '_blank', 'noopener,noreferrer');
-              }
-            }}
-          />
+              }}
+            />
+          )}
         </div>
       </motion.div>
 
@@ -229,12 +237,13 @@ const SocialIcon = ({
   onClick?: () => void;
 }) => {
   return (
-    <div
+    <button
+      type="button"
       onClick={onClick}
       className={`w-[44px] h-[44px] shrink-0 rounded-full flex justify-center items-center transition-colors cursor-pointer ${active ? 'bg-[#00B3DD] text-white' : 'border border-[#9BA9CA] text-[#6D6E87] hover:bg-[#00B3DD] hover:text-white hover:border-[#00B3DD]'}`}
     >
       {icon}
-    </div>
+    </button>
   );
 };
 
