@@ -113,7 +113,7 @@ const ContactInfo = () => {
               onClick={() => {
                 const url = /^https?:\/\//i.test(socialLinks.facebook)
                   ? socialLinks.facebook
-                  : `${socialLinks.facebook}`;
+                  : `https://${socialLinks.facebook}`;
                 window.open(url, '_blank', 'noopener,noreferrer');
               }}
             />
@@ -124,18 +124,7 @@ const ContactInfo = () => {
               onClick={() => {
                 const url = /^https?:\/\//i.test(socialLinks?.instagram)
                   ? socialLinks.instagram
-                  : `${socialLinks.instagram}`;
-                window.open(url, '_blank', 'noopener,noreferrer');
-              }}
-            />
-          )}
-          {socialLinks?.linkedin && (
-            <SocialIcon
-              icon={<Linkedin size={20} />}
-              onClick={() => {
-                const url = /^https?:\/\//i.test(socialLinks?.linkedin)
-                  ? socialLinks.linkedin
-                  : `${socialLinks.linkedin}`;
+                  : `https://${socialLinks.instagram}`;
                 window.open(url, '_blank', 'noopener,noreferrer');
               }}
             />

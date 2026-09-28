@@ -128,17 +128,6 @@ const Footer = () => {
                 }
               }}
             />
-            <SocialIcon
-              icon={<Linkedin size={20} />}
-              onClick={() => {
-                if (socialLinks?.linkedin) {
-                  const url = /^https?:\/\//i.test(socialLinks.linkedin)
-                    ? socialLinks.linkedin
-                    : `https://${socialLinks.linkedin}`;
-                  window.open(url, '_blank', 'noopener,noreferrer');
-                }
-              }}
-            />
           </div>
 
           <div className="flex flex-col items-start w-full lg:w-auto xl:w-[286px] 2xl:w-[320px] lg:col-span-1 xl:shrink-0 h-auto lg:h-[240px] xl:h-[220px] 2xl:h-[260px] relative">
