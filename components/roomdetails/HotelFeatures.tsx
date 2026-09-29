@@ -1,6 +1,7 @@
 import React from 'react';
 import { Home, Wifi, Utensils, Coffee, Wine, Waves, Dumbbell, Car, TreePalm } from 'lucide-react';
 import { motion, Variants } from 'framer-motion';
+import { currentWebsite } from '@/contexts/titles';
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -31,6 +32,16 @@ const HotelFeatures: React.FC<HotelFeaturesProps> = ({ room }) => {
     { icon: <Dumbbell className="w-7 h-7" />, label: 'Fitness centre' },
     { icon: <Home className="w-7 h-7" />, label: '45 sqm' },
     { icon: <TreePalm className="w-7 h-7" />, label: 'Beachfront' },
+    { icon: <Coffee className="w-7 h-7" />, label: 'Coffee' },
+    { icon: <Utensils className="w-7 h-7" />, label: 'Kitchen' },
+    { icon: <Car className="w-7 h-7" />, label: 'Free parking' },
+    { icon: <TreePalm className="w-7 h-7" />, label: 'Balcony' },
+  ];
+
+  const apartPopularFacilities = [
+    { icon: <Waves className="w-7 h-7" />, label: 'swimming pool' },
+    { icon: <Wifi className="w-7 h-7" />, label: 'Free Wifi' },
+    { icon: <Dumbbell className="w-7 h-7" />, label: 'Fitness centre' },
     { icon: <Coffee className="w-7 h-7" />, label: 'Coffee' },
     { icon: <Utensils className="w-7 h-7" />, label: 'Kitchen' },
     { icon: <Car className="w-7 h-7" />, label: 'Free parking' },
@@ -119,23 +130,45 @@ const HotelFeatures: React.FC<HotelFeaturesProps> = ({ room }) => {
             </h2>
 
             {/* First Row */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4 mb-3 sm:mb-4">
-              {popularFacilities.map((facility, index) => (
-                <div key={index} className="flex items-center gap-2 sm:gap-3 group">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#8B9DC3] flex items-center justify-center text-white transition-all duration-300 hover:bg-[#00B3DD] flex-shrink-0">
-                    {React.cloneElement(
-                      facility.icon as React.ReactElement<{ className?: string }>,
-                      {
-                        className: 'w-5 h-5 sm:w-7 sm:h-7',
-                      }
-                    )}
+            {currentWebsite === 'MENA_PLAZA' && (
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4 mb-3 sm:mb-4">
+                {popularFacilities.map((facility, index) => (
+                  <div key={index} className="flex items-center gap-2 sm:gap-3 group">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#8B9DC3] flex items-center justify-center text-white transition-all duration-300 hover:bg-[#00B3DD] flex-shrink-0">
+                      {React.cloneElement(
+                        facility.icon as React.ReactElement<{ className?: string }>,
+                        {
+                          className: 'w-5 h-5 sm:w-7 sm:h-7',
+                        }
+                      )}
+                    </div>
+                    <span className="text-xs sm:text-sm md:text-base text-[#1E293B] font-normal">
+                      {facility.label}
+                    </span>
                   </div>
-                  <span className="text-xs sm:text-sm md:text-base text-[#1E293B] font-normal">
-                    {facility.label}
-                  </span>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
+
+            {currentWebsite === 'MENA_APART' && (
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4 mb-3 sm:mb-4">
+                {apartPopularFacilities.map((facility, index) => (
+                  <div key={index} className="flex items-center gap-2 sm:gap-3 group">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#8B9DC3] flex items-center justify-center text-white transition-all duration-300 hover:bg-[#00B3DD] flex-shrink-0">
+                      {React.cloneElement(
+                        facility.icon as React.ReactElement<{ className?: string }>,
+                        {
+                          className: 'w-5 h-5 sm:w-7 sm:h-7',
+                        }
+                      )}
+                    </div>
+                    <span className="text-xs sm:text-sm md:text-base text-[#1E293B] font-normal">
+                      {facility.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </motion.div>
       </div>

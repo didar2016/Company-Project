@@ -95,13 +95,13 @@ const websiteTitles = {
       hotelname: 'LOKANTA 1928',
       description:
         "The best Turkish Lokanta in Dubai, bringing the dining tradition inherited from 1928 to today's Dubai. The same sincerity, the same craftsmanship only the view has changed.",
-      image: '/public/mena-apart-hotel/3b5d3488-66ce-484a-b433-93f02dbded84.jpg',
+      image: '/public/mena-apart-hotel/b4b43dea-dd9a-4ea1-a55b-18e57feb770b.jpeg',
     },
     aboutFood: {
       title: 'Dining and Hotel Amenities',
-      text: 'Culinary Experience at MENA ApartHotel',
+      text: 'LOKANTA 1928',
       subText:
-        'Indulge in a diverse selection of international cuisine at our on-site restaurant, featuring vegetarian, dairy-free, and halal options. From a generous breakfast buffet to à la carte dinners, every meal is prepared with care to suit a variety of tastes.',
+        "The best Turkish Lokanta in Dubai, bringing the dining tradition inherited from 1928 to today's Dubai. The same sincerity, the same craftsmanship only the view has changed.",
       points: [
         'Outdoor Swimming Pool: A refreshing spot to relax.',
         'Fitness Center: A well-equipped gym to maintain your routine.',
