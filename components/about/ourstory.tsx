@@ -68,10 +68,10 @@ const useCounter = (endValue: number, duration: number = 1000, suffix: string = 
 };
 
 const OurStory = () => {
-  const suitesCounter = useCounter(150, 500, '+');
+  const suitesCounter = useCounter(90, 500, '');
   const satisfactionCounter = useCounter(98, 1000, '%');
   const conciergeCounter = useCounter(24, 1500, '/7');
-  const roomcounter = useCounter(90, 400, '');
+  const roomcounter = useCounter(90, 500, '');
 
   const ourstory = useOurStory();
 

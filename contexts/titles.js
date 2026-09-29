@@ -88,13 +88,13 @@ const websiteTitles = {
     facilities: {
       title: 'Facilities That Enhance Your Stay',
       subtitle:
-        'MENA ApartHotel Albarsha offers a range of facilities designed to provide comfort and MENA ApartHotel Albarsha offers a range of facilities designed to provide comfort and convenience, ensuring an exceptional experience for both short and extended stays.',
+        'MENA ApartHotel Albarsha offers a range of facilities designed to provide comfort and convenience, ensuring an exceptional experience for both short and extended stays.',
     },
     food: {
       title: 'A Culinary Journey Awaits',
-      hotelname: 'MENA ApartHotel Dining',
+      hotelname: 'LOKANTA 1928',
       description:
-        'Savor the best of Mediterranean flavors and Arabic hospitality at MENA ApartHotel Albarsha. Our dining options are designed to suit every palate, ensuring a memorable gastronomic experience',
+        "The best Turkish Lokanta in Dubai, bringing the dining tradition inherited from 1928 to today's Dubai. The same sincerity, the same craftsmanship only the view has changed.",
       image: '/public/mena-apart-hotel/3b5d3488-66ce-484a-b433-93f02dbded84.jpg',
     },
     aboutFood: {

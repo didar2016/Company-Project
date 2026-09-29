@@ -23,11 +23,10 @@ const amenitiesData: AmenityItem[] = [
     description: 'Rejuvenate after a busy day in our tranquil sauna.',
     icon: fitnesscenricon,
   },
-
   {
-    title: '24/7 SUPPORT',
-    description: 'Concierge & 24/7 Service',
-    icon: support_icon,
+    title: 'SAUNA',
+    description: 'Rejuvenate after a busy day in our tranquil sauna.',
+    icon: sauna_icon,
   },
   {
     title: 'FREE PARKING',
@@ -35,9 +34,9 @@ const amenitiesData: AmenityItem[] = [
     icon: support_icon,
   },
   {
-    title: 'SAUNA',
-    description: 'Rejuvenate after a busy day in our tranquil sauna.',
-    icon: wifi_con,
+    title: '24/7 SUPPORT',
+    description: 'Concierge & 24/7 Service',
+    icon: support_icon,
   },
 ];
 

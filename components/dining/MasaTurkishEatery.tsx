@@ -3,7 +3,7 @@ import Image from 'next/image';
 import visithotelicon from '../../public/images/visithotelicon.png';
 import { motion, Variants } from 'framer-motion';
 import AnimatedText from '../animation/AnimateText';
-import { ALLDATA } from '@/contexts/titles';
+import { ALLDATA, currentWebsite } from '@/contexts/titles';
 import { getImageUrl } from '@/hooks/imageMake';
 
 // Animation Variants
@@ -73,71 +73,74 @@ const MasaTurkishEatery: React.FC = () => {
             </p>
 
             {/* Hours of Operation */}
-            <div className="space-y-3 sm:space-y-4 mb-6">
-              <h4
-                className="font-sansation text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[24px] text-[#454779] uppercase leading-tight"
-                style={{ fontWeight: 300 }}
-              >
-                HOURS OF OPERATION
-              </h4>
+            {currentWebsite != 'MENA_APART' && (
+              <div className="space-y-3 sm:space-y-4 mb-6">
+                <h4
+                  className="font-sansation text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[24px] text-[#454779] uppercase leading-tight"
+                  style={{ fontWeight: 300 }}
+                >
+                  HOURS OF OPERATION
+                </h4>
 
-              {/* Time Slots */}
-              <div className="flex flex-col sm:flex-row md:justify-between items-stretch sm:items-center gap-3 sm:gap-2">
-                {/* Breakfast */}
-                <div className="flex flex-col items-center space-y-2 bg-[#9BA9CA33] rounded-[20px] sm:rounded-[28px] p-[10px] flex-1">
-                  <div
-                    className="text-center font-sansation text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] text-[#2A2D71] uppercase leading-tight"
-                    style={{ fontWeight: 700 }}
-                  >
-                    BREAKFAST
-                  </div>
-                  <div className="bg-[#00B3DD] text-white px-[15px] py-[4px] text-center rounded-full min-h-[32px] sm:min-h-[38px] flex items-center justify-center w-full max-w-[222px]">
-                    <span
-                      className="font-sansation text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] xl:text-[16px] leading-tight"
-                      style={{ fontWeight: 400 }}
-                    >
-                      7:00 AM – 11:00 AM
-                    </span>
-                  </div>
-                </div>
+                {/* Time Slots */}
 
-                {/* Lunch */}
-                <div className="flex flex-col items-center space-y-2 bg-[#9BA9CA33] rounded-[20px] sm:rounded-[28px] p-[10px] flex-1">
-                  <div
-                    className="text-center font-sansation text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] text-[#2A2D71] uppercase leading-tight"
-                    style={{ fontWeight: 700 }}
-                  >
-                    LUNCH
-                  </div>
-                  <div className="bg-[#00B3DD] text-white px-[15px] py-[4px] text-center rounded-full min-h-[32px] sm:min-h-[38px] flex items-center justify-center w-full max-w-[222px]">
-                    <span
-                      className="font-sansation text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] xl:text-[16px] leading-tight"
-                      style={{ fontWeight: 400 }}
+                <div className="flex flex-col sm:flex-row md:justify-between items-stretch sm:items-center gap-3 sm:gap-2">
+                  {/* Breakfast */}
+                  <div className="flex flex-col items-center space-y-2 bg-[#9BA9CA33] rounded-[20px] sm:rounded-[28px] p-[10px] flex-1">
+                    <div
+                      className="text-center font-sansation text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] text-[#2A2D71] uppercase leading-tight"
+                      style={{ fontWeight: 700 }}
                     >
-                      12:30 PM – 4:00 PM
-                    </span>
+                      BREAKFAST
+                    </div>
+                    <div className="bg-[#00B3DD] text-white px-[15px] py-[4px] text-center rounded-full min-h-[32px] sm:min-h-[38px] flex items-center justify-center w-full max-w-[222px]">
+                      <span
+                        className="font-sansation text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] xl:text-[16px] leading-tight"
+                        style={{ fontWeight: 400 }}
+                      >
+                        7:00 AM – 11:00 AM
+                      </span>
+                    </div>
                   </div>
-                </div>
 
-                {/* Dinner */}
-                <div className="flex flex-col items-center space-y-2 bg-[#9BA9CA33] rounded-[20px] sm:rounded-[28px] p-[10px] flex-1">
-                  <div
-                    className="text-center font-sansation text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] text-[#2A2D71] uppercase leading-tight"
-                    style={{ fontWeight: 700 }}
-                  >
-                    DINNER
-                  </div>
-                  <div className="bg-[#00B3DD] text-white px-[15px] py-[4px] text-center rounded-full min-h-[32px] sm:min-h-[38px] flex items-center justify-center w-full max-w-[222px]">
-                    <span
-                      className="font-sansation text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] xl:text-[16px] leading-tight"
-                      style={{ fontWeight: 400 }}
+                  {/* Lunch */}
+                  <div className="flex flex-col items-center space-y-2 bg-[#9BA9CA33] rounded-[20px] sm:rounded-[28px] p-[10px] flex-1">
+                    <div
+                      className="text-center font-sansation text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] text-[#2A2D71] uppercase leading-tight"
+                      style={{ fontWeight: 700 }}
                     >
-                      7:00 PM – 11:00 PM
-                    </span>
+                      LUNCH
+                    </div>
+                    <div className="bg-[#00B3DD] text-white px-[15px] py-[4px] text-center rounded-full min-h-[32px] sm:min-h-[38px] flex items-center justify-center w-full max-w-[222px]">
+                      <span
+                        className="font-sansation text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] xl:text-[16px] leading-tight"
+                        style={{ fontWeight: 400 }}
+                      >
+                        12:30 PM – 4:00 PM
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Dinner */}
+                  <div className="flex flex-col items-center space-y-2 bg-[#9BA9CA33] rounded-[20px] sm:rounded-[28px] p-[10px] flex-1">
+                    <div
+                      className="text-center font-sansation text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] text-[#2A2D71] uppercase leading-tight"
+                      style={{ fontWeight: 700 }}
+                    >
+                      DINNER
+                    </div>
+                    <div className="bg-[#00B3DD] text-white px-[15px] py-[4px] text-center rounded-full min-h-[32px] sm:min-h-[38px] flex items-center justify-center w-full max-w-[222px]">
+                      <span
+                        className="font-sansation text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] xl:text-[16px] leading-tight"
+                        style={{ fontWeight: 400 }}
+                      >
+                        7:00 PM – 11:00 PM
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            )}
 
             {/* Action Buttons */}
             <div className="pt-4">
