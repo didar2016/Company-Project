@@ -13,7 +13,7 @@ const websiteTitles = {
       des3: 'Book your stay to discover the perfect balance of comfort, value, and authentic Arabian warmth in the center of Dubai.',
     },
     aboutdescription: {
-      image: '/public/mena-plaza-hotel/6f7cef60-1916-4e4e-a822-e20a9686dd1f.jpg',
+      image: '/public/mena-plaza-hotel/89c79d85-2507-4f88-83fc-a2600c772063.jpg',
       title: 'Welcome to <span style="font-weight:900">MENA Plaza Hotel Albarsha</span>',
       subtitle:
         'Modern space, exceptional service and everything you need for a seamless stay in the city',
