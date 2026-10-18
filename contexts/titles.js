@@ -61,6 +61,7 @@ const websiteTitles = {
       link: 'https://maps.app.goo.gl/46wZWk85Sb7gYpYK7',
     },
   },
+
   MENA_APART: {
     index_page_header_text: 'Your Gateway to <span style="font-weight:900">Dubai’s</span> Comfort',
     description: {
@@ -119,25 +120,182 @@ const websiteTitles = {
       link: 'https://maps.app.goo.gl/46wZWk85Sb7gYpYK7',
     },
   },
-  MENA_WEBSITE3: {
-    headline: 'MENA WEBSITE3 - Your Destination',
-    description: 'Experience the unique charm of MENA WEBSITE3.',
+
+  MENA_HALFMOON: {
+    index_page_header_text: 'Your Gateway to <span style="font-weight:900">Dubai’s</span> Comfort',
+    description: {
+      image: '/public/mena-apart-hotel/d45007a1-e917-461b-8d87-69bec1fdeecf.jpg',
+      title: 'LIVE THE <span style="font-weight:900">MENA APART</span> EXPERIENCE',
+      subtitle:
+        'Modern space, exceptional service and everything you need for a seamless stay in the city.',
+      des1: 'Situated in the vibrant city of Dubai, MENA ApartHotel Albarsha is the perfect choice for short or extended stays. A short walk from the Mall of the Emirates, we combine the comforts of home with genuine hospitality, offering outstanding value for families, business travelers, and explorers.',
+      des2: '',
+      des3: 'Book your stay today and experience the perfect blend of modern living and warm hospitality at MENA ApartHotel Albarsha.',
+    },
+    aboutdescription: {
+      title: 'Welcome to <span style="font-weight:900">MENA ApartHotel Albarsha</span>',
+      subtitle:
+        'Modern space, exceptional service and everything you need for a seamless stay in the city',
+      des1: 'Nestled in the heart of vibrant Al Barsha, MENA ApartHotel offers an exceptional experience, defined by genuine Arab hospitality and prime convenience. Our enviable location places you just a short walk from the iconic Mall of the Emirates and the Dubai Metro, providing effortless access to the city’s top attractions',
+      des2: 'Designed as a refined, alcohol-free retreat, we welcome families, business travelers, and small groups to unwind in modern, spacious accommodations. Savor diverse culinary delights, refresh in our outdoor pool, and recharge in our well-equipped fitness center—all complemented by warm, attentive service dedicated to making your stay seamless and memorable',
+      locationText: 'An Ideal Location in Al Barsha',
+    },
+    room: {
+      title: 'Accommodations Designed for Your Comfort',
+      subtitle:
+        'Step into a haven of modern tranquility. Our rooms are thoughtfully designed with a calming palette of light tones and rich accents, creating an atmosphere of refined relaxation from the moment you arrive.',
+    },
+    facilities: {
+      title: 'Facilities That Enhance Your Stay',
+      subtitle:
+        'MENA ApartHotel Albarsha offers a range of facilities designed to provide comfort and convenience, ensuring an exceptional experience for both short and extended stays.',
+    },
+    food: {
+      title: 'A Culinary Journey Awaits',
+      hotelname: 'LOKANTA 1928',
+      description:
+        "The best Turkish Lokanta in Dubai, bringing the dining tradition inherited from 1928 to today's Dubai. The same sincerity, the same craftsmanship only the view has changed.",
+      image: '/public/mena-apart-hotel/b4b43dea-dd9a-4ea1-a55b-18e57feb770b.jpeg',
+    },
+    aboutFood: {
+      title: 'Dining and Hotel Amenities',
+      text: 'LOKANTA 1928',
+      subText:
+        "The best Turkish Lokanta in Dubai, bringing the dining tradition inherited from 1928 to today's Dubai. The same sincerity, the same craftsmanship only the view has changed.",
+      points: [
+        'Outdoor Swimming Pool: A refreshing spot to relax.',
+        'Fitness Center: A well-equipped gym to maintain your routine.',
+        'Rejuvenating Sauna: For deep relaxation after a day of exploring.',
+        'Complimentary High-Speed Wi-Fi: Stay connected throughout the hotel.',
+        'Shared Lounge Area: A comfortable space to unwind or socialize.',
+      ],
+    },
+    ourStory: {
+      title: 'Unmatched Hospitality',
+      subTitle:
+        'At MENA ApartHotel Albarsha, our values are deeply rooted in <span style="font-weight:900"> traditional Arabian hospitality</span>. Our alcohol-free environment makes us an ideal choice for families and gatherings with friends. Our dedicated team strives to exceed your expectations. We promise an experience that combines comfort, elegance, and world-class service.',
+    },
+    map: {
+      link: 'https://maps.app.goo.gl/46wZWk85Sb7gYpYK7',
+    },
   },
-  website4: {
-    headline: 'Welcome to Website 4',
-    description: 'Website 4 offers unparalleled experiences.',
+
+  MENA_NASRIYA: {
+    index_page_header_text: 'Your Gateway to <span style="font-weight:900">Dubai’s</span> Comfort',
+    description: {
+      image: '/public/mena-apart-hotel/d45007a1-e917-461b-8d87-69bec1fdeecf.jpg',
+      title: 'LIVE THE <span style="font-weight:900">MENA APART</span> EXPERIENCE',
+      subtitle:
+        'Modern space, exceptional service and everything you need for a seamless stay in the city.',
+      des1: 'Situated in the vibrant city of Dubai, MENA ApartHotel Albarsha is the perfect choice for short or extended stays. A short walk from the Mall of the Emirates, we combine the comforts of home with genuine hospitality, offering outstanding value for families, business travelers, and explorers.',
+      des2: '',
+      des3: 'Book your stay today and experience the perfect blend of modern living and warm hospitality at MENA ApartHotel Albarsha.',
+    },
+    aboutdescription: {
+      title: 'Welcome to <span style="font-weight:900">MENA ApartHotel Albarsha</span>',
+      subtitle:
+        'Modern space, exceptional service and everything you need for a seamless stay in the city',
+      des1: 'Nestled in the heart of vibrant Al Barsha, MENA ApartHotel offers an exceptional experience, defined by genuine Arab hospitality and prime convenience. Our enviable location places you just a short walk from the iconic Mall of the Emirates and the Dubai Metro, providing effortless access to the city’s top attractions',
+      des2: 'Designed as a refined, alcohol-free retreat, we welcome families, business travelers, and small groups to unwind in modern, spacious accommodations. Savor diverse culinary delights, refresh in our outdoor pool, and recharge in our well-equipped fitness center—all complemented by warm, attentive service dedicated to making your stay seamless and memorable',
+      locationText: 'An Ideal Location in Al Barsha',
+    },
+    room: {
+      title: 'Accommodations Designed for Your Comfort',
+      subtitle:
+        'Step into a haven of modern tranquility. Our rooms are thoughtfully designed with a calming palette of light tones and rich accents, creating an atmosphere of refined relaxation from the moment you arrive.',
+    },
+    facilities: {
+      title: 'Facilities That Enhance Your Stay',
+      subtitle:
+        'MENA ApartHotel Albarsha offers a range of facilities designed to provide comfort and convenience, ensuring an exceptional experience for both short and extended stays.',
+    },
+    food: {
+      title: 'A Culinary Journey Awaits',
+      hotelname: 'LOKANTA 1928',
+      description:
+        "The best Turkish Lokanta in Dubai, bringing the dining tradition inherited from 1928 to today's Dubai. The same sincerity, the same craftsmanship only the view has changed.",
+      image: '/public/mena-apart-hotel/b4b43dea-dd9a-4ea1-a55b-18e57feb770b.jpeg',
+    },
+    aboutFood: {
+      title: 'Dining and Hotel Amenities',
+      text: 'LOKANTA 1928',
+      subText:
+        "The best Turkish Lokanta in Dubai, bringing the dining tradition inherited from 1928 to today's Dubai. The same sincerity, the same craftsmanship only the view has changed.",
+      points: [
+        'Outdoor Swimming Pool: A refreshing spot to relax.',
+        'Fitness Center: A well-equipped gym to maintain your routine.',
+        'Rejuvenating Sauna: For deep relaxation after a day of exploring.',
+        'Complimentary High-Speed Wi-Fi: Stay connected throughout the hotel.',
+        'Shared Lounge Area: A comfortable space to unwind or socialize.',
+      ],
+    },
+    ourStory: {
+      title: 'Unmatched Hospitality',
+      subTitle:
+        'At MENA ApartHotel Albarsha, our values are deeply rooted in <span style="font-weight:900"> traditional Arabian hospitality</span>. Our alcohol-free environment makes us an ideal choice for families and gatherings with friends. Our dedicated team strives to exceed your expectations. We promise an experience that combines comfort, elegance, and world-class service.',
+    },
+    map: {
+      link: 'https://maps.app.goo.gl/46wZWk85Sb7gYpYK7',
+    },
   },
-  website5: {
-    headline: 'Discover Website 5',
-    description: 'Website 5 is your gateway to adventure.',
-  },
-  website6: {
-    headline: 'Website 6 Awaits You',
-    description: 'Uncover the wonders of Website 6.',
-  },
-  website7: {
-    headline: 'Welcome to Website 7',
-    description: 'Website 7 is where your dreams come true.',
+
+  MENA_HOTEL_TABUK: {
+    index_page_header_text: 'Your Gateway to <span style="font-weight:900">Dubai’s</span> Comfort',
+    description: {
+      image: '/public/mena-apart-hotel/d45007a1-e917-461b-8d87-69bec1fdeecf.jpg',
+      title: 'LIVE THE <span style="font-weight:900">MENA APART</span> EXPERIENCE',
+      subtitle:
+        'Modern space, exceptional service and everything you need for a seamless stay in the city.',
+      des1: 'Situated in the vibrant city of Dubai, MENA ApartHotel Albarsha is the perfect choice for short or extended stays. A short walk from the Mall of the Emirates, we combine the comforts of home with genuine hospitality, offering outstanding value for families, business travelers, and explorers.',
+      des2: '',
+      des3: 'Book your stay today and experience the perfect blend of modern living and warm hospitality at MENA ApartHotel Albarsha.',
+    },
+    aboutdescription: {
+      title: 'Welcome to <span style="font-weight:900">MENA ApartHotel Albarsha</span>',
+      subtitle:
+        'Modern space, exceptional service and everything you need for a seamless stay in the city',
+      des1: 'Nestled in the heart of vibrant Al Barsha, MENA ApartHotel offers an exceptional experience, defined by genuine Arab hospitality and prime convenience. Our enviable location places you just a short walk from the iconic Mall of the Emirates and the Dubai Metro, providing effortless access to the city’s top attractions',
+      des2: 'Designed as a refined, alcohol-free retreat, we welcome families, business travelers, and small groups to unwind in modern, spacious accommodations. Savor diverse culinary delights, refresh in our outdoor pool, and recharge in our well-equipped fitness center—all complemented by warm, attentive service dedicated to making your stay seamless and memorable',
+      locationText: 'An Ideal Location in Al Barsha',
+    },
+    room: {
+      title: 'Accommodations Designed for Your Comfort',
+      subtitle:
+        'Step into a haven of modern tranquility. Our rooms are thoughtfully designed with a calming palette of light tones and rich accents, creating an atmosphere of refined relaxation from the moment you arrive.',
+    },
+    facilities: {
+      title: 'Facilities That Enhance Your Stay',
+      subtitle:
+        'MENA ApartHotel Albarsha offers a range of facilities designed to provide comfort and convenience, ensuring an exceptional experience for both short and extended stays.',
+    },
+    food: {
+      title: 'A Culinary Journey Awaits',
+      hotelname: 'LOKANTA 1928',
+      description:
+        "The best Turkish Lokanta in Dubai, bringing the dining tradition inherited from 1928 to today's Dubai. The same sincerity, the same craftsmanship only the view has changed.",
+      image: '/public/mena-apart-hotel/b4b43dea-dd9a-4ea1-a55b-18e57feb770b.jpeg',
+    },
+    aboutFood: {
+      title: 'Dining and Hotel Amenities',
+      text: 'LOKANTA 1928',
+      subText:
+        "The best Turkish Lokanta in Dubai, bringing the dining tradition inherited from 1928 to today's Dubai. The same sincerity, the same craftsmanship only the view has changed.",
+      points: [
+        'Outdoor Swimming Pool: A refreshing spot to relax.',
+        'Fitness Center: A well-equipped gym to maintain your routine.',
+        'Rejuvenating Sauna: For deep relaxation after a day of exploring.',
+        'Complimentary High-Speed Wi-Fi: Stay connected throughout the hotel.',
+        'Shared Lounge Area: A comfortable space to unwind or socialize.',
+      ],
+    },
+    ourStory: {
+      title: 'Unmatched Hospitality',
+      subTitle:
+        'At MENA ApartHotel Albarsha, our values are deeply rooted in <span style="font-weight:900"> traditional Arabian hospitality</span>. Our alcohol-free environment makes us an ideal choice for families and gatherings with friends. Our dedicated team strives to exceed your expectations. We promise an experience that combines comfort, elegance, and world-class service.',
+    },
+    map: {
+      link: 'https://maps.app.goo.gl/46wZWk85Sb7gYpYK7',
+    },
   },
 };
 
