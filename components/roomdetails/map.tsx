@@ -75,6 +75,14 @@ const Map: React.FC = () => {
                     </>
                   )}
 
+                  {currentWebsite == 'MENA_NASRIYA' && (
+                    <>
+                      Located in the vibrant heart of downtown, our hotel is just minutes from major
+                      attractions, business districts, and cultural landmarks, offering unparalleled
+                      access to the citys best.
+                    </>
+                  )}
+
                   {currentWebsite == 'MENA_HOTEL_TABUK' && (
                     <>
                       Located in the vibrant heart of downtown, our hotel is just minutes from major
