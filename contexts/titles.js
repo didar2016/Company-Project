@@ -185,20 +185,20 @@ const websiteTitles = {
     index_page_header_text: 'Your Gateway to <span style="font-weight:900">Dubai’s</span> Comfort',
     description: {
       image: '/public/mena-nasriya/56b56c31-e851-4614-a6dd-90a6dbe1f52a.jpg',
-      title: 'LIVE THE <span style="font-weight:900">MENA APART</span> EXPERIENCE',
+      title: 'LIVE THE <span style="font-weight:900">MENA NASRIYA</span> EXPERIENCE',
       subtitle:
         'Modern space, exceptional service and everything you need for a seamless stay in the city.',
-      des1: 'Situated in the vibrant city of Dubai, MENA Halfmoon is the perfect choice for short or extended stays. A short walk from the Mall of the Emirates, we combine the comforts of home with genuine hospitality, offering outstanding value for families, business travelers, and explorers.',
+      des1: 'Situated in the vibrant city of Dubai, MENA Nasriya is the perfect choice for short or extended stays. A short walk from the Mall of the Emirates, we combine the comforts of home with genuine hospitality, offering outstanding value for families, business travelers, and explorers.',
       des2: '',
-      des3: 'Book your stay today and experience the perfect blend of modern living and warm hospitality at MENA ApartHotel Albarsha.',
+      des3: 'Book your stay today and experience the perfect blend of modern living and warm hospitality at MENA Nasriya.',
     },
     aboutdescription: {
-      title: 'Welcome to <span style="font-weight:900">MENA Halfmoon</span>',
+      title: 'Welcome to <span style="font-weight:900">MENA Nasriya</span>',
       subtitle:
         'Modern space, exceptional service and everything you need for a seamless stay in the city',
-      des1: 'Nestled in the heart of vibrant Mena Halfmoon, MENA Halfmoon offers an exceptional experience, defined by genuine Arab hospitality and prime convenience. Our enviable location places you just a short walk from the iconic Mall of the Emirates and the Dubai Metro, providing effortless access to the city’s top attractions',
-      des2: 'Designed as a refined, alcohol-free retreat, we welcome families, business travelers, and small groups to unwind in modern, spacious accommodations. Savor diverse culinary delights, refresh in our outdoor pool, and recharge in our well-equipped fitness center—all complemented by warm, attentive service dedicated to making your stay seamless and memorable',
-      locationText: 'An Ideal Location in Mena Halfmoon',
+      des1: 'Nestled in the heart of vibrant Mena Nasriya, MENA Nasriya offers an exceptional experience, defined by genuine Arab hospitality and prime convenience. Our enviable location places you just a short walk from the iconic Mall of the Emirates and the Dubai Metro, providing effortless access to the city’s top attractions',
+      des2: 'Designed as a refined, alcohol-free retreat, we welcome families, business travelers, and small groups to unwind in modern, spacious accommodations. Savor diverse culinary delights, refresh in our outdoor pool, and recharge in our well-equipped fitness center—all complemented by warm, attentive service dedicated to making your stay seamless and memorable at MENA Nasriya',
+      locationText: 'An Ideal Location in Mena Nasriya',
       image: '/public/mena-nasriya/56b56c31-e851-4614-a6dd-90a6dbe1f52a.jpg',
     },
     room: {
@@ -209,7 +209,7 @@ const websiteTitles = {
     facilities: {
       title: 'Facilities That Enhance Your Stay',
       subtitle:
-        'MENA Halfmoon offers a range of facilities designed to provide comfort and convenience, ensuring an exceptional experience for both short and extended stays.',
+        'MENA Nasriya offers a range of facilities designed to provide comfort and convenience, ensuring an exceptional experience for both short and extended stays.',
     },
     food: {
       title: 'A Culinary Journey Awaits',
@@ -234,7 +234,7 @@ const websiteTitles = {
     ourStory: {
       title: 'Unmatched Hospitality',
       subTitle:
-        'At MENA ApartHotel Albarsha, our values are deeply rooted in <span style="font-weight:900"> traditional Arabian hospitality</span>. Our alcohol-free environment makes us an ideal choice for families and gatherings with friends. Our dedicated team strives to exceed your expectations. We promise an experience that combines comfort, elegance, and world-class service.',
+        'At MENA Nasriya, our values are deeply rooted in <span style="font-weight:900"> traditional Arabian hospitality</span>. Our alcohol-free environment makes us an ideal choice for families and gatherings with friends. Our dedicated team strives to exceed your expectations. We promise an experience that combines comfort, elegance, and world-class service.',
     },
     map: {
       link: 'https://maps.app.goo.gl/46wZWk85Sb7gYpYK7',
