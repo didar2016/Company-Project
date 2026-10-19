@@ -89,8 +89,28 @@ const AboutDescription = () => {
 
           {currentWebsite == 'MENA_APART' && (
             <Image
-              src={space}
-              alt="Mena Plaza Hotel Lobby"
+              src={getImageUrl(ALLDATA.aboutdescription.image) || ''}
+              alt="Mena Apart Hotel Lobby"
+              fill
+              style={{ objectFit: 'cover' }}
+              className="transition-transform duration-500 group-hover:scale-105"
+            />
+          )}
+
+          {currentWebsite == 'MENA_HALFMOON' && (
+            <Image
+              src={getImageUrl(ALLDATA.aboutdescription.image) || ''}
+              alt="Mena Halfmoon"
+              fill
+              style={{ objectFit: 'cover' }}
+              className="transition-transform duration-500 group-hover:scale-105"
+            />
+          )}
+
+          {currentWebsite == 'MENA_HOTEL_TABUK' && (
+            <Image
+              src={getImageUrl(ALLDATA.aboutdescription.image) || ''}
+              alt="Mena Hotel Tabuk"
               fill
               style={{ objectFit: 'cover' }}
               className="transition-transform duration-500 group-hover:scale-105"
