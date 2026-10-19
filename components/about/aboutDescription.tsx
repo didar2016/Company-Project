@@ -107,6 +107,16 @@ const AboutDescription = () => {
             />
           )}
 
+          {currentWebsite == 'MENA_NASRIYA' && (
+            <Image
+              src={getImageUrl(ALLDATA.aboutdescription.image) || ''}
+              alt="Mena Nasriya"
+              fill
+              style={{ objectFit: 'cover' }}
+              className="transition-transform duration-500 group-hover:scale-105"
+            />
+          )}
+
           {currentWebsite == 'MENA_HOTEL_TABUK' && (
             <Image
               src={getImageUrl(ALLDATA.aboutdescription.image) || ''}

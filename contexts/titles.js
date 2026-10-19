@@ -184,7 +184,7 @@ const websiteTitles = {
   MENA_NASRIYA: {
     index_page_header_text: 'Your Gateway to <span style="font-weight:900">Dubai’s</span> Comfort',
     description: {
-      image: '/public/mena-apart-hotel/d45007a1-e917-461b-8d87-69bec1fdeecf.jpg',
+      image: '/public/mena-nasriya/56b56c31-e851-4614-a6dd-90a6dbe1f52a.jpg',
       title: 'LIVE THE <span style="font-weight:900">MENA APART</span> EXPERIENCE',
       subtitle:
         'Modern space, exceptional service and everything you need for a seamless stay in the city.',
@@ -199,6 +199,7 @@ const websiteTitles = {
       des1: 'Nestled in the heart of vibrant Mena Halfmoon, MENA Halfmoon offers an exceptional experience, defined by genuine Arab hospitality and prime convenience. Our enviable location places you just a short walk from the iconic Mall of the Emirates and the Dubai Metro, providing effortless access to the city’s top attractions',
       des2: 'Designed as a refined, alcohol-free retreat, we welcome families, business travelers, and small groups to unwind in modern, spacious accommodations. Savor diverse culinary delights, refresh in our outdoor pool, and recharge in our well-equipped fitness center—all complemented by warm, attentive service dedicated to making your stay seamless and memorable',
       locationText: 'An Ideal Location in Mena Halfmoon',
+      image: '/public/mena-nasriya/56b56c31-e851-4614-a6dd-90a6dbe1f52a.jpg',
     },
     room: {
       title: 'Accommodations Designed for Your Comfort',
@@ -215,7 +216,7 @@ const websiteTitles = {
       hotelname: 'LOKANTA 1928',
       description:
         "The best Turkish Lokanta in Dubai, bringing the dining tradition inherited from 1928 to today's Dubai. The same sincerity, the same craftsmanship only the view has changed.",
-      image: '/public/mena-apart-hotel/b4b43dea-dd9a-4ea1-a55b-18e57feb770b.jpeg',
+      image: '/public/mena-nasriya/b0bf1293-b03f-4598-9a10-331c2a62c033.jpg',
     },
     aboutFood: {
       title: 'Dining and Hotel Amenities',

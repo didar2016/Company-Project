@@ -119,6 +119,16 @@ const Description = () => {
             />
           )}
 
+          {currentWebsite == 'MENA_NASRIYA' && (
+            <Image
+              src={getImageUrl(ALLDATA.description.image) || ''}
+              alt="Mena Nasriya"
+              fill
+              style={{ objectFit: 'cover' }}
+              className="transition-transform duration-500 group-hover:scale-105"
+            />
+          )}
+
           {/* Play Button Overlay */}
           <div className="absolute right-[20px] bottom-[20px] flex items-center justify-center">
             <button className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform group-hover:shadow-xl">
