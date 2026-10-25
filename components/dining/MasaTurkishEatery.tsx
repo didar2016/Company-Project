@@ -145,19 +145,20 @@ const MasaTurkishEatery: React.FC = () => {
             {/* Action Buttons */}
             <div className="pt-4">
               {/* Explore Menu Button */}
-
-              <button className="flex flex-row justify-between items-center  gap-1.5 sm:gap-2.5 border-2 border-[#9BA9CA] bg-white  opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3">
-                <span className="pl-2 sm:pl-4 font-sansation font-[700] text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] uppercase text-[#454779]">
-                  EXPLORE MENU
-                </span>
-                <span className="py-2">
-                  <Image
-                    src={visithotelicon}
-                    alt="Visit Hotel Icon"
-                    className="object-contain h-[24px] w-[28px] sm:h-[30px] sm:w-[36px] md:h-[36px] md:w-[42px]"
-                  />
-                </span>
-              </button>
+              {currentWebsite != 'MENA_PLAZA' && (
+                <button className="flex flex-row justify-between items-center  gap-1.5 sm:gap-2.5 border-2 border-[#9BA9CA] bg-white  opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3">
+                  <span className="pl-2 sm:pl-4 font-sansation font-[700] text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] uppercase text-[#454779]">
+                    EXPLORE MENU
+                  </span>
+                  <span className="py-2">
+                    <Image
+                      src={visithotelicon}
+                      alt="Visit Hotel Icon"
+                      className="object-contain h-[24px] w-[28px] sm:h-[30px] sm:w-[36px] md:h-[36px] md:w-[42px]"
+                    />
+                  </span>
+                </button>
+              )}
             </div>
           </motion.div>
         </div>

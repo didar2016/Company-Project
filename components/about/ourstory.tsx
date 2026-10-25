@@ -152,7 +152,7 @@ const OurStory = () => {
                   Guest Satisfaction
                 </span>
               </div>
-              <div className="px-10 py-4 flex flex-col items-center gap-2 text-center">
+              {/* <div className="px-10 py-4 flex flex-col items-center gap-2 text-center">
                 <span
                   ref={conciergeCounter.countRef}
                   className="font-['Sansation'] text-[#00B3DD] text-5xl md:text-[80px] font-bold"
@@ -162,7 +162,7 @@ const OurStory = () => {
                 <span className="font-['Sansation'] text-white text-xl uppercase tracking-wider">
                   Concierge Service
                 </span>
-              </div>
+              </div> */}
             </div>
           </div>
 

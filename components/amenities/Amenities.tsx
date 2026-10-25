@@ -5,6 +5,7 @@ import fitnesscenricon from '../../public/images/fitness_center_icon.png';
 import sauna_icon from '../../public/images/sauna_icon.png';
 import support_icon from '../../public/images/247_support_icon.png';
 import wifi_con from '../../public/images/wifi_icon.png';
+import { currentWebsite } from '@/contexts/titles';
 
 interface AmenityItem {
   title: string;
@@ -33,11 +34,39 @@ const amenitiesData: AmenityItem[] = [
     description: 'Airport Shuttle & Free Parking',
     icon: support_icon,
   },
+  // {
+  //   title: '24/7 SUPPORT',
+  //   description: 'Concierge & 24/7 Service',
+  //   icon: support_icon,
+  // },
+];
+
+const apartAmenitiesData: AmenityItem[] = [
   {
-    title: '24/7 SUPPORT',
-    description: 'Concierge & 24/7 Service',
+    title: 'ROOFTOP POOL',
+    description: 'Rejuvenate after a busy day in our tranquil sauna.',
+    icon: rooftopicon,
+  },
+  {
+    title: 'FITNESS CENTER',
+    description: 'Rejuvenate after a busy day in our tranquil sauna.',
+    icon: fitnesscenricon,
+  },
+  {
+    title: 'SAUNA',
+    description: 'Rejuvenate after a busy day in our tranquil sauna.',
+    icon: sauna_icon,
+  },
+  {
+    title: 'FREE PARKING',
+    description: 'Airport Shuttle & Free Parking',
     icon: support_icon,
   },
+  // {
+  //   title: '24/7 SUPPORT',
+  //   description: 'Concierge & 24/7 Service',
+  //   icon: support_icon,
+  // },
 ];
 
 const AmenityCard: React.FC<AmenityItem> = ({ title, description, icon }) => {
@@ -106,9 +135,9 @@ const Amenities: React.FC = () => {
     <div className="w-full bg-white flex justify-center overflow-hidden mx-auto  px-4 sm:px-6 md:px-8 lg:px-14 xl:px-16 2xl:px-18 [@media(min-width:1920px)]:px-25 py-6 sm:py-8 md:py-12 lg:py-14 xl:py-16 2xl:py-18 [@media(min-width:1920px)]:py-25">
       <div className="w-full max-w-[1720px] mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 xl:gap-[60px] justify-items-center max-w-[1720px] mx-auto">
-          {amenitiesData.map((item, index) => (
-            <AmenityCard key={index} {...item} />
-          ))}
+          {currentWebsite == 'MENA_APART'
+            ? apartAmenitiesData.map((item, index) => <AmenityCard key={index} {...item} />)
+            : amenitiesData.map((item, index) => <AmenityCard key={index} {...item} />)}
         </div>
       </div>
     </div>
