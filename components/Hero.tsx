@@ -277,10 +277,13 @@ const Hero: React.FC<{
               animate="visible"
               variants={charContainer}
               key={ALLDATA.index_page_header_text || 'loading-subtext'}
-              className="max-[640px]:text-center font-sansation font-light text-[20px] sm:text-[30px] md:text-[42px] lg:text-[50px] xl:text-[65px] leading-[1.1] text-white uppercase text-right mb-2 lg:mb-4.5"
+              className="max-[640px]:text-center font-sansation font-light text-[20px] sm:text-[32px] md:text-[42px] lg:text-[50px] xl:text-[50px] leading-[1.1] text-white uppercase text-right mb-2 lg:mb-4.5"
             >
               <AnimatedText>
-                <div dangerouslySetInnerHTML={{ __html: ALLDATA.index_page_header_text }}></div>
+                <div
+                  className="max-[640px]:text-center font-sansation font-light text-[20px] sm:text-[32px] md:text-[42px] lg:text-[50px] xl:text-[70px] leading-[1.1] text-white uppercase text-right mb-2 lg:mb-4.5"
+                  dangerouslySetInnerHTML={{ __html: ALLDATA.index_page_header_text }}
+                ></div>
               </AnimatedText>
             </motion.h1>
             <motion.p

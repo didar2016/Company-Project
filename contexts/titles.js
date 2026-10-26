@@ -1,7 +1,7 @@
 // Titles object to store local titles for different websites
 const websiteTitles = {
   MENA_PLAZA: {
-    index_page_header_text: 'Your Destination for Comfort.',
+    index_page_header_text: 'Your Destination for Comfort',
     description: {
       image: '/public/mena-plaza-hotel/2a591547-2074-4a56-823b-5146f0d6f1f7.jpg',
       title: 'LIVE THE <span style="font-weight:900">PLAZA</span> EXPERIENCE',
@@ -62,7 +62,7 @@ const websiteTitles = {
   },
 
   MENA_APART: {
-    index_page_header_text: 'The Comfort of Home.<br/>The Ease of a Hotel.',
+    index_page_header_text: 'The Comfort of Home<br/>The Ease of a Hotel',
     description: {
       image: '/public/mena-apart-hotel/d45007a1-e917-461b-8d87-69bec1fdeecf.jpg',
       title: 'LIVE THE <span style="font-weight:900">MENA APART</span> EXPERIENCE',
