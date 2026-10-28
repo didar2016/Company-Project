@@ -174,7 +174,7 @@ const Description = () => {
           <div className="flex justify-center mt-4" onClick={handlenavigation}>
             <button className="flex items-center gap-4 bg-[#00B3DD] rounded-[60px] pl-8 pr-3 py-3 text-white transition hover:bg-[#009bc0] group">
               <span className="font-['Sansation'] font-bold text-lg tracking-[1.25px] uppercase">
-                Learn More
+                Discover More
               </span>
               <Image
                 src={visithotelicon}
@@ -220,6 +220,13 @@ const Description = () => {
                   <br />
                 </>
               )}
+
+              {currentWebsite === 'MENA_HALFMOON' && (
+                <>
+                  Our suites and apartments are designed to make you feel at home, offering spacious
+                  layouts and premium amenities to ensure a relaxing and enjoyable stay.
+                </>
+              )}
             </p>
           </div>
 
@@ -229,6 +236,8 @@ const Description = () => {
               {currentWebsite === 'MENA_PLAZA' && 'Every room includes:'}
 
               {currentWebsite === 'MENA_APART' && 'Every suite and apartment includes:'}
+
+              {currentWebsite === 'MENA_HALFMOON' && 'Every room and villa includes:'}
             </h4>
 
             {currentWebsite === 'MENA_PLAZA' && (
@@ -257,6 +266,26 @@ const Description = () => {
                   'Flat-screen TVs with interactive entertainment systems',
                   'Private bathrooms featuring a refreshing shower, free toiletries, and a hairdryer',
                   'Separate living areas for added comfort in One- and Two-Bedroom Apartments',
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start gap-4">
+                    <div className="mt-3 w-2 h-2 bg-[#00B3DD] rotate-45 flex-shrink-0" />
+                    <span className="font-['Sansation'] text-[#2A2D71] text-lg md:text-[20px] tracking-[0.5px]">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {currentWebsite === 'MENA_HALFMOON' && (
+              <ul className="grid grid-cols-1 gap-6">
+                {[
+                  '103 rooms and villas',
+                  'Beachfront location at Half Moon Bay',
+                  'Four outdoor swimming pools',
+                  'Blue Beach Restaurant and a poolside café',
+                  'Fitness centre, sports facilities and recreation activities',
+                  'Three venues for meetings and events',
                 ].map((item, index) => (
                   <li key={index} className="flex items-start gap-4">
                     <div className="mt-3 w-2 h-2 bg-[#00B3DD] rotate-45 flex-shrink-0" />

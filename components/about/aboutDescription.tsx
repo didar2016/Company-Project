@@ -168,6 +168,12 @@ const AboutDescription = () => {
             <br />
             <br />
             <span className="font-[500] text-[20px]"> {ALLDATA.aboutdescription.des2 || ''}</span>
+            <br />
+            <br />
+            <span className="font-[500] text-[20px]"> {ALLDATA.aboutdescription.des3 || ''}</span>
+            <br />
+            <br />
+            <span className="font-[500] text-[20px]"> {ALLDATA.aboutdescription.des4 || ''}</span>
           </p>
         </motion.div>
       </div>

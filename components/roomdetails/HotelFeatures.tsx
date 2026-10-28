@@ -14,6 +14,8 @@ import {
   ConciergeBell,
   Accessibility,
   Users,
+  Bus,
+  Flower2,
 } from 'lucide-react';
 import { motion, Variants } from 'framer-motion';
 import { currentWebsite } from '@/contexts/titles';
@@ -73,6 +75,32 @@ const HotelFeatures: React.FC<HotelFeaturesProps> = ({ room }) => {
     { icon: <UtensilsCrossed className="w-7 h-7" />, label: 'Restaurant' },
     { icon: <Users className="w-7 h-7" />, label: 'Family rooms' },
     { icon: <Coffee className="w-7 h-7" />, label: 'Breakfast' },
+  ];
+
+  const nasriyaPopularFacilities = [
+    { icon: <Waves className="w-7 h-7" />, label: 'Indoor swimming pool' },
+    { icon: <Wifi className="w-7 h-7" />, label: 'Free WiFi' },
+    { icon: <Car className="w-7 h-7" />, label: 'Free parking' },
+    { icon: <Dumbbell className="w-7 h-7" />, label: 'Fitness centre' },
+    { icon: <Bus className="w-7 h-7" />, label: 'Airport shuttle' },
+    { icon: <Users className="w-7 h-7" />, label: 'Family rooms' },
+    { icon: <Flower2 className="w-7 h-7" />, label: 'Spa & wellness centre' },
+    { icon: <UtensilsCrossed className="w-7 h-7" />, label: 'Restaurant' },
+    { icon: <CigaretteOff className="w-7 h-7" />, label: 'Non-smoking rooms' },
+    { icon: <Coffee className="w-7 h-7" />, label: 'Good breakfast' },
+  ];
+
+  const halfmoonPopularFacilities = [
+    { icon: <Waves className="w-7 h-7" />, label: 'Indoor swimming pool' },
+    { icon: <Wifi className="w-7 h-7" />, label: 'Free WiFi' },
+    { icon: <Car className="w-7 h-7" />, label: 'Free parking' },
+    { icon: <Dumbbell className="w-7 h-7" />, label: 'Fitness centre' },
+    { icon: <Bus className="w-7 h-7" />, label: 'Airport shuttle' },
+    { icon: <Users className="w-7 h-7" />, label: 'Family rooms' },
+    { icon: <Flower2 className="w-7 h-7" />, label: 'Spa & wellness centre' },
+    { icon: <UtensilsCrossed className="w-7 h-7" />, label: 'Restaurant' },
+    { icon: <CigaretteOff className="w-7 h-7" />, label: 'Non-smoking rooms' },
+    { icon: <Coffee className="w-7 h-7" />, label: 'Good breakfast' },
   ];
 
   return (
@@ -180,6 +208,46 @@ const HotelFeatures: React.FC<HotelFeaturesProps> = ({ room }) => {
             {currentWebsite === 'MENA_APART' && (
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4 mb-3 sm:mb-4">
                 {apartPopularFacilities.map((facility, index) => (
+                  <div key={index} className="flex items-center gap-2 sm:gap-3 group">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#8B9DC3] flex items-center justify-center text-white transition-all duration-300 hover:bg-[#00B3DD] flex-shrink-0">
+                      {React.cloneElement(
+                        facility.icon as React.ReactElement<{ className?: string }>,
+                        {
+                          className: 'w-5 h-5 sm:w-7 sm:h-7',
+                        }
+                      )}
+                    </div>
+                    <span className="text-xs sm:text-sm md:text-base text-[#1E293B] font-normal">
+                      {facility.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {currentWebsite === 'MENA_NASRIYA' && (
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4 mb-3 sm:mb-4">
+                {nasriyaPopularFacilities.map((facility, index) => (
+                  <div key={index} className="flex items-center gap-2 sm:gap-3 group">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#8B9DC3] flex items-center justify-center text-white transition-all duration-300 hover:bg-[#00B3DD] flex-shrink-0">
+                      {React.cloneElement(
+                        facility.icon as React.ReactElement<{ className?: string }>,
+                        {
+                          className: 'w-5 h-5 sm:w-7 sm:h-7',
+                        }
+                      )}
+                    </div>
+                    <span className="text-xs sm:text-sm md:text-base text-[#1E293B] font-normal">
+                      {facility.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {currentWebsite === 'MENA_HALFMOON' && (
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4 mb-3 sm:mb-4">
+                {halfmoonPopularFacilities.map((facility, index) => (
                   <div key={index} className="flex items-center gap-2 sm:gap-3 group">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#8B9DC3] flex items-center justify-center text-white transition-all duration-300 hover:bg-[#00B3DD] flex-shrink-0">
                       {React.cloneElement(
