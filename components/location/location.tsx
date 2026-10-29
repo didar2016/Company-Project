@@ -89,7 +89,7 @@ const Locations: React.FC = () => {
                     className="object-fill object-center rounded-[15px] sm:rounded-[50px] md:rounded-[50px] w-full h-full"
                   />
 
-                  <div className="absolute right-2 sm:right-4 bottom-2 sm:bottom-4">
+                  {/* <div className="absolute right-2 sm:right-4 bottom-2 sm:bottom-4">
                     <button className="flex flex-row justify-between items-center gap-1.5 sm:gap-2.5 bg-white opacity-100 rounded-3xl sm:rounded-4xl p-2 sm:p-3">
                       <span className="pl-2 font-sansation sm:pl-4 font-bold text-[14px] sm:text-[16px] md:text-[20px] uppercase text-[#454779] leading-[30px] tracking-[1.2px]">
                         GET DIRECTION
@@ -104,7 +104,7 @@ const Locations: React.FC = () => {
                         }}
                       />
                     </button>
-                  </div>
+                  </div> */}
                 </div>
               </motion.div>
             ))}
