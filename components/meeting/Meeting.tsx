@@ -5,6 +5,7 @@ import AnimatedText from '../animation/AnimateText';
 import visithotelicon from '../../public/images/visithotelicon.png';
 import { getImageUrl } from '@/hooks/imageMake';
 import Link from 'next/link';
+import { currentWebsite } from '@/contexts/titles';
 
 // ─────────────────────────────────────────
 // Animation Variants
@@ -28,6 +29,33 @@ const facilities = [
   'Integrated ceiling speakers with individual sound mixers',
   'LED wide screen with HDMI connectivity',
   'Flipcharts and stationery',
+];
+
+const halfmoonVenues = [
+  {
+    name: 'Al Majlis',
+    heading: 'A Setting for Larger Gatherings',
+    description:
+      'Bring guests together in Al Majlis, the resort’s largest event venue. Projectors, stages, screens, lighting and a sound system provide facilities for presentations, banquets and special occasions.',
+    capacity: 'Up to 700 guests, depending on the event layout',
+    equipment: 'Projectors, stages, screens, lighting and sound system',
+  },
+  {
+    name: 'Al Shabka',
+    heading: 'A Welcoming Venue for Your Event',
+    description:
+      'Host a meeting or gathering in Al Shabka, with a projector setup, a stage and a sound system to support your programme. Discuss your layout and presentation needs with our team when planning the event.',
+    capacity: 'Up to 100 guests, depending on the event layout',
+    equipment: 'Projectors, stage and sound system',
+  },
+  {
+    name: 'Al Marsa',
+    heading: 'A Space for Smaller Gatherings',
+    description:
+      'Choose Al Marsa for a smaller meeting or event, with projectors and a sound system available for your gathering. The venue provides a setting for presentations and discussions during your resort visit.',
+    capacity: 'Up to 50 guests, depending on the event layout',
+    equipment: 'Projectors and sound system',
+  },
 ];
 
 // ─────────────────────────────────────────
@@ -145,6 +173,73 @@ const MeetingComponent: React.FC<{ meeting: any }> = ({ meeting }) => {
             priority
           />
         </motion.div>
+
+        {/* ── Event Venues (Half Moon only) ── */}
+        {currentWebsite === 'MENA_HALFMOON' && (
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8"
+          >
+            {halfmoonVenues.map((venue) => (
+              <motion.div
+                key={venue.name}
+                variants={fadeInUp}
+                className="bg-[#EBEEF4] rounded-[20px] p-6 sm:p-8 md:p-10 flex flex-col gap-4 border-[#A4D5F0] border-l-4"
+              >
+                <h2
+                  className="font-sansation text-[20px] sm:text-[26px] md:text-[30px] lg:text-[32px] text-[#454779] leading-tight"
+                  style={{ fontWeight: 700 }}
+                >
+                  {venue.name}
+                </h2>
+                <h3
+                  className="font-sansation uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] tracking-[3px] text-[#8A8BB3]"
+                  style={{ fontWeight: 400 }}
+                >
+                  {venue.heading}
+                </h3>
+                <p
+                  className="font-poppins text-[13px] sm:text-[15px] md:text-[16px] text-[#8A8BB3] leading-relaxed"
+                  style={{ fontWeight: 300 }}
+                >
+                  {venue.description}
+                </p>
+                <div className="h-px w-full bg-[#9BA9CA]/40" />
+                <div>
+                  <p
+                    className="font-sansation uppercase text-[11px] sm:text-[12px] md:text-[13px] lg:text-[14px] text-[#8A8BB3] tracking-widest mb-1"
+                    style={{ fontWeight: 400 }}
+                  >
+                    CAPACITY
+                  </p>
+                  <p
+                    className="font-sansation text-[14px] sm:text-[16px] md:text-[18px] text-[#454779]"
+                    style={{ fontWeight: 400 }}
+                  >
+                    {venue.capacity}
+                  </p>
+                </div>
+                <div>
+                  <p
+                    className="font-sansation uppercase text-[11px] sm:text-[12px] md:text-[13px] lg:text-[14px] text-[#8A8BB3] tracking-widest mb-1"
+                    style={{ fontWeight: 400 }}
+                  >
+                    EQUIPMENT
+                  </p>
+                  <p
+                    className="font-sansation text-[14px] sm:text-[16px] md:text-[18px] text-[#454779]"
+                    style={{ fontWeight: 400 }}
+                  >
+                    {venue.equipment}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
 
         {/* ── Coffee Breaks & Catering ── */}
         <motion.div

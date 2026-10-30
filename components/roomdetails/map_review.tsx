@@ -118,9 +118,10 @@ const MapReview: React.FC = () => {
 
                   {currentWebsite == 'MENA_HALFMOON' && (
                     <>
-                      Located in the vibrant heart of downtown, our hotel is just minutes from major
-                      attractions, business districts, and cultural landmarks, offering unparalleled
-                      access to the citys best.
+                      MENA Holiday Beach Resort is located at Half Moon Bay on the Arabian Gulf,
+                      near Al Khobar in Saudi Arabia’s Eastern Province. Enjoy time by the beach and
+                      make the resort your base for a coastal break or a visit to the surrounding
+                      area.
                     </>
                   )}
 

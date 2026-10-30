@@ -164,13 +164,7 @@ const websiteTitles = {
       text: 'La Mode Café',
       subText:
         'Take a break at La Mode Café, located by the swimming pools. Enjoy coffee, pastries, juices and sandwiches, or choose ice cream and popcorn for a light treat. The poolside setting offers a relaxed place to pause between a swim and your next resort activity.',
-      points: [
-        'Outdoor Swimming Pool: A refreshing spot to relax.',
-        'Fitness Center: A well-equipped gym to maintain your routine.',
-        'Rejuvenating Sauna: For deep relaxation after a day of exploring.',
-        'Complimentary High-Speed Wi-Fi: Stay connected throughout the hotel.',
-        'Shared Lounge Area: A comfortable space to unwind or socialize.',
-      ],
+      points: [],
     },
     ourStory: {
       title: 'Unmatched Hospitality',
@@ -178,7 +172,7 @@ const websiteTitles = {
         'At MENA Halfmoon, our values are deeply rooted in <span style="font-weight:900"> traditional Arabian hospitality</span>. Our alcohol-free environment makes us an ideal choice for families and gatherings with friends. Our dedicated team strives to exceed your expectations. We promise an experience that combines comfort, elegance, and world-class service.',
     },
     map: {
-      link: 'https://maps.app.goo.gl/46wZWk85Sb7gYpYK7',
+      link: 'https://maps.app.goo.gl/ZKJai2b315tSRUc66',
     },
   },
 

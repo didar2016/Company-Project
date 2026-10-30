@@ -3,9 +3,7 @@ import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
 import hotelmapicon from '../../public/images/location_map_icon.png';
 import visithotelicon from '../../public/images/visithotelicon.png';
-import burjkhalifa from '../../public/images/burjalkhlifa.png';
-import mountain from '../../public/images/desertsafari.png';
-import sea from '../../public/images/burjalarab.png';
+import { experiences as hotels } from './experiences';
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -19,34 +17,6 @@ const staggerContainer: Variants = {
     transition: { staggerChildren: 0.2, delayChildren: 0.15 },
   },
 };
-
-interface Hotel {
-  id: number;
-  name: string;
-  address: string;
-  image: any;
-}
-
-const hotels: Hotel[] = [
-  {
-    id: 1,
-    name: 'Desert Safari',
-    address: 'Visit desert safari for an unforgettable adventure',
-    image: mountain,
-  },
-  {
-    id: 2,
-    name: 'Burj Khalifa',
-    address: 'Visit Burj Khalifa for an unforgettable experience',
-    image: burjkhalifa,
-  },
-  {
-    id: 3,
-    name: 'Burj Al Arab',
-    address: 'Visit Burj Al Arab for an unforgettable experience',
-    image: sea,
-  },
-];
 
 const Locations: React.FC = () => {
   return (
@@ -86,6 +56,7 @@ const Locations: React.FC = () => {
                   <Image
                     src={hotel.image}
                     alt={hotel.name}
+                    {...(typeof hotel.image === 'string' ? { width: 540, height: 540 } : {})}
                     className="object-fill object-center rounded-[15px] sm:rounded-[50px] md:rounded-[50px] w-full h-full"
                   />
 

@@ -16,6 +16,7 @@ import {
   Users,
   Bus,
   Flower2,
+  Umbrella,
 } from 'lucide-react';
 import { motion, Variants } from 'framer-motion';
 import { currentWebsite } from '@/contexts/titles';
@@ -91,16 +92,16 @@ const HotelFeatures: React.FC<HotelFeaturesProps> = ({ room }) => {
   ];
 
   const halfmoonPopularFacilities = [
-    { icon: <Waves className="w-7 h-7" />, label: 'Indoor swimming pool' },
-    { icon: <Wifi className="w-7 h-7" />, label: 'Free WiFi' },
-    { icon: <Car className="w-7 h-7" />, label: 'Free parking' },
+    { icon: <Waves className="w-7 h-7" />, label: 'Outdoor swimming pool' },
+    { icon: <Umbrella className="w-7 h-7" />, label: 'Beachfront' },
     { icon: <Dumbbell className="w-7 h-7" />, label: 'Fitness centre' },
     { icon: <Bus className="w-7 h-7" />, label: 'Airport shuttle' },
-    { icon: <Users className="w-7 h-7" />, label: 'Family rooms' },
-    { icon: <Flower2 className="w-7 h-7" />, label: 'Spa & wellness centre' },
-    { icon: <UtensilsCrossed className="w-7 h-7" />, label: 'Restaurant' },
+    { icon: <ConciergeBell className="w-7 h-7" />, label: 'Room service' },
     { icon: <CigaretteOff className="w-7 h-7" />, label: 'Non-smoking rooms' },
-    { icon: <Coffee className="w-7 h-7" />, label: 'Good breakfast' },
+    { icon: <UtensilsCrossed className="w-7 h-7" />, label: 'Restaurant' },
+    { icon: <Coffee className="w-7 h-7" />, label: 'Tea/coffee maker in all rooms' },
+    { icon: <Umbrella className="w-7 h-7" />, label: 'Private beach area' },
+    { icon: <Utensils className="w-7 h-7" />, label: 'Breakfast' },
   ];
 
   return (

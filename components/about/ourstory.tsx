@@ -141,6 +141,20 @@ const OurStory = () => {
                 </div>
               )}
 
+              {currentWebsite == 'MENA_HALFMOON' && (
+                <div className="px-10 py-4 flex flex-col items-center gap-2 text-center">
+                  <span
+                    ref={roomcounter.countRef}
+                    className="font-['Sansation'] text-[#00B3DD] text-5xl md:text-[80px] font-bold"
+                  >
+                    {roomcounter.displayValue}
+                  </span>
+                  <span className="font-['Sansation'] text-white text-xl uppercase tracking-wider">
+                    Rooms
+                  </span>
+                </div>
+              )}
+
               <div className="px-10 py-4 flex flex-col items-center gap-2 text-center">
                 <span
                   ref={satisfactionCounter.countRef}

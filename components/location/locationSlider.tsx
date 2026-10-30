@@ -7,58 +7,14 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/a11y';
 
-import burjkhalifa from '../../public/images/burjalkhlifa.png';
-import mountain from '../../public/images/desertsafari.png';
-import sea from '../../public/images/burjalarab.png';
 import hotelmapicon from '../../public/images/location_map_icon.png';
 import mapicon2 from '../../public/images/location_map_icon2.png';
 import visithotelicon from '../../public/images/visithotelicon.png';
+import { experiences as siteExperiences } from './experiences';
 
-interface Hotel {
-  id: number;
-  name: string;
-  address: string;
-  image: any;
-}
-
-const hotels: Hotel[] = [
-  {
-    id: 1,
-    name: 'Desert Safari',
-    address: 'Visit desert safari for an unforgettable adventure',
-    image: mountain,
-  },
-  {
-    id: 2,
-    name: 'Burj Khalifa',
-    address: 'Visit Burj Khalifa for an unforgettable experience',
-    image: burjkhalifa,
-  },
-  {
-    id: 3,
-    name: 'Burj Al Arab',
-    address: 'Visit Burj Al Arab for an unforgettable experience',
-    image: sea,
-  },
-  {
-    id: 4,
-    name: 'Desert Safari',
-    address: 'Visit desert safari for an unforgettable adventure',
-    image: mountain,
-  },
-  {
-    id: 5,
-    name: 'Burj Khalifa',
-    address: 'Visit Burj Khalifa for an unforgettable experience',
-    image: burjkhalifa,
-  },
-  {
-    id: 6,
-    name: 'Burj Al Arab',
-    address: 'Visit Burj Al Arab for an unforgettable experience',
-    image: sea,
-  },
-];
+// Repeat short lists so the slider has enough slides to scroll
+const experiences =
+  siteExperiences.length <= 3 ? [...siteExperiences, ...siteExperiences] : siteExperiences;
 
 const LocationSlider: React.FC = () => {
   return (
@@ -71,7 +27,7 @@ const LocationSlider: React.FC = () => {
           pagination={{
             clickable: true,
             dynamicBullets: true,
-            dynamicMainBullets: hotels.length,
+            dynamicMainBullets: experiences.length,
             el: '.swiper-pagination-location',
           }}
           breakpoints={{
@@ -98,7 +54,7 @@ const LocationSlider: React.FC = () => {
           }}
           className="pb-12 px-2 sm:px-4"
         >
-          {hotels.map((hotel, index) => (
+          {experiences.map((hotel, index) => (
             <SwiperSlide key={index} className="h-full">
               <div className="flex flex-col gap-4 sm:gap-[30px] group h-full relative max-w-[540px] overflow-hidden mx-auto">
                 <div className="border-[#A4D5F0] border-l-[4px] h-auto min-h-[80px] sm:min-h-[100px] md:min-h-[116px]">
@@ -120,6 +76,7 @@ const LocationSlider: React.FC = () => {
                   <Image
                     src={hotel.image}
                     alt={hotel.name}
+                    {...(typeof hotel.image === 'string' ? { width: 540, height: 540 } : {})}
                     className="object-fill object-center rounded-[15px] sm:rounded-[50px] md:rounded-[50px] w-full h-full"
                   />
 

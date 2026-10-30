@@ -5,7 +5,7 @@ import restaurent from '../../public/images/restaurent.jpg';
 import visithotelicon from '../../public/images/visithotelicon.png';
 import { motion, Variants } from 'framer-motion';
 import { getImageUrl } from '@/hooks/imageMake';
-import { ALLDATA } from '@/contexts/titles';
+import { ALLDATA, currentWebsite } from '@/contexts/titles';
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -117,25 +117,27 @@ const DiningAmenities = () => {
               </p>
 
               {/* Guests can also enjoy */}
-              <div className="flex flex-col gap-[20px] lg:gap-[10px]">
-                <h4 className="font-sansation font-light text-[24px] lg:text-[32px] uppercase text-[#454779] leading-[1.4]">
-                  Complimentary Hotel Facilities
-                </h4>
+              {currentWebsite !== 'MENA_HALFMOON' && (
+                <div className="flex flex-col gap-[20px] lg:gap-[10px]">
+                  <h4 className="font-sansation font-light text-[24px] lg:text-[32px] uppercase text-[#454779] leading-[1.4]">
+                    Complimentary Hotel Facilities
+                  </h4>
 
-                <p className="font-sansation text-[14px] lg:text-[18px] leading-[1.5] tracking-[0.5px] text-[#9BA9CA]">
-                  Guests are welcome to enjoy our range of included amenities:
-                </p>
+                  <p className="font-sansation text-[14px] lg:text-[18px] leading-[1.5] tracking-[0.5px] text-[#9BA9CA]">
+                    Guests are welcome to enjoy our range of included amenities:
+                  </p>
 
-                <div className="flex flex-col gap-[20px]">
-                  {ALLDATA.aboutFood.points.map((point: string, idx: number) => (
-                    <AmenityItem key={idx} text={point} />
-                  ))}
+                  <div className="flex flex-col gap-[20px]">
+                    {ALLDATA.aboutFood.points.map((point: string, idx: number) => (
+                      <AmenityItem key={idx} text={point} />
+                    ))}
+                  </div>
+
+                  <p className="font-sansation text-[14px] lg:text-[18px] leading-[1.5] tracking-[0.5px] text-[#9BA9CA]">
+                    Everything you need for a seamless and enjoyable visit.
+                  </p>
                 </div>
-
-                <p className="font-sansation text-[14px] lg:text-[18px] leading-[1.5] tracking-[0.5px] text-[#9BA9CA]">
-                  Everything you need for a seamless and enjoyable visit.
-                </p>
-              </div>
+              )}
             </div>
 
             {/* Buttons - Following CSS structure logic for buttons at the bottom if needed, 
