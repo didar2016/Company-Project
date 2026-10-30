@@ -71,7 +71,10 @@ const OurStory = () => {
   const suitesCounter = useCounter(90, 500, '');
   const satisfactionCounter = useCounter(98, 1000, '%');
   const conciergeCounter = useCounter(24, 1500, '/7');
-  const roomcounter = useCounter(90, 500, '');
+
+  const roomCount =
+    currentWebsite === 'MENA_HALFMOON' ? 103 : currentWebsite === 'MENA_HOTEL_TABUK' ? 83 : 90;
+  const roomcounter = useCounter(roomCount, 500, '');
 
   const ourstory = useOurStory();
 
@@ -151,6 +154,20 @@ const OurStory = () => {
                   </span>
                   <span className="font-['Sansation'] text-white text-xl uppercase tracking-wider">
                     Rooms
+                  </span>
+                </div>
+              )}
+
+              {currentWebsite == 'MENA_HOTEL_TABUK' && (
+                <div className="px-10 py-4 flex flex-col items-center gap-2 text-center">
+                  <span
+                    ref={roomcounter.countRef}
+                    className="font-['Sansation'] text-[#00B3DD] text-5xl md:text-[80px] font-bold"
+                  >
+                    {roomcounter.displayValue}
+                  </span>
+                  <span className="font-['Sansation'] text-white text-xl uppercase tracking-wider">
+                    Rooms and Suites
                   </span>
                 </div>
               )}

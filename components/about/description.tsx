@@ -227,6 +227,14 @@ const Description = () => {
                   layouts and premium amenities to ensure a relaxing and enjoyable stay.
                 </>
               )}
+
+              {currentWebsite === 'MENA_HOTEL_TABUK' && (
+                <>
+                  Find a room or suite that suits your visit. Choose from Premium King Rooms, Twin
+                  Rooms, Executive Rooms, Junior Suites and Executive Suites, with thoughtful
+                  everyday amenities to help you rest, recharge and stay connected.
+                </>
+              )}
             </p>
           </div>
 
@@ -238,6 +246,7 @@ const Description = () => {
               {currentWebsite === 'MENA_APART' && 'Every suite and apartment includes:'}
 
               {currentWebsite === 'MENA_HALFMOON' && 'Every room and villa includes:'}
+              {currentWebsite === 'MENA_HOTEL_TABUK' && 'Every room and suite includes:'}
             </h4>
 
             {currentWebsite === 'MENA_PLAZA' && (
@@ -286,6 +295,25 @@ const Description = () => {
                   'Blue Beach Restaurant and a poolside café',
                   'Fitness centre, sports facilities and recreation activities',
                   'Three venues for meetings and events',
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start gap-4">
+                    <div className="mt-3 w-2 h-2 bg-[#00B3DD] rotate-45 flex-shrink-0" />
+                    <span className="font-['Sansation'] text-[#2A2D71] text-lg md:text-[20px] tracking-[0.5px]">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {currentWebsite === 'MENA_HOTEL_TABUK' && (
+              <ul className="grid grid-cols-1 gap-6">
+                {[
+                  '83 rooms and suites',
+                  'Complimentary Wi-Fi',
+                  'Fitness centre',
+                  'La Mode Café and restaurant dining',
+                  'Meeting and event venues',
                 ].map((item, index) => (
                   <li key={index} className="flex items-start gap-4">
                     <div className="mt-3 w-2 h-2 bg-[#00B3DD] rotate-45 flex-shrink-0" />

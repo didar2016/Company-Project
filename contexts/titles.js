@@ -237,15 +237,15 @@ const websiteTitles = {
   },
 
   MENA_HOTEL_TABUK: {
-    index_page_header_text: 'Your Gateway to <span style="font-weight:900">Dubai’s</span> Comfort',
+    index_page_header_text:
+      'Your Comfort in the <span style="font-weight:900">Heart of Tabuk</span>',
     description: {
       image: '/public/mena-hotel-tabuk/73a55235-978d-4004-8f71-93f1fb8b06af.jpg',
-      title: 'LIVE THE <span style="font-weight:900">MENA HOTEL TABUK</span> EXPERIENCE',
-      subtitle:
-        'Modern space, exceptional service and everything you need for a seamless stay in the city.',
-      des1: 'Situated in the vibrant city of Tabuk, MENA Hotel Tabuk is the perfect choice for short or extended stays. A short walk from the Mall of the Emirates, we combine the comforts of home with genuine hospitality, offering outstanding value for families, business travelers, and explorers.',
-      des2: '',
-      des3: 'Book your stay today and experience the perfect blend of modern living and warm hospitality at MENA Hotel Tabuk.',
+      title: ' LIVE THE <span style="font-weight:900">MENA TABUK</span> EXPERIENCE',
+      subtitle: 'Comfortable rooms, thoughtful amenities and attentive service for every visit.',
+      des1: 'Located in Al Aziziyah Al Jadidah, MENA Tabuk Hotel brings comfort and convenience together for business travellers, families and guests exploring Tabuk. Our location on Abu Jafar Al Mansur Street provides access to government offices, commercial areas and shopping destinations.',
+      des2: 'Unwind in one of our 83 rooms and suites, keep up your routine at the fitness centre or enjoy local and international flavours at our restaurant. Whether you are visiting for a short break or a longer stay, our team is here to help you feel welcome.',
+      des3: 'Book your stay and enjoy the warmth of MENA hospitality in the heart of Tabuk.',
     },
     aboutdescription: {
       image: '/public/mena-hotel-tabuk/73a55235-978d-4004-8f71-93f1fb8b06af.jpg',
@@ -259,18 +259,18 @@ const websiteTitles = {
     room: {
       title: 'Accommodations Designed for Your Comfort',
       subtitle:
-        'Step into a haven of modern tranquility. Our rooms are thoughtfully designed with a calming palette of light tones and rich accents, creating an atmosphere of refined relaxation from the moment you arrive.',
+        'Find a room or suite that suits your visit. Choose from Premium King Rooms, Twin Rooms, Executive Rooms, Junior Suites and Executive Suites, with thoughtful everyday amenities to help you rest, recharge and stay connected.',
     },
     facilities: {
       title: 'Facilities That Enhance Your Stay',
       subtitle:
-        'MENA Hotel Tabuk offers a range of facilities designed to provide comfort and convenience, ensuring an exceptional experience for both short and extended stays.',
+        'Stay active at our fitness centre, connect with complimentary Wi-Fi and enjoy the convenience of in-room dining. With a front desk available around the clock, assistance is close at hand throughout your stay.',
     },
     food: {
-      title: 'A Culinary Journey Awaits',
-      hotelname: 'LOKANTA 1928',
+      title: 'Flavours to Enjoy Throughout Your Stay',
+      hotelname: 'La Mode Café',
       description:
-        "The best Turkish Lokanta in Dubai, bringing the dining tradition inherited from 1928 to today's Dubai. The same sincerity, the same craftsmanship only the view has changed.",
+        'Enjoy a relaxed break at La Mode Café, with coffee, sandwiches and light bites to fit around your day. Settle in for a quick breakfast or snack, or pick up a takeaway coffee before heading out into Tabuk.',
       image: '/public/mena-hotel-tabuk/eeea248b-991c-49ab-b257-93ef27faacfe.jpg',
     },
     aboutFood: {
