@@ -47,6 +47,7 @@ const meetingInfoByWebsite: Record<string, MeetingInfo> = {
     capacity: '15 to 200 guests, depending on venue and layout',
     facilities: [
       'Three meeting rooms and one banquet hall',
+      'Arrangements for 15 to 200 guests, depending on venue and layout',
       'Wi-Fi',
       'Audiovisual equipment',
       'Screens and projectors',
@@ -98,6 +99,41 @@ const tabukVenues: Venue[] = [
   },
 ];
 
+const nasriyaVenues: Venue[] = [
+  {
+    name: 'Business Meetings',
+    heading: 'Space to Meet and Collaborate',
+    description:
+      'Bring colleagues or clients together for meetings, presentations and conferences. Choose a seating arrangement suited to your agenda, with audiovisual facilities, flipcharts and stationery available to support the day.',
+  },
+  {
+    name: 'Weddings and Private Celebrations',
+    heading: 'A Place to Celebrate with Your Guests',
+    description:
+      'Mark a special occasion with family and friends in our banquet hall. From weddings to private celebrations, our team can discuss your plans and help you arrange the venue and catering for your gathering.',
+  },
+];
+
+interface VenueIntro {
+  heading: string;
+  paragraphs: string[];
+  buttonLabel: string;
+}
+
+const venueIntroByWebsite: Record<string, VenueIntro> = {
+  MENA_NASRIYA: {
+    heading: 'Bring Your Event to MENA Hotel Nasiriah',
+    paragraphs: [
+      'Host your next gathering in Riyadh with three meeting rooms and one banquet hall at MENA Hotel Nasiriah. Our venues offer arrangements for groups of 15 to 200 guests, depending on the selected space and seating layout.',
+      'Plan a corporate meeting, conference, wedding or private celebration with support from our hotel team. Wi-Fi, audiovisual equipment, screens and projectors help you organise your event, while catering and coffee breaks add convenience for your guests.',
+    ],
+    buttonLabel: 'Enquire About Your Event',
+  },
+};
+const venueIntro = venueIntroByWebsite[currentWebsite];
+const bottomButtonLabel =
+  currentWebsite === 'MENA_NASRIYA' ? 'Contact Our Events Team' : 'BOOK NOW';
+
 const halfmoonVenues: Venue[] = [
   {
     name: 'Al Majlis',
@@ -128,6 +164,7 @@ const halfmoonVenues: Venue[] = [
 const venuesByWebsite: Record<string, Venue[]> = {
   MENA_HALFMOON: halfmoonVenues,
   MENA_HOTEL_TABUK: tabukVenues,
+  MENA_NASRIYA: nasriyaVenues,
 };
 const venues = venuesByWebsite[currentWebsite];
 
@@ -170,6 +207,43 @@ const MeetingComponent: React.FC<{ meeting: any }> = ({ meeting }) => {
             {meeting?.subtitle || ''}
           </motion.p>
         </motion.div>
+
+        {/* ── Venues Introduction (per hotel) ── */}
+        {venueIntro && (
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false }}
+            variants={staggerContainer}
+            className="flex flex-col gap-3 sm:gap-4"
+          >
+            <motion.h2
+              variants={fadeInUp}
+              className="font-sansation text-[20px] sm:text-[26px] md:text-[30px] lg:text-[36px] xl:text-[40px] text-[#454779] leading-tight"
+              style={{ fontWeight: 700 }}
+            >
+              {venueIntro.heading}
+            </motion.h2>
+            {venueIntro.paragraphs.map((text) => (
+              <motion.p
+                key={text}
+                variants={fadeInUp}
+                className="font-poppins text-[13px] sm:text-[15px] md:text-[16px] lg:text-[18px] xl:text-[20px] text-[#8A8BB3] leading-relaxed max-w-4xl"
+                style={{ fontWeight: 300 }}
+              >
+                {text}
+              </motion.p>
+            ))}
+            <motion.div variants={fadeInUp} className="flex justify-start">
+              <Link
+                href="/contact"
+                className="font-sansation font-bold text-xs lg:text-sm xl:text-base inline-flex items-center px-4 py-2 xl:py-2.5 border-[0.5px] border-[#9BA9CA] text-[#9BA9CA] hover:bg-accent hover:text-white rounded-full transition-all duration-300 uppercase tracking-wider"
+              >
+                {venueIntro.buttonLabel}
+              </Link>
+            </motion.div>
+          </motion.div>
+        )}
 
         {/* ── Info Card: Room + Facilities (Half Moon uses the venue cards below) ── */}
         {currentWebsite !== 'MENA_HALFMOON' && (
@@ -249,14 +323,16 @@ const MeetingComponent: React.FC<{ meeting: any }> = ({ meeting }) => {
           />
         </motion.div>
 
-        {/* ── Event Venues (Half Moon and Tabuk) ── */}
+        {/* ── Event Venues (Half Moon, Tabuk and Nasriya) ── */}
         {venues && (
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false }}
             variants={staggerContainer}
-            className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8"
+            className={`grid grid-cols-1 ${
+              venues.length === 2 ? 'lg:grid-cols-2' : 'lg:grid-cols-3'
+            } gap-6 sm:gap-8`}
           >
             {venues.map((venue) => (
               <motion.div
@@ -368,7 +444,7 @@ const MeetingComponent: React.FC<{ meeting: any }> = ({ meeting }) => {
               href="/contact"
               className="font-sansation font-bold text-xs lg:text-sm xl:text-base inline-flex items-center px-2 lg:px-3 xl:px-4 py-1.5 lg:py-2 xl:py-2.5 border-[0.5px] border-[#9BA9CA] text-[#9BA9CA] hover:bg-accent hover:text-white rounded-full transition-all duration-300 uppercase tracking-wider group justify-between"
             >
-              <span className="hidden min-[1385px]:inline"> BOOK NOW</span>
+              <span className="hidden min-[1385px]:inline"> {bottomButtonLabel}</span>
               <span className="ml-1.5 lg:ml-2 xl:ml-3 inline-block transition-all duration-300">
                 <Image
                   src={visithotelicon}
