@@ -14,7 +14,7 @@ export default function Dining() {
         <title>Dining | MENA Agent Hotel Alliance</title>
         <meta
           name="description"
-          content="Experience exceptional dining at MENA ApartHotel - Turkish cuisine and exclusive weekend offers"
+          content="Experience exceptional dining at MENA Hotels - restaurants, cafés and exclusive offers"
         />
       </Head>
 

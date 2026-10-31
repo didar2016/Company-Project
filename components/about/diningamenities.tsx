@@ -113,7 +113,13 @@ const DiningAmenities = () => {
               </div>
               {/* In-room dining note */}
               <p className="font-sansation italic text-[14px] lg:text-[18px] leading-[1.5] tracking-[0.5px] text-[#9BA9CA] border-l-2 border-[#00B3DD] pl-4">
-                Enjoy the added convenience of 24-hour in-room dining.
+                {currentWebsite === 'MENA_NASRIYA' &&
+                  'Enjoy the added convenience of in-room dining, available daily from 6:00 AM to 1:00 AM.'}
+                {currentWebsite === 'MENA_HOTEL_TABUK' &&
+                  'Enjoy the added convenience of in-room dining when you prefer to relax in your room or suite.'}
+                {currentWebsite !== 'MENA_NASRIYA' &&
+                  currentWebsite !== 'MENA_HOTEL_TABUK' &&
+                  'Enjoy the added convenience of 24-hour in-room dining.'}
               </p>
 
               {/* Guests can also enjoy */}

@@ -69,6 +69,72 @@ const apartAmenitiesData: AmenityItem[] = [
   // },
 ];
 
+const nasriyaAmenitiesData: AmenityItem[] = [
+  {
+    title: 'INDOOR POOL',
+    description: 'Enjoy a refreshing swim in our indoor, temperature-controlled pool.',
+    icon: rooftopicon,
+  },
+  {
+    title: 'FITNESS CENTRE',
+    description: 'Keep your routine going, open 8:00 AM to 11:00 PM daily.',
+    icon: fitnesscenricon,
+  },
+  {
+    title: 'SPA & SAUNA',
+    description: 'Unwind at H-Care Spa and Health Club, with sauna and steam room.',
+    icon: sauna_icon,
+  },
+  {
+    title: 'BUSINESS & PARKING',
+    description: 'Business centre, concierge assistance and on-site parking.',
+    icon: support_icon,
+  },
+];
+
+const tabukAmenitiesData: AmenityItem[] = [
+  {
+    title: 'FITNESS CENTRE',
+    description: 'Maintain your routine and make time for a workout during your stay.',
+    icon: fitnesscenricon,
+  },
+  {
+    title: 'COMPLIMENTARY WI-FI',
+    description: 'Stay connected with complimentary high-speed Wi-Fi.',
+    icon: wifi_con,
+  },
+  {
+    title: '24-HOUR FRONT DESK',
+    description: 'Assistance around the clock for your stay and everyday enquiries.',
+    icon: support_icon,
+  },
+  {
+    title: 'IN-ROOM DINING',
+    description: 'Enjoy a meal in your room or suite when you prefer to relax.',
+    icon: support_icon,
+  },
+];
+
+const halfmoonAmenitiesData: AmenityItem[] = [
+  {
+    title: 'OUTDOOR POOLS',
+    description: 'Four outdoor swimming pools to enjoy by the beach.',
+    icon: rooftopicon,
+  },
+  {
+    title: 'FITNESS CENTRE',
+    description: 'Fitness centre, sports facilities and recreation activities.',
+    icon: fitnesscenricon,
+  },
+];
+
+const amenitiesByWebsite: Record<string, AmenityItem[]> = {
+  MENA_APART: apartAmenitiesData,
+  MENA_NASRIYA: nasriyaAmenitiesData,
+  MENA_HOTEL_TABUK: tabukAmenitiesData,
+  MENA_HALFMOON: halfmoonAmenitiesData,
+};
+
 const AmenityCard: React.FC<AmenityItem> = ({ title, description, icon }) => {
   return (
     <div
@@ -135,9 +201,9 @@ const Amenities: React.FC = () => {
     <div className="w-full bg-white flex justify-center overflow-hidden mx-auto  px-4 sm:px-6 md:px-8 lg:px-14 xl:px-16 2xl:px-18 [@media(min-width:1920px)]:px-25 py-6 sm:py-8 md:py-12 lg:py-14 xl:py-16 2xl:py-18 [@media(min-width:1920px)]:py-25">
       <div className="w-full max-w-[1720px] mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 xl:gap-[60px] justify-items-center max-w-[1720px] mx-auto">
-          {currentWebsite == 'MENA_APART'
-            ? apartAmenitiesData.map((item, index) => <AmenityCard key={index} {...item} />)
-            : amenitiesData.map((item, index) => <AmenityCard key={index} {...item} />)}
+          {(amenitiesByWebsite[currentWebsite] ?? amenitiesData).map((item, index) => (
+            <AmenityCard key={index} {...item} />
+          ))}
         </div>
       </div>
     </div>

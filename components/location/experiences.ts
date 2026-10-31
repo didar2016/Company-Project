@@ -1,6 +1,7 @@
 import burjkhalifa from '../../public/images/burjalkhlifa.png';
 import mountain from '../../public/images/desertsafari.png';
 import sea from '../../public/images/burjalarab.png';
+import locationHero from '../../public/images/locationheroimage.png';
 import { currentWebsite } from '@/contexts/titles';
 
 export interface Experience {
@@ -69,7 +70,52 @@ const halfmoonExperiences: Experience[] = [
   },
 ];
 
+// Placeholder artwork until photos of these landmarks are added to public/images
+const nasriyaExperiences: Experience[] = [
+  {
+    id: 1,
+    name: 'National Museum of Saudi Arabia',
+    address: 'Explore exhibitions presenting Saudi Arabia’s history and heritage',
+    image: locationHero,
+  },
+  {
+    id: 2,
+    name: 'Al Murabba Historical Palace',
+    address: 'Discover a landmark connected to the Kingdom’s early history',
+    image: locationHero,
+  },
+  {
+    id: 3,
+    name: 'Al Masmak Palace',
+    address: 'Visit one of Riyadh’s historic landmarks',
+    image: locationHero,
+  },
+];
+
+const tabukExperiences: Experience[] = [
+  {
+    id: 1,
+    name: 'Tabuk Archaeological Castle',
+    address: 'Explore the city’s history through the castle and its museum',
+    image: locationHero,
+  },
+  {
+    id: 2,
+    name: 'Tabuk Station on the Hejaz Railway',
+    address: 'Visit a landmark connected to the region’s railway heritage',
+    image: locationHero,
+  },
+  {
+    id: 3,
+    name: 'Al Raqi Mall',
+    address: 'Include a visit to Al Raqi Mall in your plans for shopping in Tabuk',
+    image: locationHero,
+  },
+];
+
 const experiencesByWebsite: Record<string, Experience[]> = {
+  MENA_NASRIYA: nasriyaExperiences,
+  MENA_HOTEL_TABUK: tabukExperiences,
   MENA_HALFMOON: halfmoonExperiences,
 };
 

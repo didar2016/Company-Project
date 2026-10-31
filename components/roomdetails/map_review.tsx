@@ -79,7 +79,10 @@ const MapReview: React.FC = () => {
             <div className="absolute inset-0 bg-gray-200">
               {/* Replace this iframe with your actual map implementation */}
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d462560.68284117486!2d54.947650190449806!3d25.076381026356393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43496ad9c645%3A0xbde66e5084295162!2sDubai!5e0!3m2!1sen!2sae!4v1642345678901!5m2!1sen!2sae"
+                src={
+                  ALLDATA.map.embed ||
+                  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d462560.68284117486!2d54.947650190449806!3d25.076381026356393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43496ad9c645%3A0xbde66e5084295162!2sDubai!5e0!3m2!1sen!2sae!4v1642345678901!5m2!1sen!2sae'
+                }
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -127,17 +130,18 @@ const MapReview: React.FC = () => {
 
                   {currentWebsite == 'MENA_NASRIYA' && (
                     <>
-                      Located in the vibrant heart of downtown, our hotel is just minutes from major
-                      attractions, business districts, and cultural landmarks, offering unparalleled
-                      access to the citys best.
+                      MENA Hotel Nasiriah is located on King Saud Road in Al Nasiriah, Riyadh. With
+                      access to embassies, ministries, banks and shopping centres, our hotel offers
+                      a convenient base for business travel and leisure visits in the capital.
                     </>
                   )}
 
                   {currentWebsite == 'MENA_HOTEL_TABUK' && (
                     <>
-                      Located in the vibrant heart of downtown, our hotel is just minutes from major
-                      attractions, business districts, and cultural landmarks, offering unparalleled
-                      access to the citys best.
+                      MENA Tabuk Hotel is located on Abu Jafar Al Mansur Street in Al Aziziyah Al
+                      Jadidah, Tabuk. With access to government offices, commercial areas and
+                      shopping destinations, our hotel provides a convenient base for business
+                      travel and leisure visits.
                     </>
                   )}
                 </p>

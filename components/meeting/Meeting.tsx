@@ -23,15 +23,82 @@ const staggerContainer: Variants = {
   },
 };
 
-const facilities = [
-  'Complimentary Wi-Fi and wireless AV solutions',
-  'Projector and screen',
-  'Integrated ceiling speakers with individual sound mixers',
-  'LED wide screen with HDMI connectivity',
-  'Flipcharts and stationery',
+interface MeetingInfo {
+  name: string;
+  capacity: string;
+  facilities: string[];
+}
+
+const defaultMeetingInfo: MeetingInfo = {
+  name: 'Executive Meeting Rooms',
+  capacity: 'Up to 60 delegates',
+  facilities: [
+    'Complimentary Wi-Fi and wireless AV solutions',
+    'Projector and screen',
+    'Integrated ceiling speakers with individual sound mixers',
+    'LED wide screen with HDMI connectivity',
+    'Flipcharts and stationery',
+  ],
+};
+
+const meetingInfoByWebsite: Record<string, MeetingInfo> = {
+  MENA_NASRIYA: {
+    name: 'Meeting Rooms and Banquet Hall',
+    capacity: '15 to 200 guests, depending on venue and layout',
+    facilities: [
+      'Three meeting rooms and one banquet hall',
+      'Wi-Fi',
+      'Audiovisual equipment',
+      'Screens and projectors',
+      'Flipcharts and stationery',
+      'Catering and coffee breaks',
+    ],
+  },
+  MENA_HOTEL_TABUK: {
+    name: 'Meeting and Banqueting Venues',
+    capacity: 'Flexible seating arrangements',
+    facilities: [
+      'Meeting and banqueting venues',
+      'Flexible seating arrangements',
+      'Modern audiovisual facilities',
+      'Professional event support',
+    ],
+  },
+};
+
+const meetingInfo = meetingInfoByWebsite[currentWebsite] ?? defaultMeetingInfo;
+const facilities = meetingInfo.facilities;
+
+interface Venue {
+  name: string;
+  heading: string;
+  description: string;
+  capacity?: string;
+  equipment?: string;
+}
+
+const tabukVenues: Venue[] = [
+  {
+    name: 'Business Meetings',
+    heading: 'Space to Meet and Collaborate',
+    description:
+      'Bring your team or guests together for meetings, presentations and training sessions. With adaptable seating layouts, audiovisual facilities and attentive support, our venues provide a practical setting for a productive gathering.',
+  },
+  {
+    name: 'Weddings and Social Occasions',
+    heading: 'A Welcoming Place to Celebrate',
+    description:
+      'Mark a special occasion with family and friends at MENA Tabuk Hotel. Our banqueting venues offer a setting for weddings and social gatherings, with a dedicated team to assist with arrangements and help your event run smoothly.',
+  },
+  {
+    name: 'Conferences and Exhibitions',
+    heading: 'Support for Your Next Gathering',
+    description:
+      'Plan a conference, seminar or exhibition with a venue arrangement suited to your event. Speak with our team about your format, seating requirements and audiovisual needs so we can help you plan the details.',
+  },
 ];
 
-const halfmoonVenues = [
+const halfmoonVenues: Venue[] = [
   {
     name: 'Al Majlis',
     heading: 'A Setting for Larger Gatherings',
@@ -57,6 +124,12 @@ const halfmoonVenues = [
     equipment: 'Projectors and sound system',
   },
 ];
+
+const venuesByWebsite: Record<string, Venue[]> = {
+  MENA_HALFMOON: halfmoonVenues,
+  MENA_HOTEL_TABUK: tabukVenues,
+};
+const venues = venuesByWebsite[currentWebsite];
 
 // ─────────────────────────────────────────
 const coffeeBreaksTitleHTML = 'Coffee Breaks and Catering';
@@ -98,64 +171,66 @@ const MeetingComponent: React.FC<{ meeting: any }> = ({ meeting }) => {
           </motion.p>
         </motion.div>
 
-        {/* ── Info Card: Room + Facilities ── */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false }}
-          variants={fadeInUp}
-          className="bg-[#EBEEF4] rounded-[20px] p-6 sm:p-8 md:p-10 lg:p-[50px] flex flex-col md:flex-row gap-8 md:gap-12 xl:gap-20"
-        >
-          {/* Left – Room info */}
-          <div className="flex flex-col gap-4 md:min-w-[260px] lg:min-w-[320px]">
-            <h2
-              className="font-sansation text-[20px] sm:text-[26px] md:text-[30px] lg:text-[36px] xl:text-[40px] text-[#454779] leading-tight"
-              style={{ fontWeight: 700 }}
-            >
-              Executive Meeting Rooms
-            </h2>
-            <div>
-              <p
-                className="font-sansation uppercase text-[11px] sm:text-[12px] md:text-[13px] lg:text-[14px] text-[#8A8BB3] tracking-widest mb-1"
-                style={{ fontWeight: 400 }}
+        {/* ── Info Card: Room + Facilities (Half Moon uses the venue cards below) ── */}
+        {currentWebsite !== 'MENA_HALFMOON' && (
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false }}
+            variants={fadeInUp}
+            className="bg-[#EBEEF4] rounded-[20px] p-6 sm:p-8 md:p-10 lg:p-[50px] flex flex-col md:flex-row gap-8 md:gap-12 xl:gap-20"
+          >
+            {/* Left – Room info */}
+            <div className="flex flex-col gap-4 md:min-w-[260px] lg:min-w-[320px]">
+              <h2
+                className="font-sansation text-[20px] sm:text-[26px] md:text-[30px] lg:text-[36px] xl:text-[40px] text-[#454779] leading-tight"
+                style={{ fontWeight: 700 }}
               >
-                CAPACITY
-              </p>
-              <p
-                className="font-sansation text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] text-[#454779]"
-                style={{ fontWeight: 400 }}
-              >
-                Up to 60 delegates
-              </p>
+                {meetingInfo.name}
+              </h2>
+              <div>
+                <p
+                  className="font-sansation uppercase text-[11px] sm:text-[12px] md:text-[13px] lg:text-[14px] text-[#8A8BB3] tracking-widest mb-1"
+                  style={{ fontWeight: 400 }}
+                >
+                  CAPACITY
+                </p>
+                <p
+                  className="font-sansation text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] text-[#454779]"
+                  style={{ fontWeight: 400 }}
+                >
+                  {meetingInfo.capacity}
+                </p>
+              </div>
             </div>
-          </div>
 
-          {/* Divider */}
-          <div className="hidden md:block w-px bg-[#9BA9CA]/40 self-stretch" />
+            {/* Divider */}
+            <div className="hidden md:block w-px bg-[#9BA9CA]/40 self-stretch" />
 
-          {/* Right – Facilities list */}
-          <div className="flex flex-col gap-4 flex-1">
-            <h3
-              className="font-sansation uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] tracking-[3px] text-[#8A8BB3]"
-              style={{ fontWeight: 400 }}
-            >
-              FACILITIES INCLUDE
-            </h3>
-            <ul className="flex flex-col gap-2 sm:gap-3">
-              {facilities.map((item, idx) => (
-                <li key={idx} className="flex items-start gap-3">
-                  <span className="mt-[6px] flex-shrink-0 w-[7px] h-[7px] rounded-full bg-[#00B3DD]" />
-                  <span
-                    className="font-sansation text-[13px] sm:text-[14px] md:text-[15px] lg:text-[16px] xl:text-[18px] text-[#454779] leading-relaxed"
-                    style={{ fontWeight: 400 }}
-                  >
-                    {item}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </motion.div>
+            {/* Right – Facilities list */}
+            <div className="flex flex-col gap-4 flex-1">
+              <h3
+                className="font-sansation uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] tracking-[3px] text-[#8A8BB3]"
+                style={{ fontWeight: 400 }}
+              >
+                FACILITIES INCLUDE
+              </h3>
+              <ul className="flex flex-col gap-2 sm:gap-3">
+                {facilities.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <span className="mt-[6px] flex-shrink-0 w-[7px] h-[7px] rounded-full bg-[#00B3DD]" />
+                    <span
+                      className="font-sansation text-[13px] sm:text-[14px] md:text-[15px] lg:text-[16px] xl:text-[18px] text-[#454779] leading-relaxed"
+                      style={{ fontWeight: 400 }}
+                    >
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        )}
 
         {/* ── Meeting Room Image ── */}
         <motion.div
@@ -174,8 +249,8 @@ const MeetingComponent: React.FC<{ meeting: any }> = ({ meeting }) => {
           />
         </motion.div>
 
-        {/* ── Event Venues (Half Moon only) ── */}
-        {currentWebsite === 'MENA_HALFMOON' && (
+        {/* ── Event Venues (Half Moon and Tabuk) ── */}
+        {venues && (
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -183,7 +258,7 @@ const MeetingComponent: React.FC<{ meeting: any }> = ({ meeting }) => {
             variants={staggerContainer}
             className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8"
           >
-            {halfmoonVenues.map((venue) => (
+            {venues.map((venue) => (
               <motion.div
                 key={venue.name}
                 variants={fadeInUp}
@@ -207,35 +282,41 @@ const MeetingComponent: React.FC<{ meeting: any }> = ({ meeting }) => {
                 >
                   {venue.description}
                 </p>
-                <div className="h-px w-full bg-[#9BA9CA]/40" />
-                <div>
-                  <p
-                    className="font-sansation uppercase text-[11px] sm:text-[12px] md:text-[13px] lg:text-[14px] text-[#8A8BB3] tracking-widest mb-1"
-                    style={{ fontWeight: 400 }}
-                  >
-                    CAPACITY
-                  </p>
-                  <p
-                    className="font-sansation text-[14px] sm:text-[16px] md:text-[18px] text-[#454779]"
-                    style={{ fontWeight: 400 }}
-                  >
-                    {venue.capacity}
-                  </p>
-                </div>
-                <div>
-                  <p
-                    className="font-sansation uppercase text-[11px] sm:text-[12px] md:text-[13px] lg:text-[14px] text-[#8A8BB3] tracking-widest mb-1"
-                    style={{ fontWeight: 400 }}
-                  >
-                    EQUIPMENT
-                  </p>
-                  <p
-                    className="font-sansation text-[14px] sm:text-[16px] md:text-[18px] text-[#454779]"
-                    style={{ fontWeight: 400 }}
-                  >
-                    {venue.equipment}
-                  </p>
-                </div>
+                {venue.capacity && (
+                  <>
+                    <div className="h-px w-full bg-[#9BA9CA]/40" />
+                    <div>
+                      <p
+                        className="font-sansation uppercase text-[11px] sm:text-[12px] md:text-[13px] lg:text-[14px] text-[#8A8BB3] tracking-widest mb-1"
+                        style={{ fontWeight: 400 }}
+                      >
+                        CAPACITY
+                      </p>
+                      <p
+                        className="font-sansation text-[14px] sm:text-[16px] md:text-[18px] text-[#454779]"
+                        style={{ fontWeight: 400 }}
+                      >
+                        {venue.capacity}
+                      </p>
+                    </div>
+                  </>
+                )}
+                {venue.equipment && (
+                  <div>
+                    <p
+                      className="font-sansation uppercase text-[11px] sm:text-[12px] md:text-[13px] lg:text-[14px] text-[#8A8BB3] tracking-widest mb-1"
+                      style={{ fontWeight: 400 }}
+                    >
+                      EQUIPMENT
+                    </p>
+                    <p
+                      className="font-sansation text-[14px] sm:text-[16px] md:text-[18px] text-[#454779]"
+                      style={{ fontWeight: 400 }}
+                    >
+                      {venue.equipment}
+                    </p>
+                  </div>
+                )}
               </motion.div>
             ))}
           </motion.div>

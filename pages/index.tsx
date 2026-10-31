@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import HomePage from '@/components/homepage';
 import { useWebsite } from '@/hooks/useWebsite';
+import { ALLDATA } from '@/contexts/titles';
 
 export default function Home() {
   const { websiteData, loading } = useWebsite();
@@ -19,8 +20,11 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col font-body">
       <Head>
-        <title>MENA | Agent Hotel Alliance</title>
-        <meta name="description" content="Official website of MENA Agent Hotel Alliance" />
+        <title>{ALLDATA.meta?.title || 'MENA | Agent Hotel Alliance'}</title>
+        <meta
+          name="description"
+          content={ALLDATA.meta?.description || 'Official website of MENA Agent Hotel Alliance'}
+        />
       </Head>
 
       <Navbar />

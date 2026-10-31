@@ -228,6 +228,14 @@ const Description = () => {
                 </>
               )}
 
+              {currentWebsite === 'MENA_NASRIYA' && (
+                <>
+                  Choose from Standard Rooms, Deluxe Rooms and Junior Suites, with practical
+                  amenities and space to settle in. Enjoy a desk or seating area to help you balance
+                  rest with your plans for the day.
+                </>
+              )}
+
               {currentWebsite === 'MENA_HOTEL_TABUK' && (
                 <>
                   Find a room or suite that suits your visit. Choose from Premium King Rooms, Twin
@@ -246,6 +254,7 @@ const Description = () => {
               {currentWebsite === 'MENA_APART' && 'Every suite and apartment includes:'}
 
               {currentWebsite === 'MENA_HALFMOON' && 'Every room and villa includes:'}
+              {currentWebsite === 'MENA_NASRIYA' && 'Every room and suite includes:'}
               {currentWebsite === 'MENA_HOTEL_TABUK' && 'Every room and suite includes:'}
             </h4>
 
@@ -295,6 +304,25 @@ const Description = () => {
                   'Blue Beach Restaurant and a poolside café',
                   'Fitness centre, sports facilities and recreation activities',
                   'Three venues for meetings and events',
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start gap-4">
+                    <div className="mt-3 w-2 h-2 bg-[#00B3DD] rotate-45 flex-shrink-0" />
+                    <span className="font-['Sansation'] text-[#2A2D71] text-lg md:text-[20px] tracking-[0.5px]">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {currentWebsite === 'MENA_NASRIYA' && (
+              <ul className="grid grid-cols-1 gap-6">
+                {[
+                  '189 rooms and suites',
+                  'Air conditioning, Wi-Fi and a television',
+                  'Mini fridge and tea and coffee making facilities',
+                  'In-room safe and a desk or seating area',
+                  'Smoking and non-smoking rooms available',
                 ].map((item, index) => (
                   <li key={index} className="flex items-start gap-4">
                     <div className="mt-3 w-2 h-2 bg-[#00B3DD] rotate-45 flex-shrink-0" />

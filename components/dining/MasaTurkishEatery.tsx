@@ -116,7 +116,9 @@ const MasaTurkishEatery: React.FC = () => {
                           className="font-sansation text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] xl:text-[16px] leading-tight"
                           style={{ fontWeight: 400 }}
                         >
-                          7:00 AM – 11:00 AM
+                          {currentWebsite === 'MENA_NASRIYA'
+                            ? '6:30 AM – 10:30 AM'
+                            : '7:00 AM – 11:00 AM'}
                         </span>
                       </div>
                     </div>
@@ -134,7 +136,9 @@ const MasaTurkishEatery: React.FC = () => {
                           className="font-sansation text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] xl:text-[16px] leading-tight"
                           style={{ fontWeight: 400 }}
                         >
-                          12:30 PM – 4:00 PM
+                          {currentWebsite === 'MENA_NASRIYA'
+                            ? '12:00 PM – 3:30 PM'
+                            : '12:30 PM – 4:00 PM'}
                         </span>
                       </div>
                     </div>
