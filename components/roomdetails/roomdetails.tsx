@@ -15,6 +15,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/thumbs';
 import Image from 'next/image';
 import { getImageUrl } from '@/hooks/imageMake';
+import { openBookingEngine } from '@/hooks/booking';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -440,7 +441,10 @@ const RoomDetails: React.FC<RoomDetailsProps> = ({
                 )}
               </div>
 
-              <button className="flex flex-row justify-between items-center gap-1.5 sm:gap-2.5 bg-[#00B3DD] opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3">
+              <button
+                onClick={() => openBookingEngine({ checkIn, checkOut, guests: guestCount })}
+                className="flex flex-row justify-between items-center gap-1.5 sm:gap-2.5 bg-[#00B3DD] opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3"
+              >
                 <span
                   className="p-2 sm:p-2.5 md:p-3 lg:p-3.5 font-sansation text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] uppercase text-white"
                   style={{ fontWeight: 700 }}

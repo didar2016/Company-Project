@@ -8,6 +8,7 @@ import { useHeroSections } from '@/hooks/useWebsite';
 import { getImageUrl } from '@/hooks/imageMake';
 import AnimatedText from './animation/AnimateText';
 import { ALLDATA } from '@/contexts/titles';
+import { openBookingEngine } from '@/hooks/booking';
 
 // Animation Variants
 const staggerContainer: Variants = {
@@ -490,6 +491,9 @@ const Hero: React.FC<{
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() =>
+                  openBookingEngine({ checkIn: checkInDate, checkOut: checkOutDate, guests })
+                }
                 className="flex flex-row justify-between items-center gap-0 bg-[#00B3DD] opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3 border-1"
                 style={{
                   background: '#00B3DD',
