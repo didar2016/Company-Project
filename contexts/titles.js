@@ -183,7 +183,7 @@ const websiteTitles = {
       'Your Comfortable Stay in the <span style="font-weight:900">Heart of Riyadh</span>',
     description: {
       image: '/public/mena-nasriya/56b56c31-e851-4614-a6dd-90a6dbe1f52a.jpg',
-      title: 'LIVE THE <span style="font-weight:900">MENA NASIRIAH</span> EXPERIENCE',
+      title: 'LIVE THE <span style="font-weight:900">MENA HOTEL</span> EXPERIENCE',
       subtitle:
         'Comfortable accommodation and thoughtful service for work, leisure and longer stays.',
       des1: 'Located on King Saud Road in Al Nasiriah, MENA Hotel Nasiriah brings comfort and convenience together in the Saudi capital. With access to ministries, embassies, banks and shopping destinations, our hotel is well placed for business travellers, families and guests discovering Riyadh.',

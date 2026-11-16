@@ -15,7 +15,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/thumbs';
 import Image from 'next/image';
 import { getImageUrl } from '@/hooks/imageMake';
-import { openBookingEngine } from '@/hooks/booking';
+import { openBookingEngine, ADULT_OPTIONS, CHILDREN_OPTIONS } from '@/hooks/booking';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -59,10 +59,11 @@ const RoomDetails: React.FC<RoomDetailsProps> = ({
   // Booking details state
   const [checkIn, setCheckIn] = useState<Date>(new Date());
   const [checkOut, setCheckOut] = useState<Date>(new Date());
-  const [guestCount, setGuestCount] = useState<string>('2 Adults/1 Children');
+  const [adults, setAdults] = useState(2);
+  const [children, setChildren] = useState(0);
   const [showCheckInCalendar, setShowCheckInCalendar] = useState(false);
   const [showCheckOutCalendar, setShowCheckOutCalendar] = useState(false);
-  const [showGuestsDropdown, setShowGuestsDropdown] = useState(false);
+  const [openCountDropdown, setOpenCountDropdown] = useState<'adults' | 'children' | null>(null);
 
   const containerRef = React.useRef<HTMLDivElement>(null);
 
@@ -75,22 +76,28 @@ const RoomDetails: React.FC<RoomDetailsProps> = ({
     });
   };
 
-  const guestOptions = [
-    '1 Adult',
-    '2 Adults',
-    '2 Adults/1 Children',
-    '2 Adults/2 Children',
-    '3 Adults',
-    '3 Adults/1 Children',
-    '4 Adults',
-    '4 Adults/2 Children',
+  const countFields = [
+    {
+      key: 'adults' as const,
+      label: 'Adults',
+      value: adults,
+      set: setAdults,
+      options: ADULT_OPTIONS,
+    },
+    {
+      key: 'children' as const,
+      label: 'Children',
+      value: children,
+      set: setChildren,
+      options: CHILDREN_OPTIONS,
+    },
   ];
 
   // Handle click outside to close dropdowns
   React.useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
-        setShowGuestsDropdown(false);
+        setOpenCountDropdown(null);
         setShowCheckInCalendar(false);
         setShowCheckOutCalendar(false);
       }
@@ -318,7 +325,7 @@ const RoomDetails: React.FC<RoomDetailsProps> = ({
                   onClick={() => {
                     setShowCheckInCalendar(!showCheckInCalendar);
                     setShowCheckOutCalendar(false);
-                    setShowGuestsDropdown(false);
+                    setOpenCountDropdown(null);
                   }}
                   style={{
                     background:
@@ -361,7 +368,7 @@ const RoomDetails: React.FC<RoomDetailsProps> = ({
                   onClick={() => {
                     setShowCheckOutCalendar(!showCheckOutCalendar);
                     setShowCheckInCalendar(false);
-                    setShowGuestsDropdown(false);
+                    setOpenCountDropdown(null);
                   }}
                   style={{
                     background:
@@ -394,55 +401,57 @@ const RoomDetails: React.FC<RoomDetailsProps> = ({
                 )}
               </div>
 
-              {/* Guests */}
-              <div className="flex flex-col relative">
-                <label className="text-[#454779] text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-poppins leading-[22px] sm:leading-[26px] md:leading-[30px] mb-[6px] sm:mb-[8px] md:mb-[10px]">
-                  Guest:
-                </label>
-                <div
-                  className="flex justify-between items-center gap-2 rounded-[120px] sm:rounded-[140px] md:rounded-[160px] py-[10px] sm:py-[12px] md:py-[15px] pl-[16px] sm:pl-[22px] md:pl-[30px] pr-[10px] sm:pr-[12px] md:pr-[15px] cursor-pointer"
-                  onClick={() => {
-                    setShowGuestsDropdown(!showGuestsDropdown);
-                    setShowCheckInCalendar(false);
-                    setShowCheckOutCalendar(false);
-                  }}
-                  style={{
-                    background:
-                      'linear-gradient(white, white) padding-box, linear-gradient(90deg, rgba(77, 84, 100, 0) 0%, #9BA9CA 100%) border-box',
-                    border: '1px solid transparent',
-                  }}
-                >
-                  <span className="text-xs sm:text-sm text-gray-700">{guestCount}</span>
+              {/* Adults / Children */}
+              {countFields.map((field) => (
+                <div key={field.key} className="flex flex-col relative">
+                  <label className="text-[#454779] text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-poppins leading-[22px] sm:leading-[26px] md:leading-[30px] mb-[6px] sm:mb-[8px] md:mb-[10px]">
+                    {field.label}:
+                  </label>
                   <div
-                    className={`transition-transform duration-300 ${showGuestsDropdown ? 'rotate-180' : ''}`}
+                    className="flex justify-between items-center gap-2 rounded-[120px] sm:rounded-[140px] md:rounded-[160px] py-[10px] sm:py-[12px] md:py-[15px] pl-[16px] sm:pl-[22px] md:pl-[30px] pr-[10px] sm:pr-[12px] md:pr-[15px] cursor-pointer"
+                    onClick={() => {
+                      setOpenCountDropdown(openCountDropdown === field.key ? null : field.key);
+                      setShowCheckInCalendar(false);
+                      setShowCheckOutCalendar(false);
+                    }}
+                    style={{
+                      background:
+                        'linear-gradient(white, white) padding-box, linear-gradient(90deg, rgba(77, 84, 100, 0) 0%, #9BA9CA 100%) border-box',
+                      border: '1px solid transparent',
+                    }}
                   >
-                    <Image
-                      src={DropdownIcon}
-                      alt="Dropdown Icon"
-                      className="w-[12px] h-[7px] sm:w-[14px] sm:h-[8px] md:w-[16.5px] md:h-[9px] text-gray-400"
-                    />
+                    <span className="text-xs sm:text-sm text-gray-700">{field.value}</span>
+                    <div
+                      className={`transition-transform duration-300 ${openCountDropdown === field.key ? 'rotate-180' : ''}`}
+                    >
+                      <Image
+                        src={DropdownIcon}
+                        alt="Dropdown Icon"
+                        className="w-[12px] h-[7px] sm:w-[14px] sm:h-[8px] md:w-[16.5px] md:h-[9px] text-gray-400"
+                      />
+                    </div>
                   </div>
+                  {openCountDropdown === field.key && (
+                    <div className="absolute bottom-full mb-2 w-full z-50 bg-white border border-gray-200 shadow-lg rounded-[20px] overflow-hidden max-h-[200px] overflow-y-auto">
+                      {field.options.map((option) => (
+                        <div
+                          key={option}
+                          className="px-6 py-3 hover:bg-gray-100 cursor-pointer text-sm text-gray-700 font-poppins transition-colors border-b border-gray-100 last:border-0"
+                          onClick={() => {
+                            field.set(option);
+                            setOpenCountDropdown(null);
+                          }}
+                        >
+                          {option}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
-                {showGuestsDropdown && (
-                  <div className="absolute bottom-full mb-2 w-full z-50 bg-white border border-gray-200 shadow-lg rounded-[20px] overflow-hidden max-h-[200px] overflow-y-auto">
-                    {guestOptions.map((option, index) => (
-                      <div
-                        key={index}
-                        className="px-6 py-3 hover:bg-gray-100 cursor-pointer text-sm text-gray-700 font-poppins transition-colors border-b border-gray-100 last:border-0"
-                        onClick={() => {
-                          setGuestCount(option);
-                          setShowGuestsDropdown(false);
-                        }}
-                      >
-                        {option}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
+              ))}
 
               <button
-                onClick={() => openBookingEngine({ checkIn, checkOut, guests: guestCount })}
+                onClick={() => openBookingEngine({ checkIn, checkOut, adults, children })}
                 className="flex flex-row justify-between items-center gap-1.5 sm:gap-2.5 bg-[#00B3DD] opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3"
               >
                 <span

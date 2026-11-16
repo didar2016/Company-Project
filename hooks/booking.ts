@@ -8,31 +8,28 @@ const bookingEngineByWebsite: Record<string, string> = {
 
 export const bookingEngineUrl: string | undefined = bookingEngineByWebsite[currentWebsite];
 
+// Occupancy limits of the booking engine
+export const ADULT_OPTIONS = [1, 2, 3, 4];
+export const CHILDREN_OPTIONS = [0, 1, 2];
+
 // The engine expects dd/MM/yyyy
 const formatEngineDate = (date: Date) => {
   const pad = (n: number) => String(n).padStart(2, '0');
   return `${pad(date.getDate())}/${pad(date.getMonth() + 1)}/${date.getFullYear()}`;
 };
 
-// Parses the guest dropdown labels, e.g. "2 Adults/1 Children" or "1 Adult"
-export const parseGuests = (label: string) => {
-  const adults = Number(label.match(/(\d+)\s*Adult/i)?.[1] ?? 1);
-  const children = Number(label.match(/(\d+)\s*Child/i)?.[1] ?? 0);
-  return { adults, children };
-};
-
 interface BookingSearch {
   checkIn: Date;
   checkOut: Date;
-  guests: string;
+  adults: number;
+  children: number;
 }
 
 // Builds the link to the 2nd step (rooms & rates) of the booking engine, or undefined when
 // the hotel has no engine yet.
-export const buildBookingUrl = ({ checkIn, checkOut, guests }: BookingSearch) => {
+export const buildBookingUrl = ({ checkIn, checkOut, adults, children }: BookingSearch) => {
   if (!bookingEngineUrl) return undefined;
 
-  const { adults, children } = parseGuests(guests);
   // Page=19 jumps to the rooms step. One kid category is used: kid1 is the active category.
   const params = new URLSearchParams({
     Page: '19',

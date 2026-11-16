@@ -8,9 +8,8 @@ import { useHeroSections } from '@/hooks/useWebsite';
 import { getImageUrl } from '@/hooks/imageMake';
 import AnimatedText from './animation/AnimateText';
 import { ALLDATA } from '@/contexts/titles';
-import { openBookingEngine } from '@/hooks/booking';
+import { openBookingEngine, ADULT_OPTIONS, CHILDREN_OPTIONS } from '@/hooks/booking';
 
-// Animation Variants
 const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -43,21 +42,6 @@ const wordVariants: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 };
 
-// Helper: Animated Characters
-const AnimatedChars = ({ text, className = '' }: { text: string; className?: string }) => {
-  if (!text) return null;
-  return (
-    <>
-      {text.split('').map((char, index) => (
-        <motion.span variants={charVariants} key={index} className={`inline-block ${className}`}>
-          {char === ' ' ? '\u00A0' : char}
-        </motion.span>
-      ))}
-    </>
-  );
-};
-
-// Helper: Animated Words
 const AnimatedWords = ({ text }: { text: string }) => {
   if (!text) return null;
   return (
@@ -87,10 +71,11 @@ const Hero: React.FC<{
   // Booking form state
   const [checkInDate, setCheckInDate] = React.useState(new Date());
   const [checkOutDate, setCheckOutDate] = React.useState(new Date());
-  const [guests, setGuests] = React.useState('2 Adults/1 Children');
-  const [roomType, setRoomType] = React.useState('Deluxe Suite');
-  const [showGuestsDropdown, setShowGuestsDropdown] = React.useState(false);
-  const [showRoomTypeDropdown, setShowRoomTypeDropdown] = React.useState(false);
+  const [adults, setAdults] = React.useState(2);
+  const [children, setChildren] = React.useState(0);
+  const [openCountDropdown, setOpenCountDropdown] = React.useState<'adults' | 'children' | null>(
+    null
+  );
   const [showCheckInCalendar, setShowCheckInCalendar] = React.useState(false);
   const [showCheckOutCalendar, setShowCheckOutCalendar] = React.useState(false);
 
@@ -105,25 +90,21 @@ const Hero: React.FC<{
     });
   };
 
-  const guestOptions = [
-    '1 Adult',
-    '2 Adults',
-    '2 Adults/1 Children',
-    '2 Adults/2 Children',
-    '3 Adults',
-    '3 Adults/1 Children',
-    '4 Adults',
-    '4 Adults/2 Children',
-  ];
-
-  const roomTypes = [
-    'Standard Room',
-    'Deluxe Suite',
-    'Premium Suite',
-    'Executive Suite',
-    'Presidential Suite',
-    'Family Room',
-    'Studio Apartment',
+  const countFields = [
+    {
+      key: 'adults' as const,
+      label: 'Adults',
+      value: adults,
+      set: setAdults,
+      options: ADULT_OPTIONS,
+    },
+    {
+      key: 'children' as const,
+      label: 'Children',
+      value: children,
+      set: setChildren,
+      options: CHILDREN_OPTIONS,
+    },
   ];
 
   React.useEffect(() => {
@@ -148,8 +129,7 @@ const Hero: React.FC<{
   React.useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
-        setShowGuestsDropdown(false);
-        setShowRoomTypeDropdown(false);
+        setOpenCountDropdown(null);
         setShowCheckInCalendar(false);
         setShowCheckOutCalendar(false);
       }
@@ -188,7 +168,6 @@ const Hero: React.FC<{
         </>
       )}
 
-      {/* Background Image with Overlay */}
       {component === 'index' ? (
         <motion.div
           initial={{ opacity: 0, scale: 1 }}
@@ -293,9 +272,8 @@ const Hero: React.FC<{
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: 'easeOut' }}
               className="max-[640px]:text-center font-sansation font-bold text-[14px] md:text-[18px] lg:text-[20px] leading-[1.2] text-white text-right md:max-w-full"
-            >
-              {currentHero?.detailsText || ''}
-            </motion.p>
+              dangerouslySetInnerHTML={{ __html: currentHero?.detailsText || '' }}
+            />
           </motion.div>
 
           {/* Search Bar Section */}
@@ -317,8 +295,7 @@ const Hero: React.FC<{
                 onClick={() => {
                   setShowCheckInCalendar(!showCheckInCalendar);
                   setShowCheckOutCalendar(false);
-                  setShowGuestsDropdown(false);
-                  setShowRoomTypeDropdown(false);
+                  setOpenCountDropdown(null);
                 }}
               >
                 <span className="font-poppins text-white text-[14px] lg:text-[16px]">
@@ -367,8 +344,7 @@ const Hero: React.FC<{
                 onClick={() => {
                   setShowCheckOutCalendar(!showCheckOutCalendar);
                   setShowCheckInCalendar(false);
-                  setShowGuestsDropdown(false);
-                  setShowRoomTypeDropdown(false);
+                  setOpenCountDropdown(null);
                 }}
               >
                 <span className="font-poppins text-white text-[14px] lg:text-[16px]">
@@ -406,85 +382,52 @@ const Hero: React.FC<{
               )}
             </div>
 
-            {/* Guests */}
-            <div className="flex flex-col gap-[8px] w-full sm:max-w-[200px] relative">
-              <span className="font-poppins text-white text-[14px] lg:text-[16px]">Guests</span>
+            {/* Adults / Children */}
+            {countFields.map((field) => (
               <div
-                className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[40px] lg:h-[50px] px-[15px] lg:px-[20px] w-full cursor-pointer hover:border-[rgba(255,255,255,0.6)] transition-colors"
-                onClick={() => {
-                  setShowGuestsDropdown(!showGuestsDropdown);
-                  setShowCheckInCalendar(false);
-                  setShowCheckOutCalendar(false);
-                  setShowRoomTypeDropdown(false);
-                }}
-              >
-                <span className="font-poppins text-white text-[14px] lg:text-[16px]">{guests}</span>
-                <span
-                  className={`text-white text-xs lg:text-sm transition-transform ${showGuestsDropdown ? 'rotate-180' : ''}`}
-                >
-                  ▼
-                </span>
-              </div>
-              {showGuestsDropdown && (
-                <div className="absolute bottom-full left-0 z-50 mb-2 w-full bg-white rounded-2xl shadow-2xl p-4 border border-gray-200">
-                  <div className="space-y-1 max-h-60 overflow-y-auto">
-                    {guestOptions.map((option, index) => (
-                      <div
-                        key={index}
-                        className="px-4 py-3 hover:bg-[#00B3DD]/20 cursor-pointer text-gray-800 font-poppins text-[14px] transition-colors rounded-lg border-b border-gray-200/30 last:border-b-0"
-                        onClick={() => {
-                          setGuests(option);
-                          setShowGuestsDropdown(false);
-                        }}
-                      >
-                        {option}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Room Type */}
-            <div className="flex flex-col gap-[8px] w-full sm:max-w-[200px] relative">
-              <span className="font-poppins text-white text-[14px] lg:text-[16px]">Room Type</span>
-              <div
-                className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[40px] lg:h-[50px] px-[15px] lg:px-[20px] w-full cursor-pointer hover:border-[rgba(255,255,255,0.6)] transition-colors"
-                onClick={() => {
-                  setShowRoomTypeDropdown(!showRoomTypeDropdown);
-                  setShowCheckInCalendar(false);
-                  setShowCheckOutCalendar(false);
-                  setShowGuestsDropdown(false);
-                }}
+                key={field.key}
+                className="flex flex-col gap-[8px] w-full sm:max-w-[200px] relative"
               >
                 <span className="font-poppins text-white text-[14px] lg:text-[16px]">
-                  {roomType}
+                  {field.label}
                 </span>
-                <span
-                  className={`text-white text-xs lg:text-sm transition-transform ${showRoomTypeDropdown ? 'rotate-180' : ''}`}
+                <div
+                  className="flex items-center justify-between border border-[rgba(255,255,255,0.4)] rounded-[160px] h-[40px] lg:h-[50px] px-[15px] lg:px-[20px] w-full cursor-pointer hover:border-[rgba(255,255,255,0.6)] transition-colors"
+                  onClick={() => {
+                    setOpenCountDropdown(openCountDropdown === field.key ? null : field.key);
+                    setShowCheckInCalendar(false);
+                    setShowCheckOutCalendar(false);
+                  }}
                 >
-                  ▼
-                </span>
-              </div>
-              {showRoomTypeDropdown && (
-                <div className="absolute bottom-full left-0 z-50 mb-2 w-full bg-white rounded-2xl shadow-2xl p-4 border border-gray-200">
-                  <div className="space-y-1 max-h-60 overflow-y-auto">
-                    {roomTypes.map((type, index) => (
-                      <div
-                        key={index}
-                        className="px-4 py-3 hover:bg-[#00B3DD]/20 cursor-pointer text-gray-800 font-poppins text-[14px] transition-colors rounded-lg border-b border-gray-200/30 last:border-b-0"
-                        onClick={() => {
-                          setRoomType(type);
-                          setShowRoomTypeDropdown(false);
-                        }}
-                      >
-                        {type}
-                      </div>
-                    ))}
-                  </div>
+                  <span className="font-poppins text-white text-[14px] lg:text-[16px]">
+                    {field.value}
+                  </span>
+                  <span
+                    className={`text-white text-xs lg:text-sm transition-transform ${openCountDropdown === field.key ? 'rotate-180' : ''}`}
+                  >
+                    ▼
+                  </span>
                 </div>
-              )}
-            </div>
+                {openCountDropdown === field.key && (
+                  <div className="absolute bottom-full left-0 z-50 mb-2 w-full bg-white rounded-2xl shadow-2xl p-4 border border-gray-200">
+                    <div className="space-y-1 max-h-60 overflow-y-auto">
+                      {field.options.map((option) => (
+                        <div
+                          key={option}
+                          className="px-4 py-3 hover:bg-[#00B3DD]/20 cursor-pointer text-gray-800 font-poppins text-[14px] transition-colors rounded-lg border-b border-gray-200/30 last:border-b-0"
+                          onClick={() => {
+                            field.set(option);
+                            setOpenCountDropdown(null);
+                          }}
+                        >
+                          {option}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
 
             {/* CTA Button */}
             <div className="lg:min-w-[260px]">
@@ -492,7 +435,12 @@ const Hero: React.FC<{
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() =>
-                  openBookingEngine({ checkIn: checkInDate, checkOut: checkOutDate, guests })
+                  openBookingEngine({
+                    checkIn: checkInDate,
+                    checkOut: checkOutDate,
+                    adults,
+                    children,
+                  })
                 }
                 className="flex flex-row justify-between items-center gap-0 bg-[#00B3DD] opacity-100 rounded-3xl sm:rounded-4xl px-2 sm:px-3 border-1"
                 style={{
