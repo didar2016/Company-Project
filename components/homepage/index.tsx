@@ -117,7 +117,7 @@ const WrapLocationSlider = () => (
           </motion.h1>
           <motion.p
             variants={fadeInUp}
-            className="font-['Poppins'] text-[#8A8BB3] text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] max-w-4xl"
+            className="font-['Poppins'] text-[#8A8BB3] text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px]"
           >
             Discover the best of {nearbyPlace} with curated experiences just moments away from your
             doorstep.{' '}

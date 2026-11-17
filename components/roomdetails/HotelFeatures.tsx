@@ -88,7 +88,6 @@ const HotelFeatures: React.FC<HotelFeaturesProps> = ({ room }) => {
     { icon: <Flower2 className="w-7 h-7" />, label: 'Spa & wellness centre' },
     { icon: <UtensilsCrossed className="w-7 h-7" />, label: 'Restaurant' },
     { icon: <CigaretteOff className="w-7 h-7" />, label: 'Non-smoking rooms' },
-    { icon: <Coffee className="w-7 h-7" />, label: 'Good breakfast' },
   ];
 
   const halfmoonPopularFacilities = [
@@ -154,14 +153,6 @@ const HotelFeatures: React.FC<HotelFeaturesProps> = ({ room }) => {
             </ul>
           </div>
 
-          {/* <div className="flex items-center gap-2 my-4">
-            <div className="w-2 h-2 bg-[#00B3DD] rounded-full flex-shrink-0 mt-2"></div>
-            <span className="text-[#1E293B] text-sm sm:text-[24px] italic">
-              Ideal for solo travelers or couples seeking comfort and practicality.
-            </span>
-          </div> */}
-
-          {/* SERVICES INCLUDED Section */}
           <div className="mb-6 sm:mb-8 md:mb-10">
             <h2 className="text-[#5B6B9C] text-lg sm:text-xl md:text-2xl font-normal tracking-wide mb-3 sm:mb-4">
               SERVICES INCLUDED FOR ALL ROOMS AND APARTMENTS:

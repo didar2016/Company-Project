@@ -37,7 +37,7 @@ const Locations: React.FC = () => {
                 className="flex flex-col gap-4 sm:gap-[30px] group h-full relative w-full min-w-[350px] md:min-w-[350px] max-w-[540px] xl:max-w-[540px] overflow-hidden "
               >
                 {/* Image Container */}
-                <div className="border-[#A4D5F0] border-l-[4px] h-auto min-h-[80px] sm:min-h-[100px] md:min-h-[116px]">
+                <div className="border-[#A4D5F0] border-l-[4px] h-auto min-h-[150px] sm:min-h-[170px] md:min-h-[190px] shrink-0">
                   <h4
                     className="text-[20px] sm:text-[24px] md:text-[32px] font-sansation text-[#454779] mb-1 sm:mb-2 ml-3 sm:ml-5 leading-[46px] uppercase"
                     style={{ fontWeight: 300 }}

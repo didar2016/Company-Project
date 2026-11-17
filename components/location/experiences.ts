@@ -76,19 +76,22 @@ const nasriyaExperiences: Experience[] = [
     id: 1,
     name: 'National Museum of Saudi Arabia',
     address: 'Explore exhibitions presenting Saudi Arabia’s history and heritage',
-    image: locationHero,
+    image:
+      'https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/%D8%A7%D9%84%D9%85%D8%AA%D8%AD%D9%81_%D8%A7%D9%84%D9%88%D8%B7%D9%86%D9%8A_%D8%A8%D9%85%D8%B1%D9%83%D8%B2_%D8%A7%D9%84%D9%85%D9%84%D9%83_%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D8%B9%D8%B2%D9%8A%D8%B2_%D8%A7%D9%84%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE%D9%8A_%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6.jpg/960px-%D8%A7%D9%84%D9%85%D8%AA%D8%AD%D9%81_%D8%A7%D9%84%D9%88%D8%B7%D9%86%D9%8A_%D8%A8%D9%85%D8%B1%D9%83%D8%B2_%D8%A7%D9%84%D9%85%D9%84%D9%83_%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D8%B9%D8%B2%D9%8A%D8%B2_%D8%A7%D9%84%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE%D9%8A_%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20170926134101',
   },
   {
     id: 2,
     name: 'Al Murabba Historical Palace',
     address: 'Discover a landmark connected to the Kingdom’s early history',
-    image: locationHero,
+    image:
+      'https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Murabba_Palace_%281%29.jpg/960px-Murabba_Palace_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20240809104830',
   },
   {
     id: 3,
     name: 'Al Masmak Palace',
     address: 'Visit one of Riyadh’s historic landmarks',
-    image: locationHero,
+    image:
+      'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/%D8%A7%D9%84%D9%85%D8%B5%D9%85%D9%83.jpg/960px-%D8%A7%D9%84%D9%85%D8%B5%D9%85%D9%83.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20200824191811',
   },
 ];
 

@@ -57,7 +57,7 @@ const LocationSlider: React.FC = () => {
           {experiences.map((hotel, index) => (
             <SwiperSlide key={index} className="h-full">
               <div className="flex flex-col gap-4 sm:gap-[30px] group h-full relative max-w-[540px] overflow-hidden mx-auto">
-                <div className="border-[#A4D5F0] border-l-[4px] h-auto min-h-[80px] sm:min-h-[100px] md:min-h-[116px]">
+                <div className="border-[#A4D5F0] border-l-[4px] h-auto min-h-[130px] sm:min-h-[150px] md:min-h-[170px] shrink-0">
                   <h4
                     className="text-[20px] sm:text-[24px] md:text-[32px] font-sansation text-[#454779] mb-1 sm:mb-2 ml-3 sm:ml-5 leading-[46px] uppercase"
                     style={{ fontWeight: 300 }}

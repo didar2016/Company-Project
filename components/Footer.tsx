@@ -77,30 +77,33 @@ const Footer = () => {
               </span>
             </div>
 
-            {/* Email */}
-            <div className="flex items-center gap-[10px] lg:gap-[12px] xl:gap-[10px] 2xl:gap-[14px] text-white">
-              <div className="w-[24px] lg:w-[26px] xl:w-[24px] 2xl:w-[28px] h-[24px] lg:h-[26px] xl:h-[24px] 2xl:h-[28px] flex items-center justify-center shrink-0">
-                <Mail
-                  size={24}
-                  className="text-[#6D6E87] lg:w-[26px] lg:h-[26px] xl:w-[24px] xl:h-[24px] 2xl:w-[28px] 2xl:h-[28px]"
-                />
+            {/* Email and phone on one line (wraps only when there is no room) */}
+            <div className="flex flex-wrap items-center gap-x-6 lg:gap-x-7 gap-y-2.5 w-full">
+              {/* Email */}
+              <div className="flex items-center shrink-0 gap-[10px] lg:gap-[12px] xl:gap-[10px] 2xl:gap-[14px] text-white">
+                <div className="w-[24px] lg:w-[26px] xl:w-[24px] 2xl:w-[28px] h-[24px] lg:h-[26px] xl:h-[24px] 2xl:h-[28px] flex items-center justify-center shrink-0">
+                  <Mail
+                    size={24}
+                    className="text-[#6D6E87] lg:w-[26px] lg:h-[26px] xl:w-[24px] xl:h-[24px] 2xl:w-[28px] 2xl:h-[28px]"
+                  />
+                </div>
+                <span className="font-poppins text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[21px] leading-[22px] sm:leading-[24px] md:leading-[26px] lg:leading-[28px] xl:leading-[30px] 2xl:leading-[33px] whitespace-nowrap">
+                  {contact?.email || ''}
+                </span>
               </div>
-              <span className="font-poppins text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[21px] leading-[22px] sm:leading-[24px] md:leading-[26px] lg:leading-[28px] xl:leading-[30px] 2xl:leading-[33px] break-all">
-                {contact?.email || ''}
-              </span>
-            </div>
 
-            {/* Phone */}
-            <div className="flex items-center gap-[10px] lg:gap-[12px] xl:gap-[10px] 2xl:gap-[14px] text-white">
-              <div className="w-[24px] lg:w-[26px] xl:w-[24px] 2xl:w-[28px] h-[24px] lg:h-[26px] xl:h-[24px] 2xl:h-[28px] flex items-center justify-center shrink-0">
-                <Phone
-                  size={24}
-                  className="text-[#6D6E87] lg:w-[26px] lg:h-[26px] xl:w-[24px] xl:h-[24px] 2xl:w-[28px] 2xl:h-[28px]"
-                />
+              {/* Phone */}
+              <div className="flex items-center gap-[10px] lg:gap-[12px] xl:gap-[10px] 2xl:gap-[14px] text-white">
+                <div className="w-[24px] lg:w-[26px] xl:w-[24px] 2xl:w-[28px] h-[24px] lg:h-[26px] xl:h-[24px] 2xl:h-[28px] flex items-center justify-center shrink-0">
+                  <Phone
+                    size={24}
+                    className="text-[#6D6E87] lg:w-[26px] lg:h-[26px] xl:w-[24px] xl:h-[24px] 2xl:w-[28px] 2xl:h-[28px]"
+                  />
+                </div>
+                <span className="font-poppins text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[21px] leading-[22px] sm:leading-[24px] md:leading-[26px] lg:leading-[28px] xl:leading-[30px] 2xl:leading-[33px]">
+                  {contact?.phone || ''}
+                </span>
               </div>
-              <span className="font-poppins text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[21px] leading-[22px] sm:leading-[24px] md:leading-[26px] lg:leading-[28px] xl:leading-[30px] 2xl:leading-[33px]">
-                {contact?.phone || ''}
-              </span>
             </div>
           </div>
 

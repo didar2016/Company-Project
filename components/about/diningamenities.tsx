@@ -126,11 +126,11 @@ const DiningAmenities = () => {
               {currentWebsite !== 'MENA_HALFMOON' && (
                 <div className="flex flex-col gap-[20px] lg:gap-[10px]">
                   <h4 className="font-sansation font-light text-[24px] lg:text-[32px] uppercase text-[#454779] leading-[1.4]">
-                    Complimentary Hotel Facilities
+                    Hotel Facilities
                   </h4>
 
                   <p className="font-sansation text-[14px] lg:text-[18px] leading-[1.5] tracking-[0.5px] text-[#9BA9CA]">
-                    Guests are welcome to enjoy our range of included amenities:
+                    Guests are welcome to enjoy the hotel’s facilities:
                   </p>
 
                   <div className="flex flex-col gap-[20px]">
