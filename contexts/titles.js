@@ -125,7 +125,7 @@ const websiteTitles = {
       'A Relaxing Stay by the <span style="font-weight:900">Arabian</span> Gulf',
     description: {
       image: '/public/mena-halfmoon/e4f0de8f-0b37-4eb4-89b9-11b29391e7c9.jpg',
-      title: 'LIVE THE MENA HOLIDAY BEACH EXPERIENCE',
+      title: 'LIVE THE MENA BEACH RESORT EXPERIENCE',
       subtitle: 'Comfortable accommodation, sea views and time to enjoy the coast.',
       des1: 'Set along the Arabian Gulf at Half Moon Bay, near Al Khobar, our four-star resort brings together a beachfront location and the comforts of a relaxed stay. Choose a Deluxe Room or a villa with one, two or three bedrooms, with accommodation to suit different travel plans.',
       des2: 'Spend time by the outdoor pools, enjoy a meal at Blue Beach Restaurant or pause for refreshments at La Mode Café. Sports facilities, a fitness centre and water activities offer ways to stay active, while our three event venues provide space for meetings and special occasions.',
@@ -138,7 +138,7 @@ const websiteTitles = {
       des1: 'MENA Holiday Beach Resort is a four-star beachfront resort at Half Moon Bay, near Al Khobar. Overlooking the Arabian Gulf, our resort welcomes families, leisure travellers and business guests looking for a comfortable place to stay by the coast.',
       des2: 'Our 103 accommodation units include 41 Deluxe Rooms, 11 One-Bedroom Villas, 21 Two-Bedroom Villas and 30 Three-Bedroom Villas. Choose the layout that suits your visit, from a room with a seating area to a villa with separate living space, a balcony and outdoor seating.',
       des3: 'Enjoy buffet meals and à la carte dining at Blue Beach Restaurant, or take a break at La Mode Café beside the swimming pools. Four outdoor pools, a health and fitness centre, sports facilities and recreation activities provide a choice of ways to spend your day.',
-      des4: 'For business visits and special occasions, Al Majlis, Al Shabka and Al Marsa offer spaces for meetings, banquets and events. A business centre, mini market, housekeeping, laundry and shuttle service add practical support during your stay.',
+      des4: '',
       locationText: 'An Ideal Location in Al Barsha',
       image: '/public/mena-halfmoon/e4f0de8f-0b37-4eb4-89b9-11b29391e7c9.jpg',
     },
@@ -154,14 +154,14 @@ const websiteTitles = {
     },
     food: {
       title: 'Flavours to Enjoy Throughout Your Stay',
-      hotelname: 'La Mode Café',
+      hotelname: 'La Mode Cafe and Restaurant',
       description:
         'Take a break at La Mode Café, located by the swimming pools. Enjoy coffee, pastries, juices and sandwiches, or choose ice cream and popcorn for a light treat. The poolside setting offers a relaxed place to pause between a swim and your next resort activity.',
-      image: '/public/mena-halfmoon/52355147-7aa7-4fe4-8768-bd7ff5bf1397.jpg',
+      image: '/public/mena-halfmoon/15eb9a7a-2e3e-43e2-89af-e433a5d4ccbc.jpg',
     },
     aboutFood: {
       title: ' Flavours to Enjoy Throughout Your Stay',
-      text: 'La Mode Café',
+      text: 'La Mode Cafe and Restaurant',
       subText:
         'Take a break at La Mode Café, located by the swimming pools. Enjoy coffee, pastries, juices and sandwiches, or choose ice cream and popcorn for a light treat. The poolside setting offers a relaxed place to pause between a swim and your next resort activity.',
       points: [],

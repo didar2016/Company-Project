@@ -72,9 +72,10 @@ const Footer = () => {
                   stroke="currentColor"
                 />
               </div>
-              <span className="font-poppins text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[21px] leading-[22px] sm:leading-[24px] md:leading-[26px] lg:leading-[28px] xl:leading-[30px] 2xl:leading-[33px]">
-                {contact?.address || ''}
-              </span>
+              <span
+                className="font-poppins text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[21px] leading-[22px] sm:leading-[24px] md:leading-[26px] lg:leading-[28px] xl:leading-[30px] 2xl:leading-[33px]"
+                dangerouslySetInnerHTML={{ __html: contact?.address || '' }}
+              />
             </div>
 
             {/* Email and phone on one line (wraps only when there is no room) */}
